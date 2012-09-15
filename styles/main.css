@@ -20,6 +20,13 @@ body {
 	Describes the buttons that they user can click on.
 */
 .button{
+	/* Text details */
+	text-align:center;
+	font-family: Helvetica, sans-serif;
+	font-weight: bold;
+	color: #D2FFB4;
+	text-shadow: 0px -1px #000;
+	
 	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #95E376;
 	background-color:#2E733A;
 	background-image: url("../graphics/noise.png");
