@@ -27,6 +27,7 @@ function returnError(position) {
 	Deals with geocoding
 */
 function getGeoCode() {
+	geocoder = new google.maps.Geocoder();
 	var address = document.getElementById('GeoCodeInputField').value;
 	geocoder.geocode( { 'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
