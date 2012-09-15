@@ -65,7 +65,7 @@ input:-ms-input-placeholder { color:    #276332;}
 
 #GeolocationButton p{
 	position:relative;
-	top:-5px;
+	top:10px;
 }
 #GeoCodeButton p{
 	position:relative;
