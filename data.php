@@ -17,7 +17,7 @@
     $ne = bpot_getDueCoords($latitude, $longitude, 45, $distance, 'm', 1);
     $sw = bpot_getDueCoords($latitude, $longitude, 225, $distance, 'm', 1);
     
-//    if($union==0) { 
+    if($union==0) { 
 	// Build SQL query to get outlet information for all selected types
 	$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude 
 	    FROM outlets, 
@@ -25,7 +25,7 @@
 	    WHERE outlets.outlet_id = ort.outlet_id
 	    AND MBRContains( GeomFromText('Polygon(({$sw[lat]} {$sw[lon]}, {$ne[lat]} {$sw[lon]}, {$ne[lat]} {$ne[lon]}, {$sw[lat]} {$ne[lon]}, {$sw[lat]} {$sw[lon]}))'), coords )
 	    ORDER BY outlet_id ASC";
-/*    } else {
+    } else {
 	$types = explode(',',$types);
 	$count = count($types);
 	if($count>50) {$types = array_slice($types, 0, 50); $count = 50;}
@@ -63,7 +63,7 @@
 			AND outlets_recycle_types.recycle_type = {$types[0]} AND outlets.outlet_id = outlets_recycle_types.outlet_id
 			AND MBRContains( GeomFromText('Polygon(({$sw[lat]} {$sw[lon]}, {$ne[lat]} {$sw[lon]}, {$ne[lat]} {$ne[lon]}, {$sw[lat]} {$ne[lon]}, {$sw[lat]} {$sw[lon]}))'), outlets.coords )";
 	}
-    }*/
+    }
     
     
     //echo $sql; 
