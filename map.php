@@ -2,7 +2,7 @@
 	<head>
 		<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0,user-scalable=no,width=device-width" />
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>RecycleFinder</title>
+		<title>RecycleFinder!</title>
 		<link type="text/css" rel="stylesheet" href="styles/main.css"/>
 		<link type="text/css" rel="stylesheet" href="styles/map.css"/>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
