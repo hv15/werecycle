@@ -10,7 +10,6 @@ function getGeoLocation(){
 	else {
 		alert("Geolocation is not supported by this browser");
 	}
-	window.location.href = "map.php?latitude="+"&longitude="+;
 }
 
 function returnPosition(position) {
