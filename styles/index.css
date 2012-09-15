@@ -59,9 +59,9 @@
 
 #GeolocationButton p{
 	position:relative;
-	top:10px;
+	top:-5px;
 }
 #GeoCodeButton p{
 	position:relative;
-	top:-5px;
+	top:0px;
 }
