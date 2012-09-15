@@ -27,11 +27,10 @@ function returnError(position) {
 	Deals with geocoding
 */
 function getGeoCode() {
-	var address = document.getElementById('address').value;
+	var address = document.getElementById('GeoCodeInputField').value;
 	geocoder.geocode( { 'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
 			window.location.href = "./map.php?latitude="+results[0].geometry.location.lat()+"&longitude="+results[0].geometry.location.lng();
-			results[0].geometry.location.lat();
 		} else {
 			alert('Geocode was not successful for the following reason: ' + status);
 		}
