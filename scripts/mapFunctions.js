@@ -89,6 +89,8 @@ function toggleLocation(){
 }
 
 function drawMarkers() {
+
+	$.get("data.php?longitude="+map_lat+"&longitude="+map_lon+"&distance=", function(data) {
 	// Clear all markers
 	if(markerCluster) markerCluster.clearMarkers();
 	// Create an array of elements to store into our cluster
@@ -114,14 +116,14 @@ function drawMarkers() {
 		content.push(info);
 
 		// Give each marker an event that opens the window.
-		google.maps.event.addListener(marker, 'click', (function(marker, i) {
+		google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
 			return function() {
-				$.get('info.php?id='+i, function(data) {
-	  				infowindow.setContent(outlet.name+"<br/>"+types[outlet.type-1]+"<br/>"+data+i);
+				$.get('info.php?id='+outlet.id, function(data) {
+	  				infowindow.setContent(name+"<br/>"+types[type-1]+"<br/>"+data+id);
 	  				infowindow.open(map, marker);
 				});
 			}    
-		})(marker, i));
+		})(marker, i, outlet.name, outlet.id, outlet.type));
 	}
 	// Put all the markers into the cluster.
 	var markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
