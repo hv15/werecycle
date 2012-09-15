@@ -123,7 +123,7 @@ function drawMarkers() {
 	  				infowindow.open(map, marker);
 				});
 			}    
-		})(marker, i, outlet.name, outlet.id, outlet.type));
+		})(marker, i, outlet.name, outlet.id, outlet.type);
 	}
 	// Put all the markers into the cluster.
 	var markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
