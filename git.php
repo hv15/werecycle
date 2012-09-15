@@ -1,1 +1,2 @@
-<?php `git pull`; `chmod 755 *php`; ?>
+<?php `git fetch --all`; `git reset --hard origin/master`; ?>
+
