@@ -48,7 +48,8 @@
 			AND outlets.outlet_id = outlets_recycle_types.outlet_id
 			AND MBRContains( GeomFromText('Polygon(({$sw[lat]} {$sw[lon]}, {$ne[lat]} {$sw[lon]}, {$ne[lat]} {$ne[lon]}, {$sw[lat]} {$ne[lon]}, {$sw[lat]} {$sw[lon]}))'), outlets.coords )";
 	} elseif($count>3) {
-		$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude FROM outlets,`outlets_recycle_types`, \n";
+		$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude 
+			FROM outlets,`outlets_recycle_types`,\n";
 		for($i=3;$i<$count;$i++) {
 			$sql .= " (SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[$i]}) AS ort$i, \n";
 		}
