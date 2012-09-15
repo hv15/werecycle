@@ -11,8 +11,8 @@
     // Specify whether we are looking up only outlets which allow for ALL the specified types to be recycled
     $union = isset($_GET['union']) ? $_GET['union'] : 1;
     //$areas = empty($_GET['areas']) ? 12 : $_GET['areas'];
-    $latitude = isset($_GET['latitude']) ? $_GET['latitude'] : 55.9099;
-    $longitude = isset($_GET['longitude']) ? $_GET['longitude'] : -3.3220;
+    $latitude = !empty($_GET['latitude']) ? $_GET['latitude'] : 55.9099;
+    $longitude = !empty($_GET['longitude']) ? $_GET['longitude'] : -3.3220;
     $distance = isset($_GET['distance']) ? $_GET['distance'] : 10;
     $ne = bpot_getDueCoords($latitude, $longitude, 45, $distance, 'm', 1);
     $sw = bpot_getDueCoords($latitude, $longitude, 225, $distance, 'm', 1);
