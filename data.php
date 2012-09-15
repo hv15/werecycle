@@ -43,7 +43,6 @@
 			AND ort3.outlet_id = outlets_recycle_types.outlet_id
 			AND outlets_recycle_types.recycle_type = {$types[0]}";
 	} elseif($count>3) {
-		echo $count; die;
 		$sql = "SELECT DISTINCT * FROM `outlets_recycle_types`, ";
 		for($i=3;$i<$count;$i++) {
 			$sql .= "(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[$i]}) AS ort$i,";
@@ -59,7 +58,7 @@
 	}
     }
     
-    echo $sql; die;
+    //echo $sql; die;
     $result = mysql_query($sql) or die(mysql_error()); 
     while($row = mysql_fetch_assoc($result)) {
         $output .= '{"id":'.$row[outlet_id].',"type":'.$row[outlet_type].',"lat":'.$row[latitude].',"lon":'.$row[longitude].',"name":"'.$row[outlet_name].'"},';
