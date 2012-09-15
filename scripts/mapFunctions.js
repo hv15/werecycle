@@ -88,37 +88,9 @@ function toggleLocation(){
 	}
 }
 
-/*
-	1. Positions the view
-	2. Creates a GeolocationMarker
-	3. Adds all the points found in the requested file based on parameters.
-*/
-function initialize(){
-	/*
-		Create a google map interface with the following params
-	*/
-	map = new google.maps.Map(document.getElementById('Map'), {
-		zoom: map_zoom,
-		center: map_pos,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		disableDefaultUI: true
-	});
-
-	/*
-		This part of the code sets up geolocation
-	*/
-	GeoMarker = new GeolocationMarker();
-
-
-	/*
-		This part of the code create the marker clusters,
-		and the info windows with all the details of what
-		was clicked on.
-	*/
-	// Create the graphics that we will use
-	//var recyclePointMarkerImage = new google.maps.MarkerImage(recyclePointIcon , new google.maps.Size(64, 64), new google.maps.Point(0, 0), new google.maps.Point(32, 32), new google.maps.Size(64, 64));
-	//var recycleCenterMarkerImage = new google.maps.MarkerImage(recycleCenterIcon, new google.maps.Size(64, 64), new google.maps.Point(0, 0), new google.maps.Point(32, 32), new google.maps.Size(64, 64));
-
+function drawMarkers() {
+	// Clear all markers
+	markerCluster.clearMarkers();
 	// Create an array of elements to store into our cluster
 	var markers = [];
 	var content = [];
@@ -152,4 +124,38 @@ function initialize(){
 	}
 	// Put all the markers into the cluster.
 	var markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
+}
+
+/*
+	1. Positions the view
+	2. Creates a GeolocationMarker
+	3. Adds all the points found in the requested file based on parameters.
+*/
+function initialize(){
+	/*
+		Create a google map interface with the following params
+	*/
+	map = new google.maps.Map(document.getElementById('Map'), {
+		zoom: map_zoom,
+		center: map_pos,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		disableDefaultUI: true
+	});
+
+	/*
+		This part of the code sets up geolocation
+	*/
+	GeoMarker = new GeolocationMarker();
+
+	/*
+		This part of the code create the marker clusters,
+		and the info windows with all the details of what
+		was clicked on.
+	*/
+	drawMarkers();
+	// Create the graphics that we will use
+	//var recyclePointMarkerImage = new google.maps.MarkerImage(recyclePointIcon , new google.maps.Size(64, 64), new google.maps.Point(0, 0), new google.maps.Point(32, 32), new google.maps.Size(64, 64));
+	//var recycleCenterMarkerImage = new google.maps.MarkerImage(recycleCenterIcon, new google.maps.Size(64, 64), new google.maps.Point(0, 0), new google.maps.Point(32, 32), new google.maps.Size(64, 64));
+
+
 }
