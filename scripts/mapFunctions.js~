@@ -90,7 +90,7 @@ function toggleLocation(){
 
 function drawMarkers() {
 	// Clear all markers
-	if(markerCluster) markerCluster.clearMarkers();
+	markerCluster.clearMarkers();
 	// Create an array of elements to store into our cluster
 	var markers = [];
 	var content = [];
