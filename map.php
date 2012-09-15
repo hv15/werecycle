@@ -11,7 +11,7 @@
 		<script type="text/javascript" src="https://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js"></script>
 		<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js"></script>
 		<script type="text/javascript" src="types.js"></script>
-		<script type="text/javascript" src="<?php
+		<script type="text/javascript" src="data.php?<?php
 			$query = array (
 				'types' => $_GET['types'],
 				'distance' => $_GET['distance'],
