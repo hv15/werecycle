@@ -25,7 +25,7 @@
 	    AND MBRContains( GeomFromText('Polygon(({$sw[lat]} {$sw[lon]}, {$ne[lat]} {$sw[lon]}, {$ne[lat]} {$ne[lon]}, {$sw[lat]} {$ne[lon]}, {$sw[lat]} {$sw[lon]}))'), coords )
 	    ORDER BY outlet_id ASC";
     } else {
-	$types = explode($types);
+	$types = explode(',',$types);
 	$count = count($types);
 	if($count==1) {
 		$sql = "SELECT DISTINCT * FROM `outlets_recycle_types` WHERE recycle_type = {$types[0]}";
