@@ -53,8 +53,8 @@
 		for($i=3;$i<$count;$i++) {
 			$sql .= " AND ort$i.outlet_id = outlets_recycle_types.outlet_id";
 		}
-		$sql .= "AND ort1.outlet_id = outlets_recycle_types.outlet_id
-			AND outlets_recycle_types.recycle_type = {$types[0]}";
+		$sql .= " AND ort1.outlet_id = outlets_recycle_types.outlet_id
+			AND outlets_recycle_types.recycle_type = {$types[0]} ";
 	}
     }
     
