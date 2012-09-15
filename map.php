@@ -35,7 +35,7 @@
 		<div id="ButtonZoomIn" class="button roundTop" onclick="zoomIn()"><p>+</p></div>
 		<div id="ButtonZoomOut" class="button roundBottom" onclick="zoomOut()"><p>&#8211;</p></div>
 		<div id="ButtonLocation" class="button inactive" onclick="toggleLocation()"><p><img src="graphics/location.png" width="22"/></p></div>
-		<a href="http://www.google.com"><div id="ButtonHelp" class="button"><p>?</p></div></a>
-		<a href=""><div id="ButtonSelect" class="button"><p>Select Recyclables...</p></div></a>
+		<a href="./help.php"><div id="ButtonHelp" class="button"><p>?</p></div></a>
+		<a href="./select.php"><div id="ButtonSelect" class="button"><p>Select Recyclables...</p></div></a>
 	</body>
 </html>
