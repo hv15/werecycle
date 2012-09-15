@@ -117,7 +117,7 @@ function drawMarkers() {
 		google.maps.event.addListener(marker, 'click', (function(marker, i) {
 			return function() {
 				$.get('info.php?id='+i, function(data) {
-	  				infowindow.setContent(data+"  blablabla "+i);
+	  				infowindow.setContent(outlet.name+"<br/>"+types[outlet.type-1]+"<br/>"+data+i);
 	  				infowindow.open(map, marker);
 				});
 			}    
