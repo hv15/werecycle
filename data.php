@@ -29,7 +29,7 @@
 	$types = explode(',',$types);
 	$count = count($types);
 	if($count==1) {
-		$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude FROM outlets,`outlets_recycle_types` WHERE recycle_type = {$types[0]} AND outlets.outlet_id = outlets_recycle_types.outlet_id";
+		$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude FROM outlets,`outlets_recycle_types` WHERE recycle_type = {$types[0]} AND outlets.outlet_id = outlets_recycle_types.outlet_id AND MBRContains( GeomFromText('Polygon(({$sw[lat]} {$sw[lon]}, {$ne[lat]} {$sw[lon]}, {$ne[lat]} {$ne[lon]}, {$sw[lat]} {$ne[lon]}, {$sw[lat]} {$sw[lon]}))'), outlets.coords )";
 	} elseif($count==2) {
 		$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude FROM outlets,`outlets_recycle_types`, 
 			(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[0]}) AS ort2
