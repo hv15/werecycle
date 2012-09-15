@@ -116,13 +116,9 @@ function drawMarkers() {
 		// Give each marker an event that opens the window.
 		google.maps.event.addListener(marker, 'click', (function(marker, i) {
 			return function() {
-				$.get('info.php?id='+i, function(data) {
-  					infowindow.setContent(data);
-  					infowindow.open(map, marker);
-				});
-				//var txt = data.outlets[i].name+"<br/>"+types[outlet.type-1];
-				//infowindow.setContent(txt);
-				//infowindow.open(map, marker);
+				var txt = data.outlets[i].name+"<br/>"+types[outlet.type-1];
+				infowindow.setContent(txt);
+				infowindow.open(map, marker);
 			}    
 		})(marker, i));
 	}

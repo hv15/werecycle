@@ -29,35 +29,19 @@
 	$count = count($types);
 	if($count==1) {
 		$sql = "SELECT DISTINCT * FROM `outlets_recycle_types` WHERE recycle_type = {$types[0]}";
+		}
 	} elseif($count==2) {
 		$sql = "SELECT DISTINCT * FROM `outlets_recycle_types`, 
-			(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[0]}) AS ort2
-			WHERE ort2.outlet_id = outlets_recycle_types.outlet_id
-			AND outlets_recycle_types.recycle_type = {$types[1]}";
-	} elseif($count==3) {
-		$sql = "SELECT DISTINCT * FROM `outlets_recycle_types`, 
-			(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[2]}) AS ort2,
-			(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[1]}) AS ort3
-			WHERE ort2.outlet_id = outlets_recycle_types.outlet_id
-			AND ort3.outlet_id = outlets_recycle_types.outlet_id
-			AND outlets_recycle_types.recycle_type = {$types[0]}";
-	} elseif($count>3) {
-		$sql = "SELECT DISTINCT * FROM `outlets_recycle_types`, ";
-		for($i=3;$i<$count;$i++) {
-			$sql .= "(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[$i]}) AS ort$i,";
+			(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = 2) AS ort22,
+			(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = 18) AS ort11
+			WHERE ort22.outlet_id = outlets_recycle_types.outlet_id
+			AND ort11.outlet_id = outlets_recycle_types.outlet_id
+			AND outlets_recycle_types.recycle_type = 150";
 		}
-		$sql .= "(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[2]}) AS ort2,
-			(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[1]}) AS ort3
-			WHERE ort2.outlet_id = outlets_recycle_types.outlet_id";
-		for($i=3;$i<$count;$i++) {
-			$sql .= "AND ort$i.outlet_id = outlets_recycle_types.outlet_id";
-		}
-		$sql .= "AND ort3.outlet_id = outlets_recycle_types.outlet_id
-			AND outlets_recycle_types.recycle_type = {$types[0]}";
 	}
     }
     
-    echo $sql; die;
+    //echo $sql; die;
     $result = mysql_query($sql) or die(mysql_error()); 
     while($row = mysql_fetch_assoc($result)) {
         $output .= '{"id":'.$row[outlet_id].',"type":'.$row[outlet_type].',"lat":'.$row[latitude].',"lon":'.$row[longitude].',"name":"'.$row[outlet_name].'"},';
