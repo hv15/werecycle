@@ -61,7 +61,7 @@
     }
     
     
-    echo $sql; 
+//    echo $sql; 
     $result = mysql_query($sql) or die(mysql_error()); 
     while($row = mysql_fetch_assoc($result)) {
         $output .= '{"id":'.$row[outlet_id].',"type":'.$row[outlet_type].',"lat":'.$row[latitude].',"lon":'.$row[longitude].',"name":"'.$row[outlet_name].'"},';
