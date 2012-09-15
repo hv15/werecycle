@@ -16,7 +16,7 @@
 			<div id="Info"><p>Enter in your location or use geolocation.</p></div>
 			<div id="GeoLocationButton" class="button" onclick="getGeoLocation()"><p>Use My Location</p></div>
 			<div id="GeoCode">
-				<div id="GeoCodeInput" class="input left"><input type="text" id="GeoCodeInputField"/></div>
+				<div id="GeoCodeInput" class="input left"><input type="text" id="GeoCodeInputField" placeholder="Enter location..."/></div>
 				<div id="GeoCodeButton" class="button left" onclick="getGeoCode()"><p>Search</p></div>
 			</div>
 		</div>
