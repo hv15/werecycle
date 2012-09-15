@@ -53,6 +53,11 @@
 	font-size:14px;
 	font-weight:;
 }
+/* Changes the color of the placegolder text*/
+input::-webkit-input-placeholder { color:    #276332; }
+input:-moz-placeholder { color:    #276332; }
+input:-ms-input-placeholder { color:    #276332;}
+
 #GeoCodeButton {
 	height:42px;
 	width:90px;
@@ -60,7 +65,7 @@
 
 #GeolocationButton p{
 	position:relative;
-	top:-7px;
+	top:-5px;
 }
 #GeoCodeButton p{
 	position:relative;
