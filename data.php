@@ -9,7 +9,7 @@
     //$types = empty($_GET['types']) ? '1,2,3,4,5,6,7,8,9,11,12,13,14,16,17,18,19,20,21,22,23,24,25,26,27,29,30,31,32,33,34,37,38,40,41,42,43,44,45,46,49,51,52,53,56,57,80,81,82,83,84,130,145,146,148,149,150,151,152' : $_GET['types'];
     $types = empty($_GET['types']) ? '6' : $_GET['types'];
     // Specify whether we are looking up only outlets which allow for ALL the specified types to be recycled
-    $union = empty($_GET['union']) ? TRUE : $_GET['union'];
+    $union = empty($_GET['union']) ? 1 : $_GET['union'];
     //$areas = empty($_GET['areas']) ? 12 : $_GET['areas'];
     $latitude = empty($_GET['latitude']) ? 55.9099 : $_GET['latitude'];
     $longitude = empty($_GET['longitude']) ? -3.3220 : $_GET['longitude'];
@@ -17,7 +17,7 @@
     $ne = bpot_getDueCoords($latitude, $longitude, 45, $distance, 'm', 1);
     $sw = bpot_getDueCoords($latitude, $longitude, 225, $distance, 'm', 1);
     
-    if($union==FALSE) { 
+    if($union==0) { 
 	// Build SQL query to get outlet information for all selected types
 	$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude 
 	    FROM outlets, 
