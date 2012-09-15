@@ -90,7 +90,7 @@ function toggleLocation(){
 
 function drawMarkers() {
 
-	$.get("data.php?longitude="+map_lat+"&longitude="+map_lon+"&distance=", function(data) {
+	//$.get("data.php?longitude="+map_lat+"&longitude="+map_lon+"&distance=", function(data) {
 	// Clear all markers
 	if(markerCluster) markerCluster.clearMarkers();
 	// Create an array of elements to store into our cluster
@@ -123,7 +123,7 @@ function drawMarkers() {
 	  				infowindow.open(map, marker);
 				});
 			}    
-		})(marker, i, outlet.name, outlet.id, outlet.type);
+		})(marker, i, outlet.name, outlet.id, outlet.type));
 	}
 	// Put all the markers into the cluster.
 	var markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
