@@ -9,8 +9,8 @@
     // Build SQL query to get outlet information for all selected types
     $sql = "SELECT html_info FROM outlets_info WHERE outlet_id = $id";
     $result = mysql_query($sql) or die(mysql_error()); 
-    if(mysql_affected_rows($result)==0) echo "No info available."; die;
     $row = mysql_fetch_row($result);
+    if(mysql_affected_rows()==0) echo "No info available."; die;
     $html = $row[0];
     // Check to see if there is a phone number for this outlet to determine the regex we use
     if(strpos($html,'miniIconTelephoneRec')) {
