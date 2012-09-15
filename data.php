@@ -48,15 +48,15 @@
 			AND outlets.outlet_id = outlets_recycle_types.outlet_id
 			AND MBRContains( GeomFromText('Polygon(({$sw[lat]} {$sw[lon]}, {$ne[lat]} {$sw[lon]}, {$ne[lat]} {$ne[lon]}, {$sw[lat]} {$ne[lon]}, {$sw[lat]} {$sw[lon]}))'), outlets.coords )";
 	} elseif($count>3) {
-		$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude FROM outlets,`outlets_recycle_types`, ";
+		$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude FROM outlets,`outlets_recycle_types`, \n";
 		for($i=3;$i<$count;$i++) {
-			$sql .= " (SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[$i]}) AS ort$i,";
+			$sql .= " (SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[$i]}) AS ort$i, \n";
 		}
 		$sql .= " (SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[2]}) AS ort2,
 			(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[1]}) AS ort1
 			WHERE ort2.outlet_id = outlets_recycle_types.outlet_id ";
 		for($i=3;$i<$count;$i++) {
-			$sql .= " AND ort$i.outlet_id = outlets_recycle_types.outlet_id";
+			$sql .= " AND ort$i.outlet_id = outlets_recycle_types.outlet_id  \n";
 		}
 		$sql .= " AND ort1.outlet_id = outlets_recycle_types.outlet_id
 			AND outlets_recycle_types.recycle_type = {$types[0]} AND outlets.outlet_id = outlets_recycle_types.outlet_id
