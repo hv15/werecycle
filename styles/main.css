@@ -1,0 +1,67 @@
+body {
+	background-color: #276332;
+	background-image: url("../graphics/noise.png");
+    margin: 0;
+    -webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	/* Text details */
+	text-align:center;
+	font-family: Helvetica, sans-serif;
+	font-weight: bold;
+	color: #D2FFB4;
+	text-shadow: 0px -1px #000;
+}
+
+/*
+	Describes the position of elements
+*/
+.left {float:left;}
+.right {float:right;}
+
+/*
+	Describes the buttons that they user can click on.
+*/
+.button{
+	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #95E376;
+	background-color:#2E733A;
+	background-image: url("../graphics/noise.png");
+	cursor:pointer;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+/* Button has round top */
+.button.roundTop{
+	-webkit-border-bottom-right-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+/* Button has round bottom */
+.button.roundBottom{
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-top-right-radius: 0px;
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-topright: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.button.active{
+	background-color:#28C744;
+	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #C0FF9B;
+}
+.button.inactive{
+	background-color:#2E733A;
+	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #95E376;
+}
+a,a:visited,a:hover{
+	color:#D2FFB4
+}
