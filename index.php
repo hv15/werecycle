@@ -12,10 +12,10 @@
 			<img id="Icon" src="graphics/logo.png"/>
 			<div id="Name">weRecycle</div>
 			<div id="Info"><p>Enter in your location or use geolocation.</p></div>
-			<div id="GeoLocationButton" class="button" onclick="GetGeoLocation()"><p>Use My Location</p></div>
+			<div id="GeoLocationButton" class="button" onclick="getGeoLocation()"><p>Use My Location</p></div>
 			<div id="GeoName">
 				<div id="GeoNameInput" class="input left"><input type="text"/></div>
-				<div id="GeoNameButton" class="button left" onclick="GetGeoName()"><p>Search</p></div>
+				<div id="GeoNameButton" class="button left" onclick="getGeoName()"><p>Search</p></div>
 			</div>
 		</div>
 	</body>
