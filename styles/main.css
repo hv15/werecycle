@@ -65,5 +65,6 @@ body {
 	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #95E376;
 }
 a,a:visited,a:hover{
-	color:#D2FFB4
+	color:#D2FFB4;
+	text-decoration:none;
 }
