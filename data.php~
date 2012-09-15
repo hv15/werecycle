@@ -29,21 +29,21 @@
 	$types = explode(',',$types);
 	$count = count($types);
 	if($count==1) {
-		$sql = "SELECT DISTINCT * FROM `outlets_recycle_types` WHERE recycle_type = {$types[0]}";
+		$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude FROM outlets,`outlets_recycle_types` WHERE recycle_type = {$types[0]}";
 	} elseif($count==2) {
-		$sql = "SELECT DISTINCT * FROM `outlets_recycle_types`, 
+		$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude FROM outlets,`outlets_recycle_types`, 
 			(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[0]}) AS ort2
 			WHERE ort2.outlet_id = outlets_recycle_types.outlet_id
 			AND outlets_recycle_types.recycle_type = {$types[1]}";
 	} elseif($count==3) {
-		$sql = "SELECT DISTINCT * FROM `outlets_recycle_types`, 
+		$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude FROM outlets,`outlets_recycle_types`, 
 			(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[2]}) AS ort2,
 			(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[1]}) AS ort3
 			WHERE ort2.outlet_id = outlets_recycle_types.outlet_id
 			AND ort3.outlet_id = outlets_recycle_types.outlet_id
 			AND outlets_recycle_types.recycle_type = {$types[0]}";
 	} elseif($count>3) {
-		$sql = "SELECT DISTINCT * FROM `outlets_recycle_types`, ";
+		$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude FROM outlets,`outlets_recycle_types`, ";
 		for($i=3;$i<$count;$i++) {
 			$sql .= " (SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[$i]}) AS ort$i,";
 		}
