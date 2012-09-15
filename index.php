@@ -6,7 +6,7 @@
 		<link type="text/css" rel="stylesheet" href="styles/main.css"/>
 		<link type="text/css" rel="stylesheet" href="styles/index.css"/>
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-		<script type="text/javascript" src="script/index.js"></script>
+		<script type="text/javascript" src="scripts/index.js"></script>
 	</head>
 	<body>
 		<div id="Index">
