@@ -30,6 +30,8 @@ var clusterStyle = [{
         textColor: "#D2FFB5",
         textSize: 18
       }];
+// parsed JSON to store markers
+var content;
 
 // Prevents scrolling on the page for mobile phones.
 document.onload = function(){
@@ -88,14 +90,15 @@ function toggleLocation(){
 	}
 }
 
-function drawMarkers() {
-
-	//$.get("data.php?longitude="+map_lat+"&longitude="+map_lon+"&distance=", function(data) {
+function drawMarkers(newlocation) {
+	// get dynamically the JSON data via data.php for the markers
+	$.getJSON("data.php?longitude="+newlocation.lng()+"&longitude="+newlocation.lat(), function(data) {
+		var content = data;
+	});
 	// Clear all markers
 	if(markerCluster) markerCluster.clearMarkers();
 	// Create an array of elements to store into our cluster
 	var markers = [];
-	var content = [];
 	var types = ["Recycling Center","Recycling Point"];
 	for (var i = 0; i < data.outlets.length; i++) {
 		var outlet = data.outlets[i];
@@ -118,7 +121,7 @@ function drawMarkers() {
 		// Give each marker an event that opens the window.
 		google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
 			return function() {
-				window.open("./info.php?id="+id);
+				$(location).attr('href',"./info.php?id="+id);
 				//$.get('info.php?id='+id, function(data) {
 	  				//infowindow.setContent(name+"<br/>"+types[type-1]+"<br/>"+data+id);
 	  				//infowindow.open(map, marker);
@@ -156,7 +159,12 @@ function initialize(){
 		and the info windows with all the details of what
 		was clicked on.
 	*/
-	drawMarkers();
+	drawMarkers(map_pos);
+	
+	google.maps.event.addListener(map, 'center_changed', function() {
+		var newlocation = map.getCenter();
+		drawMarkers(newlocation);
+	}
 	// Create the graphics that we will use
 	//var recyclePointMarkerImage = new google.maps.MarkerImage(recyclePointIcon , new google.maps.Size(64, 64), new google.maps.Point(0, 0), new google.maps.Point(32, 32), new google.maps.Size(64, 64));
 	//var recycleCenterMarkerImage = new google.maps.MarkerImage(recycleCenterIcon, new google.maps.Size(64, 64), new google.maps.Point(0, 0), new google.maps.Point(32, 32), new google.maps.Size(64, 64));
