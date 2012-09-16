@@ -1,3 +1,5 @@
+@import url("http://meyerweb.com/eric/tools/css/reset/reset.css");
+
 body {
 	background-color: #276332;
 	background-image: url("../graphics/noise.png");
