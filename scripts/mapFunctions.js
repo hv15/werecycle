@@ -141,6 +141,7 @@ function drawMarkers(newlocation) {
 			markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
 		}
 	}});
+	google.maps.event.clearListeners(map, 'bounds_changed');
 }
 
 /*
