@@ -94,7 +94,7 @@ function toggleLocation(){
 function drawMarkers(newlocation) {
 	// Fancy maths
 	var bounds = map.getBounds();
-	console.log(map);
+	//console.log(map);
 	var sw = bounds.getSouthWest();
 	var ne = bounds.getNorthEast();
 	var R = 3963.1676; // miles
