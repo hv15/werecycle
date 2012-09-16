@@ -106,7 +106,7 @@ function drawMarkers(newlocation) {
 		Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
 	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
 	var d = R * c;*/
-	d = 21 - map_zoom * 2;
+	d = 21 - map_zoom * 5;
 	
 	// get dynamically the JSON data via data.php for the markers
 	var urly = "http://recyclefinder.co.uk/data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&distance="+d;
