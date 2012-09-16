@@ -59,7 +59,6 @@
         echo "<span class='openhourstitle'>Opening Hours</span><br />\n".$openhours;
     }
     
-    
     // Build SQL query to get outlet information for all selected types
     $sql = "SELECT `recycle_types`.`recycle_type`,`recycle_types`.`name` FROM `outlets_recycle_types`,`recycle_types` WHERE `outlets_recycle_types`.`recycle_type`=`recycle_types`.`recycle_type` AND `outlet_id` = $id";
     $result = mysql_query($sql) or die(mysql_error()); 
@@ -73,7 +72,7 @@
         echo "</span>\n";
     }
 ?>
-
+		<a href="#" onclick="history.go(-1);return false;">Back</a>
 		</div>
 	</body>
 </html>
