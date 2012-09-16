@@ -28,7 +28,7 @@
 	font-size:12px;
 	font-weight:normal;
 }
-#GeolocationButton {
+#GeoLocationButton {
 	height:42px;
 	width:280px;
 	margin:0 auto;
@@ -40,6 +40,7 @@
 	margin-bottom:10px;
 }
 #GeoCodeInput input {
+	box-sizing: border-box;
 	font-family: Helvetica, sans-serif;
 	background-color: #D2FFB5;
 	box-shadow: 0px -1px 0px 0px #000;
