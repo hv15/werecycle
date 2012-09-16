@@ -10,18 +10,17 @@
     $sql = "SELECT html_info FROM outlets_info WHERE outlet_id = $id";
     $result = mysql_query($sql) or die(mysql_error()); 
     $row = mysql_fetch_row($result);
-    if(mysql_affected_rows()==0) {echo "No info available.<br />\n"; die;}
     $html = $row[0];
     // Check to see if there is a phone number for this outlet to determine the regex we use
     if(strpos($html,'miniIconTelephoneRec')) {
         $phone = preg_replace('|.+<img class="pic20 picL" src="siImages/miniIconTelephoneRec.gif" />([0-9 ]+) <div.+|s', '\1', $html);
         $address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<img class="pic20.+|s', '\1', $html);
         $address = preg_replace('|<br />|s',', ',$address);
-        echo "<span class='phonetitle'>Phone</span><br />\n<span class='phone'>$phone</span><br /><br />\n\n<span class='addresstitle'>Address</span><br />\n<span class='address'>".trim($address," \n\r\t,")."</span><br /><br />\n\n";
+        echo "<span class='phonetitle'>Phone</span><br />\n<span class='phone'>$phone</span><br /><br />\n\n<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='geo:0,0?q=".trim($address," \n\r\t,")."'>".trim($address," \n\r\t,")."</span><br /><br />\n\n";
     } else {
         $address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<div class="spacer1y">.+|s', '\1', $html);
         $address = preg_replace('|<br />|s',', ',$address);
-        echo "<span class='addresstitle'>Address</span><br />\n<span class='address'>".trim($address," \n\r\t,")."</span><br /><br />\n\n";
+        echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='geo:0,0?q=".trim($address," \n\r\t,")."'>".trim($address," \n\r\t,")."</span><br /><br />\n\n";
     }
     
     // Output the block of text which shows the opening hours, nicely marked up for CSS
