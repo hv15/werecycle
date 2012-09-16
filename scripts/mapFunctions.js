@@ -92,7 +92,7 @@ function toggleLocation(){
 
 function drawMarkers(newlocation) {
 	// get dynamically the JSON data via data.php for the markers
-	var urly = "data.php?longitude="+newlocation.lng()+"&longitude="+newlocation.lat()+"&types=6";
+	var urly = "data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&types=6";
 	console.log(urly);
 	$.getJSON(urly, function(data) {
 		this.data = data;
