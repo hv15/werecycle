@@ -99,12 +99,11 @@ function drawMarkers(newlocation) {
 		url: urly,
 		success: function(check) {
 				data = check;
-			}
-	});
+
 
 	console.log(data);
 	data = $.parseJSON(data);
-		console.log(data);
+	console.log(data);
 	// Clear all markers
 	    //if(markerCluster) markerCluster.clearMarkers();
 	// Create an array of elements to store into our cluster
@@ -142,6 +141,8 @@ function drawMarkers(newlocation) {
 	}
 	// Put all the markers into the cluster.
 	var markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});*/
+				}
+	});
 }
 
 /*
