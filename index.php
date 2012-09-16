@@ -2,6 +2,7 @@
 	<head>
 		<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0,user-scalable=no,width=device-width" />
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 		<title>RecycleFinder</title>
 		<link type="text/css" rel="stylesheet" href="styles/main.css"/>
 		<link type="text/css" rel="stylesheet" href="styles/index.css"/>
