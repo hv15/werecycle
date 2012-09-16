@@ -9,6 +9,9 @@ body {
 */
 .left {float:left;}
 .right {float:right;}
+.visible {display:block;}
+.invisible {display:none;}
+.pointer {cursor:pointer;}
 
 /*
 	Describes the buttons that they user can click on.
