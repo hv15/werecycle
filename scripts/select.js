@@ -1,6 +1,13 @@
-function loadSelectables(selectables,selectablesInfo){
+function loadSelectables(selectables,selectablesInfo,oldtypes){
+	
 	var root = document.getElementById("Container");
 	var output = "";
+	
+	oldtypes = oldtypes.split(',');
+	for(i=0;i<oldtypes.length;i++){
+		inputs[i].checked="true";
+	}
+	
 	for(i=0;i<selectables.length;i++){
 		output += "<div class='container'>";
 		var category = "<div class='category pointer' onclick='toggle(this.parentNode)'>"+
@@ -65,7 +72,7 @@ function calculateCount(container){
 /*
 	Sends the user back to the map with the new settings.
 */
-function createQuery(oldtypes,latitude,longitude,zoom){
+function createQuery(latitude,longitude,zoom){
 	var inputs = document.getElementsByTagName("input");
 	types = "";
 	for(i=0;i<inputs.length;i++){
