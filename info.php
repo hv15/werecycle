@@ -71,7 +71,7 @@
         $i++; if($i!=$count) {
 		echo ", </span>\n";
 	} else {
-		echo '</span><br /><br />\n';
+		echo "</span><br /><br />\n\n";
 	}
     }
 ?>
