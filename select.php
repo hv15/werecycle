@@ -9,7 +9,7 @@
 		<script type="text/javascript" src="scripts/selectablesInfo.js"></script>
 		<script type="text/javascript" src="scripts/select.js"></script>
 	</head>
-	<body onload="loadSelectables(selectables,selectablesInfo,<?=$_GET['types']?>);">
+	<body onload="loadSelectables(selectables,selectablesInfo,"<?=$_GET['types']?>");">
 		<div id="Select">
 			<div id="Info"><p>Select the items you want to recycle</p></div>
 			<div id="Container"></div>
