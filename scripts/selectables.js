@@ -12,52 +12,85 @@ var selectables = [
         {"name":"Yellow Pages","id":13}
     	]
     },
-    {"name":"Recycle Centers",
+    {"name":"Electronics",
      "types":[
-        {"name":"Energy saving lightbulbs &amp; Flourescent tubes","id":1},
-        {"name":"sdfds","id":2},
-        {"name":"gdfgdfgf","id":6}
+        {"name":"Batteries","id":32},
+        {"name":"Car & Engine batteries","id":38},
+        {"name":"Energy saving lightbulbs &amp; Flourescent tubes","id":26},
+        {"name":"Fridge & Freezer","id":40},
+        {"name":"Large Electrical Appliances","id":30},
+        {"name":"Small Electrical Appliances","id":45},
+        {"name":"TVs & Monitors","id":46}
         ]
     },
-    {"name":"Recycle Centers",
+    {"name":"Building/Garden Materials",
      "types":[
-        {"name":"sfds","id":1},
-        {"name":"sdfds","id":2},
-        {"name":"gdfgdfgf","id":6}
+        {"name":"Garden Waste","id":4},
+        {"name":"Hard-Core & Rubble","id":33}
+        {"name":"Scrap Metals","id":9},
+        {"name":"Wood & Timber","id":12}
         ]
     },
-    {"name":"Recycle Centers",
+    {"name":"Various Other Recyclables",
      "types":[
-        {"name":"sfds","id":1},
-        {"name":"sdfds","id":2},
-        {"name":"gdfgdfgf","id":6}
+        {"name":"Books","id":18},
+        {"name":"Clothing","id":11},
+        {"name":"DVDs, CDs, Videos & Tapes","id":25},
+        {"name":"Engine Oil","id":3},
+        {"name":"Furniture","id":23},
+        {"name":"Mixed textiles & clothes","id":49},
+        {"name":"Mobile Phones","id":49},
+        {"name":"Paint","id":27},
+        {"name":"Printer Cartridges","id":34},
+        {"name":"Shoes","id":43},
+        {"name":"Spectacles","id":51},
+        {"name":"Tyres","id":22}
         ]
     }
 ]
+
 /*
-Recycle Centers
-3 Engine oil
-4 Garden Waste
-9 Scrap Metal
-12 Wood and Timber
-18 Books
-22 tyres
-23 furniture
-26 energy saving lightbulbs & fluorescent tubes
-30 Large electrical appliances
-32 Batteries
-33 Hard-Core & rubble
-38 Car & Engine Batteries
-40 Fridge & freezers
-43 Shoes
-45 Small Appliances
-46 TVs & Monitors
-Other items...
-11 Clothing
-25 DVDs, CDs, videos & tapes
-27 Paint
-34 Printer Cartridges (Common)
-42 Mobiles Phones (Common)
-49 Mixed textiles & clothes
-51 Spectacles
-*/
+
+The above categorisation is based on the stuff below:
+
+Common
+1 Household metal packaging
+2 cardboard
+6 glass bottles & jars
+7 paper
+13 yellow pages
+16 plastic bottles
+17 cartons
+29 aerosol cans
+41 aluminium foil
+
+electric (all RC)
+26: energy saving light bulbs & fluorescent tubes
+30: large electrical appliances
+32: batteries
+38: car & engine batteries
+40: fridge & freezers
+45: small appliances
+46: TVs & monitors
+
+building/garden materials
+04: garden waste
+09: scrap metals
+12: wood & timber
+33:hard-core & rubble
+
+various //other
+3: engine oil - no DB
+11: clothing
+18: books    - no Craig
+22: tyres      - no Kin
+23: furniture - no Kin
+25: DVDs, CDs, videos & tapes
+27: paint
+34: printer cartridges
+42: mobile phones
+43: shoes    - no Sea/Sight
+49: mixed textiles & clothes
+51: spectacles*
+
+/
