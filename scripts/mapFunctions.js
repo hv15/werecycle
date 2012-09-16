@@ -93,7 +93,7 @@ function toggleLocation(){
 
 function drawMarkers(newlocation) {
 	// Fancy maths
-	var bounds = map.getBounds();
+	/*var bounds = map.getBounds();
 	//console.log(map);
 	var sw = bounds.getSouthWest();
 	var ne = bounds.getNorthEast();
@@ -105,7 +105,7 @@ function drawMarkers(newlocation) {
 	var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
 		Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
 	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-	var d = R * c;
+	var d = R * c;*/
 	
 	// get dynamically the JSON data via data.php for the markers
 	var urly = "http://recyclefinder.co.uk/data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&distance="+d;
