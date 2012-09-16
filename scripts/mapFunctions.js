@@ -109,7 +109,7 @@ function drawMarkers(newlocation) {
 	d = 21 - map_zoom * 5;
 	
 	// get dynamically the JSON data via data.php for the markers
-	var urly = "http://recyclefinder.co.uk/data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&distance="+d;
+	var urly = "http://recyclefinder.co.uk/data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&distance="+d+"&types="+types;
 
 	$.ajax({ type: 'GET', url: urly, success: function(check) {
 		eval(check);	
@@ -124,7 +124,7 @@ function drawMarkers(newlocation) {
 			// Give each marker an event that opens the window.
 			google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
 				return function() {
-					$(location).attr('href',"./info.php?id="+id);
+					$(location).attr('href',"./info.php?id="+id+"&latitude="+latitude+"&longitude="+longitude+"&types="+types+"&zoom="+map_zoom);
 					//$.get('info.php?id='+id, function(data) {
 						//infowindow.setContent(name+"<br/>"+types[type-1]+"<br/>"+data+id);
 						//infowindow.open(map, marker);
@@ -182,6 +182,7 @@ function initialize(){
 	});
 	
 	google.maps.event.addListener(map, 'zoom_changed', function() {
+		map_zoom = map.getZoom();
 		var newlocation = map.getCenter();
 		drawMarkers(newlocation);
 	});
@@ -190,4 +191,8 @@ function initialize(){
 	//var recycleCenterMarkerImage = new google.maps.MarkerImage(recycleCenterIcon, new google.maps.Size(64, 64), new google.maps.Point(0, 0), new google.maps.Point(32, 32), new google.maps.Size(64, 64));
 
 
+}
+
+function buttonSelect() {
+	$(location).attr('href',"./select.php?latitude="+latitude+"&longitude="+longitude+"&types="+types+"&zoom="+map_zoom);
 }

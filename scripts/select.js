@@ -65,7 +65,7 @@ function calculateCount(container){
 /*
 	Sends the user back to the map with the new settings.
 */
-function createQuery(){
+function createQuery(oldtypes,latitude,longitude,zoom){
 	var inputs = document.getElementsByTagName("input");
 	types = "";
 	for(i=0;i<inputs.length;i++){
@@ -76,5 +76,5 @@ function createQuery(){
 				types+=","+inputs[i].value;
 		}
 	}
-	document.location.href = "http://recycleFinder.co.uk/map.php?types="+types;
+	document.location.href = "http://recycleFinder.co.uk/map.php?types="+types+"&latitude="+latitude+"&longitude="+longitude+"&zoom="+zoom;
 }

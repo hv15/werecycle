@@ -13,7 +13,7 @@
 		<div id="Select">
 			<div id="Info"><p>Select the items you want to recycle</p></div>
 			<div id="Container"></div>
-			<div id="SelectButton" class="button left" onclick="createQuery();"><p>Search recycling facilities...</p></div>
+			<div id="SelectButton" class="button left" onclick="createQuery(<?=$_GET['types']?>,<?=$_GET['latitude']?>,<?=$_GET['longitude']?>,<?=$_GET['zoom']?>);"><p>Search recycling facilities...</p></div>
 		</div>
 	</body>
 </html>
