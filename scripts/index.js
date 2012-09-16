@@ -20,7 +20,7 @@ function getGeoLocation(){
 	}
 }
 function returnPosition(position) {
-	window.location.href = "./map.php?types=1,13,16,17,2,29,41,6,7&latitude="+position.coords.latitude+"&longitude="+position.coords.longitude;
+	window.location.href = "./select.php?types=6,7,2,16,1&latitude="+position.coords.latitude+"&longitude="+position.coords.longitude;
 }
 function returnError(position) {
 	spin("invisible");
