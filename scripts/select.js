@@ -4,6 +4,7 @@ function loadSelectables(selectables,selectablesInfo,oldtypes){
 	var output = "";
 	
 	oldtypes = oldtypes.split(',');
+	var inputs = document.getElementsByTagName("input");
 	for(i=0;i<oldtypes.length;i++){
 		inputs[i].checked="true";
 	}
