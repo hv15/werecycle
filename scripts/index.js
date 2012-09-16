@@ -36,7 +36,7 @@ function getGeoCode() {
 	var address = document.getElementById('GeoCodeInputField').value;
 	geocoder.geocode( { 'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-			window.location.href = "./map.php?types=1,13,16,17,2,29,41,6,7&latitude="+results[0].geometry.location.lat()+"&longitude="+results[0].geometry.location.lng();
+			window.location.href = "./select.php?types=6,7,2,16,1&latitude="+results[0].geometry.location.lat()+"&longitude="+results[0].geometry.location.lng();
 		} else {
 			alert("Could not find that location. Try formatting in another way.");
 		}
