@@ -57,11 +57,11 @@ body { height: 100%; margin: 0; padding: 0 }
 /*Describes button text/image positions (using a paragraph block)*/
 #ButtonZoomIn p{
 	position:relative;
-	top:-26px;
+	top: 0px;
 }
 #ButtonZoomOut p{
 	position:relative;
-	top:-26px;
+	top: 0px;
 }
 #ButtonLocation p{
 	position:relative;
