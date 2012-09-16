@@ -33,7 +33,7 @@
 	font-size:16px;
 	font-weight:normal;
 }
-#GeolocationButton {
+#GeoLocationButton {
 	height:42px;
 	width:280px;
 	margin:0 auto;
@@ -83,7 +83,7 @@ input:-ms-input-placeholder { color:    #276332;}
 
 #GeolocationButton p{
 	position:relative;
-	top:0px;
+	top:12px;
 }
 #GeoCodeButton p{
 	position:relative;
