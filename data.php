@@ -73,5 +73,7 @@
     }
     
     // Output javascript variable and square brackets to comma-separated JSON data to allow for easy javascript eval
-    echo 'var data = {"outlets": ['.$output.']}';
+    //echo 'var data = {"outlets": ['.$output.']}';
+    echo '{"outlets": ['.$output.']}';
+    
 ?>
