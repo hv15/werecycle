@@ -1,4 +1,6 @@
 var geocoder;
+
+document.onkeydown = checkKeycode
 /*
 	Deals with the geolocation
 */
@@ -44,4 +46,14 @@ function getGeoCode() {
 function spin(state){
 	var spin = document.getElementById("GeoLocationSpin");
 	spin.className = state;
+}
+
+function checkKeycode(e) {
+	var keycode;
+	if (window.event)
+		keycode = window.event.keyCode;
+	else if (e)
+		keycode = e.which;
+	if(keycode==13)
+		getGeoCode();
 }
