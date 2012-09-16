@@ -80,7 +80,7 @@ input:-ms-input-placeholder { color:    #276332;}
 
 #GeolocationButton p{
 	position:relative;
-	top:-12px;
+	top:0px;
 }
 #GeoCodeButton p{
 	position:relative;
