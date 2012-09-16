@@ -92,8 +92,22 @@ function toggleLocation(){
 }
 
 function drawMarkers(newlocation) {
+	// Fancy maths
+	bounds = gmap.getBounds();
+	sw = bounds.getSouthWest();
+	ne = bounds.getNorthEast();
+	var R = 3963.1676; // miles
+	var dLat = (sw.lat()-ne.lat()).toRad();
+	var dLon = (sw.lng()-ne.lng()).toRad();
+	var lat1 = ne.lat().toRad();
+	var lat2 = sw.lat().toRad();
+	var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+		Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+	var d = R * c;
+	
 	// get dynamically the JSON data via data.php for the markers
-	var urly = "http://recyclefinder.co.uk/data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&types=6";
+	var urly = "http://recyclefinder.co.uk/data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&distance="+d;
 
 	$.ajax({ type: 'GET', url: urly, success: function(check) {
 		eval(check);	
