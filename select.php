@@ -8,6 +8,7 @@
 		<script type="text/javascript" src="scripts/selectables.js"></script>
 		<script type="text/javascript" src="scripts/selectablesInfo.js"></script>
 		<script type="text/javascript" src="scripts/select.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 	</head>
 	<body onload="loadSelectables(selectables,selectablesInfo,'<?=$_GET['types']?>');">
 		<div id="Select">
