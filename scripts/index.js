@@ -4,7 +4,7 @@ var geocoder;
 */
 function getGeoLocation(){
 	if (navigator.geolocation) {
-		var timeoutVal = 1000;
+		var timeoutVal = 3000;
 		navigator.geolocation.getCurrentPosition(
 			returnPosition, 
 			returnError,
