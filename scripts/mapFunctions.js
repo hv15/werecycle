@@ -93,10 +93,12 @@ function toggleLocation(){
 function drawMarkers(newlocation) {
 	// get dynamically the JSON data via data.php for the markers
 	var urly = "data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&types=6";
+	alert("BEFORE");
 	$.getJSON(urly, function(check) {
 		alert(check);
 		console.log(check);
 	});
+	alert("AFTER");
 	// Clear all markers
 	if(markerCluster) markerCluster.clearMarkers();
 	// Create an array of elements to store into our cluster
