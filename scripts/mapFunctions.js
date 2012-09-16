@@ -124,7 +124,7 @@ function drawMarkers(newlocation) {
 			// Give each marker an event that opens the window.
 			google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
 				return function() {
-					$(location).attr('href',"./info.php?id="+id+"&latitude="+latitude+"&longitude="+longitude+"&types="+types+"&zoom="+map_zoom);
+					$(location).attr('href',"./info.php?id="+id+"&latitude="+newlocation.lat()+"&longitude="+newlocation.lng()+"&types="+types+"&zoom="+map_zoom);
 					//$.get('info.php?id='+id, function(data) {
 						//infowindow.setContent(name+"<br/>"+types[type-1]+"<br/>"+data+id);
 						//infowindow.open(map, marker);
