@@ -14,8 +14,10 @@
 	text-align:center;
 	font-family: Helvetica, sans-serif;
 	font-weight: bold;
+	font-size:16px;
 	color: #D2FFB4;
 	text-shadow: 0px -1px #000;
+	padding-top:10px;
 }
 #Info {
 	/* Text details */
@@ -24,6 +26,7 @@
 	font-weight: bold;
 	color: #D2FFB4;
 	text-shadow: 0px -1px #000;
+	padding-top:20px;
 
 	font-size:12px;
 	font-weight:normal;

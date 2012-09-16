@@ -13,7 +13,7 @@
 	<body>
 		<div id="Index">
 			<img id="Icon" src="graphics/logo.png"/>
-			<div id="Name">weRecycle</div>
+			<div id="Name">RecycleFinder</div>
 			<div id="Info"><p>Enter in your location or use geolocation.</p></div>
 			<div id="GeoLocationButton" class="button" onclick="getGeoLocation()"><p>Use My Location</p></div>
 			<div id="GeoCode">
