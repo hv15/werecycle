@@ -14,8 +14,8 @@
 		<div id="Index">
 			<img id="Icon" src="graphics/logo.png"/>
 			<div id="Name">RecycleFinder</div>
-			<div id="Info"><p>Enter in your location or use geolocation.</p></div>
 			<div id="GeoLocationButton" class="button" onclick="getGeoLocation()"><p>Use My Location</p></div>
+			<div id="Info"><p>or</p></div>
 			<div id="GeoCode">
 				<div id="GeoCodeInput" class="input left"><input type="text" id="GeoCodeInputField" placeholder="Enter location..."/></div>
 				<div id="GeoCodeButton" class="button left" onclick="getGeoCode()"><p>Search</p></div>
