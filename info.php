@@ -72,7 +72,9 @@
         echo "</span>\n";
     }
 ?>
-		<a href="#" onclick="history.go(-1);return false;">Back</a>
+			<div id="infoBackButton">
+				<a href="#" onclick="history.go(-1);return false;">Back</a>
+			</div>
 		</div>
 	</body>
 </html>
