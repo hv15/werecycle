@@ -85,5 +85,5 @@ function createQuery(latitude,longitude,zoom){
 				types+=","+inputs[i].value;
 		}
 	}
-	document.location.href = "http://recycleFinder.co.uk/map.php?types="+types+"&latitude="+latitude+"&longitude="+longitude+"&zoom="+zoom;
+	document.location.href = "http://recycleFinder.co.uk/beforeAndrew/map.php?types="+types+"&latitude="+latitude+"&longitude="+longitude+"&zoom="+zoom;
 }
