@@ -16,11 +16,16 @@
         $phone = preg_replace('|.+<img class="pic20 picL" src="siImages/miniIconTelephoneRec.gif" />([0-9 ]+) <div.+|s', '\1', $html);
         $address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<img class="pic20.+|s', '\1', $html);
         $address = preg_replace('|<br />|s',', ',$address);
-        echo "<span class='phonetitle'>Phone</span><br />\n<span class='phone'>$phone</span><br /><br />\n\n<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='geo:0,0?q=".trim($address," \n\r\t,")."'>".trim($address," \n\r\t,")."</a></span><br /><br />\n\n";
+	$address = trim($address," \n\r\t,");
+	$addressenc = urlencode(trim($address," \n\r\t,"));
+        echo "<span class='phonetitle'>Phone</span><br />\n<span class='phone'>$phone</span><br /><br />\n\n";
+	echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='geo:0,0?q=$addressenc'>$address</a></span><br /><br />\n\n";
     } else {
         $address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<div class="spacer1y">.+|s', '\1', $html);
         $address = preg_replace('|<br />|s',', ',$address);
-        echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='geo:0,0?q=".trim($address," \n\r\t,")."'>".trim($address," \n\r\t,")."</a></span><br /><br />\n\n";
+	$address = trim($address," \n\r\t,");
+	$addressenc = urlencode(trim($address," \n\r\t,"));
+	echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='geo:0,0?q=$addressenc'>$address</a></span><br /><br />\n\n";
     }
     
     // Output the block of text which shows the opening hours, nicely marked up for CSS
