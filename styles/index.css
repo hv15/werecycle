@@ -39,6 +39,11 @@
 	margin:0 auto;
 	margin-bottom:10px;
 }
+#GeoLocationSpin {
+	background: #FFF;
+	width:16px;
+	height:16px;
+}
 #GeoCode {
 	width:280px;
 	margin:0 auto;
