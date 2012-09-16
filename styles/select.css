@@ -1,9 +1,13 @@
 #Select {
 	width:320px;
 	margin:0 auto;
+	font-family: Helvetica, Sans-Serif;
+	color:#D2FFB4;
+	text-shadow: 0px -1px #000;
 }
 
 #Info {
+	margin:10px;
 	text-align: center;
 }
 
@@ -12,27 +16,46 @@
 	width:320px;
 }
 .category .toggle {
-	background:#F00;
+	background: rgba(255,0,0,.2);
 	width:42px;
 	height:42px;
-	margin:4px;
+	margin-left:10px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .category .name {
-	background:#F0F;
-	width:170px;
+	background: rgba(255,0,0,.2);
+	width:216px;
 	height:42px;
-	margin:4px;
 }
 .category .count {
-	background:#00F;
-	width:60px;
+	background: rgba(255,0,0,.2);
+	width:42px;
 	height:42px;
-	margin:4px;
+	margin-right:10px;
 }
+
+
+.category .toggle p{
+	position:relative;
+	top: -5px;
+	left:15px;
+}
+.category .name p, .category .count p{
+	position:relative;
+	top: -4px;
+}
+
+
+
+
 
 .types {
 	width:100%;
-	height:50px;
 }
 .type {
 	width:100%;
@@ -41,7 +64,7 @@
 	padding:0px;
 }
 .type .input {
-	background:#0F0;
+	background: rgba(255,0,0,.2);
 	width:42px;
 	height:42px;
 	text-align:center;
@@ -52,10 +75,24 @@
 	height:32px;
 }
 .type .name {
+	position:relative;
+	background: rgba(255,0,0,.2);
 	width:216px;
+	height:42px;
+	font-weight: bold;
+}
+.type .name .innername {
+	position:absolute;
+	top:50%;
 	height:42px;
 }
 .type .infoButton {
+	background: rgba(255,0,0,.2);
+	text-align:center;
+	font-family: times;
+	font-style: oblique;
+	font-weight: bold;
+	font-size: 20px;
 	width:42px;
 	height:42px;
 	margin-right:10px;
@@ -67,10 +104,18 @@
 	user-select: none;
 }
 .type .infoText {
+	font-weight: normal;
+	font-size: 14px;
+
+	margin-top:10px;
+	padding-top:5px;
+	padding-bottom:5px;
 	width:300px;
 	padding-left:10px;
 	padding-right:10px;
 	background:rgba(0,0,0,0.2);
+	border-top: 1 solid rgba(0,0,0,.3);
+	border-bottom: 1 solid rgba(166,256,231,.3);
 }
 
 
@@ -79,7 +124,7 @@
 
 
 
-.type .input p{
+.type .input p, .type .infoButton p {
 	position:relative;
 	top:-10px;
 }

@@ -4,16 +4,16 @@ function loadSelectables(selectables,selectablesInfo){
 	for(i=0;i<selectables.length;i++){
 		output += "<div class='container'>";
 		var category = "<div class='category pointer' onclick='toggle(this.parentNode)'>"+
-			"<div class='left toggle closed'>&#9658;</div>"+
+			"<div class='left toggle closed'><p>&#9658;</p></div>"+
 			"<div class='left name'><p>"+selectables[i].name+"</p></div>"+
-			"<div class='right count'>?/#</div>"+
+			"<div class='right count'><p>?/#</p></div>"+
 			"</div>";
 		output+=category;
 		output+="<div class='types invisible'>";
 		for(u=0;u<selectables[i]["types"].length;u++){
 			var type = "<div class='type'>"+
-						"<div class='left input'><p><input type='checkbox' name='"+selectables[i]["types"][u].name+"' onchange='update()' value='"+selectables[i]["types"][u].id+"'><p></div>"+
-						"<div class='left name'><p>"+selectables[i]["types"][u].name+"</p></div>"+
+						"<div class='left input'><p><input type='checkbox' name='"+selectables[i]["types"][u].name+"' onchange='calculateCount(this)' value='"+selectables[i]["types"][u].id+"'><p></div>"+
+						"<div class='left name'><div class='nameinner'><p>"+selectables[i]["types"][u].name+"</p></div></div>"+
 						"<div class='right infoButton' onclick='toggleInfo(this.parentNode)'><p>i</p></div>"+
 						"<div class='left infoText invisible'>"+selectablesInfo[""+selectables[i]["types"][u].id]+"</div>"+
 					"</div>";
@@ -49,9 +49,22 @@ function getDivByClassName(element,name){
 	}
 	return null;
 }
-function calculate(){
-
+function calculateCount(container){
+	container = container.parentNode.parentNode.parentNode.parentNode.parentNode;
+	var inputs = container.getElementsByTagName("input");
+	var count = getDivByClassName(container,"count");
+	var x = 0; // The number of checkboxes active
+	for(i=0;i<inputs.length;i++){
+		if(inputs[i].checked){
+			x++;
+		}
+	}
+	count.innerHTML = "<p>"+x+"/"+inputs.length+"</p>";
 }
+
+/*
+	Sends the user back to the map with the new settings.
+*/
 function createQuery(){
 	var inputs = document.getElementsByTagName("input");
 	types = "";

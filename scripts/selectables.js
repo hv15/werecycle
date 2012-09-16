@@ -14,7 +14,7 @@ var selectables = [
     },
     {"name":"Recycle Centers",
      "types":[
-        {"name":"sfds","id":1},
+        {"name":"Energy saving lightbulbs &amp; Flourescent tubes","id":1},
         {"name":"sdfds","id":2},
         {"name":"gdfgdfgf","id":6}
         ]
@@ -35,16 +35,6 @@ var selectables = [
     }
 ]
 /*
-Common
-1 Household metal packaging
-2 cardboard
-6 glass bottles & jars
-7 paper
-13 yellow pages
-16 plastic bottles
-17 cartons
-29 aerosol cans
-41 aluminium foil
 Recycle Centers
 3 Engine oil
 4 Garden Waste
