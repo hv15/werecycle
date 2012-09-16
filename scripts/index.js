@@ -3,6 +3,7 @@ var geocoder;
 	Deals with the geolocation
 */
 function getGeoLocation(){
+	spin("visible");
 	if (navigator.geolocation) {
 		var timeoutVal = 30000;
 		navigator.geolocation.getCurrentPosition(
@@ -17,7 +18,6 @@ function getGeoLocation(){
 	}
 }
 function returnPosition(position) {
-	spin("visible");
 	window.location.href = "./map.php?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude;
 }
 function returnError(position) {
