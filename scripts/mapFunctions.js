@@ -94,53 +94,69 @@ function drawMarkers(newlocation) {
 	// get dynamically the JSON data via data.php for the markers
 	var urly = "http://recyclefinder.co.uk/data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&types=6";
 
-	$.ajax({
-		type: 'GET',
-		url: urly,
-		success: function(check) {
-				eval(check);
-				console.log(data);
-				
+	$.ajax({ type: 'GET', url: urly, success: function(check) {
+		eval(check);
+		console.log(data);
+		
+		// Clear all markers
+		if(markerCluster) {
+			markerCluster.clearMarkers();
+			for (var i = 0; i < data.outlets.length; i++) {
+				var markers = [];
+				var outlet = data.outlets[i];
+				var latLng = new google.maps.LatLng(outlet.lat,outlet.lon);
+				var marker = new google.maps.Marker({ position: latLng});
+				// Add the markers, text to the memory.
+				markers.push(marker);
+				// Give each marker an event that opens the window.
+				google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
+					return function() {
+						$(location).attr('href',"./info.php?id="+id);
+						//$.get('info.php?id='+id, function(data) {
+							//infowindow.setContent(name+"<br/>"+types[type-1]+"<br/>"+data+id);
+							//infowindow.open(map, marker);
+						//});
+					}    
+				})(marker, i, outlet.name, outlet.id, outlet.type));
+			}
+			markerCluster.addMarkers(markers);
+		} else {
+			// Create an array of elements to store into our cluster
+			var markers = [];
+			var content = [];
+			for (var i = 0; i < data.outlets.length; i++) {
+				var outlet = data.outlets[i];
+				var latLng = new google.maps.LatLng(outlet.lat,outlet.lon);
+				// Here we format the info window. Change stuff here to add
+				// more content.
+				var info = outlet.name+"<br/>"+types[outlet.type-1]+"<br/>"+outlet.type;
 
-	// Clear all markers
-	if(markerCluster) markerCluster.clearMarkers();
-	// Create an array of elements to store into our cluster
-	var markers = [];
-	var content = [];
-	var types = ["Recycling Center","Recycling Point"];
-	for (var i = 0; i < data.outlets.length; i++) {
-		var outlet = data.outlets[i];
-		var latLng = new google.maps.LatLng(outlet.lat,outlet.lon);
-		// Here we format the info window. Change stuff here to add
-		// more content.
-		var info = outlet.name+"<br/>"+types[outlet.type-1]+"<br/>"+outlet.type;
+				var infowindow = new google.maps.InfoWindow({ content: info });
+				var marker;
+				if(outlet.type==1)
+					marker = new google.maps.Marker({ position: latLng});
+				else
+					marker = new google.maps.Marker({ position: latLng});
 
-		var infowindow = new google.maps.InfoWindow({ content: info });
-		var marker;
-		if(outlet.type==1)
-			marker = new google.maps.Marker({ position: latLng});
-		else
-			marker = new google.maps.Marker({ position: latLng});
+				// Add the markers, text to the memory.
+				markers.push(marker);
+				content.push(info);
 
-		// Add the markers, text to the memory.
-		markers.push(marker);
-		content.push(info);
-
-		// Give each marker an event that opens the window.
-		google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
-			return function() {
-				$(location).attr('href',"./info.php?id="+id);
-				//$.get('info.php?id='+id, function(data) {
-	  				//infowindow.setContent(name+"<br/>"+types[type-1]+"<br/>"+data+id);
-	  				//infowindow.open(map, marker);
-				//});
-			}    
-		})(marker, i, outlet.name, outlet.id, outlet.type));
-	}
-	// Put all the markers into the cluster.
-	var markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
-				}
-	});
+				// Give each marker an event that opens the window.
+				google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
+					return function() {
+						$(location).attr('href',"./info.php?id="+id);
+						//$.get('info.php?id='+id, function(data) {
+							//infowindow.setContent(name+"<br/>"+types[type-1]+"<br/>"+data+id);
+							//infowindow.open(map, marker);
+						//});
+					}    
+				})(marker, i, outlet.name, outlet.id, outlet.type));
+			}
+			// Put all the markers into the cluster.
+			var markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
+		}
+	}});
 }
 
 /*
