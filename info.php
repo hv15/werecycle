@@ -17,13 +17,15 @@
         $address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<img class="pic20.+|s', '\1', $html);
         $address = preg_replace('|<br />|s',', ',$address);
 	$address = trim($address," \n\r\t,");
+	$addressenc = urlencode($address);
 	$mapsurl = "http://maps.google.com/maps?q=".$row['latitude'].','.$row['longitude'];
-        echo "<span class='phonetitle'>Phone</span><br />\n<span class='phone'>$phone</span><br /><br />\n\n";
+	echo "<span class='phonetitle'>Phone</span><br />\n<span class='phone'>$phone</span><br /><br />\n\n";
 	echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='$mapsurl' target='_blank'>$address</a></span><br /><br />\n\n";
     } else {
         $address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<div class="spacer1y">.+|s', '\1', $html);
         $address = preg_replace('|<br />|s',', ',$address);
 	$address = trim($address," \n\r\t,");
+	$addressenc = urlencode($address);
 	$mapsurl = "http://maps.google.com/maps?q=".$row['latitude'].','.$row['longitude'];
 	echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='$mapsurl' target='_blank'>$address</a></span><br /><br />\n\n";
     }
