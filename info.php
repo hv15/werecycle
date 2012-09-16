@@ -28,7 +28,7 @@
     $html = $row["html_info"];
     
     // Output name of outlet
-    echo "<span class='nametitle'>Name</span><br />\n<span class='name'>{$row["name"]}</span><br /><br />\n";
+    echo "<span class='nametitle'>Name</span><br />\n<span class='name'>{$row["outlet_name"]}</span><br /><br />\n";
     
     // Check to see if there is a phone number for this outlet to determine the regex we use
     if(strpos($html,'miniIconTelephoneRec')) {
