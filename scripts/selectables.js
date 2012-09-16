@@ -26,7 +26,7 @@ var selectables = [
     {"name":"Building/Garden Materials",
      "types":[
         {"name":"Garden Waste","id":4},
-        {"name":"Hard-Core & Rubble","id":33}
+        {"name":"Hard-Core & Rubble","id":33},
         {"name":"Scrap Metals","id":9},
         {"name":"Wood & Timber","id":12}
         ]
