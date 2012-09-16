@@ -93,9 +93,9 @@ function toggleLocation(){
 
 function drawMarkers(newlocation) {
 	// Fancy maths
-	bounds = map.getBounds();
-	sw = bounds.getSouthWest();
-	ne = bounds.getNorthEast();
+	var bounds = map.getBounds();
+	var sw = bounds.getSouthWest();
+	var ne = bounds.getNorthEast();
 	var R = 3963.1676; // miles
 	var dLat = (sw.lat()-ne.lat()).toRad();
 	var dLon = (sw.lng()-ne.lng()).toRad();
