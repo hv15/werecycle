@@ -68,8 +68,11 @@
     $count=mysql_num_rows($result);
     while( $row = mysql_fetch_assoc($result) ) {
         echo "<span class='recycle_type_{$row['recycle_type']}'>{$row['name']}";
-        $i++; if($i!=$count) echo ',';
-        echo "</span>\n";
+        $i++; if($i!=$count) {
+		echo ", </span>\n";
+	} else {
+		echo '</span><br /><br />\n';
+	}
     }
 ?>
 			<div id="infoBackButton">
