@@ -7,7 +7,7 @@
     $id = trim($_GET['id']);
     
     // Build SQL query to get outlet information for all selected types
-    $sql = "SELECT * FROM outlets_info,outlets WHERE outlet_id = $id AND outlets.outlet_id = outlets_info.outlet_id";
+    $sql = "SELECT * FROM outlets_info,outlets WHERE outlets.outlet_id = $id AND outlets.outlet_id = outlets_info.outlet_id";
     $result = mysql_query($sql) or die(mysql_error()); 
     $row = mysql_fetch_assoc($result);
     $html = $row["html_info"];
