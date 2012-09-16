@@ -19,13 +19,13 @@
 	$address = trim($address," \n\r\t,");
 	$mapsurl = "http://maps.google.com/maps?saddr=&daddr=".$row['latitude'].','.$row['longitude'];
         echo "<span class='phonetitle'>Phone</span><br />\n<span class='phone'>$phone</span><br /><br />\n\n";
-	echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='geo:0,0?q=$addressenc'>$address</a></span><br /><br />\n\n";
+	echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='$mapsurl'>$address</a></span><br /><br />\n\n";
     } else {
         $address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<div class="spacer1y">.+|s', '\1', $html);
         $address = preg_replace('|<br />|s',', ',$address);
 	$address = trim($address," \n\r\t,");
 	$mapsurl = "http://maps.google.com/maps?saddr=&daddr=".$row['latitude'].','.$row['longitude'];
-	echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='geo:0,0?q=$addressenc'>$address</a></span><br /><br />\n\n";
+	echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='$mapsurl'>$address</a></span><br /><br />\n\n";
     }
     
     // Output the block of text which shows the opening hours, nicely marked up for CSS
