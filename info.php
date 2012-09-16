@@ -18,7 +18,7 @@
         $address = preg_replace('|<br />|s',', ',$address);
 	$address = trim($address," \n\r\t,");
 	$addressenc = urlencode($address);
-	$mapsurl = "http://maps.google.com/maps?q=$addressenc&ll=".$row['latitude'].','.$row['longitude'];
+	$mapsurl = "http://maps.google.com/maps?q=".$row['latitude'].','.$row['longitude'];
 	echo "<span class='phonetitle'>Phone</span><br />\n<span class='phone'>$phone</span><br /><br />\n\n";
 	echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='$mapsurl' target='_blank'>$address</a></span><br /><br />\n\n";
     } else {
@@ -26,7 +26,7 @@
         $address = preg_replace('|<br />|s',', ',$address);
 	$address = trim($address," \n\r\t,");
 	$addressenc = urlencode($address);
-	$mapsurl = "http://maps.google.com/maps?q=$addressenc&ll=".$row['latitude'].','.$row['longitude'];
+	$mapsurl = "http://maps.google.com/maps?q=".$row['latitude'].','.$row['longitude'];
 	echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='$mapsurl' target='_blank'>$address</a></span><br /><br />\n\n";
     }
     
