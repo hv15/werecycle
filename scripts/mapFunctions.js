@@ -1,6 +1,8 @@
 // a global variable to access the map
 var map;
 var markerCluster;
+var latitude;
+var longitude;
 // Used for geolocation
 var GeoMarker;
 var GeoLatLng;
@@ -65,7 +67,7 @@ function toggleLocation(){
 		GeoMarker.setMarkerOptions({visible:false});
 		GeoMarker.setCircleOptions({fillOpacity: "0", strokeOpacity: "0"});
 	} else {
-		// This means it is not active, so we therefore turn it on
+		// This means it is not active, slatitudeo we therefore turn it on
 		button.className = button.className.replace("inactive","active");
 		var GeoMarkerImage = new google.maps.MarkerImage(geoIcon, new google.maps.Size(30, 30), new google.maps.Point(0, 0), new google.maps.Point(7, 7), new google.maps.Size(15, 15));
 		GeoMarker.setMarkerOptions({visible:true, icon: GeoMarkerImage});
@@ -92,24 +94,12 @@ function toggleLocation(){
 }
 
 function drawMarkers(newlocation) {
-	// Fancy maths
-	/*var bounds = map.getBounds();
-	//console.log(map);
-	var sw = bounds.getSouthWest();
-	var ne = bounds.getNorthEast();
-	var R = 3963.1676; // miles
-	var dLat = (sw.lat()-ne.lat()) * (Math.PI / 180);
-	var dLon = (sw.lng()-ne.lng()) * (Math.PI / 180);
-	var lat1 = ne.lat() * (Math.PI / 180);
-	var lat2 = sw.lat() * (Math.PI / 180);
-	var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-		Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
-	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-	var d = R * c;*/
-	d = 21 - map_zoom * 5;
+	var distance = 21 - map_zoom * 5;
+	latitude = newlocation.lat();
+	longitude = newlocation.lng();
 	
 	// get dynamically the JSON data via data.php for the markers
-	var urly = "http://recyclefinder.co.uk/data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&distance="+d+"&types="+types;
+	var urly = "http://recyclefinder.co.uk/data.php?longitude="+longitude+"&latitude="+latitude+"&distance="+distance+"&types="+types;
 
 	$.ajax({ type: 'GET', url: urly, success: function(check) {
 		eval(check);	
@@ -124,11 +114,7 @@ function drawMarkers(newlocation) {
 			// Give each marker an event that opens the window.
 			google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
 				return function() {
-					$(location).attr('href',"./info.php?id="+id+"&latitude="+newlocation.lat()+"&longitude="+newlocation.lng()+"&types="+types+"&zoom="+map_zoom);
-					//$.get('info.php?id='+id, function(data) {
-						//infowindow.setContent(name+"<br/>"+types[type-1]+"<br/>"+data+id);
-						//infowindow.open(map, marker);
-					//});
+					$(location).attr('href',"./info.php?id="+id+"&latitude="+latitude+"&longitude="+longitude+"&types="+types+"&zoom="+map_zoom);
 				}    
 			})(marker, i, outlet.name, outlet.id, outlet.type));
 		}
