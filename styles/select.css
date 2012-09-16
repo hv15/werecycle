@@ -1,0 +1,99 @@
+#Select {
+	width:320px;
+	margin:0 auto;
+}
+
+#Info {
+	text-align: center;
+}
+
+.category {
+	height:50px;
+	width:320px;
+}
+.category .toggle {
+	background:#F00;
+	width:42px;
+	height:42px;
+	margin:4px;
+}
+.category .name {
+	background:#F0F;
+	width:170px;
+	height:42px;
+	margin:4px;
+}
+.category .count {
+	background:#00F;
+	width:60px;
+	height:42px;
+	margin:4px;
+}
+
+.types {
+	width:100%;
+	height:50px;
+}
+.type {
+	width:100%;
+	height:42px;
+	margin:0px;
+	padding:0px;
+}
+.type .input {
+	background:#0F0;
+	width:42px;
+	height:42px;
+	text-align:center;
+	margin-left:10px;
+}
+.type .input input{
+	width:32px;
+	height:32px;
+}
+.type .name {
+	width:216px;
+	height:42px;
+}
+.type .infoButton {
+	width:42px;
+	height:42px;
+	margin-right:10px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.type .infoText {
+	width:300px;
+	padding-left:10px;
+	padding-right:10px;
+	background:rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
+
+.type .input p{
+	position:relative;
+	top:-10px;
+}
+
+
+
+
+
+
+#SelectButton {
+	margin:10px;
+	width:300px;
+	height:50px;
+}
+#SelectButton p{
+	top:-10px;
+}
