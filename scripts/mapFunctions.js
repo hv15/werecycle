@@ -1,5 +1,6 @@
 // a global variable to access the map
 var map;
+var markerCluster;
 // Used for geolocation
 var GeoMarker;
 var GeoLatLng;
@@ -115,15 +116,14 @@ function drawMarkers(newlocation) {
 				}    
 			})(marker, i, outlet.name, outlet.id, outlet.type));
 		}
-		console.log(markers);
 		
 		// Clear all markers
 		if(markerCluster) {
 			markerCluster.clearMarkers();
-			markerCluster.addMarkers(markers);
+			//markerCluster.addMarkers(markers);
 		} else {
 			// Put all the markers into the cluster.
-			var markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
+			markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
 		}
 	}});
 }
