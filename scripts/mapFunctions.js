@@ -95,7 +95,8 @@ function drawMarkers(newlocation) {
 	var urly = "http://recyclefinder.co.uk/data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&types=6";
 
 	$.ajax({ type: 'GET', url: urly, success: function(check) {
-		eval(check);		
+		eval(check);	
+		console.log(check);
 		
 		for (var i = 0; i < data.outlets.length; i++) {
 			var markers = [];
