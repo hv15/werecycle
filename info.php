@@ -7,24 +7,24 @@
     $id = trim($_GET['id']);
     
     // Build SQL query to get outlet information for all selected types
-    $sql = "SELECT html_info FROM outlets_info WHERE outlet_id = $id";
+    $sql = "SELECT * FROM outlets_info,outlets WHERE outlet_id = $id AND outlets.outlet_id = outlets_info.outlet_id";
     $result = mysql_query($sql) or die(mysql_error()); 
-    $row = mysql_fetch_row($result);
-    $html = $row[0];
+    $row = mysql_fetch_assoc($result);
+    $html = $row["html_info"];
     // Check to see if there is a phone number for this outlet to determine the regex we use
     if(strpos($html,'miniIconTelephoneRec')) {
         $phone = preg_replace('|.+<img class="pic20 picL" src="siImages/miniIconTelephoneRec.gif" />([0-9 ]+) <div.+|s', '\1', $html);
         $address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<img class="pic20.+|s', '\1', $html);
         $address = preg_replace('|<br />|s',', ',$address);
 	$address = trim($address," \n\r\t,");
-	$addressenc = urlencode(trim($address," \n\r\t,"));
+	$mapsurl = "http://maps.google.com/maps?saddr=&daddr=".$row['latitude'].','.$row['longitude'];
         echo "<span class='phonetitle'>Phone</span><br />\n<span class='phone'>$phone</span><br /><br />\n\n";
 	echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='geo:0,0?q=$addressenc'>$address</a></span><br /><br />\n\n";
     } else {
         $address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<div class="spacer1y">.+|s', '\1', $html);
         $address = preg_replace('|<br />|s',', ',$address);
 	$address = trim($address," \n\r\t,");
-	$addressenc = urlencode(trim($address," \n\r\t,"));
+	$mapsurl = "http://maps.google.com/maps?saddr=&daddr=".$row['latitude'].','.$row['longitude'];
 	echo "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='geo:0,0?q=$addressenc'>$address</a></span><br /><br />\n\n";
     }
     
