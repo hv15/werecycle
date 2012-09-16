@@ -98,12 +98,10 @@ function drawMarkers(newlocation) {
 		type: 'GET',
 		url: urly,
 		success: function(check) {
-				data = check;
+				eval(check);
+				console.log(data);
+				
 
-
-	console.log(data);
-	data = $.parseJSON(data);
-	console.log(data);
 	// Clear all markers
 	    //if(markerCluster) markerCluster.clearMarkers();
 	// Create an array of elements to store into our cluster
