@@ -106,7 +106,7 @@ function drawMarkers(newlocation) {
 	});
 	alert("AFTER");
 	// Clear all markers
-	if(markerCluster) markerCluster.clearMarkers();
+	    //if(markerCluster) markerCluster.clearMarkers();
 	// Create an array of elements to store into our cluster
 	var markers = [];
 	var content = [];
