@@ -6,10 +6,19 @@ body { height: 100%; margin: 0; padding: 0 }
 #MapContainer {
     width: 100%;
     height: 100%;
+    font-family: Helvetica, Sans-serif;
+}
+#MapContainer span{
+    width:260px;
 }
 #Map {
     width: 100%;
     height: 100%;
+}
+
+#MapContainer a,#MapContainer a:visited,#MapContainer a:hover{
+	color: #333;
+	text-decoration:underline;
 }
 
 /* Describes Button sizes, position*/   
