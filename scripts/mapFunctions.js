@@ -93,7 +93,7 @@ function toggleLocation(){
 
 function drawMarkers(newlocation) {
 	// Fancy maths
-	bounds = gmap.getBounds();
+	bounds = map.getBounds();
 	sw = bounds.getSouthWest();
 	ne = bounds.getNorthEast();
 	var R = 3963.1676; // miles
