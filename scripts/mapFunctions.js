@@ -93,17 +93,18 @@ function toggleLocation(){
 function drawMarkers(newlocation) {
 	// get dynamically the JSON data via data.php for the markers
 	var urly = "http://recyclefinder.co.uk/data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&types=6";
-	alert("BEFORE");
+
 	$.ajax({
 		type: 'GET',
 		url: urly,
 		success: function(check) {
 				data = check;
-				alert(check);
-				console.log(check);
 			}
 	});
-	alert("AFTER");
+
+	console.log(data);
+	data = $.parseJSON(data);
+		console.log(data);
 	// Clear all markers
 	    //if(markerCluster) markerCluster.clearMarkers();
 	// Create an array of elements to store into our cluster
