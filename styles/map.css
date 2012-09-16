@@ -1,5 +1,8 @@
 @import url("http://meyerweb.com/eric/tools/css/reset/reset.css");
 
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0 }
+
 #MapContainer {
     width: 100%;
     height: 100%;
