@@ -65,13 +65,13 @@ body { height: 100%; margin: 0; padding: 0 }
 }
 #ButtonLocation p{
 	position:relative;
-	top: 6px;
+	top: 9px;
 }
 #ButtonHelp p{
 	position:relative;
-	top: 6px;
+	top: 9px;
 }
 #ButtonSelect p{
 	position:relative;
-	top:0px;
+	top:9px;
 }
