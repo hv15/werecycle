@@ -169,12 +169,12 @@ function initialize(){
 		and the info windows with all the details of what
 		was clicked on.
 	*/
-	drawMarkers(map_pos);
 	
-	google.maps.event.addListener(map, 'center_changed', function() {
+	google.maps.event.addListener(map, 'bounds_changed', function() {
 		var newlocation = map.getCenter();
-		drawMarkers(newlocation);
+		drawMarkers(map_pos);
 	});
+	
 	// Create the graphics that we will use
 	//var recyclePointMarkerImage = new google.maps.MarkerImage(recyclePointIcon , new google.maps.Size(64, 64), new google.maps.Point(0, 0), new google.maps.Point(32, 32), new google.maps.Size(64, 64));
 	//var recycleCenterMarkerImage = new google.maps.MarkerImage(recycleCenterIcon, new google.maps.Size(64, 64), new google.maps.Point(0, 0), new google.maps.Point(32, 32), new google.maps.Size(64, 64));
