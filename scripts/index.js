@@ -4,7 +4,7 @@ var geocoder;
 */
 function getGeoLocation(){
 	if (navigator.geolocation) {
-		var timeoutVal = 3000;
+		var timeoutVal = 30000;
 		navigator.geolocation.getCurrentPosition(
 			returnPosition, 
 			returnError,
@@ -12,14 +12,17 @@ function getGeoLocation(){
 		);
 	}
 	else {
+		spin("invisible");
 		alert("Geolocation is not supported by this browser");
 	}
 }
 function returnPosition(position) {
+	spin("visible");
 	window.location.href = "./map.php?latitude="+position.coords.latitude+"&longitude="+position.coords.longitude;
 }
 function returnError(position) {
-  alert("Geolocation did not work");
+	spin("invisible");
+	alert("Geolocation did not work");
 }
 
 
@@ -36,4 +39,9 @@ function getGeoCode() {
 			alert('Geocode was not successful for the following reason: ' + status);
 		}
     });
+}
+
+function spin(state){
+	var spin = document.getElementById("GeoLocationSpin");
+	spin.className = "visible";
 }
