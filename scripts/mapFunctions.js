@@ -111,7 +111,7 @@ function drawMarkers(newlocation) {
 	var markers = [];
 	var content = [];
 	var types = ["Recycling Center","Recycling Point"];
-	for (var i = 0; i < data.outlets.length; i++) {
+	/*for (var i = 0; i < data.outlets.length; i++) {
 		var outlet = data.outlets[i];
 		var latLng = new google.maps.LatLng(outlet.lat,outlet.lon);
 		// Here we format the info window. Change stuff here to add
@@ -141,7 +141,7 @@ function drawMarkers(newlocation) {
 		})(marker, i, outlet.name, outlet.id, outlet.type));
 	}
 	// Put all the markers into the cluster.
-	var markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
+	var markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});*/
 }
 
 /*
