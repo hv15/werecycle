@@ -98,10 +98,10 @@ function drawMarkers(newlocation) {
 	var sw = bounds.getSouthWest();
 	var ne = bounds.getNorthEast();
 	var R = 3963.1676; // miles
-	var dLat = (sw.lat()-ne.lat()).toRad();
-	var dLon = (sw.lng()-ne.lng()).toRad();
-	var lat1 = ne.lat().toRad();
-	var lat2 = sw.lat().toRad();
+	var dLat = (sw.lat()-ne.lat()) * (Math.PI / 180);
+	var dLon = (sw.lng()-ne.lng()) * (Math.PI / 180);
+	var lat1 = ne.lat() * (Math.PI / 180);
+	var lat2 = sw.lat() * (Math.PI / 180);
 	var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
 		Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
 	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
