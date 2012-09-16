@@ -1,6 +1,8 @@
-function loadSelectables(selectables,selectablesInfo){
+function loadSelectables(selectables,selectablesInfo,oldtypes){
+	
 	var root = document.getElementById("Container");
 	var output = "";
+	
 	for(i=0;i<selectables.length;i++){
 		output += "<div class='container'>";
 		var category = "<div class='category pointer' onclick='toggle(this.parentNode)'>"+
@@ -10,6 +12,7 @@ function loadSelectables(selectables,selectablesInfo){
 			"</div>";
 		output+=category;
 		output+="<div class='types invisible'>";
+			
 		for(u=0;u<selectables[i]["types"].length;u++){
 			var type = "<div class='type'>"+
 						"<div class='left input'><p><input type='checkbox' name='"+selectables[i]["types"][u].name+"' onchange='calculateCount(this)' value='"+selectables[i]["types"][u].id+"'><p></div>"+
@@ -23,6 +26,12 @@ function loadSelectables(selectables,selectablesInfo){
 		output+="</div>";
 	}
 	root.innerHTML += output;
+	
+	oldtypes = oldtypes.split(',');
+	var inputs = document.getElementsByTagName("input");
+	for(i=0;i<oldtypes.length;i++){
+		$('input[value="'+oldtypes[i]+'"]').prop("checked", true);
+	}
 }
 
 function toggle(category){
@@ -65,7 +74,7 @@ function calculateCount(container){
 /*
 	Sends the user back to the map with the new settings.
 */
-function createQuery(){
+function createQuery(latitude,longitude,zoom){
 	var inputs = document.getElementsByTagName("input");
 	types = "";
 	for(i=0;i<inputs.length;i++){
@@ -76,5 +85,5 @@ function createQuery(){
 				types+=","+inputs[i].value;
 		}
 	}
-	document.location.href = "http://recycleFinder.co.uk/map.php?types="+types;
+	document.location.href = "http://recycleFinder.co.uk/map.php?types="+types+"&latitude="+latitude+"&longitude="+longitude+"&zoom="+zoom;
 }

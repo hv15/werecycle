@@ -1,5 +1,8 @@
 // a global variable to access the map
 var map;
+var markerCluster;
+var latitude;
+var longitude;
 // Used for geolocation
 var GeoMarker;
 var GeoLatLng;
@@ -31,7 +34,7 @@ var clusterStyle = [{
         textSize: 18
       }];
 // parsed JSON to store markers
-var content;
+var data;
 
 // Prevents scrolling on the page for mobile phones.
 document.onload = function(){
@@ -64,7 +67,7 @@ function toggleLocation(){
 		GeoMarker.setMarkerOptions({visible:false});
 		GeoMarker.setCircleOptions({fillOpacity: "0", strokeOpacity: "0"});
 	} else {
-		// This means it is not active, so we therefore turn it on
+		// This means it is not active, slatitudeo we therefore turn it on
 		button.className = button.className.replace("inactive","active");
 		var GeoMarkerImage = new google.maps.MarkerImage(geoIcon, new google.maps.Size(30, 30), new google.maps.Point(0, 0), new google.maps.Point(7, 7), new google.maps.Size(15, 15));
 		GeoMarker.setMarkerOptions({visible:true, icon: GeoMarkerImage});
@@ -91,46 +94,41 @@ function toggleLocation(){
 }
 
 function drawMarkers(newlocation) {
+	var distance = 21 - map_zoom * 5;
+	latitude = newlocation.lat();
+	longitude = newlocation.lng();
+	
 	// get dynamically the JSON data via data.php for the markers
-	$.getJSON("data.php?longitude="+newlocation.lng()+"&longitude="+newlocation.lat(), function(data) {
-		var content = data;
-	});
-	// Clear all markers
-	if(markerCluster) markerCluster.clearMarkers();
-	// Create an array of elements to store into our cluster
-	var markers = [];
-	var types = ["Recycling Center","Recycling Point"];
-	for (var i = 0; i < data.outlets.length; i++) {
-		var outlet = data.outlets[i];
-		var latLng = new google.maps.LatLng(outlet.lat,outlet.lon);
-		// Here we format the info window. Change stuff here to add
-		// more content.
-		var info = outlet.name+"<br/>"+types[outlet.type-1]+"<br/>"+outlet.type;
+	var urly = "http://recyclefinder.co.uk/data.php?longitude="+longitude+"&latitude="+latitude+"&distance="+distance+"&types="+types;
 
-		var infowindow = new google.maps.InfoWindow({ content: info });
-		var marker;
-		if(outlet.type==1)
-			marker = new google.maps.Marker({ position: latLng});
-		else
-			marker = new google.maps.Marker({ position: latLng});
-
-		// Add the markers, text to the memory.
-		markers.push(marker);
-		content.push(info);
-
-		// Give each marker an event that opens the window.
-		google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
-			return function() {
-				$(location).attr('href',"./info.php?id="+id);
-				//$.get('info.php?id='+id, function(data) {
-	  				//infowindow.setContent(name+"<br/>"+types[type-1]+"<br/>"+data+id);
-	  				//infowindow.open(map, marker);
-				//});
-			}    
-		})(marker, i, outlet.name, outlet.id, outlet.type));
-	}
-	// Put all the markers into the cluster.
-	var markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
+	$.ajax({ type: 'GET', url: urly, success: function(check) {
+		eval(check);	
+		
+		var markers = [];
+		for (var i = 0; i < data.outlets.length; i++) {
+			var outlet = data.outlets[i];
+			var latLng = new google.maps.LatLng(outlet.lat,outlet.lon);
+			var marker = new google.maps.Marker({ position: latLng});
+			// Add the markers, text to the memory.
+			markers.push(marker);
+			// Give each marker an event that opens the window.
+			google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
+				return function() {
+					$(location).attr('href',"./info.php?id="+id+"&latitude="+latitude+"&longitude="+longitude+"&types="+types+"&zoom="+map_zoom);
+				}    
+			})(marker, i, outlet.name, outlet.id, outlet.type));
+		}
+		
+		// Clear all markers
+		if(markerCluster) {
+			markerCluster.clearMarkers();
+			markerCluster.addMarkers(markers);
+		} else {
+			// Put all the markers into the cluster.
+			markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
+		}
+	}});
+	google.maps.event.clearListeners(map, 'bounds_changed');
 }
 
 /*
@@ -159,15 +157,28 @@ function initialize(){
 		and the info windows with all the details of what
 		was clicked on.
 	*/
-	drawMarkers(map_pos);
+	
+	google.maps.event.addListener(map, 'bounds_changed', function() {
+		drawMarkers(map_pos);
+	});
 	
 	google.maps.event.addListener(map, 'center_changed', function() {
 		var newlocation = map.getCenter();
 		drawMarkers(newlocation);
-	}
+	});
+	
+	google.maps.event.addListener(map, 'zoom_changed', function() {
+		map_zoom = map.getZoom();
+		var newlocation = map.getCenter();
+		drawMarkers(newlocation);
+	});
 	// Create the graphics that we will use
 	//var recyclePointMarkerImage = new google.maps.MarkerImage(recyclePointIcon , new google.maps.Size(64, 64), new google.maps.Point(0, 0), new google.maps.Point(32, 32), new google.maps.Size(64, 64));
 	//var recycleCenterMarkerImage = new google.maps.MarkerImage(recycleCenterIcon, new google.maps.Size(64, 64), new google.maps.Point(0, 0), new google.maps.Point(32, 32), new google.maps.Size(64, 64));
 
 
+}
+
+function buttonSelect() {
+	$(location).attr('href',"./select.php?latitude="+latitude+"&longitude="+longitude+"&types="+types+"&zoom="+map_zoom);
 }

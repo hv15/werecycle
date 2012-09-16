@@ -8,12 +8,13 @@
 		<script type="text/javascript" src="scripts/selectables.js"></script>
 		<script type="text/javascript" src="scripts/selectablesInfo.js"></script>
 		<script type="text/javascript" src="scripts/select.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 	</head>
-	<body onload="loadSelectables(selectables,selectablesInfo);">
+	<body onload="loadSelectables(selectables,selectablesInfo,'<?=$_GET['types']?>');">
 		<div id="Select">
 			<div id="Info"><p>Select the items you want to recycle</p></div>
 			<div id="Container"></div>
-			<div id="SelectButton" class="button left" onclick="createQuery();"><p>Search recycling facilities...</p></div>
+			<div id="SelectButton" class="button left" onclick="createQuery(<?=$_GET['latitude']?>,<?=$_GET['longitude']?>,<?=$_GET['zoom']?>);"><p>Search recycling facilities...</p></div>
 		</div>
 	</body>
 </html>
