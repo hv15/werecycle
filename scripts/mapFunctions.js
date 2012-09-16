@@ -97,7 +97,6 @@ function drawMarkers(newlocation) {
 	$.ajax({
 		type: 'GET',
 		url: urly,
-		dataType: 'json',
 		success: function(check) {
 				data = check;
 				alert(check);
