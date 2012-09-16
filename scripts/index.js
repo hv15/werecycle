@@ -43,5 +43,5 @@ function getGeoCode() {
 
 function spin(state){
 	var spin = document.getElementById("GeoLocationSpin");
-	spin.className = "visible";
+	spin.className = state;
 }
