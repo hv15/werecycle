@@ -94,9 +94,15 @@ function drawMarkers(newlocation) {
 	// get dynamically the JSON data via data.php for the markers
 	var urly = "data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&types=6";
 	alert("BEFORE");
-	jQuery.getJSON(urly, function(check) {
-		alert(check);
-		console.log(check);
+	$.ajax({
+		type: 'GET',
+		url: urly,
+		dataType: 'json',
+		success: function(check) {
+				data = check;
+				alert(check);
+				console.log(check);
+			}
 	});
 	alert("AFTER");
 	// Clear all markers
