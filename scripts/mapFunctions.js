@@ -96,10 +96,9 @@ function drawMarkers(newlocation) {
 
 	$.ajax({ type: 'GET', url: urly, success: function(check) {
 		eval(check);	
-		console.log(check);
 		
+		var markers = [];
 		for (var i = 0; i < data.outlets.length; i++) {
-			var markers = [];
 			var outlet = data.outlets[i];
 			var latLng = new google.maps.LatLng(outlet.lat,outlet.lon);
 			var marker = new google.maps.Marker({ position: latLng});
@@ -116,6 +115,7 @@ function drawMarkers(newlocation) {
 				}    
 			})(marker, i, outlet.name, outlet.id, outlet.type));
 		}
+		console.log(markers);
 		
 		// Clear all markers
 		if(markerCluster) {
