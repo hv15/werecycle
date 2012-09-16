@@ -38,7 +38,7 @@ function getGeoCode() {
 		if (status == google.maps.GeocoderStatus.OK) {
 			window.location.href = "./map.php?latitude="+results[0].geometry.location.lat()+"&longitude="+results[0].geometry.location.lng();
 		} else {
-			alert('Geocode was not successful for the following reason: ' + status);
+			alert("Could not find that location. Try formatting in another way.");
 		}
     });
 }
