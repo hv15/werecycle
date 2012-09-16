@@ -6,6 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=9"/>
 		<title>RecycleFinder</title>
 		<link type="text/css" rel="stylesheet" href="styles/main.css"/>
+		<link type="text/css" rel="stylesheet" href="styles/info.css"/>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 		<script type="text/javascript" src="scripts/index.js"></script>
