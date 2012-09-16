@@ -33,16 +33,19 @@
 	font-size:16px;
 	font-weight:normal;
 }
-#GeoLocationButton {
+#GeolocationButton {
 	height:42px;
 	width:280px;
 	margin:0 auto;
 	margin-bottom:10px;
 }
 #GeoLocationSpin {
+	position: relative;
+	right:10px;
+	top:5px;
 	background: #FFF;
-	width:16px;
-	height:16px;
+	width:32px;
+	height:32px;
 }
 #GeoCode {
 	width:280px;
