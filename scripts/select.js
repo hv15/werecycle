@@ -30,6 +30,7 @@ function loadSelectables(selectables,selectablesInfo,oldtypes){
 	oldtypes = oldtypes.split(',');
 	var inputs = document.getElementsByTagName("input");
 	for(i=0;i<oldtypes.length;i++){
+		console.log('input[value="'+oldtypes[i]+'"]');
 		$('input[value="'+oldtypes[i]+'"]').checked="true";
 	}
 }
