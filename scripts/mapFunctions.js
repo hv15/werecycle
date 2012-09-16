@@ -92,7 +92,7 @@ function toggleLocation(){
 
 function drawMarkers(newlocation) {
 	// get dynamically the JSON data via data.php for the markers
-	var urly = "http://www.recyclefinder.co.uk/data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&types=6";
+	var urly = "http://recyclefinder.co.uk/data.php?longitude="+newlocation.lng()+"&latitude="+newlocation.lat()+"&types=6";
 	alert("BEFORE");
 	$.ajax({
 		type: 'GET',
