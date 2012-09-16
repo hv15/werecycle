@@ -12,6 +12,10 @@ body { height: 100%; margin: 0; padding: 0 }
     height: 100%;
 }
 
+#MapContainer a,#MapContainer a:visited,#MapContainer a:hover{
+	color: #000;
+}
+
 /* Describes Button sizes, position*/   
 #ButtonZoomIn{
 	font-size:30px;
