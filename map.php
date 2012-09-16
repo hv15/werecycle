@@ -16,7 +16,7 @@
 	 		var map_lat  = <?php echo (isset($_GET['latitude'])) ? $_GET['latitude'] : 55.9099 ?>;
 	 		var map_lon  = <?php echo (isset($_GET['longitude'])) ? $_GET['longitude'] : -3.3220 ?>;
 	 		var map_pos  = new google.maps.LatLng(map_lat, map_lon);
-	 		var types  = <?php echo (isset($_GET['types'])) ? $_GET['types'] : '1,13,16,17,2,29,41,6,7' ?>;
+	 		var types  = <?php echo (isset($_GET['types'])) ? $_GET['types'] : '"1,13,16,17,2,29,41,6,7"' ?>;
 			
 			google.maps.event.addDomListener(window, 'load', initialize);
 		</script>
