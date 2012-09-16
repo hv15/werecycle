@@ -26,6 +26,10 @@
     $result = mysql_query($sql) or die(mysql_error()); 
     $row = mysql_fetch_assoc($result);
     $html = $row["html_info"];
+    
+    // Output name of outlet
+    echo "<span class='nametitle'>Name</span><br />\n<span class='name'>{$row["outlet_name"]}</span><br /><br />\n";
+    
     // Check to see if there is a phone number for this outlet to determine the regex we use
     if(strpos($html,'miniIconTelephoneRec')) {
         $phone = preg_replace('|.+<img class="pic20 picL" src="siImages/miniIconTelephoneRec.gif" />([0-9 ]+) <div.+|s', '\1', $html);
