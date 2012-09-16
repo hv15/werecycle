@@ -120,7 +120,7 @@ function drawMarkers(newlocation) {
 		// Clear all markers
 		if(markerCluster) {
 			markerCluster.clearMarkers();
-			//markerCluster.addMarkers(markers);
+			markerCluster.addMarkers(markers);
 		} else {
 			// Put all the markers into the cluster.
 			markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
