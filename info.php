@@ -76,7 +76,7 @@
     }
 ?>
 			<div id="infoBackButton">
-				<a href="map.php?types=<?=$_GET['types']?>&latitude=<?=$_GET['latitude']?>&longitude=<?=$_GET['longitude']?>&zoom=<?=$_GET['zoom']?>" onclick="history.go(-1);return false;">Back</a>
+				<a href="map.php?types=<?=$_GET['types']?>&latitude=<?=$_GET['latitude']?>&longitude=<?=$_GET['longitude']?>&zoom=<?=$_GET['zoom']?>">Back</a>
 			</div>
 		</div>
 	</body>
