@@ -155,7 +155,7 @@ input:-ms-input-placeholder { color:    #276332;}
 }
 .home #geoCodeButton p{
 	position:relative;
-	top:12px;
+	top:-5px;
 }
 
 
