@@ -29,9 +29,9 @@ class Pages extends CI_Controller {
 		}
 		
 		if($page == 'map') {
-			$segarray = $this->uri->segment_array();
-			unset($segarray[1]);
-			$this->session->set_userdata($segarray);
+			//$segarray = $this->uri->segment_array();
+			//unset($segarray[1]);
+			//$this->session->set_userdata($segarray);
 			$data['categories'] = $this->map_model->get_outlets();
 		}
 		
