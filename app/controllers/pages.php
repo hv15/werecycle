@@ -49,7 +49,8 @@ class Pages extends CI_Controller {
 	
 	public function get_session() 
 	{
-		echo $this->session->all_userdata();
+		$data['outlets'] = $this->session->all_userdata();
+		$this->load->view('pages/data', $data);
 	}
 	
 	public function set_session() 
