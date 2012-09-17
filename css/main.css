@@ -421,16 +421,16 @@ input:-ms-input-placeholder { color:    #276332;}
 /*
 
 */
-.page-info .nametitle, .page-info .addresstitle, .page-info .outlettypestitle {
+.page-info .nametitle, .page-info .addresstitle, .page-info .outletypestitle {
 	font-weight:bold;
 }
 
-.page-info .name, .page-info .address, .page-info .outlettypes {
+.page-info .name, .page-info .address {
 	text-indent: 40px;
 }
 
 .page-info a, .page-info a:hover, .page-info a:visited{
-	color:#D2FFB4;
+	color:#B2DF94;
 	text-decoration:underline;
 }
 
