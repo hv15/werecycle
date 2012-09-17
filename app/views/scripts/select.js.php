@@ -1,7 +1,6 @@
 function recalculateSelected() {
 	$('.category').each(function(index) {
-		var newval = $(this).next().children('.typeCheckbox').length;
-		newval++;
+		var newval = $(this).next().children().length;
 		alert("newval = "+newval);
 		$(this).children('.selectedCount').text(newval);
 	});
