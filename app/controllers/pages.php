@@ -22,6 +22,7 @@ class Pages extends CI_Controller {
 			if ($this->uri->segment(2) !== FALSE) {
 				$sessiondata['home_latitude'] = $this->uri->segment(2, 0);
 				$sessiondata['home_longitude'] = $this->uri->segment(3, 0);
+				$sessiondata['user_state'] = 2;
 				$this->session->set_userdata($sessiondata);
 			}
 			$data['categories'] = $this->map_model->get_categories();

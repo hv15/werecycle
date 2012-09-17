@@ -1,4 +1,4 @@
-<?php print_r($this->session->all_userdata()); ?>
+<div id="debug"></div>
 	<div class="main-container">
             <div class="main wrapper clearfix">
 		<div id="info">
