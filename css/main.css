@@ -455,6 +455,7 @@ input:-ms-input-placeholder { color:    #276332;}
 */
 
 .page-help .main {
+	color:#D2FFB4;
 	width:300px;
 	padding:10px;
 	margin:0 auto;
@@ -466,7 +467,14 @@ input:-ms-input-placeholder { color:    #276332;}
 	margin:0 auto;
 	text-align: center;	
 }
-
+.page-help .title {
+	font-size:18px;
+	
+}
+.page-help .description {
+	font-size:12px;
+	font-style:oblique;
+}
 
 /*
 	Describes the buttons that the user can click on.
