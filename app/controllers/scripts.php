@@ -9,7 +9,7 @@ class Scripts extends CI_Controller {
 			show_404();
 		}
 		
-		ob_start(); ob_clean(); header ("Content-type: application/x-javascript");
+		header ("Content-type: application/x-javascript");
 		$this->load->view('scripts/'.$file.'.js.php');
 	}
 	public function vendor($file)
@@ -20,7 +20,7 @@ class Scripts extends CI_Controller {
 			show_404();
 		}
 		
-		ob_start(); ob_clean(); header ("Content-type: application/x-javascript");
+		header ("Content-type: application/x-javascript");
 		$this->load->view('scripts/vendor/'.$file);
 	}
 }
