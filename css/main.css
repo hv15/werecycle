@@ -489,11 +489,10 @@ input:-ms-input-placeholder { color:    #276332;}
 }
 #ButtonBack {
 	position:absolute;
-	line-height:180%;
 	top:20px;
 	left:0px;
 	width:20px;
-	padding:10px;
+	padding:10px 10px 0px 10px;
 	font-size:16px;
 }
 
