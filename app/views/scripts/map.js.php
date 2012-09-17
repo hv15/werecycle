@@ -77,7 +77,6 @@ function toggleLocation() {
 		var GeoMarkerImage = new google.maps.MarkerImage(geoIcon, new google.maps.Size(30, 30), new google.maps.Point(0, 0), new google.maps.Point(7, 7), new google.maps.Size(15, 15));
 		GeoMarker.setMarkerOptions({visible:true, icon: GeoMarkerImage});
 		GeoMarker.setCircleOptions({fillColor: "#33CCCC", fillColor: "#33CCCC", strokeOpacity: "0.6", fillOpacity: "0.3"});
-		map.setCenter(GeoMarker.getPosition());
 		google.maps.event.addListener(GeoMarker, "geolocation_error", function(e) {
 			if(button.className.indexOf("inactive")==-1){
 				alert("Position could not be established.");
@@ -85,6 +84,7 @@ function toggleLocation() {
 			}
 		});
 		GeoMarker.setMap(map);
+		map.setCenter(GeoMarker.getPosition());
 	}
 }
 
@@ -124,7 +124,7 @@ function drawMarkers(newlocation) {
 					}    
 				})(marker, i, outlet.name, outlet.id, outlet.type));
 			}
-			
+			setCenter
 			// Clear all markers
 			if(markerCluster) {
 				markerCluster.clearMarkers();
