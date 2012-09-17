@@ -10,7 +10,7 @@ class Pages extends CI_Controller {
 		}
 		
 		$data['title'] = "RecycleFinder: ".ucfirst($page); // Capitalize the first letter
-		$data['page'] = $page;
+		//$data['page'] = $page;
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('pages/'.$page, $data);
