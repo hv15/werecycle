@@ -17,9 +17,10 @@ class Map extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function view($x)
+	public function view($slug)
 	{
-		$data['outlets'] = $this->map_model->get_outlets($x);
+		$data['slug'] = $slug;
+		$this->load->view('map/slug', $data);
 	}
 }
 ?>
