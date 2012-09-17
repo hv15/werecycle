@@ -1,9 +1,10 @@
 	<div class="main-container">
             <div class="main wrapper clearfix">
-				<p class="">RecycleFinder</p>
+            	<img src="/img/logo.png"/>
+				<p class="title">RecycleFinder</p>
 				<p class="description">An open project</p>
 
-				<p class="Contributors">Contributor</p>
+				<p class="contributors">Contributor</p>
 				<ul>
 					<li>Andrew Beveridge</li>
 					<li>Andrew MacKinnon</li>
