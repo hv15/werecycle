@@ -30,7 +30,7 @@
 						</p>
 						<label for="checkbox<?=$id?>" class="typeName"><?=$recycle_type['name']?></label>
 						<p class="typeInfoButton">i</p>
-						<p class="typeInfoText"><?=$recycle_type['description']?></p>
+						<div class="typeInfoText"><?=$recycle_type['description']?></div>
 					</div>
 				<?php } ?>
 			</div>
