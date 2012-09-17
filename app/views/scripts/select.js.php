@@ -1,6 +1,6 @@
 recalculateSelected();
-console.log($.cookie('recyclefinder_session'));
-	
+$('#debug').get('/getsession');
+
 function recalculateSelected() {
 	$('.category').each(function(index) {
 		var newval = $(this).next().find('.typeCheckbox:checked').length;

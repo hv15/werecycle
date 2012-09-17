@@ -46,6 +46,16 @@ class Pages extends CI_Controller {
 		$data['outlets'] = $this->map_model->get_outlets();
 		$this->load->view('pages/data', $data);
 	}
+	
+	public function get_session() 
+	{
+		echo $this->session->all_userdata();
+	}
+	
+	public function set_session() 
+	{
+		echo $this->session->set_userdata();
+	}
 }
 
 ?>
