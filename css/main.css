@@ -451,6 +451,9 @@ input:-ms-input-placeholder { color:    #276332;}
 	text-decoration:none;
 }
 
+.page-info .category {
+	height: 42px;
+}
 .page-info .categoryToggle {
 	margin: 9px 9px 9px 0px;
 }
