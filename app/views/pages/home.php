@@ -1,19 +1,21 @@
 	<div class="main-container">
             <div class="main wrapper clearfix">
-
-		<img id="homepageIcon" src="img/logo.png" alt="logo"/>
-		<div id="Name">RecycleFinder</div>
-		<div id="GeoLocationButton" class="button" onclick="getGeoLocation()">
+		<img id="logo" src="img/logo.png" alt="logo"/>
+		<div id="name">RecycleFinder</div>
+		<div id="geoLocationButton" class="button" onclick="getGeoLocation()">
 			<p>Use My Location</p>
-			<div id="GeoLocationSpin" class="invisible"></div>
+			<div id="geoLocationSpin" class="invisible"></div>
 		</div>
-		<div id="Info">
+		<div id="info">
 			<p>or</p>
 		</div>
-		<div id="GeoCode">
-			<div id="GeoCodeInput" class="input left"><input type="text" id="GeoCodeInputField" placeholder="Enter location..."/></div>
-			<div id="GeoCodeButton" class="button left" onclick="getGeoCode()"><p>Search</p></div>
+		<div id="geoCode">
+			<div id="geoCodeInput" class="input left">
+				<input type="text" id="geoCodeInputField" placeholder="Enter location..."/>
+			</div>
+			<div id="geoCodeButton" class="button left" onclick="getGeoCode()">
+				<p>Search</p>
+			</div>
 		</div>        
-
             </div> <!-- #main -->
         </div> <!-- #main-container -->
