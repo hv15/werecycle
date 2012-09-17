@@ -189,7 +189,7 @@ var map_zoom = 12;
 var map_lat  = <?=$userdata['home_latitude']?>;
 var map_lon  = <?=$userdata['home_longitude']?>;
 var map_pos  = new google.maps.LatLng(map_lat, map_lon);
-var types  = <?=implode($userdata['types_selected'],',')?>;
+var types  = '<?=implode($userdata['types_selected'],',')?>';
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
