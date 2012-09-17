@@ -470,18 +470,16 @@ input:-ms-input-placeholder { color:    #276332;}
 	padding: 0px;
 	margin: 0px 0px 0px 0px;
 }
-.page-info .type > p {
+.page-info .type p.typeName {
 	line-height: 55px;
 	height: auto;
 	width: auto;
 	padding: 0px;
 	margin: 0px;
-}
-.page-info .type p.typeName {
 	margin-left: 10px;
 }
-.page-info .type p.typeinfoButton {
-	margin-left: 10px;
+.page-info .type p.typeInfoButton {
+	line-height: 55px;
 }
 .page-info .typeInfoText {
 	margin: 10px 30px 10px 20px;
