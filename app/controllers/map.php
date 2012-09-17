@@ -7,13 +7,15 @@ class Map extends CI_Controller {
 		$this->load->model('map_model');
 	}
 
-	public function index()
+	public function view($page = 'index')
 	{
-		$data['recycle_types'] = $this->map_model->get_recycle_types();
-		$data['title'] = 'Map!';
-
+		if($page == 'index') {
+			$segarray = $this->uri->segment_array();
+			$data['outlets'] = $this->map_model->get_outlets();
+		}
+		
 		$this->load->view('templates/header', $data);
-		$this->load->view('map/index', $data);
+		$this->load->view('map/'.$page, $data);
 		$this->load->view('templates/footer');
 	}
 
@@ -21,11 +23,6 @@ class Map extends CI_Controller {
 	{
 		$data['outlets'] = $this->map_model->get_outlets();
 		$this->load->view('map/data', $data);
-	}
-
-	public function view($slug)
-	{
-		$this->load->view('map/'.$slug, $data);
 	}
 	
 }

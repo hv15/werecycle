@@ -10,7 +10,7 @@ function recalculateSelected() {
 function createQuery() {
 	var types = '';
 	$('.typeCheckbox:checked').each(function(){
-		types = $(this).val() + ',' + types;
+		types = $(this).val() + '/' + types;
 	});
 	window.location.href = '/map/'+types;
 }
