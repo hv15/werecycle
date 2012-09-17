@@ -104,8 +104,8 @@ textarea {
 .page-select .categoryToggle {
 	float: left;
 	margin: 10px;
-	width:22px;
-	height:22px;
+	width:32px;
+	height:32px;
 	background-image: url('/img/closed.png');
 	background-size:100%;
 }
