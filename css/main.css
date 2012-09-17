@@ -464,7 +464,7 @@ input:-ms-input-placeholder { color:    #276332;}
 	margin-left: 20px;
 }
 .page-info .types {
-	padding-bottom: 20px;
+	margin-bottom: 20px;
 }
 .page-info .type {
 	height: 30px;
