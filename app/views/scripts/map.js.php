@@ -128,7 +128,6 @@ function drawMarkers(newlocation) {
 			markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
 		}
 	}});
-	google.maps.event.clearListeners(map, 'bounds_changed');
 }
 
 /*
@@ -158,11 +157,11 @@ function initialize(){
 		was clicked on.
 	*/
 	
-	google.maps.event.addListener(map, 'bounds_changed', function() {
+	google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
 		drawMarkers(map_pos);
 	});
 	
-	google.maps.event.addListener(map, 'center_changed', function() {
+	google.maps.event.addListener(map, 'dragend', function() {
 		var newlocation = map.getCenter();
 		drawMarkers(newlocation);
 	});

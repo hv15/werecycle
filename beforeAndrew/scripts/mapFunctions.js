@@ -101,7 +101,7 @@ function drawMarkers(newlocation) {
 	// get dynamically the JSON data via data.php for the markers
 	var urly = "http://recyclefinder.co.uk/beforeAndrew/data.php?longitude="+longitude+"&latitude="+latitude+"&distance="+distance+"&types="+types;
 
-	/*$.ajax({ type: 'GET', url: urly, success: function(check) {
+	$.ajax({ type: 'GET', url: urly, success: function(check) {
 		eval(check); // eval to var data	
 		
 		var markers = [];
@@ -122,12 +122,12 @@ function drawMarkers(newlocation) {
 		// Clear all markers
 		if(markerCluster) {
 			markerCluster.clearMarkers();
-			//markerCluster.addMarkers(markers);
+			markerCluster.addMarkers(markers);
 		} else {
 			// Put all the markers into the cluster.
 			markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
 		}
-	}});*/
+	}});
 }
 
 /*
