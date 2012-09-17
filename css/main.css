@@ -397,6 +397,7 @@ input:-ms-input-placeholder { color:    #276332;}
 }
 
 /*Describes button text/image positions (using a paragraph block)*/
+
 .page-map #ButtonZoomIn p{
 	position:relative;
 	top: 6px;
@@ -421,12 +422,16 @@ input:-ms-input-placeholder { color:    #276332;}
 /*
 
 */
+.page-info .main {
+	padding:10px;
+}
 .page-info .nametitle, .page-info .addresstitle, .page-info .outletypestitle {
 	font-weight:bold;
 }
 
 .page-info .name, .page-info .address {
-	text-indent: 40px;
+	float:left;
+	padding-left:40px;
 }
 
 .page-info a, .page-info a:hover, .page-info a:visited{
