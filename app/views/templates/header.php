@@ -16,8 +16,6 @@
 	
         <script src="/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
         <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js"></script>
-        <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
