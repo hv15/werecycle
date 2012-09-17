@@ -89,7 +89,7 @@ textarea {
 	padding-left: 10px;
 	background: rgba(255,0,0,.2);
 	width:32px;
-	height:42px;
+	height:32px;
 }
 
 .page-select .categoryName {
@@ -97,7 +97,7 @@ textarea {
 	padding-top: 10px;
 	background: rgba(255,0,0,.2);
 	width:216px;
-	height:42px;
+	height:32px;
 }
 
 .page-select .categoryCount {
@@ -106,7 +106,7 @@ textarea {
 	padding-top: 10px;
 	background: rgba(255,0,0,.2);
 	width:42px;
-	height:42px;
+	height:32px;
 }
 
 .page-select .categoryCount p {
