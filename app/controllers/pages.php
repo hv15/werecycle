@@ -21,7 +21,7 @@ class Pages extends CI_Controller {
 	
 	public function select()
 	{				
-		
+		$page = 'select';
 		$data['title'] = "RecycleFinder: ".ucfirst($page); // Capitalize the first letter
 		$data['page'] = $page;
 		
