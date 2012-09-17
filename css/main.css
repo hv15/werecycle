@@ -184,7 +184,7 @@ textarea {
 }
 .page-select .typeInfoButton p {
 	position:relative;
-	top:0px;
+	top:-5px;
 }
 
 .page-select .typeInfoText {
