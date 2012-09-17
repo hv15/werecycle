@@ -18,6 +18,7 @@
 						<input class="typeCheckbox" type="checkbox" name="<?=$id?>" value="<?=$id?>" />
 						<p class="typeName"><?=$recycle_type['name']?></p>
 						<p class="typeInfoButton">i</p>
+						<p class="typeInfoText"><?=$recycle_type['description']?></p>
 					</div>
 				<?php } ?>
 			</div>
