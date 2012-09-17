@@ -453,12 +453,14 @@ input:-ms-input-placeholder { color:    #276332;}
 
 .page-info .category {
 	height: 42px;
+	width: 300px;
+	margin-bottom: 10px;
 }
 .page-info .categoryToggle {
 	margin: 9px 9px 9px 0px;
 }
 .page-info .categoryName {
-	width: 280px;
+	width: 260px;
 }
 .page-info .typeName {
 	margin-left: 20px;
