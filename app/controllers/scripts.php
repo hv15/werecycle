@@ -11,6 +11,16 @@ class Scripts extends CI_Controller {
 		
 		$this->load->view('scripts/'.$file.'.js.php');
 	}
+	public function vendor($file)
+	{				
+		if ( ! file_exists('app/views/scripts/vendor/'.$file))
+		{
+			// Whoops, we don't have a page for that!
+			show_404();
+		}
+		
+		$this->load->view('scripts/vendor/'.$file);
+	}
 }
 
 ?>
