@@ -224,6 +224,12 @@ textarea {
 	width:128px;
 }
 
+
+.page-home .flashMessage {
+	margin:10px;
+	text-align: center;
+}
+
 .page-home #name {
 	/* Text details */
 	text-align:center;
