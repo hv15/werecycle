@@ -79,19 +79,19 @@ textarea {
 	text-shadow: 0px -1px #000;	
 }
 
-.page-select #info {
+.page-select #info, .page-info #info {
 	font-style:italic;
 	margin:10px;
 	text-align: center;
 }
 
-.page-select .category {
+.page-select .category, .page-info .category {
 	height:50px;
 	width:320px;
 	cursor:pointer;
 }
 
-.page-select .categoryToggle {
+.page-select .categoryToggle, .page-info .categoryToggle {
 	float: left;
 	margin: 9px;
 	margin-top: 9px;
@@ -100,12 +100,12 @@ textarea {
 	background-image: url('/img/closed.png');
 	background-size:100%;
 }
-.page-select .category.open .categoryToggle{
+.page-select .category.open .categoryToggle, .page-info .category.open .categoryToggle{
 	background-image: url('/img/open.png');
 	background-size:100%;
 }
 
-.page-select .categoryName {
+.page-select .categoryName, .page-info .categoryName {
 	float: left;
 	padding-top: 10px;
 	width:236px;
@@ -125,12 +125,12 @@ textarea {
 	display:inline;
 }
 
-.page-select .types {
+.page-select .types, .page-info .types {
 	width:100%;
 	display: none;
 }
 
-.page-select .type {
+.page-select .type, .page-info .type {
 	width:100%;
 	height:42px;
 	display: none;
@@ -152,7 +152,7 @@ textarea {
 }
 
 
-.page-select .typeName {
+.page-select .typeName, .page-info .typeName {
 	float: left;
 	width:236px;
 	height:32px;
@@ -160,7 +160,7 @@ textarea {
 	padding-top: 10px;
 }
 
-.page-select .typeInfoButton {
+.page-select .typeInfoButton, .page-info .typeInfoButton {
 	float: left;
 	text-align:center;
 	font-family: times;
@@ -177,12 +177,12 @@ textarea {
 	-ms-user-select: none;
 	user-select: none;
 }
-.page-select .typeInfoButton p {
+.page-select .typeInfoButton p, .page-info .typeInfoButton p {
 	position:relative;
 	top:-5px;
 }
 
-.page-select .typeInfoText {
+.page-select .typeInfoText, .page-info .typeInfoText {
 	display: none;
 	float: left;
 	font-weight: normal;
