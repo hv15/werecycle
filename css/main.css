@@ -221,6 +221,7 @@ textarea {
 }
 
 .page-select a, .page-select a:hover, .page-select a:visited{
+	color:#C2EFA4;
 	text-decoration:underline;
 }
 
