@@ -1,7 +1,6 @@
 recalculateSelected();
 $.get('/getsession', function(data) {
-  $('#debug').html(data);
-  alert('Load was performed.');
+  var userdata = $.parseJSON(data);
 });
 
 function recalculateSelected() {
