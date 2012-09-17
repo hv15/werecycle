@@ -83,9 +83,24 @@ textarea {
 	width:320px;
 }
 
+.page-select .categoryToggle {
+	float: left;
+	background: rgba(255,0,0,.2);
+	width:42px;
+	height:42px;
+}
+
 .page-select .categoryName {
+	float: left;
 	background: rgba(255,0,0,.2);
 	width:216px;
+	height:42px;
+}
+
+.page-select .categoryCount {
+	float: left;
+	background: rgba(255,0,0,.2);
+	width:42px;
 	height:42px;
 }
 
