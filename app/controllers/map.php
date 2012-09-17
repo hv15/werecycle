@@ -17,7 +17,7 @@ class Map extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function data($params)
+	public function data()
 	{
 		$data['outlets'] = $this->map_model->get_outlets();
 		$this->load->view('map/data', $data);
