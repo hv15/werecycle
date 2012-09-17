@@ -6,7 +6,7 @@
 		
 		<?php 
 		$userdata = $this->session->all_userdata();
-		$selectedtypes  = ($userdata['types_selected'] ? explode($userdata['types_selected'],',') : array();
+		$selectedtypes  = ($userdata['types_selected'] ? explode(',',$userdata['types_selected']) : array();
 		foreach($categories as $category_id => $category) { ?>
 			<div class="category" id="category<?=$category_id?>">
 				<div class="categoryToggle">►</div>
