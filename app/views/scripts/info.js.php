@@ -9,5 +9,5 @@ $('.category').click(function(index) {
 });
 
 $('.type').click(function(index) { 
-	$(this).find('.typeInfoText').toggle(); 
+	$(this).find('.typeInfoText').toggle('slow'); 
 });
