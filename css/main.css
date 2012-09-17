@@ -460,11 +460,19 @@ input:-ms-input-placeholder { color:    #276332;}
 .page-info .typeName {
 	margin-left: 20px;
 }
+.page-info .types {
+	padding-bottom: 20px;
+}
 .page-info .type {
 	height: 30px;
 }
 .page-info .type p {
 	height: 20px;
+}
+.page-info .typeInfoText {
+	margin: 5px 0px 10px 40px;
+	padding: 10px;
+	
 }
 
 /*
