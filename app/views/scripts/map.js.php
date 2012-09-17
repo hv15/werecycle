@@ -99,7 +99,7 @@ function drawMarkers(newlocation) {
 	latitude = newlocation.lat();
 	longitude = newlocation.lng();
 	
-	var newSessionData = urlencode('{distance: '+distance+', latitude: '+latitude+', longitude: '+longitude+'}');
+	var newSessionData = encodeURIComponent('{distance: '+distance+', latitude: '+latitude+', longitude: '+longitude+'}');
 	$.get('/setsession/'+newSessionData);
 	
 	// get dynamically the JSON data via data script for the markers
