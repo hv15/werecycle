@@ -70,10 +70,7 @@ function toggleLocation(){
 	// We get the button so that we can change its style, and
 	// loosly determine if GPS is on or not.
 	var button = document.getElementById("ButtonLocation");
-	if(button.className.indexOf("inactive")==-1&&!map.getCenter().equals(GeoLatLng)){
-		map.setCenter(GeoLatLng);
-		return;
-	}
+	
 	// Does the button not contain the word inactive?
 	if(button.className.indexOf("inactive")==-1){
 		// This means it is active, so we therefore turn it off
