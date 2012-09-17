@@ -12,8 +12,8 @@ function createQuery() {
 	$('.typeCheckbox:checked').each(function(){
 		types = $(this).val() + '/' + types;
 	});
-	$.get('/check/'+types), function(data){
-		alert("Data check: " + data);
+	$.get('/check/'+types, function(data) {
+		alert('Load was performed.');
 	});
 	/*window.location.href = '/map/'+types;*/
 }
