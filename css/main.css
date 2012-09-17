@@ -82,13 +82,9 @@ textarea {
 
 
 .page-select .main {
-	border: 1px solid #000;
-<<<<<<< HEAD
 	width:320px;
-=======
-	width:300px;
+	border: 1px solid #000;
 	margin: 10px;
->>>>>>> 0156be964375e94fb0d495e13b9644596ca3f90a
 	margin:0 auto;
 	font-family: Helvetica, Sans-Serif;
 	color:#D2FFB4;
@@ -113,6 +109,7 @@ textarea {
 	float: left;
 	padding-top: 10px;
 	padding-left: 10px;
+	background: rgba(255,0,0,.2);
 	width:32px;
 	height:32px;
 }
@@ -120,6 +117,7 @@ textarea {
 .page-select .categoryName {
 	float: left;
 	padding-top: 10px;
+	background: rgba(255,0,0,.2);
 	width:236px;
 	height:32px;
 	font-weight: bold;
@@ -129,6 +127,7 @@ textarea {
 	float: left;
 	display:inline;
 	padding-top: 10px;
+	background: rgba(255,0,0,.2);
 	width:42px;
 	height:32px;
 }
@@ -199,14 +198,16 @@ textarea {
 	float: left;
 	font-weight: normal;
 	font-size: 14px;
+	margin-bottom:10px;
 	padding-top:5px;
 	padding-bottom:5px;
-	padding-left: 40px;
-	width: 270px;
+	margin-left: 10px;
+	width:290px;
+	padding-left:10px;
 	padding-right:10px;
 	background:rgba(0,0,0,0.2);
-	border-top: 1px solid rgba(0,0,0,.3);
-	border-bottom: 1px solid rgba(166,256,231,.3);
+	border-top: 1 solid rgba(0,0,0,.3);
+	border-bottom: 1 solid rgba(166,256,231,.3);
 }
 		
 
