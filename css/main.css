@@ -470,6 +470,12 @@ input:-ms-input-placeholder { color:    #276332;}
 	padding: 0px;
 	margin: 0px 0px 0px 0px;
 }
+.page-info .type.open {
+	height: auto !important;
+}
+.page-info .type.open .typeName {
+	float: none !important;
+}
 .page-info .type p.typeName {
 	line-height: 46px;
 	height: auto;

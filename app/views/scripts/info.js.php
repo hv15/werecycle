@@ -9,6 +9,6 @@ $('.category').click(function(index) {
 });
 
 $('.type').click(function(index) { 
-	$(this).find('.typeName').css("float", ""); 
+	$(this).toggleClass('open');
 	$(this).find('.typeInfoText').toggle('slow');
 });
