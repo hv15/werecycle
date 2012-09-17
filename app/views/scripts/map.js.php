@@ -1,5 +1,8 @@
 $.getScript("http://maps.google.com/maps/api/js?sensor=true", function(){
+$.getScript("http://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js", function(){
+$.getScript("http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js", function(){
 
+	
 	// a global variable to access the map
 	var map;
 	var markerCluster;
@@ -184,5 +187,6 @@ $.getScript("http://maps.google.com/maps/api/js?sensor=true", function(){
 	function buttonSelect() {
 		$(location).attr('href',"./select.php?latitude="+latitude+"&longitude="+longitude+"&types="+types+"&zoom="+map_zoom);
 	}
-
+}
+}
 }

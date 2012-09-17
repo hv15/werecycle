@@ -5,8 +5,6 @@
 	<a href="./help.php"><div id="ButtonHelp" class="button"><p>?</p></div></a>
 	<a href="#" onclick="buttonSelect();"><div id="ButtonSelect" class="button"><p>Select Recyclables...</p></div></a>
 	
-	<script type="text/javascript" src="https://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js"></script>
-	<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js"></script>
 	<script type="text/javascript">
 		var map_zoom = <?php echo (isset($_GET['zoom'])) ? $_GET['zoom'] : 12 ?>;
 		var map_lat  = <?php echo (isset($_GET['latitude'])) ? $_GET['latitude'] : 55.9099 ?>;
