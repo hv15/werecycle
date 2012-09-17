@@ -82,17 +82,11 @@ textarea {
 
 
 .page-select .main {
-<<<<<<< HEAD
 	width:320px;
-=======
 	border: 1px solid #000;
-<<<<<<< HEAD
 	width:320px;
-=======
 	width:300px;
 	margin: 10px;
->>>>>>> 0156be964375e94fb0d495e13b9644596ca3f90a
->>>>>>> e171050ed74fd3b5c55f31b3131d1e479abfb21e
 	margin:0 auto;
 	font-family: Helvetica, Sans-Serif;
 	color:#D2FFB4;
@@ -100,10 +94,7 @@ textarea {
 }
 
 .page-select #info {
-<<<<<<< HEAD
-=======
 	font-style:italic;
->>>>>>> e171050ed74fd3b5c55f31b3131d1e479abfb21e
 	margin:10px;
 	text-align: center;
 }
@@ -128,10 +119,7 @@ textarea {
 .page-select .categoryName {
 	float: left;
 	padding-top: 10px;
-<<<<<<< HEAD
 	background: rgba(255,0,0,.2);
-=======
->>>>>>> e171050ed74fd3b5c55f31b3131d1e479abfb21e
 	width:236px;
 	height:32px;
 	font-weight: bold;
@@ -226,10 +214,7 @@ textarea {
 		
 
 .page-select #searchButton {
-<<<<<<< HEAD
-=======
 	float: left;
->>>>>>> e171050ed74fd3b5c55f31b3131d1e479abfb21e
 	width:320px;
 	height:50px;
 }
