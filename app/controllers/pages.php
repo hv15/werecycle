@@ -35,6 +35,12 @@ class Pages extends CI_Controller {
 			$this->session->set_userdata($sessiondata);
 		}
 		
+		if($page == 'info') {
+			if ($this->uri->segment(2) !== FALSE) {
+				$data['info'] = $this->map_model->get_info($this->uri->segment(2));
+			}
+		}
+		
 		$this->load->view('templates/header', $data);
 		$this->load->view('pages/'.$page, $data);
 		$this->load->view('templates/footer', $data);
