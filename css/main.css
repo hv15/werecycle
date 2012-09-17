@@ -451,6 +451,16 @@ input:-ms-input-placeholder { color:    #276332;}
 	text-decoration:none;
 }
 
+.page-info .categoryToggle {
+	margin: 9px 9px 9px 0px;
+}
+.page-info .typeName {
+	margin-left: 20px;
+}
+.page-info .type p {
+	height: 20px;
+}
+
 /*
 
 	Help Page
