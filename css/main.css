@@ -390,11 +390,11 @@ input:-ms-input-placeholder { color:    #276332;}
 
 .page-map #ButtonZoomIn p {
 	position:relative;
-	top: 6px;
+	top: 12px;
 }
 .page-map #ButtonZoomOut p {
 	position:relative;
-	top: 6px;
+	top: 12px;
 }
 .page-map #ButtonLocation p {
 	position:relative;
@@ -402,7 +402,7 @@ input:-ms-input-placeholder { color:    #276332;}
 }
 .page-map #ButtonHelp p {
 	position:relative;
-	top: 9px;
+	top: 12px;
 }
 .page-map #ButtonSelect p {
 	position:relative;
