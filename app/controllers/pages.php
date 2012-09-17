@@ -1,6 +1,13 @@
 <?php
 class Pages extends CI_Controller {
 
+	public function __construct()
+	{
+	    parent::__construct();
+	    $this->load->library('session');
+	    $this->load->model('map_model');
+	}
+
 	public function view($page = 'home')
 	{				
 		if ( ! file_exists('app/views/pages/'.$page.'.php'))
@@ -12,28 +19,21 @@ class Pages extends CI_Controller {
 		$data['title'] = "RecycleFinder: ".ucfirst($page); // Capitalize the first letter
 		$data['page'] = $page;
 		
+		if($page == 'select') {
+			$segarray = $this->uri->segment_array();
+			$sessiondata = array(
+				'homelatitude'  => $segarray[2],
+				'homelongitude'  => $segarray[3]
+			);
+			$this->session->set_userdata($sessiondata);
+			$data['categories'] = $this->map_model->get_categories();
+		}
+		
 		$this->load->view('templates/header', $data);
 		$this->load->view('pages/'.$page, $data);
 		$this->load->view('templates/footer', $data);
 
 	}
-
-	
-	public function select()
-	{				
-		$page = 'select';
-		$data['title'] = "RecycleFinder: ".ucfirst($page); // Capitalize the first letter
-		$data['page'] = $page;
-		
-		$array = $this->uri->segment_array();
-		$data['arraydata'] = $array;
-		
-		$this->load->view('templates/header', $data);
-		$this->load->view('pages/select', $data);
-		$this->load->view('templates/footer', $data);
-
-	}
-
 	
 }
 

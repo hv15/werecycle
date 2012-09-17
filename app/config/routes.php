@@ -40,7 +40,6 @@
 
 $route['js/vendor/(:any)'] = 'scripts/vendor/$1';
 $route['js/(:any)'] = 'scripts/view/$1';
-$route['select/(:any)'] = 'pages/select/$1';
 $route['map/data'] = 'map/data';
 $route['map/(:any)'] = 'map/view/$1';
 $route['map'] = 'map';

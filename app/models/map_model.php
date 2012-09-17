@@ -6,10 +6,23 @@ class map_model extends CI_Model {
 		$this->load->database();
 	}
 	
-	public function get_recycle_types()
+	public function get_categories()
 	{
-		$query = $this->db->query('SELECT * FROM recycle_types');
-		return $query->result_array();
+		$output = array();
+		$categoriesquery = $this->db->query('SELECT * FROM recycle_categories');
+		foreach ($categoriesquery->result_array() as $category) {
+			$catid = $category['recycle_category'];
+			$output[$catid] = array( 'name' => $category['name'], 'types' => array() );
+			
+			$typesquery = $this->db->query('SELECT * FROM recycle_types WHERE recycle_category = '.$id);
+			foreach ($typesquery->result_array() as $type) {
+				$output[$catid]['types'][$type['recycle_type']] = array( 
+					'name' => $type['recycle_type'],
+					'description' => $type['description']
+				);
+			}
+		}
+		return $output;
 	}
 	
 	public function get_outlets()
