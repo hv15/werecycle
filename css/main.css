@@ -462,6 +462,7 @@ input:-ms-input-placeholder { color:    #276332;}
 */
 
 .page-help .main {
+	position:relative;
 	color:#D2FFB4;
 	width:300px;
 	padding:10px;
