@@ -7,7 +7,6 @@
 		<?php 
 		$userdata = $this->session->all_userdata();
 		$selectedtypes  = (isset($userdata['types_selected']) ? explode(',',$userdata['types_selected']) : array());
-		print_r($selectedtypes);
 		foreach($categories as $category_id => $category) { ?>
 			<div class="category" id="category<?=$category_id?>">
 				<div class="categoryToggle">►</div>
@@ -20,7 +19,7 @@
 				<?php foreach($category['types'] as $id => $recycle_type) { ?>
 					<div class="type" id="type<?=$id?>">
 						<p class="typeCheckboxP">
-							<input class="typeCheckbox" type="checkbox" <?=(in_array($id,$selectedtypes) ? '"checked"="checked"' : '')?> id="checkbox<?=$id?>" name="checkbox<?=$id?>" value="<?=$id?>" />
+							<input class="typeCheckbox" type="checkbox" <?=(in_array($id,$selectedtypes) ? 'checked="checked"' : '')?> id="checkbox<?=$id?>" name="checkbox<?=$id?>" value="<?=$id?>" />
 						</p>
 						<label for="checkbox<?=$id?>" class="typeName"><?=$recycle_type['name']?></label>
 						<p class="typeInfoButton">i</p>
