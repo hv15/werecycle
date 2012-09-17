@@ -20,7 +20,7 @@ body {
     font-size: 1em;
     line-height: 1.4;
     background-color: #276332;
-    background-image: url("../graphics/noise.png");
+    background-image: url("/img/noise.png");
 }
 
 ::-moz-selection {
@@ -392,7 +392,7 @@ input:-ms-input-placeholder { color:    #276332;}
 
 	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #95E376;
 	background-color:#2E733A;
-	background-image: url("../graphics/noise.png");
+	background-image: url("/img/noise.png");
 	cursor:pointer;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
