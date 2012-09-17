@@ -413,12 +413,18 @@ input:-ms-input-placeholder { color:    #276332;}
 	top: 12px;
 }
 
+/*
+
+*/
+.map-info .nametitle, .map-info .addresstitle, .map-info .outlettypestitle {
+	font-weight:bold;
+}
 
 
 
 
 /*
-	Describes the buttons that they user can click on.
+	Describes the buttons that the user can click on.
 */
 .button{
 	/* Text details */
