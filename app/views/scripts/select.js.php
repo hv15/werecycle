@@ -14,6 +14,7 @@ function createQuery() {
 	});
 	$.get('/check/'+types, function(data) {
 		if(data>0) {
+			/*alert("There are "+data+" recycle points which fit this selection. Redirecting you to the map...");*/
 			window.location.href = '/map/'+types;
 		} else {
 			alert("There are no recycle points available which allow that combination of types, please de-select some and try again");
