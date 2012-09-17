@@ -25,8 +25,7 @@ class Pages extends CI_Controller {
 		$data['title'] = "RecycleFinder: ".ucfirst($page); // Capitalize the first letter
 		$data['page'] = $page;
 		
-		$default = array('latitude', 'longitude');
-		$array = $this->uri->uri_to_assoc(2, $default);
+		$array = $this->uri->uri_to_assoc(2);
 		$data['arraydata'] = $array;
 		
 		$this->load->view('templates/header', $data);
