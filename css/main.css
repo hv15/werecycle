@@ -486,7 +486,7 @@ input:-ms-input-placeholder { color:    #276332;}
 	color:#D2FFB4;
 	text-decoration:underline;
 }
-.page-help #ButtonBack {
+#ButtonBack {
 	width:50px;
 	float: left;
 	margin-right:20px;
