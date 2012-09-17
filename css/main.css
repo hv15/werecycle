@@ -109,8 +109,8 @@ textarea {
 	background-image: url('/img/closed.png');
 	background-size:100%;
 }
-.page-select .categoryToggle.open{
-	background: url('/img/open.png');
+.page-select .category.open .categoryToggle{
+	background-image: url('/img/open.png');
 	background-size:100%;
 }
 
