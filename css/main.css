@@ -191,13 +191,12 @@ textarea {
 	margin-bottom:10px;
 	padding-top:5px;
 	padding-bottom:5px;
-	margin-left: 10px;
-	width:290px;
-	padding-left:10px;
+	padding-left: 40px;
+	width: 320px;
 	padding-right:10px;
 	background:rgba(0,0,0,0.2);
-	border-top: 1 solid rgba(0,0,0,.3);
-	border-bottom: 1 solid rgba(166,256,231,.3);
+	border-top: 1px solid rgba(0,0,0,.3);
+	border-bottom: 1px solid rgba(166,256,231,.3);
 }
 		
 
