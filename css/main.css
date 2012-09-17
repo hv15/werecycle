@@ -398,23 +398,23 @@ input:-ms-input-placeholder { color:    #276332;}
 
 /*Describes button text/image positions (using a paragraph block)*/
 
-.page-map #ButtonZoomIn p{
+.page-map #ButtonZoomIn p {
 	position:relative;
 	top: 6px;
 }
-.page-map #ButtonZoomOut p{
+.page-map #ButtonZoomOut p {
 	position:relative;
 	top: 6px;
 }
-.page-map #ButtonLocation p{
+.page-map #ButtonLocation p {
 	position:relative;
 	top: 9px;
 }
-.page-map #ButtonHelp p{
+.page-map #ButtonHelp p {
 	position:relative;
 	top: 9px;
 }
-.page-map #ButtonSelect p{
+.page-map #ButtonSelect p {
 	position:relative;
 	top: 12px;
 }
@@ -433,7 +433,11 @@ input:-ms-input-placeholder { color:    #276332;}
 	float:left;
 	padding-left:20px;
 }
+.page-info .address {
+	padding-bottom:20px;
+}
 .page-info .button {
+	float:left;
 	height:42px;
 }
 .page-info .button p{
