@@ -62,6 +62,7 @@ class map_model extends CI_Model {
 		
 		$query = $this->db->query($sql);
 		
+		$output = '';
 		foreach ($query->result_array() as $row) {
 		    $output .= '{"id":'.$row['outlet_id'].',"type":'.$row['outlet_type'].',"lat":'.$row['latitude'].',"lon":'.$row['longitude'].',"name":"'.$row['outlet_name'].'"},';
 		}
