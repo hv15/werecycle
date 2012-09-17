@@ -44,7 +44,7 @@ class Pages extends CI_Controller {
 	public function data()
 	{
 		$data['outlets'] = $this->map_model->get_outlets();
-		$this->load->view('map/data', $data);
+		$this->load->view('pages/data', $data);
 	}
 }
 
