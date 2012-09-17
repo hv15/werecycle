@@ -432,8 +432,8 @@ input:-ms-input-placeholder { color:    #276332;}
 	float:left;
 	padding-left:20px;
 }
-.page-info .address:after {
-	content: " (Open in Google Maps) ";
+.page-info .addresstitle:after {
+	content: " (Click to open in Google Maps) ";
 }
 .page-info .address {
 	padding-bottom:20px;
