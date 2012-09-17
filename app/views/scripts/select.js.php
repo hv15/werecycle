@@ -31,10 +31,10 @@ $('.category').click(function(index) {
 	$(this).next().children().toggle();
 });
 
-$('.typeCheckbox').change(function() {
-	recalculateSelected();
-});
-
 $('.typeInfoButton').click(function(index) { 
 	$(this).next().toggle(); 
+});
+
+$('.typeCheckbox').change(function() {
+	recalculateSelected();
 });
