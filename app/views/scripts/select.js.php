@@ -23,3 +23,7 @@ $('.category').click(function(index) {
 $('.typeCheckbox').change(function() {
 	recalculateSelected();
 });
+
+$('.typeInfoButton').click(function(index) { 
+	$(this).next().toggle(); 
+});
