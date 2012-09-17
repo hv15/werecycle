@@ -91,7 +91,7 @@ textarea {
 
 .page-select .types {
 	width:100%;
-	display: hidden;
+	display: none;
 }
 
 .page-select .type {
@@ -99,6 +99,7 @@ textarea {
 	height:42px;
 	margin:0px;
 	padding:0px;
+	display: none;
 }
 
 .page-select .typeCheckbox {
