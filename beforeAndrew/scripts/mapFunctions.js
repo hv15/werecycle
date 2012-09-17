@@ -128,7 +128,6 @@ function drawMarkers(newlocation) {
 			markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
 		}
 	}});
-	google.maps.event.clearListeners(map, 'bounds_changed');
 }
 
 /*
@@ -158,18 +157,16 @@ function initialize(){
 		was clicked on.
 	*/
 	
-	google.maps.event.addListener(map, 'bounds_changed', function() {
+	google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
 		drawMarkers(map_pos);
 	});
 	
 	google.maps.event.addListener(map, 'dragend', function() {
-		alert("Drag ended");
 		var newlocation = map.getCenter();
 		drawMarkers(newlocation);
 	});
 	
 	google.maps.event.addListener(map, 'zoom_changed', function() {
-		alert("Zoom Changed");
 		map_zoom = map.getZoom();
 		var newlocation = map.getCenter();
 		drawMarkers(newlocation);
