@@ -131,6 +131,7 @@ textarea {
 	float: left;
 	background: rgba(255,0,0,.2);
 	width:42px;
+	height:32px;
 	padding-top: 10px;
 	text-align:center;
 }
@@ -145,6 +146,7 @@ textarea {
 	float: left;
 	background: rgba(255,0,0,.2);
 	width:236px;
+	height:32px;
 	cursor:pointer;
 	padding-top: 10px;
 	font-weight: bold;
@@ -160,6 +162,7 @@ textarea {
 	font-size: 20px;
 	padding-top: 10px;
 	width:42px;
+	height:32px;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
