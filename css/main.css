@@ -429,7 +429,7 @@ input:-ms-input-placeholder { color:    #276332;}
 	font-weight:bold;
 }
 
-.page-info .name, .page-info .address,.page-info div[class|="recycle_type"] {
+.page-info .name, .page-info .address, .page-info span[class|="recycle_type"] {
 	float:left;
 	padding-left:20px;
 }
