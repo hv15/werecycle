@@ -462,9 +462,6 @@ input:-ms-input-placeholder { color:    #276332;}
 .page-info .categoryName {
 	width: 260px;
 }
-.page-info .typeName {
-	margin-left: 20px;
-}
 .page-info .types {
 	margin-bottom: 35px;
 }
@@ -475,9 +472,11 @@ input:-ms-input-placeholder { color:    #276332;}
 	margin: 0px 0px 0px 0px;
 }
 .page-info .type p {
-	height: 25px;
 	padding: 0px;
 	margin: 0px;
+}
+.page-info .typeName {
+	margin-left: 20px;
 }
 .page-info .typeInfoText {
 	margin: 10px 30px 10px 20px;
