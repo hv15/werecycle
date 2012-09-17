@@ -80,11 +80,13 @@ function toggleLocation() {
 		google.maps.event.addListener(GeoMarker, "geolocation_error", function(e) {
 			if(button.className.indexOf("inactive")==-1){
 				alert("Position could not be established.");
-				button.className = button.className.replace("active","inactive");
+				$("#ButtonLocation").removeClass("active").addClass("inactive");
 			}
 		});
 		GeoMarker.setMap(map);
-		map.setCenter(GeoMarker.getPosition());
+		setTimeout(function(){
+			map.setCenter(GeoMarker.getPosition())
+		},1000);
 	}
 }
 
