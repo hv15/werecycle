@@ -433,6 +433,7 @@ input:-ms-input-placeholder { color:    #276332;}
 	padding-left:20px;
 }
 .page-info .addresstitle:after {
+	font-size:10px;
 	content: " (Click to open in Google Maps) ";
 }
 .page-info .address {
