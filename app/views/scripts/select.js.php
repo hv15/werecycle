@@ -12,7 +12,7 @@ function createQuery() {
 	$('.typeCheckbox:checked').each(function(){
 		types = $(this).val() + ',' + types;
 	});
-	alert(types);
+	window.location.href = '/map/'+types;
 }
 
 $('.category').click(function(index) { 
