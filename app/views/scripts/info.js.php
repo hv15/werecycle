@@ -8,6 +8,6 @@ $('.category').click(function(index) {
 	$(this).next().children().toggle();
 });
 
-$('.typeInfoButton').click(function(index) { 
-	$(this).next().toggle(); 
+$('.type').click(function(index) { 
+	$(this).find('.typeInfoText').toggle(); 
 });
