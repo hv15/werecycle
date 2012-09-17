@@ -462,12 +462,6 @@ input:-ms-input-placeholder { color:    #276332;}
 	text-align: center;
 	text-shadow: 0px -1px #000;
 }
-.page-help .main {
-	width:300px;
-	padding:10px;
-	margin:0 auto;
-	text-align: center;	
-}
 .page-help ul,.page-help p {
 	text-align:left;
 }
@@ -480,6 +474,10 @@ input:-ms-input-placeholder { color:    #276332;}
 	font-style:oblique;
 	text-align:center;
 	margin-bottom:20px;
+}
+.page-help a, .page-info a:hover, .page-info a:visited{
+	color:#D2FFB4;
+	text-decoration:underline;
 }
 
 /*
