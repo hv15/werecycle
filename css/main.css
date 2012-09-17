@@ -279,10 +279,10 @@ textarea {
 	position: relative;
 	height:32px;
 	width:32px;
-	right:10px;
-	top:5px;
+	right:4px;
+	top:-5px;
 	background-image: url('/img/loading.gif');
-	background-size: 50%;
+	background-size: 100%;
 }
 .page-home #geoCode {
 	width:280px;
