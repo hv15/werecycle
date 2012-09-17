@@ -419,6 +419,7 @@ input:-ms-input-placeholder { color:    #276332;}
 	position:relative;
 	width:300px;
 	padding:10px;
+	padding:40px;
 	margin:0 auto;
 	font-family: Helvetica, Sans-Serif;
 	color:#D2FFB4;
