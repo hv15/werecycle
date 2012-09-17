@@ -81,6 +81,7 @@ textarea {
 .page-select .category {
 	height:50px;
 	width:320px;
+	cursor:pointer;
 }
 
 .page-select .categoryToggle {
