@@ -19,11 +19,8 @@ class Pages extends CI_Controller {
 		$data['page'] = $page;
 		
 		if($page == 'select') {
-			$segarray = $this->uri->segment_array();
-			$sessiondata = array(
-				'homelatitude'  => $segarray[2],
-				'homelongitude'  => $segarray[3]
-			);
+			$default = array('homelatitude', 'homelongitude');
+			$array = $this->uri->uri_to_assoc(1, $default);
 			$this->session->set_userdata($sessiondata);
 			$data['categories'] = $this->map_model->get_categories();
 		}
