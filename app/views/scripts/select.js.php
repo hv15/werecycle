@@ -1,8 +1,8 @@
 function recalculateSelected() {
 	$('.category').each(function(index) {
-		var newval = $(this).next().children().length;
+		var newval = $(this).next().find('.typeCheckbox').length;
 		alert("newval = "+newval);
-		$(this).children('.selectedCount').text(newval);
+		$(this).find('.selectedCount').text(newval);
 	});
 }
 
