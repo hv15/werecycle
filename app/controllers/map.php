@@ -13,7 +13,7 @@ class Map extends CI_Controller {
 		$data['outlets'] = $this->map_model->get_outlets();
 		
 		$this->load->view('templates/header', $data);
-		$this->load->view('map/'.$page, $data);
+		$this->load->view('map/map', $data);
 		$this->load->view('templates/footer');
 	}
 
