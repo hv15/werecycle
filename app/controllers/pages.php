@@ -82,7 +82,7 @@ class Pages extends CI_Controller {
 		
 		$outletsarray = $this->map_model->get_outlets($types,$latitude,$longitude);
 		
-		$data['count'] = count($outletsarray);
+		$data['outlets'] = count($outletsarray);
 		$this->load->view('pages/data', $data);
 	}
 	
