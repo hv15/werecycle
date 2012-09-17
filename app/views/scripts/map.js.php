@@ -98,7 +98,7 @@ function drawMarkers(newlocation) {
 	latitude = newlocation.lat();
 	longitude = newlocation.lng();
 	
-	// get dynamically the JSON data via data.php for the markers
+	// get dynamically the JSON data via data script for the markers
 	var urly = "http://recyclefinder.co.uk/data";
 
 	$.ajax({ type: 'GET', url: urly, success: function(check) {
@@ -180,7 +180,7 @@ function initialize(){
 }
 
 function buttonSelect() {
-	$(location).attr('href',"./select.php?latitude="+latitude+"&longitude="+longitude+"&types="+types+"&zoom="+map_zoom);
+	$(location).attr('href',"/select");
 }
 
 var map_zoom = <?php echo (isset($_GET['zoom'])) ? $_GET['zoom'] : 12 ?>;
