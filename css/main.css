@@ -107,13 +107,14 @@ textarea {
 	padding-left: 10px;
 	width:32px;
 	height:32px;
+	color: rgba(0,255,0,0.2);
 }
 .page-select .categoryToggle.open{
 	background: url('img/open.png');
 	background-size:100%;
 }
 .page-select .categoryToggle.closed{
-	background: url('img/open.png');
+	background: url('img/closed.png');
 	background-size:100%;
 }
 
