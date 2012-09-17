@@ -1,5 +1,5 @@
 recalculateSelected();
-$('#debug').text(readCookie('recycle_session'));
+$('#debug').text(readCookie('recyclefinder_session'));
 	
 function recalculateSelected() {
 	$('.category').each(function(index) {
