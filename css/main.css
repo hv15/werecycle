@@ -99,9 +99,14 @@ textarea {
 
 .page-select .categoryCount {
 	float: left;
+	display:inline;
 	background: rgba(255,0,0,.2);
 	width:42px;
 	height:42px;
+}
+
+.page-select .categoryCount p {
+	display:inline;
 }
 
 .page-select .types {

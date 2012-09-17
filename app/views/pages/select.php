@@ -8,7 +8,9 @@
 			<div class="category" id="category<?=$category_id?>">
 				<div class="categoryToggle">►</div>
 				<div class="categoryName"><?=$category['name'];?></div>
-				<div class="categoryCount"><p class="selectedCount">0</p>/<p class="totalCount"><?=count($category['types'])?></p></div>
+				<div class="categoryCount">
+					<p class="selectedCount">0</p>/<p class="totalCount"><?=count($category['types'])?></p>
+				</div>
 			</div>
 			<div class="types" id="category<?=$category_id?>Types">
 				<?php foreach($category['types'] as $id => $recycle_type) { ?>
