@@ -83,8 +83,7 @@ textarea {
 
 .page-select .main {
 	border: 1px solid #000;
-	width:340px;
-	margin: 10px;
+	width:320px;
 	margin:0 auto;
 	font-family: Helvetica, Sans-Serif;
 	color:#D2FFB4;
@@ -92,16 +91,17 @@ textarea {
 }
 
 .page-select #info {
-	padding-top:10px;
-	padding-bottom:10px;
 	font-style:italic;
+	margin:10px;
 	text-align: center;
 }
 
 .page-select .category {
 	height:50px;
-	width:300px;
+	width:320px;
 	cursor:pointer;
+	border-top: 1px solid rgba(0,0,0,.3);
+	border-bottom: 1px solid rgba(166,256,231,.3);
 }
 
 .page-select .categoryToggle {
@@ -115,7 +115,7 @@ textarea {
 .page-select .categoryName {
 	float: left;
 	padding-top: 10px;
-	width:216px;
+	width:236px;
 	height:32px;
 	font-weight: bold;
 }
@@ -161,7 +161,7 @@ textarea {
 
 .page-select .typeName {
 	float: left;
-	width:216px;
+	width:236px;
 	height:32px;
 	cursor:pointer;
 	padding-top: 10px;
@@ -184,6 +184,10 @@ textarea {
 	-ms-user-select: none;
 	user-select: none;
 }
+.page-select .typeInfoButton p {
+	position:relative;
+	top:-5px;
+}
 
 .page-select .typeInfoText {
 	display: none;
@@ -202,7 +206,8 @@ textarea {
 		
 
 .page-select #searchButton {
-	width:300px;
+	float: left;
+	width:320px;
 	height:50px;
 }
 
