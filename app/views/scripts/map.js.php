@@ -124,7 +124,7 @@ function drawMarkers(newlocation) {
 					}    
 				})(marker, i, outlet.name, outlet.id, outlet.type));
 			}
-			setCenter
+			
 			// Clear all markers
 			if(markerCluster) {
 				markerCluster.clearMarkers();
