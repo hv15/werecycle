@@ -114,7 +114,6 @@ function drawMarkers(newlocation) {
 	var urly = "/data";
 
 	$.ajax({ type: 'GET', url: urly, success: function(check) {
-		console.log(check);
 		eval(check);
 		
 		var markers = [];
