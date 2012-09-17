@@ -10,8 +10,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="<?php site_url('css/normalize.min.css'); ?>">
-        <link rel="stylesheet" href="<?php site_url('css/main.css'); ?>">
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
 
         <script src="<?php site_url('js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'); ?>"></script>
     </head>
