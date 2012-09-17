@@ -71,16 +71,6 @@ textarea {
    Andrew's adaptation of Leif's styling
    ========================================================================== */
 
-
-.page-info .main {
-	width:320px;
-	margin:0 auto;
-	font-family: Helvetica, Sans-Serif;
-	color:#D2FFB4;
-	text-shadow: 0px -1px #000;	
-}
-
-
 .page-select .main {
 	width:320px;
 	margin:0 auto;
@@ -421,9 +411,18 @@ input:-ms-input-placeholder { color:    #276332;}
 
 /*
 
+
+	Info Page
+
+
 */
 .page-info .main {
+	width:300px;
 	padding:10px;
+	margin:0 auto;
+	font-family: Helvetica, Sans-Serif;
+	color:#D2FFB4;
+	text-shadow: 0px -1px #000;	
 }
 .page-info .nametitle, .page-info .addresstitle, .page-info .outletypestitle {
 	font-weight:bold;
@@ -444,9 +443,10 @@ input:-ms-input-placeholder { color:    #276332;}
 }
 .page-info .button p{
 	position:relative;
-	top:12px;
+	top:8px;
 }
 .page-info a, .page-info a:hover, .page-info a:visited{
+	color:#D2FFB4;
 	text-decoration:none;
 }
 
