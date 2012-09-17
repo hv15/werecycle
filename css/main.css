@@ -137,7 +137,8 @@ textarea {
 }
 
 .page-select .typeCheckbox {
-	
+	height: 20px;
+	width: 20px;
 }
 
 
@@ -146,6 +147,7 @@ textarea {
 	background: rgba(255,0,0,.2);
 	width:236px;
 	height:32px;
+	cursor:pointer;
 	padding-top: 10px;
 	font-weight: bold;
 }
