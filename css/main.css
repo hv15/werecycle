@@ -85,13 +85,16 @@ textarea {
 
 .page-select .categoryToggle {
 	float: left;
+	padding-top: 10px;
+	padding-left: 10px;
 	background: rgba(255,0,0,.2);
-	width:42px;
+	width:32px;
 	height:42px;
 }
 
 .page-select .categoryName {
 	float: left;
+	padding-top: 10px;
 	background: rgba(255,0,0,.2);
 	width:216px;
 	height:42px;
@@ -100,6 +103,7 @@ textarea {
 .page-select .categoryCount {
 	float: left;
 	display:inline;
+	padding-top: 10px;
 	background: rgba(255,0,0,.2);
 	width:42px;
 	height:42px;
