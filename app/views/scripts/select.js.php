@@ -1,7 +1,6 @@
 function recalculateSelected() {
-	alert("recalculating");
 	$('.category').each(function(index) {
-		var newval = $(this).next().children(':checked').length;
+		var newval = $(this).next().children('.typeCheckbox').length;
 		alert("newval = "+newval);
 		$(this).children('.selectedCount').text(newval);
 	});
@@ -13,6 +12,5 @@ $('.category').click(function(index) {
 });
 
 $('.typeCheckbox').change(function() {
-	alert("change noticed");
 	recalculateSelected();
 });
