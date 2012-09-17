@@ -75,7 +75,7 @@ class Pages extends CI_Controller {
 		unset($segarray[1]);
 		$userdata = $this->session->all_userdata();
 		if(count($segarray)>0) {
-			$types = array('types_selected' => implode($segarray,','));
+			$types = implode($segarray,',');
 		}
 		$latitude = $userdata['home_latitude'];
 		$longitude = $userdata['home_longitude'];
