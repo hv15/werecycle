@@ -137,7 +137,6 @@ function drawMarkers(newlocation) {
 	3. Adds all the points found in the requested file based on parameters.
 */
 function initialize(){
-	alert("initialized");
 	/*
 		Create a google map interface with the following params
 	*/
@@ -190,5 +189,4 @@ var map_lon  = <?php echo (isset($_GET['longitude'])) ? $_GET['longitude'] : -3.
 var map_pos  = new google.maps.LatLng(map_lat, map_lon);
 var types  = '<?php echo (isset($_GET['types'])) ? $_GET['types'] : '6,7,2,16,1' ?>';
 
-alert("pre-original-lisa");
 google.maps.event.addDomListener(window, 'load', initialize);
