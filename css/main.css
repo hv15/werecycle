@@ -438,6 +438,8 @@ input:-ms-input-placeholder { color:    #276332;}
 }
 .page-info .button {
 	float:left;
+	margin-top:20px;
+	width:300px;
 	height:42px;
 }
 .page-info .button p{
@@ -445,8 +447,6 @@ input:-ms-input-placeholder { color:    #276332;}
 	top:12px;
 }
 .page-info a, .page-info a:hover, .page-info a:visited{
-	padding-top:20px;
-	width:300px;
 	text-decoration:none;
 }
 
