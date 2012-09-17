@@ -269,7 +269,7 @@ textarea {
 	position: relative;
 	height:32px;
 	width:32px;
-	right:-40px;
+	right:5px;
 	top:-15px;
 	background-image: url('/img/loading.gif');
 	background-size: 100%;
