@@ -215,14 +215,6 @@ textarea {
 	text-decoration:underline;
 }
 
-
-.page-help .main {
-	width:320px;
-	margin:0 auto;
-	text-align: center;	
-}
-
-
 .page-home .main {
 	width:320px;
 	margin:0 auto;
@@ -456,7 +448,24 @@ input:-ms-input-placeholder { color:    #276332;}
 	text-decoration:none;
 }
 
+/*
 
+	Help Page
+
+*/
+
+.page-help .main {
+	width:300px;
+	padding:10px;
+	margin:0 auto;
+	text-align: center;	
+}
+.page-help .main {
+	width:300px;
+	padding:10px;
+	margin:0 auto;
+	text-align: center;	
+}
 
 
 /*
