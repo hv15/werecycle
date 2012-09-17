@@ -13,9 +13,12 @@ function createQuery() {
 		types = $(this).val() + '/' + types;
 	});
 	$.get('/check/'+types, function(data) {
-		alert('data: '+data);
+		if(data>0) {
+			window.location.href = '/map/'+types;
+		} else {
+			alert("There are no recycle points available which allow that combination of types, please de-select some and try again");
+		}
 	});
-	/*window.location.href = '/map/'+types;*/
 }
 
 $('.category').click(function(index) { 
