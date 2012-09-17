@@ -108,7 +108,13 @@ function toggleLocation(){
 }
 
 function drawMarkers(newlocation) {
-	var distance = (21 - map_zoom) * 5;
+	if(map_zoom > 18) {
+		distance = 10;
+	} else if(map_zoom <8) {
+		distance = 1000;
+	} else {
+		var distance = (21 - map_zoom) * 5;
+	}
 	latitude = newlocation.lat();
 	longitude = newlocation.lng();
 	
