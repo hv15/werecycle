@@ -24,6 +24,28 @@ class map_model extends CI_Model {
 		return $output;
 	}
 	
+	public function get_outlet_categories($id)
+	{
+		$sqlcats = "SELECT DISTINCT recycle_categories.recycle_category,recycle_categories.name FROM outlets_recycle_types,recycle_types,recycle_categories WHERE `outlets_recycle_types`.`recycle_type`=`recycle_types`.`recycle_type` AND `outlet_id` = $id AND recycle_types.recycle_category = recycle_categories.recycle_category" ;
+		$catsquery = $this->db->query($sqlcats);
+				
+		$output = array();
+		foreach ($catsquery->result_array() as $category) {
+			$catid = $category['recycle_category'];
+			$output[$catid] = array( 'name' => $category['name'], 'types' => array() );
+
+			$sqltypes = "SELECT `recycle_types`.`recycle_type`,`recycle_types`.`name`,`recycle_types`.`description` FROM `outlets_recycle_types`,`recycle_types` WHERE `outlets_recycle_types`.`recycle_type`=`recycle_types`.`recycle_type` AND `outlet_id` = $id AND recycle_types.recycle_category = $catid";
+			$typesquery = $this->db->query($sqltypes);
+			foreach ($typesquery->result_array() as $type) {
+				$output[$catid]['types'][$type['recycle_type']] = array( 
+					'name' => $type['name'],
+					'description' => $type['description']
+				);
+			}
+		}
+		return $output;
+	}
+	
 	public function get_outlets($types='6,13',$latitude=55.9099,$longitude=-3.3220,$distance=10)
 	{
 		include(APPPATH.'libraries/latlong_box.php');
@@ -115,7 +137,7 @@ class map_model extends CI_Model {
 			$output .= "<span class='openhourstitle'>Opening Hours</span><br />\n".$openhours;
 		    }
 		    
-		    // Build SQL query to get outlet information for all selected types
+		    /*// Build SQL query to get outlet information for all selected types
 		    $sql = "SELECT `recycle_types`.`recycle_type`,`recycle_types`.`name` FROM `outlets_recycle_types`,`recycle_types` WHERE `outlets_recycle_types`.`recycle_type`=`recycle_types`.`recycle_type` AND `outlet_id` = $id";
 		    $query = $this->db->query($sql);
 		    $output .= "<span class='outletypestitle'>What you can Recycle here:</span><br />\n";
@@ -129,7 +151,7 @@ class map_model extends CI_Model {
 			} else {
 				$output .= "</span><br /><br />\n\n";
 			}
-		    }
+		    }*/
 		return $output;
 	}
 }

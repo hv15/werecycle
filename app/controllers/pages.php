@@ -40,6 +40,7 @@ class Pages extends CI_Controller {
 		if($page == 'info') {
 			if ($this->uri->segment(2) !== FALSE) {
 				$data['info'] = $this->map_model->get_info($this->uri->segment(2));
+				$data['categories'] = $this->map_model->get_outlet_categories($this->uri->segment(2));
 			}
 		}
 		
