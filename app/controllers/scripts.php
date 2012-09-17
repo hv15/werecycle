@@ -9,7 +9,7 @@ class Scripts extends CI_Controller {
 			show_404();
 		}
 		
-		$this->load->view('scripts/'.$file.'.js');
+		$this->load->view('scripts/'.$file.'.js.php');
 	}
 }
 
