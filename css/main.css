@@ -212,6 +212,14 @@ textarea {
 	padding-top: 14px;
 }
 
+
+.page-help .main {
+	width:320px;
+	margin:0 auto;
+	text-align: center;	
+}
+
+
 .page-home .main {
 	width:320px;
 	margin:0 auto;
@@ -269,10 +277,10 @@ textarea {
 	position: relative;
 	height:32px;
 	width:32px;
-	right:-4px;
-	top:-16px;
-	background-image: url('/img/loading.gif');
-	background-size: 100%;
+	right:10px;
+	top:5px;
+	background-image: url('/img/loading.png');
+	background-size: 50%;
 }
 .page-home #geoCode {
 	width:280px;
