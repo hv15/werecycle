@@ -20,7 +20,7 @@ class Pages extends CI_Controller {
 		
 		if($page == 'select') {
 			$default = array('homelatitude', 'homelongitude');
-			$array = $this->uri->uri_to_assoc(1, $default);
+			$sessiondata = $this->uri->uri_to_assoc(1, $default);
 			$this->session->set_userdata($sessiondata);
 			$data['categories'] = $this->map_model->get_categories();
 		}
