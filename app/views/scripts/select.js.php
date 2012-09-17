@@ -1,3 +1,3 @@
-$('.category').each(function(index) { 
+$('.category').click(function(index) { 
 	$(this).next().toggle("fast");
 });
