@@ -471,6 +471,7 @@ input:-ms-input-placeholder { color:    #276332;}
 }
 .page-info .type p {
 	height: 30px;
+	padding-top: 0px;
 }
 .page-info .typeInfoText {
 	margin: 10px 30px 10px 20px;
