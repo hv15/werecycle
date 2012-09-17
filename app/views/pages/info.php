@@ -1,11 +1,9 @@
 	<div class="main-container">
             <div class="main wrapper clearfix">	
-		<div id="ButtonBack" onclick="history.back();" class="button">
-			Back
-		</div>
+            	<div onclick="history.back();" class="button" id="ButtonBack">Back</div>
 		
-		<?php echo $info; ?>
-				
+		<?php echo $info; 
+		
 		foreach($categories as $category_id => $category) { ?>
 			<div class="category" id="category<?=$category_id?>">
 				<div class="categoryToggle"></div>
