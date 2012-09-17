@@ -8,25 +8,25 @@ var GeoMarker;
 var GeoLatLng;
 var GeoBounds;
 // icons and styles used
-var geoIcon = "graphics/geoicon.png";
-//var recyclePointIcon = "graphics/recyclePoint.png";
-//var recycleCenterIcon = "graphics/recycleCenter.png";
+var geoIcon = "/img/geoicon.png";
+//var recyclePointIcon = "/img/recyclePoint.png";
+//var recycleCenterIcon = "/img/recycleCenter.png";
 var clusterStyle = [{
-	url: "graphics/recycle35.png",
+	url: "/img/recycle35.png",
 	height: 35,
 	width: 35,
 	anchor: [10, 0],
 	textColor: "#000",
 	textSize: 14
       }, {
-	url: "graphics/recycle45.png",
+	url: "/img/recycle45.png",
 	height: 45,
 	width: 45,
 	anchor: [15, 0],
 	textColor: "#D2FFB5",
 	textSize: 16
       }, {
-	url: "graphics/recycle55.png",
+	url: "/img/recycle55.png",
 	height: 55,
 	width: 55,
 	anchor: [18, 0],
