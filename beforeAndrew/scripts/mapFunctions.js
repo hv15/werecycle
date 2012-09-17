@@ -99,7 +99,7 @@ function drawMarkers(newlocation) {
 	longitude = newlocation.lng();
 	
 	// get dynamically the JSON data via data.php for the markers
-	var urly = "http://recyclefinder.co.uk/data.php?longitude="+longitude+"&latitude="+latitude+"&distance="+distance+"&types="+types;
+	var urly = "http://recyclefinder.co.uk/beforeAndrew/data.php?longitude="+longitude+"&latitude="+latitude+"&distance="+distance+"&types="+types;
 
 	$.ajax({ type: 'GET', url: urly, success: function(check) {
 		eval(check);	
