@@ -416,7 +416,7 @@ input:-ms-input-placeholder { color:    #276332;}
 /*
 
 */
-.map-info .nametitle, .map-info .addresstitle, .map-info .outlettypestitle {
+.page-info .nametitle, .page-info .addresstitle, .page-info .outlettypestitle {
 	font-weight:bold;
 }
 
