@@ -416,6 +416,7 @@ input:-ms-input-placeholder { color:    #276332;}
 
 */
 .page-info .main {
+	position:relative;
 	width:300px;
 	padding:10px;
 	margin:0 auto;
