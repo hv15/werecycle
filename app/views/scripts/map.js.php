@@ -86,7 +86,7 @@ function toggleLocation() {
 		GeoMarker.setMap(map);
 		setTimeout(function(){
 			map.setCenter(GeoMarker.getPosition())
-		},1000);
+		},500);
 	}
 }
 
