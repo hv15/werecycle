@@ -49,7 +49,7 @@ class Pages extends CI_Controller {
 	
 	public function get_session() 
 	{
-		$data['outlets'] = json_encode(($this->session->all_userdata());
+		$data['outlets'] = json_encode($this->session->all_userdata());
 		$this->load->view('pages/data', $data);
 	}
 	
