@@ -517,6 +517,7 @@ input:-ms-input-placeholder { color:    #276332;}
 	width:20px;
 	padding:10px 10px 5px 10px;
 	font-size:16px;
+	text-decoration: none;
 }
 .page-home #ButtonBack{
 	right:0px;
