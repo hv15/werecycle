@@ -239,6 +239,8 @@ textarea {
 }
 .page-home #help {
 	float: right;
+	margin-right:20px;
+	margin-left:-20px;
 	padding:10px;
 	font-size:12px;
 }
@@ -268,7 +270,7 @@ textarea {
 }
 .page-home #geoLocationButton {
 	height:42px;
-	width:100%;
+	width:280px;
 	margin:0 auto;
 	margin-bottom:10px;
 }
@@ -282,7 +284,7 @@ textarea {
 	background-size: 100%;
 }
 .page-home #geoCode {
-	width:100%;
+	width:280px;
 	margin:0 auto;
 	margin-bottom:10px;
 }
