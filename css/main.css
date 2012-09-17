@@ -109,12 +109,11 @@ textarea {
 	height:32px;
 }
 .page-select .categoryToggle.open{
-	float: left;
-	padding-top: 10px;
-	padding-left: 10px;
-	width:32px;
-	height:32px;
-	background: url('img/open.png')
+	background: url('img/open.png');
+	background-size:100%;
+}
+.page-select .categoryToggle.closed{
+	background: url('img/open.png');
 	background-size:100%;
 }
 
