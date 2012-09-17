@@ -2,7 +2,9 @@
             <div class="main wrapper clearfix">
 		<?php echo $info; ?>
 		<div id="ButtonInfoBack" class="button">
-			<a href="/map">Back to Map</a>
+			<p>
+				<a href="/map">Back to Map</a>
+			</p>
 		</div>
             </div> <!-- #main -->
         </div> <!-- #main-container -->

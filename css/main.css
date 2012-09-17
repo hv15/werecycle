@@ -432,13 +432,18 @@ input:-ms-input-placeholder { color:    #276332;}
 .page-info .name, .page-info .address {
 	float:left;
 	padding-left:20px;
+	padding-bottom:20px;
 }
 .page-info .button {
 	height:42px;
 }
+.page-info .button p{
+	position:relative;
+	top:12px;
+}
 .page-info a, .page-info a:hover, .page-info a:visited{
 	color:#B2DF94;
-	text-decoration:underline;
+	text-decoration:none;
 }
 
 
