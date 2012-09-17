@@ -40,9 +40,8 @@
 
 $route['js/vendor/(:any)'] = 'scripts/vendor/$1';
 $route['js/(:any)'] = 'scripts/view/$1';
-$route['map/data'] = 'map/data';
-$route['map/(:any)'] = 'map/view/$1';
-$route['map'] = 'map';
+$route['data'] = 'pages/data';
+$route['map/(:any)'] = 'pages/view/map/$1';
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view';
 

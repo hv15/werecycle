@@ -28,12 +28,24 @@ class Pages extends CI_Controller {
 			$data['categories'] = $this->map_model->get_categories();
 		}
 		
+		if($page == 'map') {
+			$segarray = $this->uri->segment_array();
+			unset($segarray[1]);
+			$this->session->set_userdata($segarray);
+			$data['categories'] = $this->map_model->get_outlets();
+		}
+		
 		$this->load->view('templates/header', $data);
 		$this->load->view('pages/'.$page, $data);
 		$this->load->view('templates/footer', $data);
 
 	}
 	
+	public function data()
+	{
+		$data['outlets'] = $this->map_model->get_outlets();
+		$this->load->view('map/data', $data);
+	}
 }
 
 ?>
