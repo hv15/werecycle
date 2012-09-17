@@ -239,6 +239,7 @@ textarea {
 }
 .page-home #help {
 	float: right;
+	margin-right:20px;
 	padding:10px;
 	font-size:12px;
 }
