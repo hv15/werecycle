@@ -6,7 +6,7 @@
 		
 		<?php foreach($categories as $category_id => $category) { ?>
 			<div class="category" id="<?=$category_id?>">
-				<div class="title"><?=$category['name'];?></div>
+				<div class="categoryName"><?=$category['name'];?></div>
 				<div class="types">
 					<?php foreach($category['types'] as $id => $recycle_type) { ?>
 						<div class="type" id="type<?=$id?>">

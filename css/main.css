@@ -65,19 +65,90 @@ textarea {
    Andrew's adaptation of Leif's styling
    ========================================================================== */
 
-.home .main {
+.page-select .main {
+	width:320px;
+	margin:0 auto;
+	font-family: Helvetica, Sans-Serif;
+	color:#D2FFB4;
+	text-shadow: 0px -1px #000;	
+}
+
+.page-select #info {
+	margin:10px;
+	text-align: center;
+}
+
+.page-select .category {
+	height:50px;
+	width:320px;
+}
+
+.page-select .categoryName {
+	background: rgba(255,0,0,.2);
+	width:216px;
+	height:42px;
+}
+
+.page-select .types {
+	width:100%;
+}
+
+.page-select .type {
+	width:100%;
+	height:42px;
+	margin:0px;
+	padding:0px;
+}
+
+.page-select .typeCheckbox {
+	background: rgba(255,0,0,.2);
+	width:42px;
+	height:42px;
+	text-align:center;
+	margin-left:10px;
+}
+
+
+.page-select .typeName {
+	position:relative;
+	background: rgba(255,0,0,.2);
+	width:216px;
+	height:42px;
+	font-weight: bold;
+}
+
+.page-select .typeInfoButton {
+	background: rgba(255,0,0,.2);
+	text-align:center;
+	font-family: times;
+	font-style: oblique;
+	font-weight: bold;
+	font-size: 20px;
+	width:42px;
+	height:42px;
+	margin-right:10px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+
+.page-home .main {
 	width:320px;
 	margin:0 auto;
 	text-align: center;	
 }
 
-.home #logo {
+.page-home #logo {
 	margin-top:40px;
 	margin-bottom:10px;
 	width:128px;
 }
 
-.home #name {
+.page-home #name {
 	/* Text details */
 	text-align:center;
 	font-family: Helvetica, sans-serif;
@@ -89,7 +160,7 @@ textarea {
 	margin-bottom:20px;
 }
 
-.home #info {
+.page-home #info {
 	/* Text details */
 	text-align:center;
 	font-family: Helvetica, sans-serif;
@@ -101,13 +172,13 @@ textarea {
 	font-size:16px;
 	font-weight:normal;
 }
-.home #geoLocationButton {
+.page-home #geoLocationButton {
 	height:42px;
 	width:280px;
 	margin:0 auto;
 	margin-bottom:10px;
 }
-.home #geoLocationSpin {
+.page-home #geoLocationSpin {
 	position: relative;
 	right:10px;
 	top:5px;
@@ -115,12 +186,12 @@ textarea {
 	width:32px;
 	height:32px;
 }
-.home #geoCode {
+.page-home #geoCode {
 	width:280px;
 	margin:0 auto;
 	margin-bottom:10px;
 }
-.home #geoCodeInput input {
+.page-home #geoCodeInput input {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box; 
 	box-sizing: border-box;
@@ -144,16 +215,16 @@ input::-webkit-input-placeholder { color:    #276332; }
 input:-moz-placeholder { color:    #276332; }
 input:-ms-input-placeholder { color:    #276332;}
 
-.home #geoCodeButton {
+.page-home #geoCodeButton {
 	height:42px;
 	width:90px;
 }
 
-.home #geoLocationButton p{
+.page-home #geoLocationButton p{
 	position:relative;
 	top:10px;
 }
-.home #geoCodeButton p{
+.page-home #geoCodeButton p{
 	position:relative;
 	top:-5px;
 }
