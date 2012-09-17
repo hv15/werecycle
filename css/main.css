@@ -272,7 +272,7 @@ textarea {
 	background: #FFF;
 	right:10px;
 	top:5px;
-	background-image: url('/img/loading.png');
+	background-image: url('/img/loading.gif');
 	background-size: 50%;
 }
 .page-home #geoCode {
