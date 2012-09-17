@@ -7,6 +7,14 @@ function recalculateSelected() {
 	});
 }
 
+function createQuery() {
+	var types = '';
+	$('.typeCheckbox:checked').each(function(){
+		types = $(this).val() + ',' + types;
+	});
+	alert(types);
+}
+
 $('.category').click(function(index) { 
 	$(this).next().toggle(); 
 	$(this).next().children().toggle();
@@ -15,3 +23,4 @@ $('.category').click(function(index) {
 $('.typeCheckbox').change(function() {
 	recalculateSelected();
 });
+
