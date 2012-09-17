@@ -43,6 +43,7 @@ class Pages extends CI_Controller {
 	
 	public function data()
 	{
+		$userdata = $this->session->all_userdata();
 		$types  = implode($userdata['types_selected'],',');
 		$latitude = $userdata['latitude'];
 		$longitude = $userdata['longitude'];
