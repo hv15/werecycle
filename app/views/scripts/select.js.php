@@ -1,7 +1,7 @@
 $('.category').click(function(index) { 
-	$(this).next().toggle("fast", function() {
+	$(this).next().toggle("slow", function() {
 		$(this).children().each(function(index) {
-			$(this).toggle("fast");
+			$(this).toggle("slow");
 		});
 	}); 
 });
