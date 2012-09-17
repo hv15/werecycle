@@ -17,16 +17,11 @@ class Map extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 
-	public function data($params)
+	public function view($params)
 	{
 		$data['slug'] = $params;
 		$this->load->view('map/slug', $data);
 	}
 	
-	public function view($slug)
-	{
-		$data['title'] = ucfirst($slug);
-		$this->load->view('map/'.$slug, $data);
-	}
 }
 ?>
