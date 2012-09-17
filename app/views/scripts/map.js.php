@@ -1,14 +1,7 @@
 $.getScript("http://maps.google.com/maps/api/js?sensor=true", function(){
 $.getScript("http://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js", function(){
 $.getScript("http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js", function(){
-	var map_zoom = <?php echo (isset($_GET['zoom'])) ? $_GET['zoom'] : 12 ?>;
-	var map_lat  = <?php echo (isset($_GET['latitude'])) ? $_GET['latitude'] : 55.9099 ?>;
-	var map_lon  = <?php echo (isset($_GET['longitude'])) ? $_GET['longitude'] : -3.3220 ?>;
-	var map_pos  = new google.maps.LatLng(map_lat, map_lon);
-	var types  = '<?php echo (isset($_GET['types'])) ? $_GET['types'] : '6,7,2,16,1' ?>';
-	
-	google.maps.event.addDomListener(window, 'load', initialize);
-	
+
 	// a global variable to access the map
 	var map;
 	var markerCluster;
@@ -193,6 +186,14 @@ $.getScript("http://google-maps-utility-library-v3.googlecode.com/svn/trunk/mark
 	function buttonSelect() {
 		$(location).attr('href',"./select.php?latitude="+latitude+"&longitude="+longitude+"&types="+types+"&zoom="+map_zoom);
 	}
+	
+	var map_zoom = <?php echo (isset($_GET['zoom'])) ? $_GET['zoom'] : 12 ?>;
+	var map_lat  = <?php echo (isset($_GET['latitude'])) ? $_GET['latitude'] : 55.9099 ?>;
+	var map_lon  = <?php echo (isset($_GET['longitude'])) ? $_GET['longitude'] : -3.3220 ?>;
+	var map_pos  = new google.maps.LatLng(map_lat, map_lon);
+	var types  = '<?php echo (isset($_GET['types'])) ? $_GET['types'] : '6,7,2,16,1' ?>';
+	
+	google.maps.event.addDomListener(window, 'load', initialize);
 });
 });
 });
