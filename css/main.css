@@ -486,6 +486,13 @@ input:-ms-input-placeholder { color:    #276332;}
 	color:#D2FFB4;
 	text-decoration:underline;
 }
+.page-help #ButtonBack {
+	float: left;
+	margin-right:20px;
+	margin-left:-20px;
+	padding:10px;
+	font-size:12px;
+}
 
 /*
 	Describes the buttons that the user can click on.
