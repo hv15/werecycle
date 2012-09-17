@@ -7,6 +7,16 @@ function recalculateSelected() {
 	});
 }
 
+function createQuery() {
+	var types = '';
+	$('.typeCheckbox:checked').each(function(){
+		types = $(this).val() + '/' + types;
+	});
+	$.get('/check/'+types, function(data) {
+		alert('data: '+data);
+	});
+	/*window.location.href = '/map/'+types;*/
+}
 
 $('.category').click(function(index) { 
 	$(this).next().toggle(); 
