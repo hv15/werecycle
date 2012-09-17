@@ -84,6 +84,7 @@ textarea {
 .page-select .main {
 	border: 1px solid #000;
 	width:320px;
+	margin: 10px;
 	margin:0 auto;
 	font-family: Helvetica, Sans-Serif;
 	color:#D2FFB4;
@@ -91,8 +92,9 @@ textarea {
 }
 
 .page-select #info {
+	padding-top:10px;
+	padding-bottom:10px;
 	font-style:italic;
-	margin:10px;
 	text-align: center;
 }
 
