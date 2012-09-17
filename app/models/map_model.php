@@ -87,6 +87,7 @@ class map_model extends CI_Model {
 		$sql = "SELECT * FROM outlets_info,outlets WHERE outlets.outlet_id = $id AND outlets.outlet_id = outlets_info.outlet_id";
 		$query = $this->db->query($sql);
 		$row = $query->result_array();
+		return $row;
 		$html = $row["html_info"];
 		    
 		    // Output name of outlet
