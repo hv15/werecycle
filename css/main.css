@@ -467,12 +467,12 @@ input:-ms-input-placeholder { color:    #276332;}
 	margin-bottom: 35px;
 }
 .page-info .type {
-	height: 20px;
+	height: 25px;
 	padding: 0px;
-	margin: 0px;
+	margin: 10px 0px 10px 0px;
 }
 .page-info .type p {
-	height: 20px;
+	height: 25px;
 	padding: 0px;
 	margin: 0px;
 }
