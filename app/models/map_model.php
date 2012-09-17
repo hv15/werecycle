@@ -131,7 +131,6 @@ class map_model extends CI_Model {
 		    $i=0;
 		    $count=$query->num_rows();
 		    foreach($query->result_array() as $recycle_type_row) {
-			$output = print_r($recycle_type_row,1);
 			$output .= "<span class='recycle_type_{$recycle_type_row['recycle_type']}'>{$recycle_type_row['name']}";
 			$i++; if($i!=$count) {
 				$output .= ", </span>\n";
