@@ -80,7 +80,7 @@ class map_model extends CI_Model {
 		return $output;
 	}
 	
-	get_info($id) {
+	public function get_info($id) {
 		$output = '';
 		
 		// Build SQL query to get outlet information for all selected types
