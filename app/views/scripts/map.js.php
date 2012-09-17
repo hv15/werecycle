@@ -66,41 +66,28 @@ function zoomOut(){ map.setZoom(map.getZoom()-1);}
 /*
 	Turns Geolocation on or off.
 */
-function toggleLocation(){
-	// We get the button so that we can change its style, and
-	// loosly determine if GPS is on or not.
-	var button = document.getElementById("ButtonLocation");
-	
-	// Does the button not contain the word inactive?
-	if(button.className.indexOf("inactive")==-1){
-		// This means it is active, so we therefore turn it off
-		button.className = button.className.replace("active","inactive");
+function toggleLocation() {
+	// If button active
+	if( $("#ButtonLocation").hasClass('active') ) {
+		$("#ButtonLocation").removeClass("active").addClass("inactive");
 		GeoMarker.setMarkerOptions({visible:false});
 		GeoMarker.setCircleOptions({fillOpacity: "0", strokeOpacity: "0"});
 	} else {
-		// This means it is not active, slatitudeo we therefore turn it on
-		button.className = button.className.replace("inactive","active");
+		$("#ButtonLocation").removeClass("inactive").addClass("active");
 		var GeoMarkerImage = new google.maps.MarkerImage(geoIcon, new google.maps.Size(30, 30), new google.maps.Point(0, 0), new google.maps.Point(7, 7), new google.maps.Size(15, 15));
 		GeoMarker.setMarkerOptions({visible:true, icon: GeoMarkerImage});
 		GeoMarker.setCircleOptions({fillColor: "#33CCCC", fillColor: "#33CCCC", strokeOpacity: "0.6", fillOpacity: "0.3"});
 		google.maps.event.addListenerOnce(GeoMarker, "position_changed", function() {
 			GeoLatLng = this.getPosition();
-			GeoBounds = this.getBounds();
-		map.setCenter(GeoLatLng);
-		map.setZoom(15);
-	});
-	google.maps.event.addListener(GeoMarker, "position_changed", function() {
-			GeoLatLng = this.getPosition();
-			//GeoBounds = this.getBounds();
-	});
-	google.maps.event.addListener(GeoMarker, "geolocation_error", function(e) {
-		if(button.className.indexOf("inactive")==-1){
-			alert("Position could not be established.");
-			button.className = button.className.replace("active","inactive");
-		}
-	});
-	GeoMarker.setMap(map);
-		//alert("GPS is now on");
+			map.setCenter(GeoLatLng);
+		});
+		google.maps.event.addListener(GeoMarker, "geolocation_error", function(e) {
+			if(button.className.indexOf("inactive")==-1){
+				alert("Position could not be established.");
+				button.className = button.className.replace("active","inactive");
+			}
+		});
+		GeoMarker.setMap(map);
 	}
 }
 
