@@ -1,6 +1,6 @@
 	<div class="main-container">
             <div class="main wrapper clearfix">
-            	<div onclick="history.back();" class="button" id="ButtonBack">Back</div>
+            	<div onclick="history.back();" class="button" id="ButtonBack">&#8617;</div>
 
             	<img src="/img/logo.png" width="128"/>
 		<p class="title">RecycleFinder</p>

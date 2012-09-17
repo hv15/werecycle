@@ -416,6 +416,7 @@ input:-ms-input-placeholder { color:    #276332;}
 
 */
 .page-info .main {
+	position:relative;
 	width:300px;
 	padding:10px;
 	margin:0 auto;
@@ -440,12 +441,6 @@ input:-ms-input-placeholder { color:    #276332;}
 	color:#A2CF84;
 	content: " (Google Maps) ";
 }
-.page-info .button {
-	float:left;
-	margin-top:20px;
-	width:300px;
-	height:42px;
-}
 .page-info .button p{
 	position:relative;
 	top:8px;
@@ -462,6 +457,7 @@ input:-ms-input-placeholder { color:    #276332;}
 */
 
 .page-help .main {
+	position:relative;
 	color:#D2FFB4;
 	width:300px;
 	padding:10px;
@@ -486,13 +482,16 @@ input:-ms-input-placeholder { color:    #276332;}
 	color:#D2FFB4;
 	text-decoration:underline;
 }
-.page-help #ButtonBack {
-	width:50px;
-	float: left;
-	margin-right:20px;
-	margin-left:-20px;
-	padding:10px;
-	font-size:12px;
+#ButtonBack {
+	position:absolute;
+	top:20px;
+	left:0px;
+	width:20px;
+	padding:10px 10px 5px 10px;
+	font-size:16px;
+}
+.page-home #ButtonBack{
+	right:0px;
 }
 
 /*
