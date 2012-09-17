@@ -23,8 +23,7 @@
 				</div>
 			</div>
 			<div class="types" id="category<?=$category_id?>Types">
-				<?php //$category['types'] = usort($category['types']);
-					foreach($category['types'] as $id => $recycle_type) { ?>
+				<?php foreach($category['types'] as $id => $recycle_type) { ?>
 					<div class="type" id="type<?=$id?>">
 						<p class="typeCheckboxP">
 							<input class="typeCheckbox" type="checkbox" <?=(in_array($id,$selectedtypes) ? 'checked="checked"' : '')?> id="checkbox<?=$id?>" name="checkbox<?=$id?>" value="<?=$id?>" />
@@ -37,7 +36,7 @@
 			</div>
 		<?php } ?>
 		
-		<div id="searchButton2" class="button left" onclick="createQuery();">
+		<div id="searchButton" class="button left" onclick="createQuery();">
 			<p>Search recycling facilities...</p>
 		</div>
             </div> <!-- #main -->
