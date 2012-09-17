@@ -17,6 +17,21 @@ class Pages extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 
 	}
+
+	
+	public function select()
+	{				
+		$default = array('latitude', 'longitude');
+		$array = $this->uri->uri_to_assoc(2, $default);
+		$data['arraydata'] = $array;
+		
+		$this->load->view('templates/header', $data);
+		$this->load->view('pages/select', $data);
+		$this->load->view('templates/footer', $data);
+
+	}
+
+	
 }
 
 ?>
