@@ -479,7 +479,10 @@ input:-ms-input-placeholder { color:    #276332;}
 	margin-left: 10px;
 }
 .page-info .type p.typeInfoButton {
+	float: right;
 	line-height: 55px;
+	height: auto;
+	width: auto;
 }
 .page-info .typeInfoText {
 	margin: 10px 30px 10px 20px;
