@@ -18,7 +18,7 @@
 						<p class="typeCheckboxP">
 							<input class="typeCheckbox" type="checkbox" name="<?=$id?>" value="<?=$id?>" />
 						</p>
-						<p class="typeName"><?=$recycle_type['name']?></p>
+						<label for="<?=$id?>" class="typeName"><?=$recycle_type['name']?></label>
 						<p class="typeInfoButton">i</p>
 						<p class="typeInfoText"><?=$recycle_type['description']?></p>
 					</div>
