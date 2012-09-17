@@ -1,6 +1,6 @@
 	<div class="main-container">
             <div class="main wrapper clearfix">	
-            	<div onclick="history.back();" class="button" id="ButtonBack">&#8617;</div>
+            	<a href="<?=$_SERVER['HTTP_REFERER']?>" class="button" id="ButtonBack">&#8617;</a>
 		
 		<?php echo $info; 
 		
