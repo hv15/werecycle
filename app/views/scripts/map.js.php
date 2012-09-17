@@ -112,7 +112,7 @@ function drawMarkers(newlocation) {
 	latitude = newlocation.lat();
 	longitude = newlocation.lng();
 	
-	var newSessionData = encodeURIComponent('{"distance":'+distance+',"latitude":'+latitude+',"longitude":'+longitude+',"map_zoom":'+map_zoom}');
+	var newSessionData = encodeURIComponent('{"distance":'+distance+',"latitude":'+latitude+',"longitude":'+longitude+',"map_zoom":'+map_zoom+'}');
 	
 	$.get('/setsession/'+newSessionData);
 	
