@@ -16,7 +16,7 @@
 		$selectedtypes  = (isset($userdata['types_selected']) ? explode(',',$userdata['types_selected']) : array(1,7,6,16));
 		foreach($categories as $category_id => $category) { ?>
 			<div class="category" id="category<?=$category_id?>">
-				<div class="categoryToggle">►</div>
+				<div class="categoryToggle open">►</div>
 				<div class="categoryName"><?=$category['name'];?></div>
 				<div class="categoryCount">
 					<p class="selectedCount">0</p>/<p class="totalCount"><?=count($category['types'])?></p>
