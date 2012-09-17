@@ -159,12 +159,11 @@ function initialize(){
 	*/
 	
 	google.maps.event.addListener(map, 'bounds_changed', function() {
-		alert("Bounds have changed");
 		drawMarkers(map_pos);
 	});
 	
-	google.maps.event.addListener(map, 'center_changed', function() {
-		alert("Center Changeed");
+	google.maps.event.addListener(map, 'dragend', function() {
+		alert("Drag ended");
 		var newlocation = map.getCenter();
 		drawMarkers(newlocation);
 	});
