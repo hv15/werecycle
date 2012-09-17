@@ -1,6 +1,6 @@
 var geocoder;
 
-document.onkeydown = checkKeycode
+document.onkeydown = checkKeycode;
 /*
 	Deals with the geolocation
 */
@@ -33,7 +33,7 @@ function returnError(position) {
 */
 function getGeoCode() {
 	geocoder = new google.maps.Geocoder();
-	var address = document.getElementById('GeoCodeInputField').value;
+	var address = document.getElementById('geoCodeInputField').value;
 	geocoder.geocode( { 'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
 			window.location.href = "./select.php?types=6,7,2,16,1&zoom=12&latitude="+results[0].geometry.location.lat()+"&longitude="+results[0].geometry.location.lng();
@@ -43,8 +43,8 @@ function getGeoCode() {
     });
 }
 
-function spin(state){
-	var spin = document.getElementById("GeoLocationSpin");
+function spin(state){type="text/javascript" 
+	var spin = document.getElementById("geoLocationSpin");
 	spin.className = state;
 }
 
