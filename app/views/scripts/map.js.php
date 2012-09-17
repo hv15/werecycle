@@ -95,11 +95,12 @@ function toggleLocation(){
 }
 
 function drawMarkers(newlocation) {
-	var distance = 21 - map_zoom * 5;
+	var distance = (21 - map_zoom) * 5;
 	latitude = newlocation.lat();
 	longitude = newlocation.lng();
 	
-	var newSessionData = encodeURIComponent('{distance: '+distance+', latitude: '+latitude+', longitude: '+longitude+'}');
+	var newSessionData = encodeURIComponent('{"distance":'+distance+',"latitude":'+latitude+',"longitude":'+longitude+'}');
+	
 	$.get('/setsession/'+newSessionData);
 	
 	// get dynamically the JSON data via data script for the markers

@@ -67,10 +67,11 @@ class Pages extends CI_Controller {
 	public function set_session() 
 	{
 		if ($this->uri->segment(2) !== FALSE) {
-			$data['debug']['urlseg2'] = urldecode($this->uri->segment(2));
-			$session_data = json_decode(urldecode($this->uri->segment(2)),1);
-			$data['debug']['jsondecoded'] = $session_data;
-			$this->session->set_userdata($session_data);
+			$json = urldecode($this->uri->segment(2));
+			$data['debug']['urlseg2'] = $json;
+			$array = json_decode($json, true);
+			$data['debug']['jsondecoded'] = $array;
+			$this->session->set_userdata($array);
 			$this->load->view('pages/debug', $data);
 		}
 	}
