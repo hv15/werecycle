@@ -470,9 +470,9 @@ input:-ms-input-placeholder { color:    #276332;}
 	height: 20px;
 }
 .page-info .typeInfoText {
-	margin: 5px 0px 10px 40px;
+	margin: 10px 0px 10px 30px;
 	padding: 10px;
-	
+	width: 200px;
 }
 
 /*
