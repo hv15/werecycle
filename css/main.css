@@ -107,7 +107,7 @@ textarea {
 	padding-left: 10px;
 	width:32px;
 	height:32px;
-	color: rgba(0,255,0,0.2);
+	color: rgba(255,255,255,0.2);
 }
 .page-select .categoryToggle.open{
 	background: url('img/open.png');
@@ -129,6 +129,7 @@ textarea {
 .page-select .categoryCount {
 	float: left;
 	display:inline;
+	color: rgba(255,255,255,0.2);
 	padding-top: 10px;
 	width:42px;
 	height:32px;
