@@ -43,7 +43,17 @@ class Pages extends CI_Controller {
 	
 	public function data()
 	{
-		$data['outlets'] = $this->map_model->get_outlets();
+		$types  = implode($userdata['types_selected'],',');
+		$latitude = $userdata['latitude'];
+		$longitude = $userdata['longitude'];
+		$distance = $userdata['distance'];
+		$data['outlets'] = $this->map_model->get_outlets($types,$latitude,$longitude,$distance);
+		$this->load->view('pages/data', $data);
+	}
+	
+	public function print_session() 
+	{
+		$data['outlets'] = print_r($this->session->all_userdata(),1);
 		$this->load->view('pages/data', $data);
 	}
 	
@@ -55,7 +65,10 @@ class Pages extends CI_Controller {
 	
 	public function set_session() 
 	{
-		echo $this->session->set_userdata();
+		if ($this->uri->segment(2) !== FALSE) {
+			$session_data = json_decode($this->uri->segment(2),1);
+			$this->session->set_userdata($session_data);
+		}
 	}
 }
 

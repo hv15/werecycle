@@ -24,13 +24,9 @@ class map_model extends CI_Model {
 		return $output;
 	}
 	
-	public function get_outlets()
+	public function get_outlets($types='6,13',$latitude=55.9099,$longitude=-3.3220,$distance=10)
 	{
 		include(APPPATH.'libraries/latlong_box.php');
-		$types = '6,13,3';
-		$latitude = 55.9099;
-		$longitude = -3.3220;
-		$distance = 10;
 		$ne = bpot_getDueCoords($latitude, $longitude, 45, $distance, 'm', 1);
 		$sw = bpot_getDueCoords($latitude, $longitude, 225, $distance, 'm', 1);
 		$types = explode(',',$types);
