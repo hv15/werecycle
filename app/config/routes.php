@@ -38,6 +38,7 @@
 |
 */
 
+$route['map/data'] = 'map/data';
 $route['map/(:any)'] = 'map/view/$1';
 $route['map'] = 'map';
 $route['(:any)'] = 'pages/view/$1';
