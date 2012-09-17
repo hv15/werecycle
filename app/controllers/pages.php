@@ -31,7 +31,7 @@ class Pages extends CI_Controller {
 		if($page == 'map') {
 			$segarray = $this->uri->segment_array();
 			unset($segarray[1]);
-			$sessiondata = array('types_selected' => $segarray);
+			$sessiondata = array('types_selected' => implode($segarray,','));
 			$this->session->set_userdata($sessiondata);
 		}
 		
@@ -44,7 +44,7 @@ class Pages extends CI_Controller {
 	public function data()
 	{
 		$userdata = $this->session->all_userdata();
-		$types  = implode($userdata['types_selected'],',');
+		$types  = $userdata['types_selected'];
 		$latitude = $userdata['latitude'];
 		$longitude = $userdata['longitude'];
 		$distance = $userdata['distance'];
