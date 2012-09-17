@@ -91,6 +91,7 @@ textarea {
 
 .page-select .types {
 	width:100%;
+	display: hidden;
 }
 
 .page-select .type {
