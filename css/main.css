@@ -126,13 +126,16 @@ textarea {
 	padding:0px;
 }
 
-.page-select .typeCheckbox {
+.page-select .typeCheckboxP {
 	float: left;
 	background: rgba(255,0,0,.2);
 	width:42px;
 	height:42px;
 	text-align:center;
-	margin-left:10px;
+}
+
+.page-select .typeCheckbox {
+	
 }
 
 
@@ -142,6 +145,24 @@ textarea {
 	width:216px;
 	height:42px;
 	font-weight: bold;
+}
+
+.page-select .typeInfoButton {
+	float: left;
+	background: rgba(255,0,0,.2);
+	text-align:center;
+	font-family: times;
+	font-style: oblique;
+	font-weight: bold;
+	font-size: 20px;
+	width:42px;
+	height:42px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .page-select .typeInfoText {
@@ -159,24 +180,6 @@ textarea {
 	border-bottom: 1 solid rgba(166,256,231,.3);
 }
 		
-.page-select .typeInfoButton {
-	float: left;
-	background: rgba(255,0,0,.2);
-	text-align:center;
-	font-family: times;
-	font-style: oblique;
-	font-weight: bold;
-	font-size: 20px;
-	width:42px;
-	height:42px;
-	margin-right:10px;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
 
 .page-select #searchButton {
 	width:320px;
