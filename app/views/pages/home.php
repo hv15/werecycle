@@ -1,6 +1,7 @@
 	<div class="main-container">
             <div class="main wrapper clearfix">
 		<div class="flashMessage"><?php echo $this->session->flashdata('message'); ?></div>
+		<a href="/help"><div id="help">?</div></a>
 		<img id="logo" src="img/logo.png" alt="logo"/>
 		<div id="name">RecycleFinder</div>
 		<div id="geoLocationButton" class="button" onclick="getGeoLocation()">

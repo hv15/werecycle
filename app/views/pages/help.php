@@ -13,10 +13,11 @@
 					<li>Leif Gehrmann</li>
 				</ul>
 
-				<p class="contributors">We would like to thank...</p>
+				<p class="contributors"><a href="">We would like to thank...</a></p>
 				<ul>
 					<li><a href="http://maps.google.com">Google Maps</a></li>
 					<li><a href="http://recycleforscotland.com">RecycleForScotland</a></li>
 				</ul>
+				<p>miaow</p>
             </div> <!-- #main -->
         </div> <!-- #main-container -->
