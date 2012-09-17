@@ -159,15 +159,18 @@ function initialize(){
 	*/
 	
 	google.maps.event.addListener(map, 'bounds_changed', function() {
+		alert("Bounds have changed");
 		drawMarkers(map_pos);
 	});
 	
 	google.maps.event.addListener(map, 'center_changed', function() {
+		alert("Center Changeed");
 		var newlocation = map.getCenter();
 		drawMarkers(newlocation);
 	});
 	
 	google.maps.event.addListener(map, 'zoom_changed', function() {
+		alert("Zoom Changed");
 		map_zoom = map.getZoom();
 		var newlocation = map.getCenter();
 		drawMarkers(newlocation);
