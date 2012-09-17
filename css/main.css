@@ -527,10 +527,6 @@ a,a:visited,a:hover{
     width: auto;
 }
 
-.invisible {
-    visibility: hidden;
-}
-
 .clearfix:before,
 .clearfix:after {
     content: " ";
