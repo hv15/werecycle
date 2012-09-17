@@ -1,3 +1,10 @@
+<?php 
+	$userdata = $this->session->all_userdata(); 
+	if( !isset($userdata['home_latitude']) OR !isset($userdata['home_longitude']) ) {
+		$this->session->set_flashdata('message', 'Your session expired, please start again.');
+		echo 'window.location.href = "/";'; return;
+	}
+?>
 	<div class="main-container">
             <div class="main wrapper clearfix">
 		<div id="info">
