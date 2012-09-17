@@ -54,6 +54,7 @@ function checkKeycode(e) {
 		keycode = window.event.keyCode;
 	else if (e)
 		keycode = e.which;
+	alert(keycode);
 	if(keycode==13)
 		getGeoCode();
 }

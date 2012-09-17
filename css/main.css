@@ -267,11 +267,12 @@ textarea {
 }
 .page-home #geoLocationSpin {
 	position: relative;
+	height:32px;
+	width:32px;
 	right:10px;
 	top:5px;
-	background: #FFF;
-	width:32px;
-	height:32px;
+	background-image: url('/img/loading.png');
+	background-size: 50%;
 }
 .page-home #geoCode {
 	width:280px;
