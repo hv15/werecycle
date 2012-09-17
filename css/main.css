@@ -101,15 +101,12 @@ textarea {
 	height:50px;
 	width:320px;
 	cursor:pointer;
-	border-top: 1px solid rgba(0,0,0,.3);
-	border-bottom: 1px solid rgba(166,256,231,.3);
 }
 
 .page-select .categoryToggle {
 	float: left;
 	padding-top: 10px;
 	padding-left: 10px;
-	background: rgba(255,0,0,.2);
 	width:32px;
 	height:32px;
 }
@@ -117,7 +114,6 @@ textarea {
 .page-select .categoryName {
 	float: left;
 	padding-top: 10px;
-	background: rgba(255,0,0,.2);
 	width:236px;
 	height:32px;
 	font-weight: bold;
@@ -127,7 +123,6 @@ textarea {
 	float: left;
 	display:inline;
 	padding-top: 10px;
-	background: rgba(255,0,0,.2);
 	width:42px;
 	height:32px;
 }
@@ -201,8 +196,8 @@ textarea {
 	margin-bottom:10px;
 	padding-top:5px;
 	padding-bottom:5px;
-	margin-left: 10px;
-	width:290px;
+	padding-left: 40px;
+	width:260px;
 	padding-left:10px;
 	padding-right:10px;
 	background:rgba(0,0,0,0.2);
