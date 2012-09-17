@@ -89,7 +89,7 @@ class map_model extends CI_Model {
 		$row = $query->result_array();
 		$row = $row[0];
 		$html = $row["html_info"];
-		return print_r($row,1);
+		//return print_r($row,1);
 		    
 		    // Output name of outlet
 		    $output .= "<span class='nametitle'>Name</span><br />\n<span class='name'>{$row["outlet_name"]}</span><br /><br />\n";
@@ -131,6 +131,7 @@ class map_model extends CI_Model {
 		    $i=0;
 		    $count=$query->num_rows();
 		    while( $row = $query->result_array() ) {
+			$output = print_r($row,1);
 			$output .= "<span class='recycle_type_{$row['recycle_type']}'>{$row['name']}";
 			$i++; if($i!=$count) {
 				$output .= ", </span>\n";
