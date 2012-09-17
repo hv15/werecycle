@@ -100,8 +100,6 @@ textarea {
 	height:50px;
 	width:320px;
 	cursor:pointer;
-	border-top: 1px solid rgba(0,0,0,.3);
-	border-bottom: 1px solid rgba(166,256,231,.3);
 }
 
 .page-select .categoryToggle {
@@ -183,10 +181,6 @@ textarea {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-}
-.page-select .typeInfoButton p {
-	position:relative;
-	top:-5px;
 }
 
 .page-select .typeInfoText {
