@@ -13,7 +13,7 @@ class map_model extends CI_Model {
 			$catid = $category['recycle_category'];
 			$output[$catid] = array( 'name' => $category['name'], 'types' => array() );
 			
-			$typesquery = $this->db->query('SELECT * FROM recycle_types WHERE recycle_category = '.$id);
+			$typesquery = $this->db->query('SELECT * FROM recycle_types WHERE recycle_category = '.$catid);
 			foreach ($typesquery->result_array() as $type) {
 				$output[$catid]['types'][$type['recycle_type']] = array( 
 					'name' => $type['recycle_type'],
