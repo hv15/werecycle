@@ -38,6 +38,7 @@
 |
 */
 
+$route['js/(:any)'] = 'scripts/view/$1';
 $route['map/data'] = 'map/data';
 $route['map/(:any)'] = 'map/view/$1';
 $route['map'] = 'map';
