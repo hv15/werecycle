@@ -102,7 +102,8 @@ function drawMarkers(newlocation) {
 	var urly = "/data";
 
 	$.ajax({ type: 'GET', url: urly, success: function(check) {
-		eval(check);	
+		console.log(check);
+		eval(check);
 		
 		var markers = [];
 		for (var i = 0; i < data.outlets.length; i++) {
