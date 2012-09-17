@@ -38,9 +38,10 @@
 |
 */
 
-$route['default_controller'] = 'pages/view';
+$route['map/(:any)'] = 'map/view/$1';
+$route['map'] = 'map';
 $route['(:any)'] = 'pages/view/$1';
-
+$route['default_controller'] = 'pages/view';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
