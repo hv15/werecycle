@@ -8,7 +8,7 @@ class map_model extends CI_Model {
 	
 	public function get_recycle_types()
 	{
-		$query = $this->db->get('recycle_types');
+		$query = $this->db->query('SELECT * FROM recycle_types');
 		return $query->result_array();
 	}
 	
