@@ -414,7 +414,7 @@ input:-ms-input-placeholder { color:    #276332;}
 	margin:0 auto;
 	font-family: Helvetica, Sans-Serif;
 	color:#D2FFB4;
-	text-shadow: 0px -1px #000;	
+	text-shadow: 0px -1px #000;
 }
 .page-info .nametitle, .page-info .addresstitle, .page-info .outletypestitle {
 	font-weight:bold;
@@ -459,13 +459,17 @@ input:-ms-input-placeholder { color:    #276332;}
 	width:300px;
 	padding:10px;
 	margin:0 auto;
-	text-align: center;	
+	text-align: center;
+	text-shadow: 0px -1px #000;
 }
 .page-help .main {
 	width:300px;
 	padding:10px;
 	margin:0 auto;
 	text-align: center;	
+}
+.page-help ul,.page-help p {
+	text-align:left;
 }
 .page-help .title {
 	font-size:18px;
