@@ -1,8 +1,7 @@
 	<div class="main-container">
             <div class="main wrapper clearfix">
-		<div id="ButtonBack" onclick="history.back();" class="button">
-			Back
-		</div>
+            	<div onclick="history.back();" class="button" id="ButtonBack">Back</div>
+
             	<img src="/img/logo.png" width="128"/>
 		<p class="title">RecycleFinder</p>
 		<p class="description">An open project</p>
