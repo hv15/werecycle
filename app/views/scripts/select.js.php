@@ -1,5 +1,8 @@
 recalculateSelected();
-$('#debug').get('/getsession');
+$.get('/getsession', function(data) {
+  $('#debug').html(data);
+  alert('Load was performed.');
+});
 
 function recalculateSelected() {
 	$('.category').each(function(index) {
