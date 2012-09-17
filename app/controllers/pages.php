@@ -31,8 +31,10 @@ class Pages extends CI_Controller {
 		if($page == 'map') {
 			$segarray = $this->uri->segment_array();
 			unset($segarray[1]);
-			$sessiondata = array('types_selected' => implode($segarray,','));
-			$this->session->set_userdata($sessiondata);
+			if(count($segarray)>0) {
+				$sessiondata = array('types_selected' => implode($segarray,','));
+				$this->session->set_userdata($sessiondata);
+			}
 		}
 		
 		if($page == 'info') {
