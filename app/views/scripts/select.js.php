@@ -1,6 +1,6 @@
 recalculateSelected();
 $('#debug').text(readCookie('recycle_session'));
-
+	
 function recalculateSelected() {
 	$('.category').each(function(index) {
 		var newval = $(this).next().find('.typeCheckbox:checked').length;
@@ -26,6 +26,7 @@ $('.typeCheckbox').change(function() {
 });
 
 function readCookie(name) {
+alert('reading cookie with name: '+name);
     name += '=';
     for (var ca = document.cookie.split(/;\s*/), i = ca.length - 1; i >= 0; i--)
         if (!ca[i].indexOf(name))
