@@ -2,7 +2,7 @@
 	$userdata = $this->session->all_userdata(); 
 	if( !isset($userdata['home_latitude']) OR !isset($userdata['home_longitude']) OR !isset($userdata['types_selected']) ) {
 		$this->session->set_flashdata('message', 'Your session expired, please start again.');
-		echo 'window.location.href = "/";';
+		echo 'window.location.href = "/";'; return;
 	}
 ?>
 // a global variable to access the map
