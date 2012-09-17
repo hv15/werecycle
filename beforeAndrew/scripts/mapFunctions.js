@@ -102,7 +102,7 @@ function drawMarkers(newlocation) {
 	var urly = "http://recyclefinder.co.uk/beforeAndrew/data.php?longitude="+longitude+"&latitude="+latitude+"&distance="+distance+"&types="+types;
 
 	$.ajax({ type: 'GET', url: urly, success: function(check) {
-		eval(check);	
+		eval(check); // eval to var data	
 		
 		var markers = [];
 		for (var i = 0; i < data.outlets.length; i++) {
@@ -128,7 +128,6 @@ function drawMarkers(newlocation) {
 			markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
 		}
 	}});
-	google.maps.event.clearListeners(map, 'bounds_changed');
 }
 
 /*
@@ -158,11 +157,11 @@ function initialize(){
 		was clicked on.
 	*/
 	
-	google.maps.event.addListener(map, 'bounds_changed', function() {
+	google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
 		drawMarkers(map_pos);
 	});
 	
-	google.maps.event.addListener(map, 'center_changed', function() {
+	google.maps.event.addListener(map, 'dragend', function() {
 		var newlocation = map.getCenter();
 		drawMarkers(newlocation);
 	});

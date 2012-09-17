@@ -23,4 +23,3 @@ $('.category').click(function(index) {
 $('.typeCheckbox').change(function() {
 	recalculateSelected();
 });
-

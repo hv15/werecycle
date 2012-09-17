@@ -12,8 +12,15 @@
 
         <link rel="stylesheet" href="/css/normalize.min.css">
         <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/jquery.mobile.custom.min.css">
+        <link rel="stylesheet" href="/css/jquery.mobile.custom.structure.min.css">
+        <link rel="stylesheet" href="/css/jquery.mobile.custom.theme.min.css">
+	
 
         <script src="/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js"></script>
+        <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>

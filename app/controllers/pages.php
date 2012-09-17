@@ -19,20 +19,26 @@ class Pages extends CI_Controller {
 		$data['page'] = $page;
 		
 		if($page == 'select') {
-			$segarray = $this->uri->segment_array();
-			$sessiondata = array(
-				'homelatitude'  => $segarray[2],
-				'homelongitude'  => $segarray[3]
-			);
-			$this->session->set_userdata($sessiondata);
+			if ($this->uri->segment(2) !== FALSE) {
+				$sessiondata['home_latitude'] = $this->uri->segment(2, 0);
+				$sessiondata['home_longitude'] = $this->uri->segment(3, 0);
+				$sessiondata['user_state'] = 2;
+				$this->session->set_userdata($sessiondata);
+			}
 			$data['categories'] = $this->map_model->get_categories();
 		}
 		
 		if($page == 'map') {
 			$segarray = $this->uri->segment_array();
 			unset($segarray[1]);
-			$sessiondata = array('types_selected' => $segarray);
+			$sessiondata = array('types_selected' => implode($segarray,','));
 			$this->session->set_userdata($sessiondata);
+		}
+		
+		if($page == 'info') {
+			if ($this->uri->segment(2) !== FALSE) {
+				$data['info'] = $this->map_model->get_info($this->uri->segment(2));
+			}
 		}
 		
 		$this->load->view('templates/header', $data);
@@ -43,8 +49,37 @@ class Pages extends CI_Controller {
 	
 	public function data()
 	{
-		$data['outlets'] = $this->map_model->get_outlets();
+		$userdata = $this->session->all_userdata();
+		$types  = $userdata['types_selected'];
+		$latitude = $userdata['latitude'];
+		$longitude = $userdata['longitude'];
+		$distance = $userdata['distance'];
+		$data['outlets'] = $this->map_model->get_outlets($types,$latitude,$longitude,$distance);
 		$this->load->view('pages/data', $data);
+	}
+	
+	public function print_session() 
+	{
+		$data['outlets'] = print_r($this->session->all_userdata(),1);
+		$this->load->view('pages/data', $data);
+	}
+	
+	public function get_session() 
+	{
+		$data['outlets'] = json_encode($this->session->all_userdata());
+		$this->load->view('pages/data', $data);
+	}
+	
+	public function set_session() 
+	{
+		if ($this->uri->segment(2) !== FALSE) {
+			$json = urldecode($this->uri->segment(2));
+			$data['debug']['urlseg2'] = $json;
+			$array = json_decode($json, true);
+			$data['debug']['jsondecoded'] = $array;
+			$this->session->set_userdata($array);
+			$this->load->view('pages/debug', $data);
+		}
 	}
 }
 

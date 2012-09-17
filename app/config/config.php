@@ -245,7 +245,7 @@ $config['encryption_key'] = 'leifgivesyoulemons';
 |
 */
 $config['sess_cookie_name']		= 'recyclefinder_session';
-$config['sess_expiration']		= 7200;
+$config['sess_expiration']		= 600;
 $config['sess_expire_on_close']	= TRUE;
 $config['sess_encrypt_cookie']	= FALSE;
 $config['sess_use_database']	= FALSE;
@@ -265,7 +265,7 @@ $config['sess_time_to_update']	= 300;
 | 'cookie_secure' =  Cookies will only be set if a secure HTTPS connection exists.
 |
 */
-$config['cookie_prefix']	= "recyclefinder_";
+$config['cookie_prefix']	= "";
 $config['cookie_domain']	= ".recyclefinder.co.uk";
 $config['cookie_path']		= "/";
 $config['cookie_secure']	= FALSE;

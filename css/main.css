@@ -10,11 +10,17 @@ textarea {
     color: #222;
 }
 
+html {
+    height: 100%;
+}
+
 body {
+    width: 100%;
+    height: 100%;
     font-size: 1em;
     line-height: 1.4;
     background-color: #276332;
-    background-image: url("../graphics/noise.png");
+    background-image: url("/img/noise.png");
 }
 
 ::-moz-selection {
@@ -64,6 +70,16 @@ textarea {
 /* ==========================================================================
    Andrew's adaptation of Leif's styling
    ========================================================================== */
+
+
+.page-info .main {
+	width:320px;
+	margin:0 auto;
+	font-family: Helvetica, Sans-Serif;
+	color:#D2FFB4;
+	text-shadow: 0px -1px #000;	
+}
+
 
 .page-select .main {
 	width:320px;
@@ -208,6 +224,17 @@ textarea {
 	width:128px;
 }
 
+
+.page-home .flashMessage {
+	text-align:center;
+	font-family: Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:20px;
+	color: #D2FFB4;
+	text-shadow: 0px -1px #000;
+	padding-top:20px;
+}
+
 .page-home #name {
 	/* Text details */
 	text-align:center;
@@ -286,7 +313,7 @@ input:-ms-input-placeholder { color:    #276332;}
 }
 .page-home #geoCodeButton p{
 	position:relative;
-	top:-5px;
+	top:10px;
 }
 
 
@@ -386,7 +413,7 @@ input:-ms-input-placeholder { color:    #276332;}
 
 	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #95E376;
 	background-color:#2E733A;
-	background-image: url("../graphics/noise.png");
+	background-image: url("/img/noise.png");
 	cursor:pointer;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
