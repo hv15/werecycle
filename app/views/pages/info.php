@@ -12,8 +12,8 @@
 			<div class="types" id="category<?=$category_id?>Types">
 				<?php foreach($category['types'] as $id => $recycle_type) { ?>
 					<div class="type" id="type<?=$id?>">
-						<p class="typeName"><?=$recycle_type['name']?></p>
 						<p class="typeInfoButton">i</p>
+						<p class="typeName"><?=$recycle_type['name']?></p>
 						<div class="typeInfoText"><?=$recycle_type['description']?></div>
 					</div>
 				<?php } ?>
