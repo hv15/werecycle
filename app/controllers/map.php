@@ -9,10 +9,8 @@ class Map extends CI_Controller {
 
 	public function view($page = 'index')
 	{
-		if($page == 'index') {
-			$segarray = $this->uri->segment_array();
-			$data['outlets'] = $this->map_model->get_outlets();
-		}
+		$segarray = $this->uri->segment_array();
+		$data['outlets'] = $this->map_model->get_outlets();
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('map/'.$page, $data);
