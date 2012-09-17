@@ -83,7 +83,12 @@ textarea {
 
 .page-select .main {
 	border: 1px solid #000;
+<<<<<<< HEAD
 	width:320px;
+=======
+	width:300px;
+	margin: 10px;
+>>>>>>> 0156be964375e94fb0d495e13b9644596ca3f90a
 	margin:0 auto;
 	font-family: Helvetica, Sans-Serif;
 	color:#D2FFB4;
