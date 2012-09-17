@@ -432,14 +432,14 @@ input:-ms-input-placeholder { color:    #276332;}
 	float:left;
 	padding-left:20px;
 }
+.page-info .address {
+	padding-bottom:20px;
+	text-decoration:underline;
+}
 .page-info .address:after {
 	text-decoration: none;
 	color:#B2DF94;
 	content: " (Google Maps) ";
-}
-.page-info .address {
-	padding-bottom:20px;
-	text-decoration:underline;
 }
 .page-info .button {
 	float:left;
