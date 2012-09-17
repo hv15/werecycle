@@ -16,9 +16,9 @@
 				<?php foreach($category['types'] as $id => $recycle_type) { ?>
 					<div class="type" id="type<?=$id?>">
 						<p class="typeCheckboxP">
-							<input class="typeCheckbox" type="checkbox" name="<?=$id?>" value="<?=$id?>" />
+							<input class="typeCheckbox" type="checkbox" id="checkbox<?=$id?>" name="checkbox<?=$id?>" value="<?=$id?>" />
 						</p>
-						<label for="<?=$id?>" class="typeName"><?=$recycle_type['name']?></label>
+						<label for="checkbox<?=$id?>" class="typeName"><?=$recycle_type['name']?></label>
 						<p class="typeInfoButton">i</p>
 						<p class="typeInfoText"><?=$recycle_type['description']?></p>
 					</div>
