@@ -130,7 +130,8 @@ textarea {
 	float: left;
 	background: rgba(255,0,0,.2);
 	width:42px;
-	height:42px;
+	height:32px;
+	padding-top: 10px;
 	text-align:center;
 }
 
@@ -142,8 +143,9 @@ textarea {
 .page-select .typeName {
 	float: left;
 	background: rgba(255,0,0,.2);
-	width:216px;
-	height:42px;
+	width:236px;
+	height:32px;
+	padding-top: 10px;
 	font-weight: bold;
 }
 
@@ -155,8 +157,9 @@ textarea {
 	font-style: oblique;
 	font-weight: bold;
 	font-size: 20px;
+	padding-top: 10px;
 	width:42px;
-	height:42px;
+	height:32px;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
