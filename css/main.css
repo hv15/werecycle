@@ -71,6 +71,16 @@ textarea {
    Andrew's adaptation of Leif's styling
    ========================================================================== */
 
+
+.page-info .main {
+	width:320px;
+	margin:0 auto;
+	font-family: Helvetica, Sans-Serif;
+	color:#D2FFB4;
+	text-shadow: 0px -1px #000;	
+}
+
+
 .page-select .main {
 	width:320px;
 	margin:0 auto;
