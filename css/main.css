@@ -238,9 +238,7 @@ textarea {
 	padding-top:20px;
 }
 .page-home #help {
-	position: absolute;
-	top:0px;
-	right:0px;
+	float: right;
 	padding:10px;
 	font-size:12px;
 }
