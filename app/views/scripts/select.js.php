@@ -1,6 +1,7 @@
 recalculateSelected();
 $.get('/getsession', function(data) {
   var userdata = $.parseJSON(data);
+  console.log(userdata);
 });
 
 function recalculateSelected() {
