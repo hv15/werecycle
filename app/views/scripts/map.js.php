@@ -193,6 +193,6 @@ $.getScript("http://google-maps-utility-library-v3.googlecode.com/svn/trunk/mark
 	function buttonSelect() {
 		$(location).attr('href',"./select.php?latitude="+latitude+"&longitude="+longitude+"&types="+types+"&zoom="+map_zoom);
 	}
-}
-}
-}
+});
+});
+});
