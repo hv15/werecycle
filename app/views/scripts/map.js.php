@@ -1,9 +1,16 @@
+<?php $userdata = $this->session->all_userdata(); ?>
 // a global variable to access the map
 var map;
 var markerCluster;
-var latitude;
-var longitude;
 var userdata;
+var map_zoom = 12;
+var map_lat  = <?=$userdata['home_latitude']?>;
+var map_lon  = <?=$userdata['home_longitude']?>;
+var map_pos  = new google.maps.LatLng(map_lat, map_lon);
+var types  = '<?=$userdata['types_selected']?>';
+var latitude = map_lat;
+var longitude = map_lon;
+
 // Used for geolocation
 var GeoMarker;
 var GeoLatLng;
@@ -187,13 +194,6 @@ function initialize(){
 function buttonSelect() {
 	$(location).attr('href',"/select");
 }
-
-<?php $userdata = $this->session->all_userdata(); ?>
-var map_zoom = 12;
-var map_lat  = <?=$userdata['home_latitude']?>;
-var map_lon  = <?=$userdata['home_longitude']?>;
-var map_pos  = new google.maps.LatLng(map_lat, map_lon);
-var types  = '<?=$userdata['types_selected']?>';
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
