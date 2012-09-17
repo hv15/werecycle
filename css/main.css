@@ -115,6 +115,7 @@ textarea {
 	background: rgba(255,0,0,.2);
 	width:236px;
 	height:32px;
+	font-weight: bold;
 }
 
 .page-select .categoryCount {
@@ -145,7 +146,6 @@ textarea {
 
 .page-select .typeCheckboxP {
 	float: left;
-	background: rgba(255,0,0,.2);
 	width:42px;
 	height:32px;
 	padding-top: 10px;
@@ -160,17 +160,14 @@ textarea {
 
 .page-select .typeName {
 	float: left;
-	background: rgba(255,0,0,.2);
 	width:236px;
 	height:32px;
 	cursor:pointer;
 	padding-top: 10px;
-	font-weight: bold;
 }
 
 .page-select .typeInfoButton {
 	float: left;
-	background: rgba(255,0,0,.2);
 	text-align:center;
 	font-family: times;
 	font-style: oblique;
