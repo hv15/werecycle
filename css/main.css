@@ -473,7 +473,7 @@ input:-ms-input-placeholder { color:    #276332;}
 .page-info .type.open {
 	height: auto !important;
 }
-.page-info .type.open .typeName {
+.page-info .typeName {
 	float: none !important;
 }
 .page-info .type.open .typeInfoText {
