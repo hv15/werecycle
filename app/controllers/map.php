@@ -26,7 +26,7 @@ class Map extends CI_Controller {
 	public function view($slug)
 	{
 		$data['title'] = ucfirst($slug);
-		$this->load->view('map/'$slug, $data);
+		$this->load->view('map/'.$slug, $data);
 	}
 }
 ?>
