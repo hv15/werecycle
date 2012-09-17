@@ -269,8 +269,8 @@ textarea {
 	position: relative;
 	height:32px;
 	width:32px;
-	right:4px;
-	top:-15px;
+	right:14px;
+	top:-16px;
 	background-image: url('/img/loading.gif');
 	background-size: 100%;
 }
