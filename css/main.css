@@ -434,6 +434,7 @@ input:-ms-input-placeholder { color:    #276332;}
 }
 .page-info .address:after {
 	text-decoration: none;
+	color:#B2DF94;
 	content: " (Google Maps) ";
 }
 .page-info .address {
