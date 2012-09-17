@@ -56,7 +56,33 @@ class Pages extends CI_Controller {
 		$latitude = $userdata['latitude'];
 		$longitude = $userdata['longitude'];
 		$distance = $userdata['distance'];
-		$data['outlets'] = $this->map_model->get_outlets($types,$latitude,$longitude,$distance);
+		$outletsarray = $this->map_model->get_outlets($types,$latitude,$longitude,$distance);
+		
+		$output = '';
+		foreach ($outletsarray as $row) {
+		    $output .= '{"id":'.$row['outlet_id'].',"type":'.$row['outlet_type'].',"lat":'.$row['latitude'].',"lon":'.$row['longitude'].',"name":"'.$row['outlet_name'].'"},';
+		}
+		$output = preg_replace('|(.+),|s','\1',$output);
+		$output = 'var data = {"outlets": ['.$output.']}';
+		
+		$data['outlets'] = $output;
+		$this->load->view('pages/data', $data);
+	}
+	
+	public function check()
+	{
+		$segarray = $this->uri->segment_array();
+		unset($segarray[1]);
+		$userdata = $this->session->all_userdata();
+		if(count($segarray)>0) {
+			$types = array('types_selected' => implode($segarray,','));
+		}
+		$latitude = $userdata['home_latitude'];
+		$longitude = $userdata['home_longitude'];
+		
+		$outletsarray = $this->map_model->get_outlets($types,$latitude,$longitude);
+		
+		$data['count'] = count($outletsarray);
 		$this->load->view('pages/data', $data);
 	}
 	
