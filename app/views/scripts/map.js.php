@@ -9,7 +9,7 @@
 var map;
 var markerCluster;
 var userdata;
-var map_zoom = 12;
+var map_zoom = <?=(isset($userdata['map_zoom']) ? $userdata['map_zoom'] : 12)?>;
 var map_lat  = <?=$userdata['home_latitude']?>;
 var map_lon  = <?=$userdata['home_longitude']?>;
 var map_pos  = new google.maps.LatLng(map_lat, map_lon);
@@ -112,7 +112,7 @@ function drawMarkers(newlocation) {
 	latitude = newlocation.lat();
 	longitude = newlocation.lng();
 	
-	var newSessionData = encodeURIComponent('{"distance":'+distance+',"latitude":'+latitude+',"longitude":'+longitude+'}');
+	var newSessionData = encodeURIComponent('{"distance":'+distance+',"latitude":'+latitude+',"longitude":'+longitude+',"map_zoom":'+map_zoom}');
 	
 	$.get('/setsession/'+newSessionData);
 	
@@ -201,7 +201,3 @@ function buttonSelect() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-
-/*$.get('/getsession', function(data) {
-  userdata = $.parseJSON(data);
-});*/
