@@ -3,7 +3,7 @@
             	<a href="<?=$_SERVER['HTTP_REFERER']?>" class="button" id="ButtonBack">&#8617; Return to Map</a>
 		
 		<?php echo $info; ?>
-		<div class="info"><p>Press a category to exapand</p></div>
+		<div class="info"><p>Press a category to expand</p></div>
 		<?php foreach($categories as $category_id => $category) { ?>
 			<div class="category" id="category<?=$category_id?>">
 				<div class="categoryToggle"></div>

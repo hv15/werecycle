@@ -27,7 +27,8 @@
 			<li>MacKinnon, Andrew</li>
 			<li>Viessmann, Hans-Nikolai</li>
 		</ul>
-		<p><a href="http://goo.gl/etd3F/">Provide Feedback</a></p>
+		<h2>Links</h2>
+		<p><a href="http://goo.gl/etd3F/">Fill in our survey</a></p>
 		<p><a href="https://code.google.com/p/werecycle/">Project Homepage</a></p>
 		<p><a href="https://code.google.com/p/werecycle/wiki/Acknowledgments">Acknowledgements</a></p>
             </div> <!-- #main -->
