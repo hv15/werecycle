@@ -36,7 +36,7 @@
 			</div>
 		<?php } ?>
 		
-		<div id="searchButton" class="button" onclick="createQuery();">
+		<div id="searchButton" class="button" onclick="setTypes();">
 			<p>Search recycling facilities...</p>
 		</div>
             </div> <!-- #main -->

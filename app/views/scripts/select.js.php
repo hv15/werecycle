@@ -7,15 +7,20 @@ function recalculateSelected() {
 	});
 }
 
-function createQuery() {
+function setTypes() {
 	var types = '';
+	var typescommas = '';
 	$('.typeCheckbox:checked').each(function(){
 		types = $(this).val() + '/' + types;
+		typescommas = $(this).val() + ',' + typescommas;
 	});
 	$.get('/check/'+types, function(data) {
 		if(data>0) {
-			/*alert("There are "+data+" recycle points which fit this selection. Redirecting you to the map...");*/
-			window.location.href = '/map/'+types;
+			/*alert("There are "+data+" recycle points which fit this selection. Redirecting you to the map...");*/					
+			var newSessionData = encodeURIComponent('{"types_selected":'+typescommas+'}');
+			$.get('/setsession/'+newSessionData, function(data){
+				window.location.href = '/map';
+			});
 		} else {
 			alert("There are no recycle points available which allow that combination of types, please de-select some and try again");
 		}
