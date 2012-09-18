@@ -63,12 +63,147 @@ textarea {
     padding: 0.2em 0;
 }
 
+/* ==========================================================================
 
 
 
+
+
+   The Home Page style
+
+
+
+
+
+   ========================================================================== */
+
+.page-home .main {
+	width:320px;
+	margin:0 auto;
+	text-align: center;	
+}
+
+.page-home #logo {
+	margin-top:40px;
+	margin-bottom:10px;
+	margin-right:-20px;
+	width:128px;
+}
+
+
+.page-home .flashMessage {
+	text-align:center;
+	font-family: Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:20px;
+	color: #D2FFB4;
+	text-shadow: 0px -1px #000;
+	padding-top:20px;
+}
+.page-home #help {
+	float: right;
+	margin-right:20px;
+	margin-left:-20px;
+	padding:10px;
+	font-size:12px;
+}
+.page-home #name {
+	/* Text details */
+	text-align:center;
+	font-family: Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:20px;
+	color: #D2FFB4;
+	text-shadow: 0px -1px #000;
+	padding-bottom:20px;
+	margin-bottom:20px;
+}
+
+.page-home #info {
+	/* Text details */
+	text-align:center;
+	font-family: Helvetica, sans-serif;
+	font-weight: bold;
+	color: #D2FFB4;
+	text-shadow: 0px -1px #000;
+	margin-bottom:10px;
+
+	font-size:16px;
+	font-weight:normal;
+}
+.page-home #geoLocationButton {
+	height:42px;
+	width:280px;
+	margin:0 auto;
+	margin-bottom:10px;
+}
+.page-home #geoLocationSpin {
+	position: relative;
+	height:32px;
+	width:32px;
+	left:4px;
+	top:-17px;
+	background-image: url('/img/loading.gif');
+	background-size: 100%;
+}
+.page-home #geoCode {
+	width:280px;
+	margin:0 auto;
+	margin-bottom:10px;
+}
+.page-home #geoCodeInput input {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box;
+	font-family: Helvetica, sans-serif;
+	background-color: #D2FFB5;
+	box-shadow: 0px -1px 0px 0px #000;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding:5px;
+	height:42px;
+	width:180px;
+	border:none;
+	margin-right:10px;
+	font-family:;
+	font-size:14px;
+	font-weight:;
+}
+/* Changes the color of the placegolder text*/
+.page-home input::-webkit-input-placeholder { color:    #276332; }
+.page-home input:-moz-placeholder { color:    #276332; }
+.page-home input:-ms-input-placeholder { color:    #276332;}
+
+.page-home #geoCodeButton {
+	height:42px;
+	width:90px;
+}
+
+.page-home #geoLocationButton p{
+	position:relative;
+	top:10px;
+}
+.page-home #geoCodeButton p{
+	position:relative;
+	top:10px;
+}
+.page-home #ButtonBack{
+	right:0px;
+}
 
 /* ==========================================================================
-   Andrew's adaptation of Leif's styling
+
+
+
+
+
+   The Select Page style
+
+
+
+
+
    ========================================================================== */
 
 .page-select .main {
@@ -83,7 +218,334 @@ textarea {
 	font-style:italic;
 	margin:10px;
 	text-align: center;
+}		
+
+.page-select #searchButton {
+	float: left;
+	width:300px;
+	margin:10px;
+	height:50px;
 }
+
+.page-select #searchButton p {
+	padding-top: 14px;
+}
+
+.page-select a, .page-select a:hover, .page-select a:visited{
+	color:#B2DF94;
+	text-decoration:underline;
+}
+
+/* ==========================================================================
+
+
+
+
+
+   The Map Page style
+
+
+
+
+
+   ========================================================================== */
+
+.page-map #MapContainer {
+    width: 100%;
+    height: 100%;
+    font-family: Helvetica, Sans-serif;
+}
+.page-map #Map {
+    width: 100%;
+    height: 100%;
+}
+
+.page-map #MapContainer a,#MapContainer a:visited,#MapContainer a:hover{
+	color: #333;
+	text-decoration:underline;
+}
+
+/*
+
+	Describes Button sizes, position, styling
+
+*/
+.page-map #ButtonZoomIn{
+	font-size:30px;
+	height:46px;
+	width:50px;
+	position:absolute;
+	bottom:56px;
+	left:10px;
+}
+.page-map #ButtonZoomOut{
+	font-size:30px;
+	height:45px;
+	width:50px;
+	position:absolute;
+	bottom:10px;
+	left:10px;
+}
+.page-map #ButtonHelp{
+	font-size:25px;
+	height:42px;
+	width:50px;
+	position:absolute;
+	bottom:10px;
+	right:10px;
+}
+.page-map #ButtonLocation{
+	height:42px;
+	width:50px;
+	position:absolute;
+	bottom:61px;
+	right:10px;
+}
+.page-map #ButtonSelect{
+	font-size:14px;
+	height:42px;
+	width:56%;
+	margin-left: -28%;
+	position:absolute;
+	bottom:10px;
+	left:50%;
+}
+
+/*
+
+Describes button text/image positions (using a paragraph block)
+
+*/
+
+.page-map #ButtonZoomIn p {
+	position:relative;
+	top: 0px;
+}
+.page-map #ButtonZoomOut p {
+	position:relative;
+	top: 0px;
+}
+.page-map #ButtonLocation p {
+	position:relative;
+	top: 9px;
+}
+.page-map #ButtonHelp p {
+	position:relative;
+	top: 4px;
+}
+.page-map #ButtonSelect p {
+	position:relative;
+	top: 12px;
+}
+
+/* ==========================================================================
+
+
+
+
+
+   The Info Page style
+
+
+
+
+
+   ========================================================================== */
+
+.page-info .main {
+	position:relative;
+	width:320px;
+	padding-top:60px;
+	margin:0 auto;
+	font-family: Helvetica, Sans-Serif;
+	color:#D2FFB4;
+	text-shadow: 0px -1px #000;
+}
+.page-info .nametitle, .page-info .addresstitle, .page-info .outletypestitle, .page-info .outletypestitle, .page-info .phonetitle, .page-info .openhourstitle {
+	font-weight:bold;
+	padding-left:10px;
+}
+
+.page-info .name, .page-info .phone, .page-info .openhours, .page-info .address {
+	padding-left:30px;
+}
+.page-info .openhours {
+	padding-bottom:20px;
+}
+.page-info .address {
+	padding-bottom:20px;
+	text-decoration:underline;
+}
+.page-info .addresstitle:after {
+	text-decoration: none;
+	color:#A2CF84;
+	content: " (Google Maps) ";
+}
+.page-info .button p{
+	position:relative;
+	top:8px;
+}
+.page-info a, .page-info a:hover, .page-info a:visited{
+	color:#D2FFB4;
+	text-decoration:none;
+}
+.page-info .categoryToggle {
+
+}
+.page-info .categoryName {
+	width: 258px;
+}
+.page-info .type p.typeName {
+	float:left;
+	height: 22px;
+	width: 216px;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin: 0px;
+	margin-left: 42px;
+}
+.page-info p.typeInfoButton {
+	float:right;
+	padding: 0px;
+	width: 42px;
+	height: 22px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.page-info .typeInfoText {
+	padding: 10px;
+	padding-left: 40px;
+	width: 270px;
+}
+
+/* ==========================================================================
+
+
+
+
+
+   The Help Page style
+
+
+
+
+
+   ========================================================================== */
+
+.page-help .main {
+	position:relative;
+	color:#D2FFB4;
+	width:300px;
+	padding:10px;
+	margin:0 auto;
+	text-align: center;
+	text-shadow: 0px -1px #000;
+}
+.page-help ul,.page-help p {
+	text-align:left;
+}
+.page-help .title {
+	font-size:20px;
+	text-align:center;
+}
+.page-help .description {
+	font-size:12px;
+	font-style:oblique;
+	text-align:center;
+	margin-bottom:20px;
+}
+.page-help a, .page-info a:hover, .page-info a:visited{
+	color:#D2FFB4;
+	text-decoration:underline;
+}
+#ButtonBack {
+	position:absolute;
+	top:10px;
+	left:10px;
+	width:20px;
+	padding:10px 10px 5px 10px;
+	font-size:16px;
+	text-decoration: none;
+}
+
+/* ==========================================================================
+
+
+
+
+
+   The Button class
+
+
+
+
+
+   ========================================================================== */
+.button{
+	/* Text details */
+	text-align:center;
+	font-family: Helvetica, sans-serif;
+	font-weight: bold;
+	color: #D2FFB4;
+	text-shadow: 0px -1px #000;
+
+	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #95E376;
+	background-color:#2E733A;
+	background-image: url("/img/noise.png");
+	cursor:pointer;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+
+	/*Disable user interaction*/
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+/* Button has round top */
+.button.roundTop{
+	-webkit-border-bottom-right-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+/* Button has round bottom */
+.button.roundBottom{
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-top-right-radius: 0px;
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-topright: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.button.active{
+	background-color:#28C744;
+	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #C0FF9B;
+}
+.button.inactive{
+	background-color:#2E733A;
+	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #95E376;
+}
+
+/* ==========================================================================
+
+
+
+
+
+   The Dropdown Category menus and Types
+
+
+
+
+
+   ========================================================================== */
 
 .page-select .category, .page-info .category {
 	height:42px;
@@ -196,394 +658,6 @@ textarea {
 	border-top: 1px solid rgba(0,0,0,.3);
 	border-bottom: 1px solid rgba(166,256,231,.3);
 }
-		
-
-.page-select #searchButton {
-	float: left;
-	width:300px;
-	margin:10px;
-	height:50px;
-}
-
-.page-select #searchButton p {
-	padding-top: 14px;
-}
-
-.page-select a, .page-select a:hover, .page-select a:visited{
-	color:#B2DF94;
-	text-decoration:underline;
-}
-
-.page-home .main {
-	width:320px;
-	margin:0 auto;
-	text-align: center;	
-}
-
-.page-home #logo {
-	margin-top:40px;
-	margin-bottom:10px;
-	margin-right:-20px;
-	width:128px;
-}
-
-
-.page-home .flashMessage {
-	text-align:center;
-	font-family: Helvetica, sans-serif;
-	font-weight: bold;
-	font-size:20px;
-	color: #D2FFB4;
-	text-shadow: 0px -1px #000;
-	padding-top:20px;
-}
-.page-home #help {
-	float: right;
-	margin-right:20px;
-	margin-left:-20px;
-	padding:10px;
-	font-size:12px;
-}
-.page-home #name {
-	/* Text details */
-	text-align:center;
-	font-family: Helvetica, sans-serif;
-	font-weight: bold;
-	font-size:20px;
-	color: #D2FFB4;
-	text-shadow: 0px -1px #000;
-	padding-bottom:20px;
-	margin-bottom:20px;
-}
-
-.page-home #info {
-	/* Text details */
-	text-align:center;
-	font-family: Helvetica, sans-serif;
-	font-weight: bold;
-	color: #D2FFB4;
-	text-shadow: 0px -1px #000;
-	margin-bottom:10px;
-
-	font-size:16px;
-	font-weight:normal;
-}
-.page-home #geoLocationButton {
-	height:42px;
-	width:280px;
-	margin:0 auto;
-	margin-bottom:10px;
-}
-.page-home #geoLocationSpin {
-	position: relative;
-	height:32px;
-	width:32px;
-	left:4px;
-	top:-17px;
-	background-image: url('/img/loading.gif');
-	background-size: 100%;
-}
-.page-home #geoCode {
-	width:280px;
-	margin:0 auto;
-	margin-bottom:10px;
-}
-.page-home #geoCodeInput input {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box; 
-	box-sizing: border-box;
-	font-family: Helvetica, sans-serif;
-	background-color: #D2FFB5;
-	box-shadow: 0px -1px 0px 0px #000;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	padding:5px;
-	height:42px;
-	width:180px;
-	border:none;
-	margin-right:10px;
-	font-family:;
-	font-size:14px;
-	font-weight:;
-}
-/* Changes the color of the placegolder text*/
-input::-webkit-input-placeholder { color:    #276332; }
-input:-moz-placeholder { color:    #276332; }
-input:-ms-input-placeholder { color:    #276332;}
-
-.page-home #geoCodeButton {
-	height:42px;
-	width:90px;
-}
-
-.page-home #geoLocationButton p{
-	position:relative;
-	top:10px;
-}
-.page-home #geoCodeButton p{
-	position:relative;
-	top:10px;
-}
-
-
-.page-map #MapContainer {
-    width: 100%;
-    height: 100%;
-    font-family: Helvetica, Sans-serif;
-}
-.page-map #Map {
-    width: 100%;
-    height: 100%;
-}
-
-.page-map #MapContainer a,#MapContainer a:visited,#MapContainer a:hover{
-	color: #333;
-	text-decoration:underline;
-}
-
-/* Describes Button sizes, position*/   
-.page-map #ButtonZoomIn{
-	font-size:30px;
-	height:46px;
-	width:50px;
-	position:absolute;
-	bottom:56px;
-	left:10px;
-}
-.page-map #ButtonZoomOut{
-	font-size:30px;
-	height:45px;
-	width:50px;
-	position:absolute;
-	bottom:10px;
-	left:10px;
-}
-.page-map #ButtonHelp{
-	font-size:25px;
-	height:42px;
-	width:50px;
-	position:absolute;
-	bottom:10px;
-	right:10px;
-}
-.page-map #ButtonLocation{
-	height:42px;
-	width:50px;
-	position:absolute;
-	bottom:61px;
-	right:10px;
-}
-.page-map #ButtonSelect{
-	font-size:14px;
-	height:42px;
-	width:56%;
-	margin-left: -28%;
-	position:absolute;
-	bottom:10px;
-	left:50%;
-}
-
-/*Describes button text/image positions (using a paragraph block)*/
-
-.page-map #ButtonZoomIn p {
-	position:relative;
-	top: 0px;
-}
-.page-map #ButtonZoomOut p {
-	position:relative;
-	top: 0px;
-}
-.page-map #ButtonLocation p {
-	position:relative;
-	top: 9px;
-}
-.page-map #ButtonHelp p {
-	position:relative;
-	top: 4px;
-}
-.page-map #ButtonSelect p {
-	position:relative;
-	top: 12px;
-}
-
-/*
-
-
-	Info Page
-
-
-*/
-.page-info .main {
-	position:relative;
-	width:320px;
-	padding-top:60px;
-	margin:0 auto;
-	font-family: Helvetica, Sans-Serif;
-	color:#D2FFB4;
-	text-shadow: 0px -1px #000;
-}
-.page-info .nametitle, .page-info .addresstitle, .page-info .outletypestitle, .page-info .outletypestitle, .page-info .phonetitle, .page-info .openhourstitle {
-	font-weight:bold;
-	padding-left:10px;
-}
-
-.page-info .name, .page-info .phone, .page-info .openhours, .page-info .address {
-	padding-left:30px;
-}
-.page-info .openhours {
-	padding-bottom:20px;
-}
-.page-info .address {
-	padding-bottom:20px;
-	text-decoration:underline;
-}
-.page-info .addresstitle:after {
-	text-decoration: none;
-	color:#A2CF84;
-	content: " (Google Maps) ";
-}
-.page-info .button p{
-	position:relative;
-	top:8px;
-}
-.page-info a, .page-info a:hover, .page-info a:visited{
-	color:#D2FFB4;
-	text-decoration:none;
-}
-.page-info .categoryToggle {
-
-}
-.page-info .categoryName {
-	width: 258px;
-}
-.page-info .type p.typeName {
-	float:left;
-	height: 22px;
-	width: 216px;
-	padding-top:10px;
-	padding-bottom:10px;
-	margin: 0px;
-	margin-left: 42px;
-}
-.page-info p.typeInfoButton {
-	float:right;
-	padding: 0px;
-	width: 42px;
-	height: 22px;
-	padding-top:10px;
-	padding-bottom:10px;
-}
-.page-info .typeInfoText {
-	padding: 10px;
-	padding-left: 40px;
-	width: 270px;
-}
-
-/*
-
-	Help Page
-
-*/
-
-.page-help .main {
-	position:relative;
-	color:#D2FFB4;
-	width:300px;
-	padding:10px;
-	margin:0 auto;
-	text-align: center;
-	text-shadow: 0px -1px #000;
-}
-.page-help ul,.page-help p {
-	text-align:left;
-}
-.page-help .title {
-	font-size:20px;
-	text-align:center;
-}
-.page-help .description {
-	font-size:12px;
-	font-style:oblique;
-	text-align:center;
-	margin-bottom:20px;
-}
-.page-help a, .page-info a:hover, .page-info a:visited{
-	color:#D2FFB4;
-	text-decoration:underline;
-}
-#ButtonBack {
-	position:absolute;
-	top:10px;
-	left:10px;
-	width:20px;
-	padding:10px 10px 5px 10px;
-	font-size:16px;
-	text-decoration: none;
-}
-.page-home #ButtonBack{
-	right:0px;
-}
-
-/*
-	Describes the buttons that the user can click on.
-*/
-.button{
-	/* Text details */
-	text-align:center;
-	font-family: Helvetica, sans-serif;
-	font-weight: bold;
-	color: #D2FFB4;
-	text-shadow: 0px -1px #000;
-
-	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #95E376;
-	background-color:#2E733A;
-	background-image: url("/img/noise.png");
-	cursor:pointer;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-
-	/*Disable user interaction*/
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-/* Button has round top */
-.button.roundTop{
-	-webkit-border-bottom-right-radius: 0px;
-	-webkit-border-bottom-left-radius: 0px;
-	-moz-border-radius-bottomright: 0px;
-	-moz-border-radius-bottomleft: 0px;
-	border-bottom-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-}
-/* Button has round bottom */
-.button.roundBottom{
-	-webkit-border-top-left-radius: 0px;
-	-webkit-border-top-right-radius: 0px;
-	-moz-border-radius-topleft: 0px;
-	-moz-border-radius-topright: 0px;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-}
-
-.button.active{
-	background-color:#28C744;
-	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #C0FF9B;
-}
-.button.inactive{
-	background-color:#2E733A;
-	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #95E376;
-}
-a,a:visited,a:hover{
-	color:#D2FFB4;
-	text-decoration:none;
-}
-
 
 
 /* ==========================================================================
