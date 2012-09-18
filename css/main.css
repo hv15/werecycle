@@ -82,15 +82,12 @@ textarea {
 	margin:0 auto;
 	text-align: center;	
 }
-
 .page-home #logo {
 	margin-top:40px;
 	margin-bottom:10px;
 	margin-right:-20px;
 	width:128px;
 }
-
-
 .page-home .flashMessage {
 	text-align:center;
 	font-family: Helvetica, sans-serif;
@@ -118,7 +115,6 @@ textarea {
 	padding-bottom:20px;
 	margin-bottom:20px;
 }
-
 .page-home #info {
 	/* Text details */
 	text-align:center;
@@ -190,6 +186,10 @@ textarea {
 }
 .page-home #ButtonBack{
 	right:0px;
+}
+.page-home a,.page-home a:visited,.page-home a:hover{
+	color:#D2FFB4;
+	text-decoration:none;
 }
 
 /* ==========================================================================
