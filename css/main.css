@@ -147,6 +147,9 @@ textarea {
 	margin:0 auto;
 	margin-bottom:10px;
 }
+.lt-ie9 .page-home #GeoCode{
+	width:300px;
+}
 .page-home #geoCodeInput input {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box; 
@@ -165,6 +168,9 @@ textarea {
 	font-family:;
 	font-size:14px;
 	font-weight:;
+}
+.lt-ie9 .page-home #geoCodeInput input {
+	padding:0px;
 }
 /* Changes the color of the placegolder text*/
 .page-home input::-webkit-input-placeholder { color:    #276332; }
