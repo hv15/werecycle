@@ -124,7 +124,7 @@ class map_model extends CI_Model {
 			$address = trim($address," \n\r\t,");
 			$addressenc = urlencode($address);
 			$mapsurl = "http://maps.google.com/maps?q=".$row['latitude'].','.$row['longitude'];
-			$output .= "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='$mapsurl' target='_blank'>$address</a></span><br /><br />\n\n";
+			$output .= "<span class='addresstitle'>Address</span><br />\n<div class='address'><a href='$mapsurl' target='_blank'>$address</a></div><br /><br />\n\n";
 		    }
 		    
 		    // Output the block of text which shows the opening hours, nicely marked up for CSS
