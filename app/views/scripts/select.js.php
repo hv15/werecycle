@@ -19,7 +19,8 @@ function setTypes() {
 			/*alert("There are "+data+" recycle points which fit this selection. Redirecting you to the map...");*/					
 			var newSessionData = encodeURIComponent('{"types_selected":'+typescommas+'}');
 			$.get('/setsession/'+newSessionData, function(data){
-				window.location.href = '/map';
+				/*window.location.href = '/map';*/
+				alert(data);
 			});
 		} else {
 			alert("There are no recycle points available which allow that combination of types, please de-select some and try again");
