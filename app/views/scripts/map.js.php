@@ -1,6 +1,6 @@
 <?php 
 	$userdata = $this->session->all_userdata(); 
-	if( !isset($userdata['home_latitude']) OR !isset($userdata['home_longitude']) OR !isset($userdata['types_selected']) ) {
+	if( !isset($userdata['latitude']) OR !isset($userdata['longitude']) OR !isset($userdata['types_selected']) ) {
 		$this->session->set_flashdata('message', 'Your session expired, please start again.');
 		echo 'window.location.href = "/";'; return;
 	}
@@ -10,8 +10,8 @@ var map;
 var markerCluster;
 var userdata;
 var map_zoom = <?=(isset($userdata['map_zoom']) ? $userdata['map_zoom'] : 12)?>;
-var map_lat  = <?=(isset($userdata['latitude']) ? $userdata['latitude'] : $userdata['home_latitude'])?>;
-var map_lon  = <?=(isset($userdata['longitude']) ? $userdata['longitude'] : $userdata['home_longitude'])?>;
+var map_lat  = <?=(isset($userdata['latitude']) ? $userdata['latitude'] : 55.95)?>;
+var map_lon  = <?=(isset($userdata['longitude']) ? $userdata['longitude'] : -3.18)?>;
 var map_pos  = new google.maps.LatLng(map_lat, map_lon);
 var types  = '<?=$userdata['types_selected']?>';
 var latitude = map_lat;

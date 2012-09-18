@@ -19,21 +19,7 @@ class Pages extends CI_Controller {
 		$data['page'] = $page;
 		
 		if($page == 'select') {
-			if ($this->uri->segment(2) !== FALSE) {
-				$sessiondata['home_latitude'] = $this->uri->segment(2, 0);
-				$sessiondata['home_longitude'] = $this->uri->segment(3, 0);
-				$this->session->set_userdata($sessiondata);
-			}
 			$data['categories'] = $this->map_model->get_categories();
-		}
-		
-		if($page == 'map') {
-			/*$segarray = $this->uri->segment_array();
-			unset($segarray[1]);
-			if(count($segarray)>0) {
-				$sessiondata = array('types_selected' => implode($segarray,','));
-				$this->session->set_userdata($sessiondata);
-			}*/
 		}
 		
 		if($page == 'info') {
