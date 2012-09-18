@@ -12,6 +12,9 @@
 
         <link rel="stylesheet" href="/css/normalize.min.css">
         <link rel="stylesheet" href="/css/main.css">
+
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/touch-icon-ipad.png"/>
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/touch-icon-iphone.png"/>
 	
         <script src="/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
         <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
