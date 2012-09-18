@@ -41,10 +41,10 @@ $('.category').click(function(index) {
 		// closes the categories with animation
 		var types = $(this).next();
 		var children = $(this).next().children();
-		types.slideToggle('slow',function(children) {
+		types.slideToggle('slow',(function(children) {
     		// Animation complete.
     		children.toggle();
-  		})(children);
+  		})(children));
 	}
 });
 
