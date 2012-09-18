@@ -18,9 +18,8 @@
 				</div>
 				<br />
 				<div class='openhourstitle'>Opening Hours</div>
-				<div class='openhours'>
-					<?=$info['openhours']?>
-				</div>
+				<div class='openhours'><?=$info['openhours']?>
+				
 				<br />
 				<div class="info">
 					<p>Press a category to expand</p>
@@ -39,6 +38,6 @@
 							</div>
 						<?php } ?>
 					</div>
-				<?php } ?>	
+				<?php } ?>
             </div> <!-- #main -->
         </div> <!-- #main-container -->
