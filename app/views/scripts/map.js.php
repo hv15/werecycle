@@ -105,10 +105,9 @@ function drawMarkers(newlocation) {
 	var urlRand = Math.random();
 	$.get('/setsession/'+newSessionData+'/'+urlRand, function(setSessionResponse){
 		alert(setSessionResponse);
-		$.get('/printsession+'/'+urlRand', function(printSessionResponse){
+		$.get('/printsession+'/'+urlRand, function(printSessionResponse){
 			alert(printSessionResponse);
-			var dataURL = '/data'+'/'+urlRand;
-			$.ajax({ type: 'GET', url: dataURL, success: function(dataResponse) {
+			$.ajax({ type: 'GET', url: '/data/'+urlRand, success: function(dataResponse) {
 				eval(dataResponse);
 				
 				var markers = [];
