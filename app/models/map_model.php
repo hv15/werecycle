@@ -119,7 +119,6 @@ class map_model extends CI_Model {
 				//$output .= "<span class='phonetitle'>Phone</span><br />\n<span class='phone'>$phone</span><br /><br />\n\n";
 				//$output .= "<span class='addresstitle'>Address</span><br />\n<div class='address'><a href='$mapsurl' target='_blank'>$address</a></div><br /><br />\n\n";
 		    } else {
-				$phone = FALSE;
 				$address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<div class="spacer1y">.+|s', '\1', $html);
 				$address = preg_replace('|<br />|s',', ',$address);
 				$address = trim($address," \n\r\t,");
@@ -160,9 +159,9 @@ class map_model extends CI_Model {
 			'name' => $row["outlet_name"],
 			'latitude' => $row['latitude'],
 			'longitude' => $row['longitude'],
-			'phone' => $phone,
+			'phone' => (isset($phone) ? $phone : ''),
 			'address' => $address,
-			'openhours' => $openhours
+			'openhours' => (isset($openhours) ? $openhours : '')
 		);
 		return $output;
 	}
