@@ -157,6 +157,11 @@ textarea {
 	height:22px;
 	cursor:pointer;
 	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.page-info .typeName {
+	padding-top: 15px;
+	padding-bottom: 5px;
 }
 
 .page-select .typeInfoButton, .page-info .typeInfoButton {
