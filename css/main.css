@@ -432,6 +432,9 @@ input:-ms-input-placeholder { color:    #276332;}
 .page-info .name, .page-info .phone, .page-info .openhours, .page-info .address {
 	padding-left:20px;
 }
+.page-info .openhours {
+	padding-bottom:20px;
+}
 .page-info .address {
 	padding-bottom:20px;
 	text-decoration:underline;
@@ -456,10 +459,10 @@ input:-ms-input-placeholder { color:    #276332;}
 	margin-bottom: 10px;
 }
 .page-info .categoryToggle {
-	margin: 9px 9px 9px 0px;
+
 }
 .page-info .categoryName {
-	width: 260px;
+	width: 258px;
 }
 .page-info .types {
 	margin-bottom: 35px;
