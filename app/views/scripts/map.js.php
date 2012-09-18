@@ -104,11 +104,7 @@ function drawMarkers(newlocation) {
 	var newSessionData = encodeURIComponent('{"distance":'+distance+',"latitude":'+latitude+',"longitude":'+longitude+',"map_zoom":'+map_zoom+'}');
 	
 	$.get('/setsession/'+newSessionData, function(data){
-		
-		// get dynamically the JSON data via data script for the markers
-		var urly = "/data";
-
-		$.ajax({ type: 'GET', url: urly, success: function(check) {
+		$.ajax({ type: 'GET', url: "/data", success: function(check) {
 			console.log(check);
 			eval(check);
 			
