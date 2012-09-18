@@ -102,10 +102,10 @@ function drawMarkers(newlocation) {
 	longitude = newlocation.lng();
 	
 	var newSessionData = encodeURIComponent('{"distance":'+distance+',"latitude":'+latitude+',"longitude":'+longitude+',"map_zoom":'+map_zoom+'}');
-	console.log(newSessionData);
-	alert(newSessionData);
 	
 	$.get('/setsession/'+newSessionData, function(setSessionResponse){
+		console.log(setSessionResponse);
+		alert(setSessionResponse);
 		$.get('/printsession', function(printSessionResponse){
 			alert(printSessionResponse);
 			$.ajax({ type: 'GET', url: "/data", success: function(dataResponse) {
