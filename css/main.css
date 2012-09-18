@@ -471,7 +471,7 @@ input:-ms-input-placeholder { color:    #276332;}
 	padding: 0px;
 	margin: 0px 0px 0px 0px;
 }
-.page-info .type.open {
+/*.page-info .type.open {
 	height: auto !important;
 }
 .page-info .typeName {
@@ -479,22 +479,23 @@ input:-ms-input-placeholder { color:    #276332;}
 }
 .page-info .type.open .typeInfoText {
 	float: none !important;
-}
+}*/
 .page-info .type p.typeName {
-	line-height: 46px;
-	height: auto;
-	width: 80%;
+	height: 42px;
+	width: 248px;
 	padding: 0px;
 	margin: 0px;
 	margin-left: 10px;
 }
 .page-info .typeInfoButton {
-	width: 24px;
+	float:right;
+	width: 42px;
+	height: 42px;
 }
 .page-info .typeInfoText {
-	margin: 10px 30px 10px 20px;
 	padding: 10px;
-	width: 240px;
+	padding-left: 40px;
+	width: 250px;
 }
 
 /*
