@@ -127,12 +127,12 @@ textarea {
 }
 
 .page-select .types, .page-info .types {
-	width:100%;
+	width:300px;
 	display: none;
 }
 
 .page-select .type, .page-info .type {
-	width:100%;
+	width:300px;
 	height:42px;
 	margin:0px;
 	padding:0px;
@@ -147,14 +147,14 @@ textarea {
 }
 
 .page-select .typeCheckbox {
-	height: 20px;
-	width: 20px;
+	height: 32px;
+	width: 32px;
 }
 
 
 .page-select .typeName {
 	float: left;
-	width:236px;
+	width:216px;
 	height:22px;
 	cursor:pointer;
 	padding-top: 10px;
