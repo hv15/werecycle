@@ -25,7 +25,7 @@ function createQuery() {
 /*
 	This function used to be a simple toggle button.
 	But now that I added animations, the order in which
-	I toggle matters, so it looks like I have duplicate code.
+	I toggle matters, so is now a bit more complicated
 */
 $('.category').click(function(index) { 
 	if(!$(this).hasClass("open")){
@@ -39,10 +39,12 @@ $('.category').click(function(index) {
 		$(this).removeClass("open");
 
 		// closes the categories with animation
-		$(this).next().slideToggle('slow',function(children) {
+		var types = $(this).next();
+		var children = $(this).next().children();
+		types.slideToggle('slow',function(children) {
     		// Animation complete.
     		children.toggle();
-  		})($(this).next().children());
+  		})(children);
 	}
 });
 
