@@ -18,7 +18,7 @@ function setTypes() {
 		if(data>0) {
 			/*alert("There are "+data+" recycle points which fit this selection. Redirecting you to the map...");*/		
 			typescommas = typescommas.slice(0, - 1);
-			var newSessionData = encodeURIComponent('{"types_selected":'+typescommas+'}');
+			var newSessionData = encodeURIComponent('{"types_selected":"'+typescommas+'"}');
 			$.get('/setsession/'+newSessionData, function(data){
 				/*window.location.href = '/map';*/
 				alert(data);
