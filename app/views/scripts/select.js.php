@@ -27,12 +27,12 @@ $('.category').click(function(index) {
 		$(this).addClass("open")
 	else
 		$(this).removeClass("open")
-	$(this).next().toggle(); 
+	$(this).next().slideToggle('slow'); 
 	$(this).next().children().toggle();
 });
 
 $('.typeInfoButton').click(function(index) { 
-	$(this).next().toggle(); 
+	$(this).next().slideToggle('slow'); 
 });
 
 $('.typeCheckbox').change(function() {
