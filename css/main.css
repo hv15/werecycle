@@ -147,8 +147,8 @@ textarea {
 	margin:0 auto;
 	margin-bottom:10px;
 }
-.ie9 .page-home #GeoCode{
-	width:300px;
+.lt-ie9 .page-home #GeoCode{
+	width:280px;
 }
 .page-home #geoCodeInput input {
 	-webkit-box-sizing: border-box;
@@ -169,7 +169,7 @@ textarea {
 	font-size:14px;
 	font-weight:;
 }
-.ie9 .page-home #geoCodeInput input {
+.lt-ie9 .page-home #geoCodeInput input {
 	padding:0px;
 }
 /* Changes the color of the placegolder text*/
