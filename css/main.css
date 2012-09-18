@@ -86,8 +86,8 @@ textarea {
 }
 
 .page-select .category, .page-info .category {
-	height:50px;
-	width:320px;
+	height:42px;
+	width:300px;
 	cursor:pointer;
 }
 
