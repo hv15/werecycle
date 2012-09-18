@@ -72,7 +72,8 @@ textarea {
    ========================================================================== */
 
 .page-select .main {
-	width:320px;
+	padding:10px;
+	width:300px;
 	margin:0 auto;
 	font-family: Helvetica, Sans-Serif;
 	color:#D2FFB4;
@@ -177,7 +178,7 @@ textarea {
 	-ms-user-select: none;
 	user-select: none;
 }
-.page-select .typeInfoButton p, .page-info .typeInfoButton p {
+.page-select .typeInfoButton p {
 	position:relative;
 	top:-5px;
 }
@@ -469,8 +470,10 @@ input:-ms-input-placeholder { color:    #276332;}
 .page-info p.typeInfoButton {
 	float:right;
 	padding: 0px;
-	width: 42px;
+	width: 22px;
 	height: 42px;
+	padding-top:10px;
+	padding-bottom:10px;
 }
 .page-info .typeInfoText {
 	padding: 10px;
