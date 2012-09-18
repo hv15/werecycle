@@ -42,7 +42,7 @@ $('.category').click(function(index) {
 		$(this).next().slideToggle('slow',function() {
     		// Animation complete.
     		$(this).next().children().toggle();
-  		}););
+  		});
 	}
 });
 
