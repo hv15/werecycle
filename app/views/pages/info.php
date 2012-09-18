@@ -8,7 +8,9 @@
 				<div class='name'><?=$info['name']?></div>
 				<br />
 				<div class='phonetitle'>Phone</div>
-				<div class='phone'><?=$info['phone']?></div>
+				<div class='phone'>
+					<a href='tel:<?=$info['phone']?>'><?=$info['phone']?></a>
+				</div>
 				<br />
 				<div class='addresstitle'>Address</div>
 				<div class='address'>
