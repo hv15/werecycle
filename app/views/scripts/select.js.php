@@ -33,19 +33,19 @@ $('.category').click(function(index) {
 
 		// opens the categories with animation
 		var types = $(this).next();
-		$(this).next().children().toggle();
+		//$(this).next().children().toggle();
 		types.slideToggle('slow');
 	} else {
 		$(this).removeClass("open");
 
 		// closes the categories with animation
 		var types = $(this).next();
+		types.slideToggle('slow');
 		var children = $(this).next().children();
-		types.slideToggle('slow',(function(children) {
+		/*types.slideToggle('slow',(function(children) {
     		// Animation complete.
-    		alert(children);
     		children.toggle();
-  		})(children));
+  		})(children));*/
 	}
 });
 
