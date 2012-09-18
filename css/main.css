@@ -481,11 +481,12 @@ input:-ms-input-placeholder { color:    #276332;}
 	float: none !important;
 }*/
 .page-info .type p.typeName {
+	float:left;
 	height: 42px;
-	width: 248px;
+	width: 218px;
 	padding: 0px;
 	margin: 0px;
-	margin-left: 10px;
+	margin-left: 42px;
 }
 .page-info .typeInfoButton {
 	float:right;
