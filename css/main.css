@@ -356,7 +356,6 @@ Describes button text/image positions (using a paragraph block)
 .page-info .main {
 	position:relative;
 	width:320px;
-	padding-top:60px;
 	margin:0 auto;
 	font-family: Helvetica, Sans-Serif;
 	color:#D2FFB4;
