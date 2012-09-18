@@ -431,7 +431,7 @@ Describes button text/image positions (using a paragraph block)
 }
 .page-info .back p{
 	position:relative;
-	top:8px;
+	top:10px;
 }
 
 /* ==========================================================================
