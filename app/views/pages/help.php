@@ -1,6 +1,6 @@
 	<div class="main-container">
             <div class="main wrapper clearfix">
-		<a onclick="<?=($_SERVER['HTTP_REFERER'] ? $_SERVER['HTTP_REFERER'] : '/')?>" class="button" id="ButtonBack">&#8617;</a>
+		<a onclick="<?=(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/')?>" class="button" id="ButtonBack">&#8617;</a>
         <img src="/img/logo.png" width="128"/>
 		<h1>RecycleFinder</h1>
 		<p class="description"></p>

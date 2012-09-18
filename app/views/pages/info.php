@@ -1,6 +1,6 @@
 	<div class="main-container">
             <div class="main wrapper clearfix">	
-            	<a href="<?=($_SERVER['HTTP_REFERER'] ? $_SERVER['HTTP_REFERER'] : '/')?>"><div class="button back"><p>&#8617; Return to Map</p></div></a>
+            	<a href="<?=(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/')?>"><div class="button back"><p>&#8617; Return to Map</p></div></a>
 		
 		<?php print_r( $info ); ?>
 		<div class="info"><p>Press a category to expand</p></div>
