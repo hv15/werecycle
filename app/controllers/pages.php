@@ -63,8 +63,8 @@ class Pages extends CI_Controller {
 		if(count($segarray)>0) {
 			$types = implode($segarray,',');
 		}
-		$latitude = $userdata['home_latitude'];
-		$longitude = $userdata['home_longitude'];
+		$latitude = $userdata['latitude'];
+		$longitude = $userdata['longitude'];
 		
 		$outletsarray = $this->map_model->get_outlets($types,$latitude,$longitude,1000);
 		
