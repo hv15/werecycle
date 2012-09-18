@@ -107,7 +107,7 @@ function drawMarkers(newlocation) {
 		alert(setSessionResponse);
 		$.get('/printsession+'/'+urlRand', function(printSessionResponse){
 			alert(printSessionResponse);
-			$.ajax({ type: 'GET', url: '/data+'/'+urlRand, success: function(dataResponse) {
+			$.ajax({ type: 'GET', url: '/data/'+urlRand, success: function(dataResponse) {
 				eval(dataResponse);
 				
 				var markers = [];
