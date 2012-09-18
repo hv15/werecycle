@@ -2,9 +2,9 @@
             <div class="main wrapper clearfix">
 		<a onclick="javascript:history.back()" class="button" id="ButtonBack">&#8617;</a>
         <img src="/img/logo.png" width="128"/>
-		<p class="title">RecycleFinder</p>
+		<h1>RecycleFinder</h1>
 		<p class="description"></p>
-		<p>Help</p>
+		<h2>Help</h2>
 		<p>
 			This application is designed to locate recycling outlets
 			in nearby locations. You can select individual items to
@@ -19,7 +19,7 @@
 			<em>i</em> next to the type. This will provide additional 
 			information, and tips on how to <em>Reduce, Reuse, Recycle</em>.
 		</p>
-		<p class="contributors">Contributors</p>
+		<h2>Contributors</h2>
 		<ul>
 			<li>Beveridge, Andrew</li>
 			<li>Devyatov, Konstantin</li>

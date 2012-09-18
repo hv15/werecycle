@@ -457,11 +457,15 @@ Describes button text/image positions (using a paragraph block)
 .page-help ul,.page-help p {
 	text-align:left;
 }
-.page-help .title {
+.page-help h1 {
 	font-size:20px;
 	text-align:center;
 }
-.page-help .description {
+.page-help h2 {
+	font-weight:bold;
+	font-size:18px;
+}
+.page-help p.description {
 	font-size:12px;
 	font-style:oblique;
 	text-align:center;
