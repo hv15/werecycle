@@ -20,8 +20,8 @@ function setTypes() {
 			typescommas = typescommas.slice(0, - 1);
 			var newSessionData = encodeURIComponent('{"types_selected":"'+typescommas+'"}');
 			$.get('/setsession/'+newSessionData, function(data){
-				/*window.location.href = '/map';*/
-				alert(data);
+				window.location.href = '/map';
+				/*alert(data);*/
 			});
 		} else {
 			alert("There are no recycle points available which allow that combination of types, please de-select some and try again");
