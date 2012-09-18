@@ -117,7 +117,7 @@ class map_model extends CI_Model {
 			$addressenc = urlencode($address);
 			$mapsurl = "http://maps.google.com/maps?q=".$row['latitude'].','.$row['longitude'];
 			$output .= "<span class='phonetitle'>Phone</span><br />\n<span class='phone'>$phone</span><br /><br />\n\n";
-			$output .= "<span class='addresstitle'>Address</span><br />\n<span class='address'><a href='$mapsurl' target='_blank'>$address</a></span><br /><br />\n\n";
+			$output .= "<span class='addresstitle'>Address</span><br />\n<div class='address'><a href='$mapsurl' target='_blank'>$address</a></div><br /><br />\n\n";
 		    } else {
 			$address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<div class="spacer1y">.+|s', '\1', $html);
 			$address = preg_replace('|<br />|s',', ',$address);
