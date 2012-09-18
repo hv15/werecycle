@@ -1,6 +1,6 @@
 	<div class="main-container">
             <div class="main wrapper clearfix">	
-            	<a href="<?=$_SERVER['HTTP_REFERER']?>" class="button" id="ButtonBack">&#8617;</a>
+            	<a href="<?=$_SERVER['HTTP_REFERER']?>" class="button" id="ButtonBack">&#8617; Return to Map</a>
 		
 		<?php echo $info; 
 		

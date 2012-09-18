@@ -22,10 +22,10 @@
 		<p class="contributors">Contributors</p>
 		<ul>
 			<li>Beveridge, Andrew</li>
-			<li>MacKinnon, Andrew</li>
-			<li>Viessmann, Hans-Nikolai</li>
 			<li>Devyatov, Konstantin</li>
 			<li>Gehrmann, Leif</li>
+			<li>MacKinnon, Andrew</li>
+			<li>Viessmann, Hans-Nikolai</li>
 		</ul>
 		<p><a href="http://goo.gl/etd3F/">Provide Feedback</a></p>
 		<p><a href="https://code.google.com/p/werecycle/">Project Homepage</a></p>

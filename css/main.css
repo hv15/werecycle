@@ -170,12 +170,10 @@ textarea {
 .page-home input::-webkit-input-placeholder { color:    #276332; }
 .page-home input:-moz-placeholder { color:    #276332; }
 .page-home input:-ms-input-placeholder { color:    #276332;}
-
 .page-home #geoCodeButton {
 	height:42px;
 	width:90px;
 }
-
 .page-home #geoLocationButton p{
 	position:relative;
 	top:10px;
@@ -417,6 +415,15 @@ Describes button text/image positions (using a paragraph block)
 	padding-left: 40px;
 	width: 270px;
 }
+.page-info #ButtonBack {
+	position:absolute;
+	top:10px;
+	left:10px;
+	width:300px;
+	padding:10px 10px 5px 10px;
+	font-size:16px;
+	text-decoration: none;
+}
 
 /* ==========================================================================
 
@@ -458,7 +465,7 @@ Describes button text/image positions (using a paragraph block)
 	color:#D2FFB4;
 	text-decoration:underline;
 }
-#ButtonBack {
+.page-help #ButtonBack {
 	position:absolute;
 	top:10px;
 	left:10px;
@@ -552,7 +559,6 @@ Describes button text/image positions (using a paragraph block)
 	width:320px;
 	cursor:pointer;
 }
-
 .page-select .categoryToggle, .page-info .categoryToggle {
 	float: left;
 	margin: 9px;
@@ -566,7 +572,6 @@ Describes button text/image positions (using a paragraph block)
 	background-image: url('/img/open.png');
 	background-size:100%;
 }
-
 .page-select .categoryName, .page-info .categoryName {
 	float: left;
 	padding-top: 10px;
@@ -574,7 +579,6 @@ Describes button text/image positions (using a paragraph block)
 	height:32px;
 	font-weight: bold;
 }
-
 .page-select .categoryCount {
 	float: left;
 	display:inline;
@@ -582,23 +586,19 @@ Describes button text/image positions (using a paragraph block)
 	width:42px;
 	height:32px;
 }
-
 .page-select .categoryCount p {
 	display:inline;
 }
-
 .page-select .types, .page-info .types {
 	width:100%;
 	display: none;
 }
-
 .page-select .type, .page-info .type {
 	width:320px;
 	height:42px;
 	margin:0px;
 	padding:0px;
 }
-
 .page-select .typeCheckboxP {
 	float: left;
 	width:42px;
@@ -606,13 +606,10 @@ Describes button text/image positions (using a paragraph block)
 	padding-top: 10px;
 	text-align:center;
 }
-
 .page-select .typeCheckbox {
 	height: 20px;
 	width: 20px;
 }
-
-
 .page-select .typeName {
 	float: left;
 	width:236px;
@@ -621,7 +618,6 @@ Describes button text/image positions (using a paragraph block)
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-
 .page-select .typeInfoButton, .page-info .typeInfoButton {
 	float: left;
 	text-align:center;
@@ -643,7 +639,6 @@ Describes button text/image positions (using a paragraph block)
 	position:relative;
 	top:-5px;
 }
-
 .page-select .typeInfoText, .page-info .typeInfoText {
 	display: none;
 	float: left;
