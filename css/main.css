@@ -143,9 +143,12 @@ textarea {
 	background-size: 100%;
 }
 .page-home #geoCode {
-	width:300px;
+	width:280px;
 	margin:0 auto;
 	margin-bottom:10px;
+}
+.ie .page-home #GeoCode{
+	width:280px;
 }
 .page-home #geoCodeInput input {
 	-webkit-box-sizing: border-box;
@@ -158,13 +161,16 @@ textarea {
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	padding:5px;
-	height:32px;
+	height:42px;
 	width:180px;
 	border:none;
 	margin-right:10px;
 	font-family:;
 	font-size:14px;
 	font-weight:;
+}
+.ie .page-home #geoCodeInput input {
+	padding:0px;
 }
 /* Changes the color of the placegolder text*/
 .page-home input::-webkit-input-placeholder { color:    #276332; }
