@@ -359,7 +359,7 @@ Describes button text/image positions (using a paragraph block)
 	color:#D2FFB4;
 	text-shadow: 0px -1px #000;
 }
-.page-info #info {
+.page-info .info {
 	width:300px;
 	font-style:italic;
 	margin:10px;
