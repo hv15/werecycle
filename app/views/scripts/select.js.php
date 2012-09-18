@@ -22,31 +22,12 @@ function createQuery() {
 	});
 }
 
-/*
-	This function used to be a simple toggle button.
-	But now that I added animations, the order in which
-	I toggle matters, so is now a bit more complicated
-*/
 $('.category').click(function(index) { 
-	if(!$(this).hasClass("open")){
+	if(!$(this).hasClass("open"))
 		$(this).addClass("open");
-
-		// opens the categories with animation
-		var types = $(this).next();
-		//$(this).next().children().toggle();
-		types.slideToggle('slow');
-	} else {
+	else
 		$(this).removeClass("open");
-
-		// closes the categories with animation
-		var types = $(this).next();
-		types.slideToggle('slow');
-		var children = $(this).next().children();
-		/*types.slideToggle('slow',(function(children) {
-    		// Animation complete.
-    		children.toggle();
-  		})(children));*/
-	}
+	$(this).next().slideToggle('slow');
 });
 
 $('.typeInfoButton').click(function(index) { 
