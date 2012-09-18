@@ -87,7 +87,7 @@ textarea {
 
 .page-select .category, .page-info .category {
 	height:42px;
-	width:300px;
+	width:320px;
 	cursor:pointer;
 }
 
@@ -416,7 +416,7 @@ input:-ms-input-placeholder { color:    #276332;}
 */
 .page-info .main {
 	position:relative;
-	width:300px;
+	width:320px;
 	padding:10px;
 	padding-top:70px;
 	margin:0 auto;
