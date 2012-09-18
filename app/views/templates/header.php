@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js page-<?=$page?>">
+<html class="page-<?=$page?>">
     <head>
         <title><?=$title?></title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="/css/normalize.min.css"/>
         <link rel="stylesheet" href="/css/main.css"/>
 	
-        <script src="/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
         <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     </head>
     <body>
