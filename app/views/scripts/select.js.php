@@ -27,8 +27,9 @@ $('.category').click(function(index) {
 		$(this).addClass("open")
 	else
 		$(this).removeClass("open")
-	$(this).next().slideToggle('slow'); 
+	var types = $(this).next(); 
 	$(this).next().children().toggle();
+	types.slideToggle('slow');
 });
 
 $('.typeInfoButton').click(function(index) { 
