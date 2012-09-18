@@ -131,9 +131,11 @@ textarea {
 }
 
 .page-select .type, .page-info .type {
-	width:100%;
+	width:300px;
 	height:42px;
 	margin:0px;
+	margin-left:10px;
+	margin-right:10px;
 	padding:0px;
 }
 
@@ -460,7 +462,7 @@ input:-ms-input-placeholder { color:    #276332;}
 .page-info .type p.typeName {
 	float:left;
 	height: 22px;
-	width: 200px;
+	width: 258px;
 	padding-top:10px;
 	padding-bottom:10px;
 	margin: 0px;
