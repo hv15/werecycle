@@ -88,11 +88,11 @@ class Pages extends CI_Controller {
 	{
 		if ($this->uri->segment(2) !== FALSE) {
 			$json = urldecode($this->uri->segment(2));
-			//$data['debug']['urlseg2'] = $json;
+			$data['debug']['urlseg2'] = $json;
 			$array = json_decode($json, true);
-			//$data['debug']['jsondecoded'] = $array;
+			$data['debug']['jsondecoded'] = $array;
 			$this->session->set_userdata($array);
-			//$this->load->view('pages/debug', $data);
+			$this->load->view('pages/debug', $data);
 		}
 	}
 }
