@@ -39,8 +39,10 @@ $('.category').click(function(index) {
 		$(this).removeClass("open");
 
 		// closes the categories with animation
-		$(this).next().slideToggle('slow');
-		$(this).next().children().toggle();
+		$(this).next().slideToggle('slow',function() {
+    		// Animation complete.
+    		$(this).next().children().toggle();
+  		}););
 	}
 });
 
