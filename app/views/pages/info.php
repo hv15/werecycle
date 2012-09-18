@@ -2,7 +2,23 @@
             <div class="main wrapper clearfix">	
             	<a href="<?=(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/')?>"><div class="button back"><p>&#8617; Return to Map</p></div></a>
 		
-		<?php print_r( $info ); ?>
+		<span class='nametitle'>Name</span><br />
+		<span class='name'><?=$info['name']?></span><br /><br />
+		<span class='phonetitle'>Phone</span><br />
+		<span class='phone'><?=$info['phone']?></span><br /><br />
+
+		<span class='addresstitle'>Address</span><br />
+		<div class='address'>
+			<a href='http://maps.google.com/maps?q=<?=$info['latitude']?>,<?=$info['longitude']?>' target='_blank'>
+				<?=$info['address']?>
+			</a>
+		</div><br /><br />
+
+		<span class='openhourstitle'>Opening Hours</span><br />
+		<div class='openhours'>
+			<?=$info['openhours']?>
+		</div>
+		
 		<div class="info"><p>Press a category to expand</p></div>
 		<?php foreach($categories as $category_id => $category) { ?>
 			<div class="category" id="category<?=$category_id?>">
