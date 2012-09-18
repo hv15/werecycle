@@ -39,10 +39,10 @@ $('.category').click(function(index) {
 		$(this).removeClass("open");
 
 		// closes the categories with animation
-		$(this).next().slideToggle('slow',function() {
+		$(this).next().slideToggle('slow',function(children) {
     		// Animation complete.
-    		$(this).next().children().toggle();
-  		});
+    		children.toggle();
+  		}($(this).next().children()));
 	}
 });
 
