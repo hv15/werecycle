@@ -43,6 +43,7 @@ $('.category').click(function(index) {
 		var children = $(this).next().children();
 		types.slideToggle('slow',(function(children) {
     		// Animation complete.
+    		alert(children);
     		children.toggle();
   		})(children));
 	}
