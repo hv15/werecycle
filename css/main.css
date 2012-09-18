@@ -429,8 +429,7 @@ input:-ms-input-placeholder { color:    #276332;}
 	font-weight:bold;
 }
 
-.page-info .name, .page-info .phone, .page-info .openhours, .page-info .address, .page-info span[class*=recycle_type] {
-	float:left;
+.page-info .name, .page-info .phone, .page-info .openhours, .page-info .address {
 	padding-left:20px;
 }
 .page-info .address {
