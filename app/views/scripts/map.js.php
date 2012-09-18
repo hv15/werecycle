@@ -102,11 +102,12 @@ function drawMarkers(newlocation) {
 	longitude = newlocation.lng();
 	
 	var newSessionData = encodeURIComponent('{"distance":'+distance+',"latitude":'+latitude+',"longitude":'+longitude+',"map_zoom":'+map_zoom+'}');
-	$.get('/setsession/'+newSessionData+'/'+Math.random(), function(setSessionResponse){
+	var urlRand = Math.random();
+	$.get('/setsession/'+newSessionData+'/'+urlRand, function(setSessionResponse){
 		alert(setSessionResponse);
-		$.get('/printsession+'/'+Math.random()', function(printSessionResponse){
+		$.get('/printsession+'/'+urlRand', function(printSessionResponse){
 			alert(printSessionResponse);
-			$.ajax({ type: 'GET', url: '/data+'/'+Math.random(), success: function(dataResponse) {
+			$.ajax({ type: 'GET', url: '/data+'/'+urlRand, success: function(dataResponse) {
 				eval(dataResponse);
 				
 				var markers = [];
