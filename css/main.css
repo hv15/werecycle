@@ -279,8 +279,8 @@ textarea {
 	position: relative;
 	height:32px;
 	width:32px;
-	left:10px;
-	top:-16px;
+	left:4px;
+	top:-17px;
 	background-image: url('/img/loading.gif');
 	background-size: 100%;
 }
@@ -425,11 +425,11 @@ input:-ms-input-placeholder { color:    #276332;}
 	color:#D2FFB4;
 	text-shadow: 0px -1px #000;
 }
-.page-info .nametitle, .page-info .addresstitle, .page-info .outletypestitle {
+.page-info .nametitle, .page-info .addresstitle, .page-info .outletypestitle, .page-info .outletypestitle, .page-info .phonetitle, .page-info .openhourstitle {
 	font-weight:bold;
 }
 
-.page-info .name, .page-info .address, .page-info span[class*=recycle_type] {
+.page-info .name, .page-info .phone, .page-info .openhours, .page-info .address, .page-info span[class*=recycle_type] {
 	float:left;
 	padding-left:20px;
 }
