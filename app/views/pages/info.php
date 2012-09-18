@@ -7,11 +7,13 @@
 				<div class='nametitle'>Name</div>
 				<div class='name'><?=$info['name']?></div>
 				<br />
+				<?php if($info['phone']) { ?>
 				<div class='phonetitle'>Phone</div>
 				<div class='phone'>
 					<a href='tel:<?=$info['phone']?>'><?=$info['phone']?></a>
 				</div>
 				<br />
+				<?php } if($info['address']) { ?>
 				<div class='addresstitle'>Address</div>
 				<div class='address'>
 					<a href='http://maps.google.com/maps?q=<?=$info['latitude']?>,<?=$info['longitude']?>' target='_blank'>
@@ -19,10 +21,11 @@
 					</a>
 				</div>
 				<br />
+				<?php } if($info['openhours']) { ?>
 				<div class='openhourstitle'>Opening Hours</div>
 				<div class='openhours'><?=$info['openhours']?>
-				
 				<br />
+				<?php } ?>
 				<div class="info">
 					<p>Press a category to expand</p>
 				</div>

@@ -159,9 +159,9 @@ class map_model extends CI_Model {
 			'name' => $row["outlet_name"],
 			'latitude' => $row['latitude'],
 			'longitude' => $row['longitude'],
-			'phone' => (isset($phone) ? $phone : ''),
+			'phone' => (isset($phone) ? $phone : FALSE),
 			'address' => $address,
-			'openhours' => (isset($openhours) ? $openhours : '')
+			'openhours' => (isset($openhours) ? $openhours : FALSE)
 		);
 		return $output;
 	}
