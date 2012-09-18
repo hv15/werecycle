@@ -19,22 +19,7 @@ class Pages extends CI_Controller {
 		$data['page'] = $page;
 		
 		if($page == 'select') {
-			if ($this->uri->segment(2) !== FALSE) {
-				$sessiondata['home_latitude'] = $this->uri->segment(2, 0);
-				$sessiondata['home_longitude'] = $this->uri->segment(3, 0);
-				$sessiondata['user_state'] = 2;
-				$this->session->set_userdata($sessiondata);
-			}
 			$data['categories'] = $this->map_model->get_categories();
-		}
-		
-		if($page == 'map') {
-			$segarray = $this->uri->segment_array();
-			unset($segarray[1]);
-			if(count($segarray)>0) {
-				$sessiondata = array('types_selected' => implode($segarray,','));
-				$this->session->set_userdata($sessiondata);
-			}
 		}
 		
 		if($page == 'info') {
@@ -78,8 +63,8 @@ class Pages extends CI_Controller {
 		if(count($segarray)>0) {
 			$types = implode($segarray,',');
 		}
-		$latitude = $userdata['home_latitude'];
-		$longitude = $userdata['home_longitude'];
+		$latitude = $userdata['latitude'];
+		$longitude = $userdata['longitude'];
 		
 		$outletsarray = $this->map_model->get_outlets($types,$latitude,$longitude,1000);
 		
@@ -103,11 +88,11 @@ class Pages extends CI_Controller {
 	{
 		if ($this->uri->segment(2) !== FALSE) {
 			$json = urldecode($this->uri->segment(2));
-			$data['debug']['urlseg2'] = $json;
+			//$data['debug']['urlseg2'] = $json;
 			$array = json_decode($json, true);
-			$data['debug']['jsondecoded'] = $array;
+			//$data['debug']['jsondecoded'] = $array;
 			$this->session->set_userdata($array);
-			$this->load->view('pages/debug', $data);
+			//$this->load->view('pages/debug', $data);
 		}
 	}
 }

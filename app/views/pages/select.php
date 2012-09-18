@@ -1,6 +1,6 @@
 <?php 
 	$userdata = $this->session->all_userdata(); 
-	if( !isset($userdata['home_latitude']) OR !isset($userdata['home_longitude']) ) {
+	if( !isset($userdata['latitude']) OR !isset($userdata['longitude']) ) {
 		$this->session->set_flashdata('message', 'Your session expired, please start again.');
 		echo '<script type="text/javascript">window.location.href = "/";</script>'; return;
 	}
@@ -36,7 +36,7 @@
 			</div>
 		<?php } ?>
 		
-		<div id="searchButton" class="button" onclick="createQuery();">
+		<div id="searchButton" class="button" onclick="setTypes();">
 			<p>Search recycling facilities...</p>
 		</div>
             </div> <!-- #main -->

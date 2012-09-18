@@ -20,7 +20,10 @@ function getGeoLocation(){
 	}
 }
 function returnPosition(position) {
-	window.location.href = "/select/"+position.coords.latitude+"/"+position.coords.longitude;
+	var newSessionData = encodeURIComponent('{"latitude":'+position.coords.latitude+',"longitude":'+position.coords.longitude+'}');
+	$.get('/setsession/'+newSessionData, function(data) {
+		window.location.href = '/select';
+	});
 }
 function returnError(position) {
 	spin("invisible");
@@ -36,7 +39,10 @@ function getGeoCode() {
 	var address = document.getElementById('geoCodeInputField').value;
 	geocoder.geocode( { 'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-			window.location.href = "/select/"+results[0].geometry.location.lat()+"/"+results[0].geometry.location.lng();
+			var newSessionData = encodeURIComponent('{"latitude":'+results[0].geometry.location.lat()+',"longitude":'+results[0].geometry.location.lng()+'}');
+			$.get('/setsession/'+newSessionData, function(data) {
+				window.location.href = '/select';
+			});
 		} else {
 			alert("Could not find that location. Try formatting in another way.");
 		}
