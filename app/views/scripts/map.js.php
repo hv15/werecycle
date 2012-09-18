@@ -104,7 +104,6 @@ function drawMarkers(newlocation) {
 	var newSessionData = encodeURIComponent('{"distance":'+distance+',"latitude":'+latitude+',"longitude":'+longitude+',"map_zoom":'+map_zoom+'}');
 	
 	$.get('/setsession/'+newSessionData, function(setSessionResponse){
-		console.log(setSessionResponse);
 		alert(setSessionResponse);
 		$.get('/printsession', function(printSessionResponse){
 			alert(printSessionResponse);
@@ -135,6 +134,9 @@ function drawMarkers(newlocation) {
 					// Put all the markers into the cluster.
 					markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
 				}
+				$.get('/printsession', function(printSessionResponse){
+					alert(printSessionResponse);
+				});
 			}});
 		});
 	});
