@@ -425,10 +425,11 @@ input:-ms-input-placeholder { color:    #276332;}
 }
 .page-info .nametitle, .page-info .addresstitle, .page-info .outletypestitle, .page-info .outletypestitle, .page-info .phonetitle, .page-info .openhourstitle {
 	font-weight:bold;
+	padding-left:10px;
 }
 
 .page-info .name, .page-info .phone, .page-info .openhours, .page-info .address {
-	padding-left:20px;
+	padding-left:30px;
 }
 .page-info .openhours {
 	padding-bottom:20px;
