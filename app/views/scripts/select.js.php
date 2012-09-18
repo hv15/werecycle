@@ -24,12 +24,17 @@ function createQuery() {
 
 $('.category').click(function(index) { 
 	if(!$(this).hasClass("open"))
-		$(this).addClass("open")
-	else
-		$(this).removeClass("open")
-	var types = $(this).next(); 
-	$(this).next().children().toggle();
-	types.slideToggle('slow');
+		$(this).addClass("open");
+		// opens the categories with animation
+		var types = $(this).next();
+		$(this).next().children().toggle();
+		types.slideToggle('slow');
+	else {
+		$(this).removeClass("open");
+		// closes the categories with animation
+		$(this).next().slideToggle('slow');
+		$(this).next().children().toggle();
+	}
 });
 
 $('.typeInfoButton').click(function(index) { 
