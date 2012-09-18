@@ -8,18 +8,17 @@
 
 		<p class="contributors">Contributors</p>
 		<ul>
-			<li>Andrew Beveridge</li>
-			<li>Andrew MacKinnon</li>
-			<li>Hans-Nikolai Viessmann</li>
-			<li>Konstantin Devyatov</li>
-			<li>Leif Gehrmann</li>
+			<li>Beveridge, Andrew</li>
+			<li>MacKinnon, Andrew</li>
+			<li>Viessmann, Hans-Nikolai</li>
+			<li>Devyatov, Konstantin</li>
+			<li>Gehrmann, Leif</li>
 		</ul>
 
-		<p class="contributors"><a href="">We would like to thank...</a></p>
-		<ul>
-			<li><a href="http://maps.google.com">Google Maps</a></li>
-			<li><a href="http://recycleforscotland.com">RecycleForScotland</a></li>
-		</ul>
+		<p><a href="http://goo.gl/etd3F/">Provide Feedback</a></p>
+		<p><a href="https://code.google.com/p/werecycle/">Project Homepage</a></p>
+		<p><a href="https://code.google.com/p/werecycle/wiki/Acknowledgments">Acknowledgements</a></p>
+
 		<p>miaow</p>
             </div> <!-- #main -->
         </div> <!-- #main-container -->
