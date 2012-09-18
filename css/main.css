@@ -424,11 +424,8 @@ Describes button text/image positions (using a paragraph block)
 	width: 270px;
 }
 .page-info #ButtonBack {
-	position:absolute;
-	top:10px;
-	left:10px;
 	width:300px;
-	padding:10px 10px 5px 10px;
+	margin:10px;
 	font-size:16px;
 	text-decoration: none;
 }
