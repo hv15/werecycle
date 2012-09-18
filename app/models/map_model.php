@@ -132,9 +132,10 @@ class map_model extends CI_Model {
 			$openhours = preg_replace('|.+<div class="openHours">(.+?)<div class="spacer5y.+|s', '\1', $html);
 			$openhours = preg_replace('|<b class="textGreen">(.+?)</b>|s', "\n".'<span class="openhoursperiodtext">\1</span><br />'."\n", $openhours);
 			$openhours = trim($openhours," \n\r\t,");
-			$openhours = preg_replace('| </div>|',"<br /><br />\n\n", $openhours);
+			// Wanted to group the text beneath opehoursperiod
+			//$openhours = preg_replace('| </div>|',"<br /><br />\n\n", $openhours); 
 			$openhours = preg_replace('|/>\n([^<].+?<br />.+?)<br />|s',"/>\n<span class='openhourstimetext'>".'\1'."</span><br />", $openhours);
-			$output .= "<span class='openhourstitle'>Opening Hours</span><br />\n".$openhours;
+			$output .= "<span class='openhourstitle'>Opening Hours</span><br /><div class='openhours'>\n".$openhours;
 		    }
 		    
 		    /*// Build SQL query to get outlet information for all selected types
