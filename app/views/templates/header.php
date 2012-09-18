@@ -12,7 +12,6 @@
 
         <link rel="stylesheet" href="/css/normalize.min.css">
         <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/jquery.mobile-1.1.1.min.css">
 	
         <script src="/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
         <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
