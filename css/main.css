@@ -72,8 +72,7 @@ textarea {
    ========================================================================== */
 
 .page-select .main {
-	padding:10px;
-	width:300px;
+	width:320px;
 	margin:0 auto;
 	font-family: Helvetica, Sans-Serif;
 	color:#D2FFB4;
@@ -109,7 +108,7 @@ textarea {
 .page-select .categoryName, .page-info .categoryName {
 	float: left;
 	padding-top: 10px;
-	width:216px;
+	width:236px;
 	height:32px;
 	font-weight: bold;
 }
@@ -127,12 +126,12 @@ textarea {
 }
 
 .page-select .types, .page-info .types {
-	width:300px;
+	width:100%;
 	display: none;
 }
 
 .page-select .type, .page-info .type {
-	width:300px;
+	width:100%;
 	height:42px;
 	margin:0px;
 	padding:0px;
@@ -147,14 +146,14 @@ textarea {
 }
 
 .page-select .typeCheckbox {
-	height: 22px;
-	width: 22px;
+	height: 20px;
+	width: 20px;
 }
 
 
 .page-select .typeName {
 	float: left;
-	width:216px;
+	width:236px;
 	height:22px;
 	cursor:pointer;
 	padding-top: 10px;
@@ -194,7 +193,6 @@ textarea {
 	width:270px;
 	padding-right:10px;
 	background:rgba(0,0,0,0.2);
-	margin-left:-10px;
 	border-top: 1px solid rgba(0,0,0,.3);
 	border-bottom: 1px solid rgba(166,256,231,.3);
 }
@@ -471,7 +469,7 @@ input:-ms-input-placeholder { color:    #276332;}
 .page-info p.typeInfoButton {
 	float:right;
 	padding: 0px;
-	width: 22px;
+	width: 42px;
 	height: 42px;
 	padding-top:10px;
 	padding-bottom:10px;
