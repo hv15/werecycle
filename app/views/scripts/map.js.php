@@ -103,35 +103,38 @@ function drawMarkers(newlocation) {
 	
 	var newSessionData = encodeURIComponent('{"distance":'+distance+',"latitude":'+latitude+',"longitude":'+longitude+',"map_zoom":'+map_zoom+'}');
 	
-	$.get('/setsession/'+newSessionData, function(data){
-		$.ajax({ type: 'GET', url: "/data", success: function(check) {
-			console.log(check);
-			eval(check);
-			
-			var markers = [];
-			for (var i = 0; i < data.outlets.length; i++) {
-				var outlet = data.outlets[i];
-				var latLng = new google.maps.LatLng(outlet.lat,outlet.lon);
-				var marker = new google.maps.Marker({ position: latLng});
-				// Add the markers, text to the memory.
-				markers.push(marker);
-				// Give each marker an event that opens the window.
-				google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
-					return function() {
-						$(location).attr('href',"/info/"+id);
-					}    
-				})(marker, i, outlet.name, outlet.id, outlet.type));
-			}
-			
-			// Clear all markers
-			if(markerCluster) {
-				markerCluster.clearMarkers();
-				markerCluster.addMarkers(markers);
-			} else {
-				// Put all the markers into the cluster.
-				markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
-			}
-		}});
+	$.get('/setsession/'+newSessionData, function(setSessionResponse){
+		$.get('/printsession', function(printSessionResponse){
+			alert(printSessionResponse);
+			$.ajax({ type: 'GET', url: "/data", success: function(dataResponse) {
+				console.log(dataResponse);
+				eval(dataResponse);
+				
+				var markers = [];
+				for (var i = 0; i < data.outlets.length; i++) {
+					var outlet = data.outlets[i];
+					var latLng = new google.maps.LatLng(outlet.lat,outlet.lon);
+					var marker = new google.maps.Marker({ position: latLng});
+					// Add the markers, text to the memory.
+					markers.push(marker);
+					// Give each marker an event that opens the window.
+					google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
+						return function() {
+							$(location).attr('href',"/info/"+id);
+						}    
+					})(marker, i, outlet.name, outlet.id, outlet.type));
+				}
+				
+				// Clear all markers
+				if(markerCluster) {
+					markerCluster.clearMarkers();
+					markerCluster.addMarkers(markers);
+				} else {
+					// Put all the markers into the cluster.
+					markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
+				}
+			}});
+		});
 	});
 }
 
