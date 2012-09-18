@@ -462,6 +462,7 @@ Describes button text/image positions (using a paragraph block)
 	text-align:center;
 }
 .page-help h2 {
+	text-align:left;
 	font-weight:bold;
 	font-size:18px;
 }
