@@ -16,8 +16,8 @@ function setTypes() {
 	});
 	$.get('/check/'+types, function(data) {
 		if(data>0) {
-			/*alert("There are "+data+" recycle points which fit this selection. Redirecting you to the map...");*/					
-			var newSessionData = encodeURIComponent('{"types_selected":'+typescommas+'}');
+			/*alert("There are "+data+" recycle points which fit this selection. Redirecting you to the map...");*/		
+			var newSessionData = encodeURIComponent('{"types_selected":'+typescommas.slice(0, - 1);+'}');
 			$.get('/setsession/'+newSessionData, function(data){
 				/*window.location.href = '/map';*/
 				alert(data);
