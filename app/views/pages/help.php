@@ -1,6 +1,6 @@
 	<div class="main-container">
             <div class="main wrapper clearfix">
-		<a href="<?=$_SERVER['HTTP_REFERER']?>" class="button" id="ButtonBack">&#8617;</a>
+		<a onclick="javascript:history.back()" class="button" id="ButtonBack">&#8617;</a>
 
             	<img src="/img/logo.png" width="128"/>
 		<p class="title">RecycleFinder</p>
