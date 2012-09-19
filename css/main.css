@@ -535,6 +535,7 @@ Describes button text/image positions (using a paragraph block)
 }
 
 .simplebutton{
+	background-color: #276332;
 	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 
 		1px 0px 0px 0px rgba(0,0,0,0.3),
 		-1px 0px 0px 0px rgba(0,0,0,0.3), 
