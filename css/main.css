@@ -682,22 +682,25 @@ Describes button text/image positions (using a paragraph block)
 .page-select .type { margin:0px;margin-bottom:10px;}
 .page-info   .type { margin:0px;}
 
-.page-select .typeCheckboxP {
+/*.page-select .typeCheckboxP {
 	float: left;
 	width:32px;
 	height:42px;
 	margin-left:10px;
-	/*padding-top: 12px;*/
 	text-align:center;
 
 	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 
 		-1px 0px 0px 0px rgba(0,0,0,0.3), 
 		inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);
-}
+}*/
 .page-select .typeCheckbox {
-	width: 32px;
+	float: left;
+	width:32px;
 	height:42px;
-	background-size: 16px 16px;
+	margin-left:10px;
+	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 
+		-1px 0px 0px 0px rgba(0,0,0,0.3), 
+		inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);
 	/*background-position: 0px 0px;
 	background-repeat: no-repeat;*/
 }
