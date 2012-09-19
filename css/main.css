@@ -227,7 +227,7 @@ textarea {
 	text-align: center;
 }
 
-.page-select #Confirm {
+.page-select #Confirm, .page-select #Alert {
 	position: fixed;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -258,7 +258,10 @@ textarea {
 	height:50px;
 }
 
-.page-select #SearchButton p, .page-select #Cancel p, .page-select #Ok p {
+.page-select #SearchButton p, 
+.page-select #Cancel p, 
+.page-select #Ok p,
+.page-select #Continue p {
 	padding-top: 14px;
 }
 
