@@ -39,7 +39,7 @@
 			<div id="SearchButton" class="button" onclick="setTypes();">
 				<p>Search recycling facilities...</p>
 			</div>
-			<!--<div id="Confirm">
+			<<div id="Confirm">
 				<b>Confirm</b>
 				<p class="confirmText" id="ConfirmText">There are no recycle points within 1 mile of this location which allow all of the types you have selected; however, there is at least one within 5 miles - you may need to zoom out on the map!</p>
 				<div id="Cancel" class="button"><p>Cancel</p></div>
@@ -49,6 +49,6 @@
 				<b>Alert</b>
 				<p class="alertText" id="AlertText">There are no recycle points within 1 mile of this location which allow all of the types you have selected; however, there is at least one within 5 miles - you may need to zoom out on the map!</p>
 				<div id="Ok" class="button"><p>OK</p></div>
-			</div>-->
+			</div>
         </div> <!-- #main -->
     </div> <!-- #main-container -->
