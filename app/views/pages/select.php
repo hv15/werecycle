@@ -38,10 +38,16 @@
 			<div id="SearchButton" class="button" onclick="setTypes();">
 				<p>Search recycling facilities...</p>
 			</div>
+			<div id="Confirm">
+				<b>Confirm</b>
+				<p class="confirmText" id="ConfirmText">There are no recycle points within 1 mile of this location which allow all of the types you have selected; however, there is at least one within 5 miles - you may need to zoom out on the map!</p>
+				<div id="Cancel" class="button"><p>Cancel</p></div>
+				<div id="Ok" class="button" onclick="window.location.href = '/map'"><p>OK</p></siv>
+			</div>
 			<div id="Alert">
-				<p class="alertText" id="AlertText">There are no recycle points within 1 mile of this location which allow all of the types you have selected; however, there is at least one within 5 miles - you may need to zoom out on the map!</p>
-				<div id="Cancel" class="button cancel"><p>Cancel</p></div>
-				<div id="Ok" class="button cancel"><p>OK</p></siv>
+				<b>Alert</b>
+				<p class="confirmText" id="AlertText">There are no recycle points within 1 mile of this location which allow all of the types you have selected; however, there is at least one within 5 miles - you may need to zoom out on the map!</p>
+				<div id="Ok" class="button"><p>OK</p></siv>
 			</div>
         </div> <!-- #main -->
     </div> <!-- #main-container -->

@@ -74,3 +74,11 @@ $('.typeInfoButton').click(function(index) {
 $('.typeCheckbox').change(function() {
 	recalculateSelected();
 });
+
+$('#Cancel').click(function(index) { 
+	$(this).parent().toggle();
+});
+
+$('#Ok').click(function(index) { 
+	$(this).parent().toggle();
+});
