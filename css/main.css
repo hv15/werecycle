@@ -701,14 +701,37 @@ Describes button text/image positions (using a paragraph block)
 	/*background-position: 0px 0px;
 	background-repeat: no-repeat;*/
 }
-.page-select .typeCheckbox[type='checkbox']:checked{
+
+input[type=checkbox] {
+    display:none;
+  }
+
+  input[type=checkbox] + label
+   {
+       background: #999;
+       height: 16px;
+       width: 16px;
+       display:inline-block;
+       padding: 0 0 0 0px;
+   }
+   
+   input[type=checkbox]:checked + label
+    {
+        background: #0080FF;
+        height: 16px;
+        width: 16px;
+        display:inline-block;
+        padding: 0 0 0 0px;
+}
+
+/*.page-select .typeCheckbox[type='checkbox']:checked{
 	opacity: 100;
 	background-image: url(/img/checkyes.png);
 }
 .page-select .typeCheckbox[type='checkbox']{
 	opacity: 0;
     background-image: url(/img/checkno.png);
-}
+}*/
 .page-select .typeName {
 	float: left;
 	width:226px;
