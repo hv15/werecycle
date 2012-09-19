@@ -8,8 +8,8 @@
 	<div class="main-container">
         <div class="main wrapper clearfix">
 			<div id="Info">
-				<p>Press the items you want to recycle</p>
-				<p>Selecting none will return all types</p>
+				<p>Press the items you want to recycle.</p>
+				<p>Selecting none will return all types.</p>
 			</div>
 
 			<?php 
