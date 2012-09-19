@@ -679,12 +679,11 @@ Describes button text/image positions (using a paragraph block)
 .page-select .type, .page-info .type {
 	width:320px;
 	height:42px;
-	margin:0px;
 	padding:0px;
 }
-.page-select .type {
-	margin-bottom:10px;
-}
+.page-select .type { margin:0px;margin-bottom:10px;}
+.page-info   .type { margin:0px;}
+
 .page-select .typeCheckboxP {
 	float: left;
 	width:32px;
