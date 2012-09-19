@@ -696,7 +696,7 @@ Describes button text/image positions (using a paragraph block)
 .page-select .typeCheckboxItem {
 	float: left;
 	margin-left: 10px;
-	width:226px;
+	width:258px;
 	height:22px;
 	cursor:pointer;
 	padding-top: 10px;
@@ -723,7 +723,7 @@ Describes button text/image positions (using a paragraph block)
 }
 .page-select .typeName {
 	float: left;
-	width:226px;
+	width:258px;
 }
 .page-select .typeInfoButton, .page-info .typeInfoButton {
 	float: left;
