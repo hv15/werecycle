@@ -705,11 +705,11 @@ Describes button text/image positions (using a paragraph block)
 	background-repeat: no-repeat;*/
 }
 
-input[type=checkbox] {
+.page-select input[type=checkbox] {
     display:none;
   }
 
-input[type=checkbox] + label{
+.page-select input[type=checkbox] + label{
 	float: left;
 	width:226px;
 	height:22px;
@@ -720,11 +720,28 @@ input[type=checkbox] + label{
 	text-align:left;
 
 	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 
+		-1px 0px 0px 0px rgba(0,0,0,0.3), 
 		inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);
+
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+
+	-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+
+	background-image: url(/img/checkyes.png);
 }
    
-input[type=checkbox]:checked + label{
-        background: #0080FF;
+.page-select input[type=checkbox]:checked + label{
+	background-image: url(/img/checkyes.png);
 }
 
 /*.page-select .typeCheckbox[type='checkbox']:checked{
