@@ -26,7 +26,7 @@
 				<div class="types" id="category<?=$category_id?>Types">
 					<?php foreach($category['types'] as $id => $recycle_type) { ?>
 						<div class="type left" id="type<?=$id?>">
-							<div class="typeCheckboxItem simplebutton roundLeft">
+							<div class="typeCheckboxItem simplebutton roundLeft" onclick="alert('t');">
 								<input class="typeCheckbox" type="checkbox" <?=(in_array($id,$selectedtypes) ? 'checked="checked"' : '')?> id="checkbox<?=$id?>" name="checkbox<?=$id?>" value="<?=$id?>" />
 								<label for="checkbox<?=$id?>" class="typeName"><?=$recycle_type['name']?></label>
 							</div>
