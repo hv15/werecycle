@@ -537,8 +537,17 @@ Describes button text/image positions (using a paragraph block)
 	user-select: none;
 }
 
+.simplebutton{
+	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #95E376;
+	border: 1px solid rgba(0,0,0,0.3);
+	cursor:pointer;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
 /* Button has round top */
-.button.roundTop{
+.button.roundTop, .simplebutton.roundTop {
 	-webkit-border-bottom-right-radius: 0px;
 	-webkit-border-bottom-left-radius: 0px;
 	-moz-border-radius-bottomright: 0px;
@@ -547,7 +556,7 @@ Describes button text/image positions (using a paragraph block)
 	border-bottom-left-radius: 0px;
 }
 /* Button has round bottom */
-.button.roundBottom{
+.button.roundBottom, .simplebutton.roundBottom{
 	-webkit-border-top-left-radius: 0px;
 	-webkit-border-top-right-radius: 0px;
 	-moz-border-radius-topleft: 0px;
@@ -556,7 +565,7 @@ Describes button text/image positions (using a paragraph block)
 	border-top-right-radius: 0px;
 }
 /* Button has round right side */
-.button.roundRight{
+.button.roundRight, .simplebutton.roundRight{
 	-webkit-border-top-left-radius: 0px;
 	-webkit-border-bottom-left-radius: 0px;
 	-moz-border-radius-topleft: 0px;
@@ -565,7 +574,7 @@ Describes button text/image positions (using a paragraph block)
 	border-bottom-left-radius: 0px;
 }
 /* Button has round left side */
-.button.roundLeft{
+.button.roundLeft, .simplebutton.roundLeft{
 	-webkit-border-top-right-radius: 0px;
 	-webkit-border-bottom-right-radius: 0px;
 	-moz-border-radius-topright: 0px;
