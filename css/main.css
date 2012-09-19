@@ -222,8 +222,11 @@ textarea {
 
 .page-select #Info {
 	font-style:italic;
-	margin:30px;
+	margin:20px;
 	text-align: center;
+}
+.page-select #Info p{
+	padding-bottom:5px;
 }
 
 .page-select #Confirm, .page-select #Alert {
@@ -740,6 +743,7 @@ Describes button text/image positions (using a paragraph block)
 }
 .page-select input[type=checkbox] + label{
 	padding-left: 32px;
+	height:22px;
 
 	background-image: url(/img/checkno.png);
 	background-size: 16px 16px;
@@ -752,6 +756,7 @@ Describes button text/image positions (using a paragraph block)
 .page-select .typeName {
 	float: left;
 	width:258px;
+	height:22px;
 }
 .page-select .typeInfoButton, .page-info .typeInfoButton {
 	float: left;
