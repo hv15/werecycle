@@ -228,7 +228,6 @@ textarea {
 }
 
 .page-select #Alert {
-	visibility: hidden;
 	z-index: 100;
 	position: relative;
 	top:10px;
