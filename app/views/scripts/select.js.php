@@ -14,6 +14,11 @@ function setTypes() {
 	});
 	types = types.slice(0, - 1);
 	
+	if(types.length == 0) {
+		alert("No types selected - showing all types");
+		types = 'all';
+	} else {
+	
 	var newSessionData = encodeURIComponent('{"types_selected":"'+types+'"}');
 	$.get('/setsession/'+newSessionData, function(setSessionResponse){
 		var urlRand = Math.random();
