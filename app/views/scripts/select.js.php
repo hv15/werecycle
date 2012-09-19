@@ -83,7 +83,7 @@ $('.typeInfoButton').click(function(index) {
 	$(this).next().slideToggle('slow'); 
 });
 
-$('.typeCheckbox').change(function() {
+$('.typeCheckboxItem').change(function() {
 	recalculateSelected();
 });
 
