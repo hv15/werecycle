@@ -1,6 +1,6 @@
 	<div class="main-container">
             <div class="main wrapper clearfix">	
-            	<a href="<?=(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/')?>">
+            	<a onclick="window.location.href='<?=(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/')?>'">
 					<div class="button back"><p>&#8617; Return to Map</p></div>
 				</a>
 				
