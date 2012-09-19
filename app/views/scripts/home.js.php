@@ -20,9 +20,9 @@ function getGeoLocation(){
 	}
 }
 function returnPosition(position) {
-	var newSessionData = encodeURIComponent('{"latitude":'+position.coords.latitude+',"longitude":'+position.coords.longitude+',"types":"all"}');
+	var newSessionData = encodeURIComponent('{"latitude":'+position.coords.latitude+',"longitude":'+position.coords.longitude+',"types_selected":"all"}');
 	$.get('/setsession/'+newSessionData, function(data) {
-		window.location.href = '/select';
+		window.location.href = '/map';
 	});
 }
 function returnError(position) {
@@ -39,9 +39,9 @@ function getGeoCode() {
 	var address = document.getElementById('geoCodeInputField').value;
 	geocoder.geocode( { 'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-			var newSessionData = encodeURIComponent('{"latitude":'+results[0].geometry.location.lat()+',"longitude":'+results[0].geometry.location.lng()+'}');
+			var newSessionData = encodeURIComponent('{"latitude":'+results[0].geometry.location.lat()+',"longitude":'+results[0].geometry.location.lng()+',"types_selected":"all"}');
 			$.get('/setsession/'+newSessionData, function(data) {
-				window.location.href = '/select';
+				window.location.href = '/map';
 			});
 		} else {
 			alert("Could not find that location. Try formatting in another way.");
