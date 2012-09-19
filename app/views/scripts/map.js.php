@@ -130,7 +130,7 @@ function drawMarkers(newlocation) {
 				// Put all the markers into the cluster.
 				markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
 			}
-		}});
+		});
 	});
 }
 
