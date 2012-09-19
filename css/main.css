@@ -535,11 +535,6 @@ Describes button text/image positions (using a paragraph block)
 }
 
 .simplebutton{
-	background-color: #276332;
-	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 
-		1px 0px 0px 0px rgba(0,0,0,0.3),
-		-1px 0px 0px 0px rgba(0,0,0,0.3), 
-		inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);
 	cursor:pointer;
 }
 
@@ -574,7 +569,6 @@ Describes button text/image positions (using a paragraph block)
 	-moz-border-radius-topright: 0px;
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
-
 }
 /* Button has round right side */
 .button.roundRight, .simplebutton.roundRight{
@@ -691,10 +685,10 @@ Describes button text/image positions (using a paragraph block)
 	margin-left:10px;
 	padding-top: 10px;
 	text-align:center;
-	-webkit-margin-before: 1em;
-	-webkit-margin-after: 1em;
-	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
+
+	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 
+		-1px 0px 0px 0px rgba(0,0,0,0.3), 
+		inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);
 }
 .page-select .typeCheckbox {
 	height: 20px;
@@ -708,6 +702,9 @@ Describes button text/image positions (using a paragraph block)
 	padding-top: 10px;
 	padding-bottom: 10px;
 	text-align:left;
+
+	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 
+		inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);
 }
 .page-select .typeInfoButton, .page-info .typeInfoButton {
 	float: left;
