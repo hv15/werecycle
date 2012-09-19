@@ -9,23 +9,19 @@ function recalculateSelected() {
 
 function setTypes() {
 	var types = '';
-	var typescommas = '';
 	$('.typeCheckbox:checked').each(function(){
-		types = $(this).val() + '/' + types;
-		typescommas = $(this).val() + ',' + typescommas;
+		types = $(this).val() + ',' + typescommas;
 	});
-	$.get('/check/'+types, function(data) {
-		if(data>0) {
-			/*alert("There are "+data+" recycle points which fit this selection. Redirecting you to the map...");*/		
-			typescommas = typescommas.slice(0, - 1);
-			var newSessionData = encodeURIComponent('{"types_selected":"'+typescommas+'"}');
-			$.get('/setsession/'+newSessionData, function(data){
-				window.location.href = '/map';
-				/*alert(data);*/
-			});
-		} else {
-			alert("There are no recycle points available which allow that combination of types, please de-select some and try again");
-		}
+	types = types.slice(0, - 1);
+	
+	var newSessionData = encodeURIComponent('{"types_selected":"'+typescommas+'"}');
+	$.get('/setsession/'+newSessionData, function(setSessionResponse){
+		$.get('/check/'+urlRand, function(checkResponse){
+			eval(checkResponse);
+			alert(check['code']);
+			alert(check['message']);
+			window.location.href = '/map';
+		});
 	});
 }
 

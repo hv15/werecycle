@@ -57,19 +57,38 @@ class Pages extends CI_Controller {
 	
 	public function check()
 	{
-		$segarray = $this->uri->segment_array();
-		unset($segarray[1]);
 		$userdata = $this->session->all_userdata();
-		if(count($segarray)>0) {
-			$types = implode($segarray,',');
-		}
 		$latitude = $userdata['latitude'];
 		$longitude = $userdata['longitude'];
+		$types = $userdata['types_selected'];
 		
-		$outletsarray = $this->map_model->get_outlets($types,$latitude,$longitude,1000);
-		
-		$data['outlets'] = count($outletsarray);
-		$this->load->view('pages/data', $data);
+		$outletsarray10 = $this->map_model->get_outlets($types,$latitude,$longitude,10);
+		if(count($outletsarray10 > 0)) {
+			$data['code'] = 10;
+			$data['message'] = "There is at least one recycle point within 10 miles of this location which allows all of the types you have selected";
+		} else {
+			$outletsarray30 = $this->map_model->get_outlets($types,$latitude,$longitude,30);
+			if(count($outletsarray30 > 0)) {
+				$data['code'] = 30;
+				$data['message'] = "There are no recycle points within 10 miles of this location which allow all of the types you have selected; however, there is at least one within 30 miles - you may need to zoom out on the map!";
+			} else {
+				$outletsarray50 = $this->map_model->get_outlets($types,$latitude,$longitude,50);
+				if(count($outletsarray50 > 0)) {
+					$data['code'] = 50;
+					$data['message'] = "There are no recycle points within 30 miles of this location which allow all of the types you have selected; however, there is at least one within 50 miles - you may need to zoom out on the map a lot, or try a smaller combination of recycle types to find less specific recycle points.";
+				} else {
+					$outletsarray500 = $this->map_model->get_outlets($types,$latitude,$longitude,500);
+					if(count($outletsarray500 > 0)) {
+						$data['code'] = 500;
+						$data['message'] = "There are no recycle points within 50 miles of this location which allow all of the types you have selected; however, there is at least one within 500 miles - you may need to zoom out on the map a lot! Alternatively, try de-selecting less common types to show more recycle points.";
+					} else {
+						$data['code'] = 1;
+						$data['message'] = "There are no recycle points within 500 miles of this location which allow all of the types you have selected; Try de-selecting less common types to show more recycle points!";
+					}					
+				}			
+			}
+		}			
+		$this->load->view('pages/check', $data);
 	}
 	
 	public function print_session() 
