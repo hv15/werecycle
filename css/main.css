@@ -637,7 +637,7 @@ Describes button text/image positions (using a paragraph block)
    ========================================================================== */
 
 .page-select .category, .page-info .category {
-	height:42px;
+	float: left;
 	width:320px;
 	cursor:pointer;
 }
