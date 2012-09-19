@@ -14,7 +14,7 @@ function setTypes() {
 	});
 	types = types.slice(0, - 1);
 	
-	var newSessionData = encodeURIComponent('{"types_selected":"'+typescommas+'"}');
+	var newSessionData = encodeURIComponent('{"types_selected":"'+types+'"}');
 	$.get('/setsession/'+newSessionData, function(setSessionResponse){
 		var urlRand = Math.random();
 		$.get('/check/'+urlRand, function(checkResponse){
