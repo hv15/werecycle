@@ -538,8 +538,7 @@ Describes button text/image positions (using a paragraph block)
 }
 
 .simplebutton{
-	box-shadow: 0px 1px 0px 0px #000, inset 0px 1px 0px 0px #95E376;
-	border: 1px solid rgba(0,0,0,0.3);
+	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);
 	cursor:pointer;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -662,8 +661,9 @@ Describes button text/image positions (using a paragraph block)
 }
 .page-select .typeCheckboxP {
 	float: left;
-	width:42px;
+	width:32px;
 	height:32px;
+	margin-left:10px;
 	padding-top: 10px;
 	text-align:center;
 }
@@ -673,7 +673,7 @@ Describes button text/image positions (using a paragraph block)
 }
 .page-select .typeName {
 	float: left;
-	width:236px;
+	width:235px;
 	height:22px;
 	cursor:pointer;
 	padding-top: 10px;
@@ -688,8 +688,10 @@ Describes button text/image positions (using a paragraph block)
 	font-weight: bold;
 	font-size: 20px;
 	padding-top: 10px;
-	width:42px;
+	width:32px;
 	height:32px;
+	margin-right:10px;
+	border-left: 1px solid rgba(0,0,0,0.3);
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
