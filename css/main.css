@@ -679,7 +679,6 @@ Describes button text/image positions (using a paragraph block)
 }
 .page-select .type, .page-info .type {
 	width:320px;
-	height:42px;
 	padding:0px;
 }
 .page-select .type { margin:0px;margin-bottom:10px;}
@@ -692,6 +691,10 @@ Describes button text/image positions (using a paragraph block)
 	margin-left:10px;
 	padding-top: 10px;
 	text-align:center;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
 }
 .page-select .typeCheckbox {
 	height: 20px;
