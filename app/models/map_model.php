@@ -46,8 +46,9 @@ class map_model extends CI_Model {
 		return $output;
 	}
 	
-	public function get_outlets($types='all',$latitude=55.9099,$longitude=-3.3220,$distance=10)
+	public function get_outlets($types,$latitude,$longitude,$distance)
 	{
+		if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($distance)) return FALSE;
 		include(APPPATH.'libraries/latlong_box.php');
 		$ne = bpot_getDueCoords($latitude, $longitude, 45, $distance, 'm', 1);
 		$sw = bpot_getDueCoords($latitude, $longitude, 225, $distance, 'm', 1);
