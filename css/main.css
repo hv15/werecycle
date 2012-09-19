@@ -530,7 +530,7 @@ Describes button text/image positions (using a paragraph block)
 	text-align:center;
 	margin-bottom:20px;
 }
-.page-help a, .page-info a:hover, .page-info a:visited{
+.page-help a, .page-help a:hover, .page-help a:visited{
 	color:#D2FFB4;
 	text-decoration:underline;
 }
