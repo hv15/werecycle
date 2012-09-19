@@ -20,7 +20,11 @@ function setTypes() {
 		$.get('/check/'+urlRand, function(checkResponse){
 			eval(checkResponse);
 			switch(check['code']) {
-				case 0:
+				case 2:
+					window.location.href = '/map';
+				break;
+				case 10:
+					alert(check['message']);
 					window.location.href = '/map';
 				break;
 				case 30:
@@ -35,7 +39,7 @@ function setTypes() {
 					alert(check['message']);
 					window.location.href = '/map';
 				break;
-				case 1:
+				case 0:
 					alert(check['message']);
 				break;
 				default:
