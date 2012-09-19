@@ -21,32 +21,30 @@ function setTypes() {
 			eval(checkResponse);
 			switch(check['code']) {
 				case 1:
-					alert(check['message']+' [code: '+check['code']+']');
-					alert(debug);
 					window.location.href = '/map';
 				break;
 				case 5:
-					alert(check['message']+' [code: '+check['code']+']');
+					alert(check['message']);
 					window.location.href = '/map';
 				break;
 				case 10:
-					alert(check['message']+' [code: '+check['code']+']');
+					alert(check['message']);
 					window.location.href = '/map';
 				break;
 				case 30:
-					alert(check['message']+' [code: '+check['code']+']');
+					alert(check['message']);
 					window.location.href = '/map';
 				break;
 				case 50:
-					alert(check['message']+' [code: '+check['code']+']');
+					alert(check['message']);
 					window.location.href = '/map';
 				break;
 				case 500:
-					alert(check['message']+' [code: '+check['code']+']');
+					alert(check['message']);
 					window.location.href = '/map';
 				break;
 				case 0:
-					alert(check['message']);
+					alert(check['message']);/*+' [code: '+check['code']+']');*/
 				break;
 				default:
 					alert('Error, please try again from the start');
