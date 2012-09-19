@@ -525,6 +525,10 @@ Describes button text/image positions (using a paragraph block)
 	background-image: url("/img/noise.png");
 	cursor:pointer;
 
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+
 	/*Disable user interaction*/
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -725,6 +729,7 @@ Describes button text/image positions (using a paragraph block)
 	user-select: none;
 	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3),
 		1px 0px 0px 0px rgba(0,0,0,0.3), 
+		-1px 0px 0px 0px rgba(0,0,0,0.3), 
 		inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);
 }
 .page-select .typeInfoButton p {
@@ -748,7 +753,6 @@ Describes button text/image positions (using a paragraph block)
 
 .page-select .typeInfoText {
 	margin-top:10px;
-	margin-bottom:10px;
 }
 
 
