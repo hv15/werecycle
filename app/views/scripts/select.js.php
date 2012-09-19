@@ -10,7 +10,7 @@ function recalculateSelected() {
 function setTypes() {
 	var types = '';
 	$('.typeCheckbox:checked').each(function(){
-		types = $(this).val() + ',' + typescommas;
+		types = $(this).val() + ',' + types;
 	});
 	types = types.slice(0, - 1);
 	
