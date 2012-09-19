@@ -710,38 +710,19 @@ Describes button text/image positions (using a paragraph block)
 
 .page-select input[type=checkbox] {
     display:none;
-  }
-
+}
 .page-select input[type=checkbox] + label{
 	background-image: url(/img/checkno.png);
 	background-size: 16px 16px;
 	background-position: 8px 12px;
 	background-repeat: no-repeat;
 }
-   
 .page-select input[type=checkbox]:checked + label{
 	background-image: url(/img/checkyes.png);
 }
-
-/*.page-select .typeCheckbox[type='checkbox']:checked{
-	opacity: 100;
-	background-image: url(/img/checkyes.png);
-}
-.page-select .typeCheckbox[type='checkbox']{
-	opacity: 0;
-    background-image: url(/img/checkno.png);
-}*/
 .page-select .typeName {
 	float: left;
 	width:226px;
-	height:22px;
-	cursor:pointer;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	text-align:left;
-
-	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 
-		inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);
 }
 .page-select .typeInfoButton, .page-info .typeInfoButton {
 	float: left;
