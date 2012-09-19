@@ -42,12 +42,12 @@
 				<b>Confirm</b>
 				<p class="confirmText" id="ConfirmText">There are no recycle points within 1 mile of this location which allow all of the types you have selected; however, there is at least one within 5 miles - you may need to zoom out on the map!</p>
 				<div id="Cancel" class="button"><p>Cancel</p></div>
-				<div id="Ok" class="button" onclick="window.location.href = '/map'"><p>OK</p></siv>
+				<div id="Continue" class="button" onclick="window.location.href = '/map'"><p>Ok</p></div>
 			</div>
 			<div id="Alert">
 				<b>Alert</b>
 				<p class="confirmText" id="AlertText">There are no recycle points within 1 mile of this location which allow all of the types you have selected; however, there is at least one within 5 miles - you may need to zoom out on the map!</p>
-				<div id="Ok" class="button"><p>OK</p></siv>
+				<div id="Ok" class="button"><p>OK</p></div>
 			</div>
         </div> <!-- #main -->
     </div> <!-- #main-container -->
