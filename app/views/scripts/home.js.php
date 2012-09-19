@@ -20,7 +20,7 @@ function getGeoLocation(){
 	}
 }
 function returnPosition(position) {
-	var newSessionData = encodeURIComponent('{"latitude":'+position.coords.latitude+',"longitude":'+position.coords.longitude+'}');
+	var newSessionData = encodeURIComponent('{"latitude":'+position.coords.latitude+',"longitude":'+position.coords.longitude+',"types":"all"}');
 	$.get('/setsession/'+newSessionData, function(data) {
 		window.location.href = '/select';
 	});
