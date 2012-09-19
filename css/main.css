@@ -744,6 +744,11 @@ Describes button text/image positions (using a paragraph block)
 	border-bottom: 1px solid rgba(166,256,231,.3);
 }
 
+.page-select .typeInfoText {
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
 
 /* ==========================================================================
    Helper classes
