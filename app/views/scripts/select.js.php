@@ -8,55 +8,67 @@ function recalculateSelected() {
 }
 
 function setTypes() {
-	var types = '';
-	$('.typeCheckbox:checked').each(function(){
-		types = $(this).val() + ',' + types;
-	});
-	types = types.slice(0, - 1);
-	
-	if(types.length == 0) {
-		alert("No types selected - showing all types");
-		types = 'all';
-	}
-	
-	var newSessionData = encodeURIComponent('{"types_selected":"'+types+'"}');
-	$.get('/setsession/'+newSessionData, function(setSessionResponse){
-		var urlRand = Math.random();
-		$.get('/check/'+urlRand, function(checkResponse){
-			eval(checkResponse);
-			switch(check['code']) {
-				case 1:
-					window.location.href = '/map';
-				break;
-				case 5:
-					alert(check['message']);
-					window.location.href = '/map';
-				break;
-				case 10:
-					alert(check['message']);
-					window.location.href = '/map';
-				break;
-				case 30:
-					alert(check['message']);
-					window.location.href = '/map';
-				break;
-				case 50:
-					alert(check['message']);
-					window.location.href = '/map';
-				break;
-				case 500:
-					alert(check['message']);
-					window.location.href = '/map';
-				break;
-				case 0:
-					alert(check['message']);/*+' [code: '+check['code']+']');*/
-				break;
-				default:
-					alert('Error, please try again from the start');
-			}
-			
+	if ($('#Confirm').is(":hidden")&&$('#Alert').is(":hidden")){
+		var types = '';
+		$('.typeCheckbox:checked').each(function(){
+			types = $(this).val() + ',' + types;
 		});
-	});
+		types = types.slice(0, - 1);
+		
+		if(types.length == 0) {
+			alert("No types selected - showing all types");
+			types = 'all';
+		}
+		
+		var newSessionData = encodeURIComponent('{"types_selected":"'+types+'"}');
+		$.get('/setsession/'+newSessionData, function(setSessionResponse){
+			var urlRand = Math.random();
+			$.get('/check/'+urlRand, function(checkResponse){
+				eval(checkResponse);
+				switch(check['code']) {
+					case 1:
+						window.location.href = '/map';
+					break;
+					case 5:
+						//alert(check['message']);
+						$("#ConfirmText").html(check['message']);
+						$("#Confirm").toggle();
+						//window.location.href = '/map';
+					break;
+					case 10:
+						$("#ConfirmText").html(check['message']);
+						$("#Confirm").toggle();
+						//window.location.href = '/map';
+					break;
+					case 30:
+						$("#ConfirmText").html(check['message']);
+						$("#Confirm").toggle();
+						//window.location.href = '/map';
+					break;
+					case 50:
+						$("#ConfirmText").html(check['message']);
+						$("#Confirm").toggle();
+						//window.location.href = '/map';
+					break;
+					case 500:
+						$("#ConfirmText").html(check['message']);
+						$("#Confirm").toggle();
+						//window.location.href = '/map';
+					break;
+					case 0:
+						$("#AlertText").html(check['message']);
+						$("#Alert").toggle();
+						//alert(check['message']);/*+' [code: '+check['code']+']');*/
+					break;
+					default:
+						$("#AlertText").html('Error, please try again from the start');
+						$("#Alert").toggle();
+						//alert('Error, please try again from the start');
+				}
+				
+			});
+		});
+	}
 }
 
 $('.category').click(function(index) { 
@@ -75,10 +87,14 @@ $('.typeCheckbox').change(function() {
 	recalculateSelected();
 });
 
+
+
 $('#Cancel').click(function(index) { 
 	$(this).parent().toggle();
 });
-
 $('#Ok').click(function(index) { 
 	$(this).parent().toggle();
+});
+$('#Continue').click(function(index) { 
+	window.location.href = '/map'
 });
