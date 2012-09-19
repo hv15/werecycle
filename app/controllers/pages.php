@@ -66,7 +66,7 @@ class Pages extends CI_Controller {
 		if(count($outletsarray1 > 0)) {
 			$data['code'] = 1;
 			$data['message'] = "There is at least one recycle point within 1 mile of this location which allows all of the types you have selected";
-			$data['debug'] = addslashes(print_r($outletsarray1,1));
+			$data['debug'] = print_r($outletsarray1,1);
 		} else {	
 			$outletsarray5 = $this->map_model->get_outlets($types,$latitude,$longitude,5);
 			if(count($outletsarray5 > 0)) {
