@@ -572,6 +572,12 @@ Describes button text/image positions (using a paragraph block)
 	border-top-right-radius: 0px;
 	border-bottom-right-radius: 0px;
 }
+/* Button has round left side */
+.button.roundNone{
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
 
 .button.active{
 	background-color:#28C744;
@@ -662,8 +668,8 @@ Describes button text/image positions (using a paragraph block)
 	cursor:pointer;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	border-left: 1px solid rgba(0,0,0,.3);
-	text-align:right;
+	border-right: 1px solid rgba(0,0,0,.3);
+	text-align:left;
 }
 .page-select .typeInfoButton, .page-info .typeInfoButton {
 	float: left;
