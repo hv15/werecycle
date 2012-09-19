@@ -21,6 +21,7 @@ function setTypes() {
 			eval(checkResponse);
 			switch(check['code']) {
 				case 1:
+					alert(check['message']);
 					window.location.href = '/map';
 				break;
 				case 5:
