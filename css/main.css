@@ -245,11 +245,12 @@ textarea {
 
 .page-select #Cancel, .page-select #Ok {
 	position:absolute;
-	bottom: 0px;
-	left: 0px;
+	bottom: 10px;
 	width:135px;
 	height:50px;
 }
+.page-select #Cancel {left: 10px;}
+.page-select #Ok {right:10px;}
 .page-select #SearchButton {
 	float: left;
 	width:300px;

@@ -39,7 +39,7 @@
 				<p>Search recycling facilities...</p>
 			</div>
 			<div id="Alert">
-				<p class="alertText" id="AlertText"></p>
+				<p class="alertText" id="AlertText">There are no recycle points within 1 mile of this location which allow all of the types you have selected; however, there is at least one within 5 miles - you may need to zoom out on the map!</p>
 				<div id="Cancel" class="button cancel"><p>Cancel</p></div>
 				<div id="Ok" class="button cancel"><p>OK</p></siv>
 			</div>
