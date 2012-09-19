@@ -685,9 +685,9 @@ Describes button text/image positions (using a paragraph block)
 .page-select .typeCheckboxP {
 	float: left;
 	width:32px;
-	height:28px;
+	height:30px;
 	margin-left:10px;
-	padding-top: 14px;
+	padding-top: 12px;
 	text-align:center;
 
 	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 
