@@ -440,16 +440,13 @@ Describes button text/image positions (using a paragraph block)
 	position:relative;
 	top:8px;
 }
-.page-info a, .page-info a:hover, .page-info a:visited{
+.page-info .address a, .page-info .address a:hover, .page-info .address a:visited{
 	color:#D2FFB4;
 	text-decoration:none;
 }
-.page-info .category a, .page-info .category a:hover, .page-info .category a:visited{
+.page-info .typeInfoText a, .page-info .typeInfoText a:hover, .page-info .typeInfoText a:visited{
 	color:#D2FFB4;
 	text-decoration:underline;
-}
-.page-info .categoryToggle {
-
 }
 .page-info .categoryName {
 	width: 258px;
