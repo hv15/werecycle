@@ -16,6 +16,7 @@ function setTypes() {
 	
 	var newSessionData = encodeURIComponent('{"types_selected":"'+typescommas+'"}');
 	$.get('/setsession/'+newSessionData, function(setSessionResponse){
+		var urlRand = Math.random();
 		$.get('/check/'+urlRand, function(checkResponse){
 			eval(checkResponse);
 			alert(check['code']);
