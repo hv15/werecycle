@@ -554,6 +554,24 @@ Describes button text/image positions (using a paragraph block)
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
 }
+/* Button has round right side */
+.button.roundRight{
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+/* Button has round left side */
+.button.roundLeft{
+	-webkit-border-top-right-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
 
 .button.active{
 	background-color:#28C744;
