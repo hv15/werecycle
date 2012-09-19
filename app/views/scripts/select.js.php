@@ -1,7 +1,3 @@
-onload = function(){
-	recalculateSelected();
-}
-
 function recalculateSelected() {
 	$('.category').each(function(index) {
 		var newval = $(this).next().find('.typeCheckbox:checked').length;
@@ -76,3 +72,7 @@ $('.typeInfoButton').click(function(index) {
 $('.typeCheckbox').change(function() {
 	recalculateSelected();
 });
+
+onload = function(){
+	recalculateSelected();
+}
