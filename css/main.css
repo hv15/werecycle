@@ -738,6 +738,9 @@ Describes button text/image positions (using a paragraph block)
 	border-bottom-right-radius: 0px;
 
 	background-image: url(/img/checkyes.png);
+	background-size: 16px 16px;
+	background-position: 4px 10px;
+	background-repeat: no-repeat;
 }
    
 .page-select input[type=checkbox]:checked + label{
