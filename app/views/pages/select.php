@@ -38,6 +38,7 @@
 			<?php } ?>
 			<div id="SearchButton" class="button" onclick="setTypes();">
 				<p>Search recycling facilities...</p>
+				<div id="SearchSpin" class="invisible"></div>
 			</div>
 			<div id="Confirm">
 				<b>Confirm</b>

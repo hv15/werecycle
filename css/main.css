@@ -243,7 +243,7 @@ textarea {
     left: 50%;
     margin-left:-150px;
     margin-top:-105px;  
-	box-shadow: 0px 0px 20px #000;
+	box-shadow: 0px 0px 100px #000, 0px 0px 100px #000, 0px 0px 100px #000, 0px 0px 100px #000;
 }
 
 .page-select #Cancel, .page-select #Ok, .page-select #Continue {
@@ -271,6 +271,16 @@ textarea {
 .page-select a, .page-select a:hover, .page-select a:visited{
 	color:#B2DF94;
 	text-decoration:underline;
+}
+
+.page-select #SearchSpin {
+	position: relative;
+	height:32px;
+	width:32px;
+	left:4px;
+	top:-17px;
+	background-image: url('/img/loading.gif');
+	background-size: 100%;
 }
 
 /* ==========================================================================

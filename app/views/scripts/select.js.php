@@ -9,6 +9,7 @@ function recalculateSelected() {
 
 function setTypes() {
 	if ($('#Confirm').is(":hidden")&&$('#Alert').is(":hidden")){
+		spin("visible");
 		var types = '';
 		$('.typeCheckbox:checked').each(function(){
 			types = $(this).val() + ',' + types;
@@ -65,7 +66,7 @@ function setTypes() {
 						$("#Alert").toggle();
 						//alert('Error, please try again from the start');
 				}
-				
+				spin("invisible");
 			});
 		});
 	}
@@ -98,3 +99,8 @@ $('#Ok').click(function(index) {
 $('#Continue').click(function(index) { 
 	window.location.href = '/map'
 });
+
+function spin(state){type="text/javascript" 
+	var spin = document.getElementById("SearchSpin");
+	spin.className = state;
+}
