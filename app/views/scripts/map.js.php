@@ -91,7 +91,9 @@ function toggleLocation() {
 }
 
 function drawMarkers(newlocation) {
-	if(map_zoom > 18) {
+	if(map_zoom > 14) {
+		distance = 5;
+	} else if(map_zoom > 11) {
 		distance = 10;
 	} else if(map_zoom <8) {
 		distance = 1000;
