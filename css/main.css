@@ -694,13 +694,13 @@ Describes button text/image positions (using a paragraph block)
 		inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);
 }*/
 .page-select .typeCheckbox {
-	float: left;
+	/*float: left;
 	width:32px;
 	height:42px;
 	margin-left:10px;
 	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 
 		-1px 0px 0px 0px rgba(0,0,0,0.3), 
-		inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);
+		inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);*/
 	/*background-position: 0px 0px;
 	background-repeat: no-repeat;*/
 }
@@ -709,18 +709,22 @@ input[type=checkbox] {
     display:none;
   }
 
-  input[type=checkbox] + label
-   {
-       background: #999;
-       /*:inline-block;*/
-       padding: 0 0 0 0px;
-   }
+input[type=checkbox] + label{
+	float: left;
+	width:226px;
+	height:22px;
+	cursor:pointer;
+	padding-left: 32px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align:left;
+
+	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 
+		inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);
+}
    
-   input[type=checkbox]:checked + label
-    {
+input[type=checkbox]:checked + label{
         background: #0080FF;
-        /*display:inline-block;*/
-        padding: 0 0 0 0px;
 }
 
 /*.page-select .typeCheckbox[type='checkbox']:checked{
