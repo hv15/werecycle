@@ -16,7 +16,7 @@ function setTypes() {
 		types = types.slice(0, - 1);
 		
 		if(types.length == 0) {
-			alert("No types selected - showing all types");
+			// alert("No types selected - The map will now showing all the recycling centers and points.");
 			types = 'all';
 		}
 		
