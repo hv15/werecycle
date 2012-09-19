@@ -1,4 +1,4 @@
-recalculateSelected();
+onload = recalculateSelected();
 
 function recalculateSelected() {
 	$('.category').each(function(index) {
