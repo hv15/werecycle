@@ -117,7 +117,7 @@ class map_model extends CI_Model {
 		    
 		    // Check to see if there is a phone number for this outlet to determine the regex we use
 		    if(strpos($html,'miniIconTelephoneRec')) {
-				$phone = preg_replace('|.+<img class="pic20 picL" src="siImages/miniIconTelephoneRec.gif" />([0-9 ]+) <div.+|s', '\1', $html);
+				$phone = preg_replace('|.+<img class="pic20 picL" src="siImages/miniIconTelephoneRec.gif" />(.+?) <div.+|s', '\1', $html);
 				$address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<img class="pic20.+|s', '\1', $html);
 				$address = preg_replace('|<br />|s',', ',$address);
 				$address = trim($address," \n\r\t,");
