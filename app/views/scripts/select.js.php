@@ -18,7 +18,7 @@ function setTypes() {
 	$.get('/setsession/'+newSessionData, function(setSessionResponse){
 		var urlRand = Math.random();
 		$.get('/check/'+urlRand, function(checkResponse){
-			alert(checkResponse);
+			eval(checkResponse);
 			alert(check['code']);
 			alert(check['message']);
 			window.location.href = '/map';
