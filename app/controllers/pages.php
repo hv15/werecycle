@@ -64,7 +64,7 @@ class Pages extends CI_Controller {
 		
 		$outletsarray10 = $this->map_model->get_outlets($types,$latitude,$longitude,10);
 		if(count($outletsarray10 > 0)) {
-			$data['code'] = 10;
+			$data['code'] = 0;
 			$data['message'] = "There is at least one recycle point within 10 miles of this location which allows all of the types you have selected";
 		} else {
 			$outletsarray30 = $this->map_model->get_outlets($types,$latitude,$longitude,30);

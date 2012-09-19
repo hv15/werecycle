@@ -19,9 +19,29 @@ function setTypes() {
 		var urlRand = Math.random();
 		$.get('/check/'+urlRand, function(checkResponse){
 			eval(checkResponse);
-			alert(check['code']);
-			alert(check['message']);
-			window.location.href = '/map';
+			switch(check['code']) {
+				case 0:
+					window.location.href = '/map';
+				break;
+				case 30:
+					alert(check['message']);
+					window.location.href = '/map';
+				break;
+				case 50:
+					alert(check['message']);
+					window.location.href = '/map';
+				break;
+				case 500:
+					alert(check['message']);
+					window.location.href = '/map';
+				break;
+				case 1:
+					alert(check['message']);
+				break;
+				default:
+					alert('Error, please try again from the start');
+			}
+			
 		});
 	});
 }
