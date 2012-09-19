@@ -701,11 +701,11 @@ Describes button text/image positions (using a paragraph block)
 	background-position: 16px 16px;
 	background-repeat: no-repeat;
 }
-.page-select input[type='checkbox']:checked + label{
+.page-select .typeCheckbox[type='checkbox']:checked{
 	opacity: 100;
 	background-image: url(/img/checkyes.png);
 }
-.page-select input[type='checkbox'] + label{
+.page-select .typeCheckbox[type='checkbox']{
 	opacity: 0;
     background-image: url(/img/checkno.png);
 }
