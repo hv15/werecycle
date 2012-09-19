@@ -22,7 +22,7 @@ function setTypes() {
 			switch(check['code']) {
 				case 1:
 					alert(check['message']+' [code: '+check['code']+']');
-					alert(check['debug']);
+					alert(debug);
 					window.location.href = '/map';
 				break;
 				case 5:
