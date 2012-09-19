@@ -696,7 +696,7 @@ Describes button text/image positions (using a paragraph block)
 }
 .page-select .typeName {
 	float: left;
-	width:235px;
+	width:236px;
 	height:22px;
 	cursor:pointer;
 	padding-top: 10px;
@@ -717,13 +717,15 @@ Describes button text/image positions (using a paragraph block)
 	width:32px;
 	height:32px;
 	margin-right:10px;
-	border-left: 1px solid rgba(0,0,0,0.3);
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3),
+		1px 0px 0px 0px rgba(0,0,0,0.3), 
+		inset 0px 1px 0px 0px rgba(149, 227, 118,0.3);
 }
 .page-select .typeInfoButton p {
 	position:relative;
