@@ -243,18 +243,13 @@ textarea {
 	box-shadow: 0px 0px 20px #000;
 }
 
-.page-select #Cancel {
-	float: left;
+.page-select #Cancel, .page-select #Ok {
+	position:relative;
+	bottom: 0px;
+	left: 0px;
 	width:135px;
-	margin-left:10px;
 	height:50px;
 }
-.page-select #Ok {
-	float: left;
-	width:135;
-	height:50px;
-}
-
 .page-select #SearchButton {
 	float: left;
 	width:300px;
