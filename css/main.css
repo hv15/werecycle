@@ -244,7 +244,7 @@ textarea {
 }
 
 .page-select #Cancel, .page-select #Ok {
-	position:relative;
+	position:absolute;
 	bottom: 0px;
 	left: 0px;
 	width:135px;
