@@ -1,3 +1,5 @@
+recalculateSelected();
+
 function recalculateSelected() {
 	$('.category').each(function(index) {
 		var newval = $(this).next().find('.typeCheckbox:checked').length;
@@ -17,44 +19,45 @@ function setTypes() {
 		types = 'all';
 	} else {
 	
-	var newSessionData = encodeURIComponent('{"types_selected":"'+types+'"}');
-	$.get('/setsession/'+newSessionData, function(setSessionResponse){
-		var urlRand = Math.random();
-		$.get('/check/'+urlRand, function(checkResponse){
-			eval(checkResponse);
-			switch(check['code']) {
-				case 1:
-					window.location.href = '/map';
-				break;
-				case 5:
-					alert(check['message']);
-					window.location.href = '/map';
-				break;
-				case 10:
-					alert(check['message']);
-					window.location.href = '/map';
-				break;
-				case 30:
-					alert(check['message']);
-					window.location.href = '/map';
-				break;
-				case 50:
-					alert(check['message']);
-					window.location.href = '/map';
-				break;
-				case 500:
-					alert(check['message']);
-					window.location.href = '/map';
-				break;
-				case 0:
-					alert(check['message']);/*+' [code: '+check['code']+']');*/
-				break;
-				default:
-					alert('Error, please try again from the start');
-			}
-			
+		var newSessionData = encodeURIComponent('{"types_selected":"'+types+'"}');
+		$.get('/setsession/'+newSessionData, function(setSessionResponse){
+			var urlRand = Math.random();
+			$.get('/check/'+urlRand, function(checkResponse){
+				eval(checkResponse);
+				switch(check['code']) {
+					case 1:
+						window.location.href = '/map';
+					break;
+					case 5:
+						alert(check['message']);
+						window.location.href = '/map';
+					break;
+					case 10:
+						alert(check['message']);
+						window.location.href = '/map';
+					break;
+					case 30:
+						alert(check['message']);
+						window.location.href = '/map';
+					break;
+					case 50:
+						alert(check['message']);
+						window.location.href = '/map';
+					break;
+					case 500:
+						alert(check['message']);
+						window.location.href = '/map';
+					break;
+					case 0:
+						alert(check['message']);/*+' [code: '+check['code']+']');*/
+					break;
+					default:
+						alert('Error, please try again from the start');
+				}
+				
+			});
 		});
-	});
+	}
 }
 
 $('.category').click(function(index) { 
@@ -72,7 +75,3 @@ $('.typeInfoButton').click(function(index) {
 $('.typeCheckbox').change(function() {
 	recalculateSelected();
 });
-
-onload = function(){
-	recalculateSelected();
-}
