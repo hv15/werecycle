@@ -9,7 +9,7 @@
 var map;
 var markerCluster;
 var userdata;
-var map_zoom = <?=(isset($userdata['map_zoom']) ? $userdata['map_zoom'] : 12)?>;
+var map_zoom = <?=(isset($userdata['map_zoom']) ? $userdata['map_zoom'] : 15)?>;
 var map_lat  = <?=(isset($userdata['latitude']) ? $userdata['latitude'] : 55.95)?>;
 var map_lon  = <?=(isset($userdata['longitude']) ? $userdata['longitude'] : -3.18)?>;
 var map_pos  = new google.maps.LatLng(map_lat, map_lon);
