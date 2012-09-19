@@ -715,7 +715,7 @@ Describes button text/image positions (using a paragraph block)
 
 	background-image: url(/img/checkno.png);
 	background-size: 16px 16px;
-	background-position: 8px 12px;
+	background-position: 8px 2px;
 	background-repeat: no-repeat;
 }
 .page-select input[type=checkbox]:checked + label{
