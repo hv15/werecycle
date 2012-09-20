@@ -1,10 +1,21 @@
 {
   "name": "RecycleFinder Scotland",
-  "description": "Find recycle points / centres near you or anywhere in scotland!",
-  "launch_url": "http://www.recyclefinder.co.uk",
-  "launch_container": "panel",
+  "description": "Find recycle points and centres near you or anywhere in Scotland",
+  "version": "1",
+  "manifest_version": 2,
+  "app": {
+    "urls": [
+      "*://www.recyclefinder.co.uk"
+    ],
+    "launch": {
+      "web_url": "http://www.recyclefinder.co.uk"
+    }
+  },
   "icons": {
     "128": "128.png"
   },
-  "permissions": ["geolocation", "notifications"]
+  "permissions": [
+    "geolocation",
+    "notifications"
+  ]
 }

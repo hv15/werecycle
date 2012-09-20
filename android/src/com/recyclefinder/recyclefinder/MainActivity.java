@@ -18,9 +18,11 @@ import android.content.Context;
 import android.content.DialogInterface.OnKeyListener;
 import android.content.Intent;
 import android.content.DialogInterface;
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
 public class MainActivity extends Activity {
 	final Activity activity = this;
+	GoogleAnalyticsTracker tracker;
 
 	private class MyWebViewClient extends WebViewClient {
 		@Override
@@ -87,6 +89,10 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getWindow().requestFeature(Window.FEATURE_PROGRESS);
+		
+		tracker = GoogleAnalyticsTracker.getInstance();
+	    tracker.startNewSession("UA-34983139-1", 20, this);
+		
 		setContentView(R.layout.webview);
 		WebView wv = (WebView) findViewById(R.id.webview);
 
@@ -114,9 +120,16 @@ public class MainActivity extends Activity {
 
 		if(isNetworkAvailable()) {
 			wv.loadUrl("http://www.recyclefinder.co.uk");
+			tracker.trackPageView("/");
 		} else {
 			showErrorDialogAndQuit("No network connectivity");
 		}
+	}
+
+	@Override
+	protected void onDestroy() {
+	  super.onDestroy();
+	  tracker.stopSession();
 	}
 
 }
