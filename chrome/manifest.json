@@ -1,0 +1,10 @@
+{
+  "name": "RecycleFinder Scotland",
+  "description": "Find recycle points / centres near you or anywhere in scotland!",
+  "launch_url": "http://www.recyclefinder.co.uk",
+  "launch_container": "panel",
+  "icons": {
+    "128": "128.png"
+  },
+  "permissions": ["geolocation", "notifications"]
+}
