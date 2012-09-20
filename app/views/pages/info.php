@@ -10,7 +10,7 @@
 				<?php if($info['phone']) { ?>
 				<div class='phonetitle'>Phone</div>
 				<div class='phone'>
-					<a href='tel:<?=$info['phone']?>'><?=$info['phone']?></a>
+					<a href='tel:<?=pre_replace('|[^0-9]|','',$info['phone'])?>'><?=$info['phone']?></a>
 				</div>
 				<br />
 				<?php } if($info['address']) { ?>
