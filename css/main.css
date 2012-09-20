@@ -429,7 +429,6 @@ Describes button text/image positions (using a paragraph block)
 }
 .page-info .address {
 	padding-bottom:20px;
-	text-decoration:underline;
 }
 .page-info .addresstitle:after {
 	text-decoration: none;
@@ -443,11 +442,6 @@ Describes button text/image positions (using a paragraph block)
 .page-info .address a, .page-info .address a:hover, .page-info .address a:visited{
 	color:#D2FFB4;
 	text-decoration:none;
-}
-.page-info .phonetitle:after {
-	text-decoration: none;
-	color:#A2CF84;
-	content: " (Click to Call) ";
 }
 .page-info .phone a, .page-info .phone a:hover, .page-info .phone a:visited{
 	color:#D2FFB4;
