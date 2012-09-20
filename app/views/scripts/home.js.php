@@ -8,7 +8,7 @@ function getGeoLocation(){
 	spin("visible");
 	if (navigator.geolocation) {
 		var timeoutVal = 10000;
-		navigator.geolocation.getCurrentPosition(
+		window.navigator.geolocation.watchPosition(
 			returnPosition, 
 			returnError,
 			{ enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
