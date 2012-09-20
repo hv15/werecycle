@@ -5,13 +5,13 @@ document.onkeydown = checkKeycode;
 	Deals with the geolocation
 */
 function getGeoLocation(){
-	spin("visible");
+	$('#geoLocationSpin').removeClass("invisible").addClass("visible");
 	if (navigator.geolocation) {
 		var timeoutVal = 10000;
 		window.navigator.geolocation.watchPosition(
 			returnPosition, 
 			returnError,
-			{ enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
+			{ enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 250 }
 		);
 	}
 	else {
@@ -26,7 +26,7 @@ function returnPosition(position) {
 	});
 }
 function returnError(position) {
-	spin("invisible");
+	$('#geoLocationSpin').removeClass("visible").addClass("invisible");
 	alert("Geolocation did not work");
 }
 
@@ -47,11 +47,6 @@ function getGeoCode() {
 			alert("Could not find that location. Try formatting in another way.");
 		}
     });
-}
-
-function spin(state){type="text/javascript" 
-	var spin = document.getElementById("geoLocationSpin");
-	spin.className = state;
 }
 
 function checkKeycode(e) {
