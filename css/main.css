@@ -441,11 +441,11 @@ Describes button text/image positions (using a paragraph block)
 }
 .page-info .address a, .page-info .address a:hover, .page-info .address a:visited{
 	color:#D2FFB4;
-	text-decoration:none;
+	text-decoration:underline;
 }
 .page-info .phone a, .page-info .phone a:hover, .page-info .phone a:visited{
 	color:#D2FFB4;
-	text-decoration:none;
+	text-decoration:underline;
 }
 .page-info .typeInfoText a, .page-info .typeInfoText a:hover, .page-info .typeInfoText a:visited{
 	color:#D2FFB4;
