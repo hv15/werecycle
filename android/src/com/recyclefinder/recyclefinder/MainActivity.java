@@ -62,7 +62,6 @@ public class MainActivity extends Activity {
 	
 	public void showErrorDialogAndQuit(final String message) {
 	    runOnUiThread(new Runnable() {
-	        @Override
 	        public void run() {
 	            AlertDialog aDialog = new AlertDialog.Builder(MainActivity.this).setMessage(message).setTitle("Error")
 	                    .setNeutralButton("Close", new AlertDialog.OnClickListener() {
@@ -73,7 +72,6 @@ public class MainActivity extends Activity {
 	                        }
 	                    }).create();
 	            aDialog.setOnKeyListener(new OnKeyListener() {
-	                @Override
 	                public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
 	                    // Disables the back button.
 	                    return true;
