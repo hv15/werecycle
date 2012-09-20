@@ -444,6 +444,10 @@ Describes button text/image positions (using a paragraph block)
 	color:#D2FFB4;
 	text-decoration:none;
 }
+.page-info .phone a, .page-info .phone a:hover, .page-info .phone a:visited{
+	color:#D2FFB4;
+	text-decoration:none;
+}
 .page-info .typeInfoText a, .page-info .typeInfoText a:hover, .page-info .typeInfoText a:visited{
 	color:#D2FFB4;
 	text-decoration:underline;
