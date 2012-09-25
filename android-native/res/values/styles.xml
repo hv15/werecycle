@@ -1,0 +1,9 @@
+<resources>
+    
+	<style name="GreenTheme" parent="android:Theme.Light.NoTitleBar">
+	    <item name="android:windowBackground">@color/green1</item>
+	    <item name="android:colorBackground">@color/green1</item>
+	    <item name="android:textColor">#ffffff</item>
+	</style>
+	
+</resources>

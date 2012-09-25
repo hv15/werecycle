@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">RecycleFinder</string>
+    <string name="home_title">Home</string>
+    <string name="map_title">Map</string>
+    <string name="use_my_location">Use My Location</string>
+    <string name="or">or</string>
+    <string name="enter_location">Enter location&#8230;</string>
+    <string name="search">Search</string>
+    <string name="question_mark">Q</string>
+    <string name="recyclefinder_logo">RecycleFinder Logo</string>
+
+</resources>
