@@ -7,7 +7,7 @@ class Update extends CI_Controller {
 		require_once(APPPATH.'libraries/phpcoord-2.3.php');
 	}
 
-	private function output($string) 
+	public function output($string) 
 	{
 		file_put_contents("/home/recycle/public_html/updatelog.txt", $string, FILE_APPEND);
 	}
@@ -25,11 +25,11 @@ class Update extends CI_Controller {
 		// Loop through all the known recyclable types
 		foreach ($recycle_type_ids as $type) {
 		    // Output some more feedback to the browser
-		    output( "[TIME: ".round(microtime(true)-$time_start)."] Type $type started.<br />");
+		    $this->output( "[TIME: ".round(microtime(true)-$time_start)."] Type $type started.<br />");
 		    // Loop through all known (33) areas in the database to get all possible data sets
 		    for ($area=1;$area<33;$area++) {
 			// Output some feedback to the browser
-			output( "[TIME: ".round(microtime(true)-$time_start)."] &nbsp;&nbsp;Area $area started; ");
+			$this->output( "[TIME: ".round(microtime(true)-$time_start)."] &nbsp;&nbsp;Area $area started; ");
 			// Build an HTTP POST query to request XML data for a specific area+type combination
 			$query = http_build_query ( array('areaId' => $area,'itemId' => $type) );
 			// Add request headers to the query
@@ -41,9 +41,9 @@ class Update extends CI_Controller {
 			
 			$xmlcounter++;
 			// Output some feedback to the browser
-			output( "XML loaded, ");
+			$this->output( "XML loaded, ");
 			// Check for empty dataset
-			if(strpos($xml,'<myOutlets></myOutlets>')) { output("Found no outlets of type $type in area $area, skipping.<br />"); continue; }
+			if(strpos($xml,'<myOutlets></myOutlets>')) { $this->output("Found no outlets of type $type in area $area, skipping.<br />"); continue; }
 			// Remove header and footer XML from string
 			$xml = preg_replace('|.+myOutlets>(.+)</myOutlets></mapresponse>|', '\1', $xml);
 			// Add newline after each recycle point / outlet for easier separation
@@ -134,13 +134,13 @@ class Update extends CI_Controller {
 			    $rowcounter++;
 			}
 			// Output some feedback to the browser
-			output( "Inserted $arearowcount outlet types. Area $area complete!<br />");
+			$this->output( "Inserted $arearowcount outlet types. Area $area complete!<br />");
 		    }
 		    // Output some more feedback to the browser
-		    output( "[TIME: ".round(microtime(true)-$time_start)."] Type $type complete!<br /><br />");
+		    $this->output( "[TIME: ".round(microtime(true)-$time_start)."] Type $type complete!<br /><br />");
 		}
 		// Output final feedback to the browser
-		output( "<br />Recycle data update complete! Read $xmlcounter XML files and wrote $rowcounter total rows to DB in ".floor((microtime(true)-$time_start)/60)." minutes." );
+		$this->output( "<br />Recycle data update complete! Read $xmlcounter XML files and wrote $rowcounter total rows to DB in ".floor((microtime(true)-$time_start)/60)." minutes." );
 		
 		echo "Done. <a href='/updatelog.txt'>Log</a>";
 	}
