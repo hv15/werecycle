@@ -89,10 +89,18 @@ foreach ($recycle_type_ids as $type) {
 			$openhours = preg_replace('|/>\n([^<].+?<br />.+?)<br />|s',"/>\n<span class='openhourstimetext'>".'\1'."</span><br />", $openhours);
 		}
 		
+		print_r($address);
+		print_r($phone);
+		print_r($openhours);
+		
 		$address = addslashes( $address );
 		$phone = addslashes( (isset($phone) ? $phone : null) );
 		$openhours = addslashes( (isset($openhours) ? $openhours : null) );
 
+		print_r($address);
+		print_r($phone);
+		print_r($openhours);
+		die;
 	    
             // Skip if no id, not sure where this is coming from, probably a newline somewhere
             if($id==0 && $outletType==0) continue;
