@@ -75,6 +75,8 @@ class Update extends CI_Controller {
 				// Actually send the HTTP request and get the data from the recyclescotland server, finally!        
 				$html = file_get_contents ('http://www.recycleforscotland.com/tools/singleOutletScript.asp', false, $context);
 			    
+			    $sql = "REPLACE INTO outlets_info_html VALUES ('$id', '".mysql_real_escape_string($html)."')";
+			    $this->db->query($sql);
 		
 				// Check to see if there is a phone number for this outlet to determine the regex we use
 				if(strpos($html,'miniIconTelephoneRec')) {
