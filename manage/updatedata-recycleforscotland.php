@@ -89,9 +89,9 @@ foreach ($recycle_type_ids as $type) {
 			$openhours = preg_replace('|/>\n([^<].+?<br />.+?)<br />|s',"/>\n<span class='openhourstimetext'>".'\1'."</span><br />", $openhours);
 		}
 		
-		$address = mysqli_real_escape_string( $address );
-		$phone = mysqli_real_escape_string( (isset($phone) ? $phone : null) );
-		$openhours = mysqli_real_escape_string( (isset($openhours) ? $openhours : null) );
+		$address = addslashes( $address );
+		$phone = addslashes( (isset($phone) ? $phone : null) );
+		$openhours = addslashes( (isset($openhours) ? $openhours : null) );
 
 	    
             // Skip if no id, not sure where this is coming from, probably a newline somewhere
