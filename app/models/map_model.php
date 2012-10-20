@@ -110,24 +110,18 @@ class map_model extends CI_Model {
 		$longitude = $row[0]['longitude'];
 		
 		// Build SQL queries and get outlet data for specified id
-		$result = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'name'")->result_array();
-		print_r($result); die;
+		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'name'")->result_array();
 		$name = $row['value'];
-		$result = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'type'")->result_array();
+		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'type'")->result_array();
 		$type = $row['value'];
-		$result = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'area'")->result_array();
+		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'area'")->result_array();
 		$area = $row['value'];
-		$result = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'phone'")->result_array();
+		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'phone'")->result_array();
 		$phone = $row['value'];
-		$result = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'address'")->result_array();
+		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'address'")->result_array();
 		$address = $row['value'];
-		$result = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'openhours'")->result_array();
+		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'openhours'")->result_array();
 		$openhours = $row['value'];
-		
-		
-		$sql = "SELECT * FROM outlets_data,outlets WHERE outlets.outlet_id = $id AND outlets.outlet_id = outlets_data.outlet_id";
-		$query = $this->db->query($sql);
-		$row = $query->result_array();
 		
 		$output = array(
 			'name' => $name,
