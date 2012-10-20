@@ -487,6 +487,10 @@ Describes button text/image positions (using a paragraph block)
 	position:relative;
 	top:10px;
 }
+.textGreen {
+	display: block;
+	margin-top: 10px;
+}
 
 /* ==========================================================================
 
