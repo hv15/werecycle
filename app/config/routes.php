@@ -40,6 +40,7 @@
 
 $route['js/vendor/(:any)'] = 'scripts/vendor/$1';
 $route['js/(:any)'] = 'scripts/view/$1';
+$route['update/(:any)'] = 'update/$1';
 $route['data/(:any)'] = 'pages/data';
 $route['check/(:any)'] = 'pages/check';
 $route['getsession'] = 'pages/get_session';
