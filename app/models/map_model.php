@@ -111,18 +111,17 @@ class map_model extends CI_Model {
 		
 		// Build SQL queries and get outlet data for specified id
 		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'name'")->result_array();
-		$name = $row['value'];
+		$name = $row[0]['value'];
 		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'type'")->result_array();
-		$type = $row['value'];
+		$type = $row[0]['value'];
 		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'area'")->result_array();
-		$area = $row['value'];
+		$area = $row[0]['value'];
 		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'phone'")->result_array();
-		$phone = $row['value'];
+		$phone = $row[0]['value'];
 		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'address'")->result_array();
-		$address = $row['value'];
+		$address = $row[0]['value'];
 		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'openhours'")->result_array();
-		$openhours = $row['value'];
-		print_r($row); die();
+		$openhours = $row[0]['value'];
 		
 		$output = array(
 			'name' => $name,
