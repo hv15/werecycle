@@ -1,8 +1,6 @@
 <?php
 class Update extends CI_Controller {
 	
-	$logpath = '/updatelog.txt';
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -11,7 +9,7 @@ class Update extends CI_Controller {
 
 	public function output($string) 
 	{
-		file_put_contents("/home/recycle/public_html$logpath", $string, FILE_APPEND);
+		file_put_contents("/home/recycle/public_html/updatelog.txt", $string, FILE_APPEND);
 	}
 	
 	public function recycleForScotland()
@@ -144,7 +142,7 @@ class Update extends CI_Controller {
 		// Output final feedback to the browser
 		output( "<br />Recycle data update complete! Read $xmlcounter XML files and wrote $rowcounter total rows to DB in ".floor((microtime(true)-$time_start)/60)." minutes." );
 		
-		echo "Done. <a href='$logpath'>Log</a>";
+		echo "Done. <a href='/updatelog.txt'>Log</a>";
 	}
 	
 }
