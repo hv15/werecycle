@@ -54,6 +54,9 @@ foreach ($recycle_type_ids as $type) {
             $easting = $outlet[2];
             $northing = $outlet[3];
             $name = mysql_real_escape_string($outlet[4]);
+            $phone = null;
+            $address = '';
+            $openhours = null;
 	    
 	    $os1 = new OSRef($easting, $northing);
 	    $ll1 = $os1->toLatLng();
@@ -89,18 +92,9 @@ foreach ($recycle_type_ids as $type) {
 			$openhours = preg_replace('|/>\n([^<].+?<br />.+?)<br />|s',"/>\n<span class='openhourstimetext'>".'\1'."</span><br />", $openhours);
 		}
 		
-		print_r($address);
-		print_r($phone);
-		print_r($openhours);
-		
-		$address = addslashes( $address );
-		$phone = addslashes( (isset($phone) ? $phone : null) );
-		$openhours = addslashes( (isset($openhours) ? $openhours : null) );
-
-		print_r($address);
-		print_r($phone);
-		print_r($openhours);
-		die;
+		$address = mysql_real_escape_string( $address );
+		$phone = mysql_real_escape_string( $phone );
+		$openhours = mysql_real_escape_string( $openhours );
 	    
             // Skip if no id, not sure where this is coming from, probably a newline somewhere
             if($id==0 && $outletType==0) continue;
