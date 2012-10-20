@@ -111,6 +111,7 @@ class map_model extends CI_Model {
 		
 		// Build SQL queries and get outlet data for specified id
 		$result = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'name'")->result_array();
+		print_r($result); die;
 		$name = $row['value'];
 		$result = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'type'")->result_array();
 		$type = $row['value'];
