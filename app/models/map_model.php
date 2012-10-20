@@ -122,6 +122,7 @@ class map_model extends CI_Model {
 		$address = $row['value'];
 		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'openhours'")->result_array();
 		$openhours = $row['value'];
+		print_r($row); die();
 		
 		$output = array(
 			'name' => $name,
