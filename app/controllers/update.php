@@ -7,7 +7,7 @@ class Update extends CI_Controller {
 		require_once(APPPATH.'libraries/phpcoord-2.3.php');
 	}
 
-	public function output($string) 
+	private function output($string) 
 	{
 		file_put_contents("/home/recycle/public_html/updatelog.txt", $string, FILE_APPEND);
 	}
