@@ -135,8 +135,8 @@ class map_model extends CI_Model {
 			'type' => $type,
 			'area' => $area,
 			'address' => $address,
-			'phone' => (empty(trim($phone)) ? FALSE : $phone),
-			'openhours' => (empty(trim($openhours)) ? FALSE : $openhours)
+			'phone' => (empty($phone) ? FALSE : $phone),
+			'openhours' => (empty($openhours) ? FALSE : $openhours)
 		);
 		return $output;
 	}
