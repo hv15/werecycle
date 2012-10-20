@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	    <item android:id="@+id/my_location"
+		android:icon="@drawable/my_location"
+		android:title="My Location" />
+	    
+	    <item android:id="@+id/mapview_satellite"
+		android:icon="@drawable/satelliteview"
+		android:title="Satellite View" />
+	    
+	    <item android:id="@+id/mapview_normal"
+		android:icon="@drawable/normalview"
+		android:title="Normal View" />
+	</menu>

@@ -35,8 +35,13 @@ public final class R {
         public static final int green_button=0x7f020001;
         public static final int ic_launcher=0x7f020002;
         public static final int logo=0x7f020003;
+        public static final int my_location=0x7f020004;
+        public static final int normalview=0x7f020005;
+        public static final int satelliteview=0x7f020006;
+        public static final int testmarker=0x7f020007;
     }
     public static final class id {
+        public static final int googlemaps_select_location=0x7f080009;
         public static final int home=0x7f080000;
         public static final int home_enter_location=0x7f080004;
         public static final int home_help=0x7f080007;
@@ -46,12 +51,17 @@ public final class R {
         public static final int home_title=0x7f080001;
         public static final int home_use_my_location=0x7f080003;
         public static final int map=0x7f080008;
+        public static final int mapview_normal=0x7f08000c;
+        public static final int mapview_satellite=0x7f08000b;
+        public static final int my_location=0x7f08000a;
     }
     public static final class layout {
         public static final int home=0x7f030000;
         public static final int map=0x7f030001;
+        public static final int menu=0x7f030002;
     }
     public static final class string {
+        public static final int api_key=0x7f060009;
         public static final int app_name=0x7f060000;
         public static final int enter_location=0x7f060005;
         public static final int home_title=0x7f060001;
