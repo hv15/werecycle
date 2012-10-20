@@ -97,10 +97,14 @@ class Update extends CI_Controller {
 		
 				// Output the block of text which shows the opening hours, nicely marked up for CSS
 				if(strpos($html,'openHours')) {
-					$openhours = preg_replace('|.+<div class="openHours">(.+?)<div class="spacer5y.+|s', '\1', $html);
-					$openhours = preg_replace('|<b class="textGreen">(.+?)</b>|s', "\n".'<span class="openhoursperiodtext">\1</span><br />'."\n", $openhours);
-					$openhours = trim($openhours," \n\r\t,");
-					$openhours = preg_replace('|/>\n([^<].+?<br />.+?)<br />|s',"/>\n<span class='openhourstimetext'>".'\1'."</span><br />", $openhours);
+					$openhours = preg_replace('|.+<div class="openHours">(.+?)</div.+|s', '\1', $html);
+					if (preg_match("/[0-9]/", $openhours)) {
+						/*if (preg_match("/textGreen/", $openhours)) {
+							$openhours = preg_replace('|<b class="textGreen">(.+?)</b>|s', "\n".'<span class="openhoursperiodtext">\1</span><br />'."\n", $openhours);
+						} 
+						$openhours = trim($openhours," \n\r\t,");
+						$openhours = preg_replace('|/>\n([^<].+?<br />.+?)<br />|s',"/>\n<span class='openhourstimetext'>".'\1'."</span><br />", $openhours);*/
+					} else $openhours = null;
 				}
 							    
 			    // Skip if no id, not sure where this is coming from, probably a newline somewhere
