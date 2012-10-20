@@ -69,8 +69,7 @@ foreach ($recycle_type_ids as $type) {
 		// Actually send the HTTP request and get the data from the recyclescotland server, finally!        
 		$html = file_get_contents ('http://www.recycleforscotland.com/tools/singleOutletScript.asp', false, $context);
 	    
-		echo $html; die();
-		
+
 		// Check to see if there is a phone number for this outlet to determine the regex we use
 		if(strpos($html,'miniIconTelephoneRec')) {
 			$phone = preg_replace('|.+<img class="pic20 picL" src="siImages/miniIconTelephoneRec.gif" />(.+?) <div.+|s', '\1', $html);
