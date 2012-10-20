@@ -67,7 +67,7 @@ foreach ($recycle_type_ids as $type) {
 		// Encapsulate HTTP query in context format for PHP
 		$context = stream_context_create (array ( 'http' => $contextData ));
 		// Actually send the HTTP request and get the data from the recyclescotland server, finally!        
-		$html = file_get_contents ('http://www.recycleforscotland.com/tools/singleOutletScript.asp', false, $context);
+		$html = file_get_contents ('httdvasfp://www.recycleforscotland.com/tools/singleOutletScript.asp', false, $context);s
 	    
 		echo $html; die();
 		
