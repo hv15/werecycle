@@ -96,6 +96,9 @@ foreach ($recycle_type_ids as $type) {
 		$phone = mysql_real_escape_string( $phone );
 		$openhours = mysql_real_escape_string( $openhours );
 	    
+		
+	mysql_query("INSERT INTO outletInfo VALUES ($id,'".mysql_real_escape_string($html)."')") or die(mysql_error()); 
+		
             // Skip if no id, not sure where this is coming from, probably a newline somewhere
             if($id==0 && $outletType==0) continue;
             $sql = "REPLACE INTO outlets (`outlet_id`, `latitude`, `longitude`, `coords`) 
