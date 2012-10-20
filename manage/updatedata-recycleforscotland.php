@@ -61,13 +61,13 @@ foreach ($recycle_type_ids as $type) {
             $longitude = $ll1->lng;
 	    
 		// Build an HTTP POST query to request XML data for a specific area+type combination
-		$query = http_build_query ( array('theID' => "{$row['outlet_id']}|Recycle") );
+		$query = http_build_query ( array('theID' => "$id|Recycle") );
 		// Add request headers to the query
 		$contextData = array('method' => 'POST','header' => "Connection: close\r\nContent-Length: ".strlen($query)."\r\n",'content'=> $query );						
 		// Encapsulate HTTP query in context format for PHP
 		$context = stream_context_create (array ( 'http' => $contextData ));
 		// Actually send the HTTP request and get the data from the recyclescotland server, finally!        
-		$html = file_get_contents ('httdvasfp://www.recycleforscotland.com/tools/singleOutletScript.asp', false, $context);
+		$html = file_get_contents ('http://www.recycleforscotland.com/tools/singleOutletScript.asp', false, $context);
 	    
 		echo $html; die();
 		
