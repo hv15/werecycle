@@ -80,8 +80,9 @@ class Update extends CI_Controller {
 				// Actually send the HTTP request and get the data from the recyclescotland server, finally!        
 				$html = file_get_contents ('http://www.recycleforscotland.com/tools/singleOutletScript.asp', false, $context);
 			    
+				/* DEBUG HTML REGEX
 			    $sql = "REPLACE INTO outlets_info_html VALUES ('$id', '".mysql_real_escape_string($html)."')";
-			    $this->db->query($sql);
+			    $this->db->query($sql);*/
 		
 				// Check to see if there is a phone number for this outlet to determine the regex we use
 				if(strpos($html,'miniIconTelephoneRec')) {
@@ -98,13 +99,7 @@ class Update extends CI_Controller {
 				// Output the block of text which shows the opening hours, nicely marked up for CSS
 				if(strpos($html,'openHours')) {
 					$openhours = preg_replace('|.+<div class="openHours">(.+?)</div.+|s', '\1', $html);
-					if (preg_match("/[0-9]/", $openhours)) {
-						/*if (preg_match("/textGreen/", $openhours)) {
-							$openhours = preg_replace('|<b class="textGreen">(.+?)</b>|s', "\n".'<span class="openhoursperiodtext">\1</span><br />'."\n", $openhours);
-						} 
-						$openhours = trim($openhours," \n\r\t,");
-						$openhours = preg_replace('|/>\n([^<].+?<br />.+?)<br />|s',"/>\n<span class='openhourstimetext'>".'\1'."</span><br />", $openhours);*/
-					} else $openhours = null;
+					if (!preg_match("/[0-9]/", $openhours)) $openhours = null;
 				}
 							    
 			    // Skip if no id, not sure where this is coming from, probably a newline somewhere
