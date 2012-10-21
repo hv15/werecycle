@@ -2,13 +2,16 @@
 	<menu xmlns:android="http://schemas.android.com/apk/res/android">
 	    <item android:id="@+id/my_location"
 		android:icon="@drawable/my_location"
-		android:title="My Location" />
+		android:title="My Location"
+		android:showAsAction="ifRoom|withText" />
 	    
 	    <item android:id="@+id/mapview_satellite"
 		android:icon="@drawable/satelliteview"
-		android:title="Satellite View" />
+		android:title="Satellite View"
+		android:showAsAction="ifRoom|withText" />
 	    
 	    <item android:id="@+id/mapview_normal"
 		android:icon="@drawable/normalview"
-		android:title="Normal View" />
+		android:title="Normal View"
+		android:showAsAction="ifRoom|withText" />
 	</menu>

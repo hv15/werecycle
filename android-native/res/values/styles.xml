@@ -1,9 +1,28 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     
 	<style name="GreenTheme" parent="android:Theme.Light.NoTitleBar">
 	    <item name="android:windowBackground">@color/green1</item>
 	    <item name="android:colorBackground">@color/green1</item>
 	    <item name="android:textColor">#ffffff</item>
+	</style>
+	
+	<!-- On needs to duplicate almost all entries, because android: isn't in all APIs -->
+	<style name="MapTheme" parent="Theme.Sherlock">
+	    <item name="android:actionBarStyle">@style/MapTheme.ActionBar</item>
+	    <item name="actionBarStyle">@style/MapTheme.ActionBar</item>
+	    <item name="android:windowActionBarOverlay">true</item>
+	    <item name="windowActionBarOverlay">true</item>
+	    <item name="android:actionOverflowButtonStyle">@style/MapTheme.ActionBar.Overflow</item>
+	    <item name="actionOverflowButtonStyle">@style/MapTheme.ActionBar.Overflow</item>
+	</style>
+	
+	<style name="MapTheme.ActionBar" parent="Widget.Sherlock.ActionBar">
+	    <item name="android:background">@color/transparent_grey_dark</item>
+	    <item name="background">@color/transparent_grey_dark</item>
+	</style>
+	
+	<style name="MapTheme.ActionBar.Overflow">
+	    <item name="android:src">@color/transparent_grey_dark</item>
 	</style>
 	
 </resources>
