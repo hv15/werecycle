@@ -118,12 +118,12 @@ class map_model extends CI_Model {
 			//$output .= "Found cached json file with timestamp: $cachetime.\n";
 		}
 		if((time() - $cachetime) < 86400) {
-			//$output .= "Found cached json file less than a day old, timestamp: $cachetime. Loading this instead of regenerating outlets array!\n\n";
+			$output .= "Found cached json file less than a day old, timestamp: $cachetime. Loading this instead of regenerating outlets array!\n\n";
 			$outlets_json = file_get_contents("/home/recycle/public_html/tmp/$cachetime.outlets.json");
 			$outlets = json_decode($outlets_json,1);
 			//$output .= print_r($outlets,1);
 		} else {		
-			//$output .= "No up to date outlets cache could be found, regenerating outlets array!\n\n";
+			$output .= "No up to date outlets cache could be found, regenerating outlets array!\n\n";
 			
 			// Load ALL OUTLETS and ALL OUTLET RECYCLE TYPES into PHP ARRAYS
 			$sql = "SELECT outlets.outlet_id, outlets.latitude, outlets.longitude FROM outlets";
@@ -263,7 +263,7 @@ class map_model extends CI_Model {
 		
 		
 		
-		//$output .= "\ntotal outlets after filters: ".count($outlets_filtered);
+		$output .= "\ntotal outlets after filters: ".count($outlets_filtered);
 		//$output .= "\ntotal clusters: ".count($clusters);
 		//$output .= "\n\n clusters: ".print_r($clusters,1);
 			
