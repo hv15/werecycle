@@ -198,7 +198,7 @@ class map_model extends CI_Model {
 		//$output .= "\n\nAll outlets:\n\n".print_r($outlets,1);
 			
 		//"<pre>".print_r($outlets,1)."</pre> <br /> 
-		$output .= "Took ". (microtime(true)-$time_start) . " seconds, i think";
+		$output .= "\n\nTook ". (microtime(true)-$time_start) . " seconds, i think";
 		return "<pre>".$output."</pre>";
 	}
 	
