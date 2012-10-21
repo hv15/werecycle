@@ -101,7 +101,7 @@ class map_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function get_outlets_new($types,$latitude,$longitude,$zoom){
+	public function get_outlets_new(){
 		//if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($zoom)) return FALSE;
 		
 		// Load ALL OUTLETS and ALL OUTLET RECYCLE TYPES into PHP ARRAYS
