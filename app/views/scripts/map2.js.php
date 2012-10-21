@@ -113,8 +113,8 @@ function drawMarkers(newlocation) {
 			
 			var markers = [];
 			
-			for (var i = 0; i < singleOutletData.clusters.length; i++) {
-				var cluster = singleOutletData.clusters[i];
+			for (var i = 0; i < singleOutletData.singleOutlets.length; i++) {
+				var cluster = singleOutletData.singleOutlets[i];
 				//console.log(cluster);
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
 				var marker = new google.maps.Marker({ position: latLng});
