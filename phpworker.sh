@@ -1,6 +1,7 @@
-#! /bin/bash
+#! /bin/sh
 
 NAME=phpworker
+DESC=phpworker
 PIDFILE=/home/recycle/public_html/phpworker.pid
 PHP=/usr/bin/php
 
