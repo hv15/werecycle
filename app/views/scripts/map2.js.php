@@ -110,9 +110,9 @@ function drawMarkers(newlocation) {
 			eval(dataResponse);
 			
 			var markers = [];
-			for (var i = 0; i < data.outlets.length; i++) {
-				var outlet = data.outlets[i];
-				var latLng = new google.maps.LatLng(outlet.lat,outlet.lon);
+			for (var i = 0; i < data.clusters.length; i++) {
+				var cluster = data.clusters[i];
+				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
 				var marker = new google.maps.Marker({ position: latLng});
 				// Add the markers, text to the memory.
 				markers.push(marker);
@@ -122,6 +122,21 @@ function drawMarkers(newlocation) {
 						$(location).attr('href',"/info/"+id);
 					}    
 				})(marker, i, outlet.name, outlet.id, outlet.type));
+			}
+			if(data.outlets){
+				for (var i = 0; i < data.outlets.length; i++) {
+					//var outlet = data.outlets[i];
+					//var latLng = new google.maps.LatLng(outlets.lat,outlets.lng);
+					//var marker = new google.maps.Marker({ position: latLng});
+					// Add the markers, text to the memory.
+					//markers.push(marker);
+					// Give each marker an event that opens the window.
+					/*google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
+						return function() {
+							$(location).attr('href',"/info/"+id);
+						}    
+					})(marker, i, outlet.name, outlet.id, outlet.type));*/
+				}
 			}
 			
 			// Clear all markers
