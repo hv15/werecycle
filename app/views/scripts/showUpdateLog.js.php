@@ -1,6 +1,7 @@
 $(document).ready(function(){
-	var url = $('#output').html();
+	var url = $('#updateLogOutput').html();
 	var refreshId = setInterval(function() {
-		$('#output').load(encodeURI(url));
-	}, 4000);
+		$('#updateLogOutput').load(encodeURI(url));
+		$("#updateLogOutput").attr({ scrollTop: $("#updateLogOutput").attr("scrollHeight") });
+	}, 3000);
 });

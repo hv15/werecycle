@@ -899,3 +899,10 @@ Describes button text/image positions (using a paragraph block)
 .clearfix {
     *zoom: 1;
 }
+
+/* ADMIN PAGES */
+#updateLogOutput {
+	width: 90%;
+	height: 600px;
+	margin: 40px auto;
+}

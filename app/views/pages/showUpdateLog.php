@@ -1,1 +1,1 @@
-<div id="output"><?=$url?></div>
+<div id="updateLogOutput"><?=$url?></div>
