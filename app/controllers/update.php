@@ -8,7 +8,7 @@ class Update extends CI_Controller {
 	
 	public function index($source)
 	{		
-		print `/usr/bin/php -q /home/recycle/public_html/app/libraries/$source.php 2>/dev/null 1>/dev/null &`;
+		print `/usr/bin/php /home/recycle/public_html/app/libraries/$source.php 2>/dev/null 1>/dev/null &`;
 		
 		$data['title'] = 'Update ('.$source.')';
 		$data['page'] = 'update';
@@ -21,7 +21,8 @@ class Update extends CI_Controller {
 	
 	public function getLog($source)
 	{		
-		echo file_get_contents("/home/recycle/public_html/tmp/$source.html");
+		$data['outlets'] = file_get_contents("/home/recycle/public_html/tmp/$source.html");
+		$this->load->view('pages/data', $data);
 	}
 	
 }
