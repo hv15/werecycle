@@ -118,7 +118,7 @@ class map_model extends CI_Model {
 			$output .= "Found cached json file less than a day old, timestamp: $cachetime. Loading this instead of regenerating outlets array!\n\n";
 			$outlets_json = file_get_contents("/home/recycle/public_html/tmp/$cachetime.outlets.json");
 			$outlets = json_decode($outlets_json,1);
-			$output .= print_r($outlets,1);
+			//$output .= print_r($outlets,1);
 		} else {		
 			$output .= "No up to date outlets cache could be found, regenerating outlets array!\n\n";
 			
@@ -164,7 +164,7 @@ class map_model extends CI_Model {
 			
 		$output .= "Filtered outlets:\n\n".print_r($outlets_filtered,1);
 		
-		$output .= "\n\nAll outlets:\n\n".print_r($outlets_filtered,1);
+		$output .= "\n\nAll outlets:\n\n".print_r($outlets,1);
 			
 		//"<pre>".print_r($outlets,1)."</pre> <br /> 
 		$output .= "Took ". (microtime(true)-$time_start) . " seconds, i think";
