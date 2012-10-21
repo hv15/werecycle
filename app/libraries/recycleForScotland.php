@@ -26,7 +26,7 @@
 		    // Output some more feedback to the browser
 		    output( "[TIME: ".round(microtime(true)-$time_start)."] Type $type started.<br />");
 		    // Loop through all known (33) areas in the database to get all possible data sets
-		    for ($area=1;$area<31;$area++) {
+		    for ($area=1;$area<33;$area++) {
 			// Output some feedback to the browser
 			output( "[TIME: ".round(microtime(true)-$time_start)."] &nbsp;&nbsp;Area $area started; ");
 			// Build an HTTP POST query to request XML data for a specific area+type combination
