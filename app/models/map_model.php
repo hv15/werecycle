@@ -136,7 +136,8 @@ class map_model extends CI_Model {
 		
 		}
 		
-		return "<pre>".print_r($outlets,1)."</pre> <br /> Took ". (microtime(true)-$time_start) . " milliseconds, i think";
+		///"<pre>".print_r($outlets,1)."</pre> <br /> 
+		return "Took ". (microtime(true)-$time_start) . " microseconds, i think";
 		
 	}
 	
