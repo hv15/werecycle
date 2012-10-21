@@ -10,6 +10,7 @@ class Update extends CI_Controller {
 	{		
 		print `echo /usr/bin/php -q /home/recycle/public_html/app/libraries/$source.php | at now`;
 		
+		$data['title'] = 'Update ('.$source.')';
 		$data['page'] = 'update';
 		$data['outputPath'] = '/home/recycle/public_html/tmp/$source.html';
 		
