@@ -46,6 +46,7 @@ $route['update/stopUpdate'] = 'update/stopUpdate';
 $route['update/getLog/(:any)'] = 'update/getLog/$1';
 $route['update/(:any)'] = 'update/index/$1';
 $route['data/(:any)'] = 'pages/data';
+$route['datanew/(:any)'] = 'pages/datanew';
 $route['check/(:any)'] = 'pages/check';
 $route['getsession'] = 'pages/get_session';
 $route['getsession/(:any)'] = 'pages/get_session';
