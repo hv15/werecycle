@@ -255,7 +255,7 @@ class map_model extends CI_Model {
 		
 		$output .= "\ntotal outlets after filters: ".count($outlets_filtered);
 		$output .= "\ntotal clusters: ".count($clusters);
-		$output .= "\n\n clusters: ".print_r($clusters);
+		$output .= "\n\n clusters: ".print_r($clusters,1);
 			
 			
 		//$output .= "OR-filtered outlets:\n\n".print_r($outlets_filtered_or,1);
