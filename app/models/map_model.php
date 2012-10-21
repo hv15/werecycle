@@ -104,6 +104,9 @@ class map_model extends CI_Model {
 	public function get_outlets_new($types){
 		//if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($zoom)) return FALSE;
 		
+		// Script start time - so we can see how long it takes at various stages
+		$time_start = microtime(true);
+		
 		// Load ALL OUTLETS and ALL OUTLET RECYCLE TYPES into PHP ARRAYS
 		$sql = "SELECT outlets.outlet_id, outlets.latitude, outlets.longitude FROM outlets";
 		$query = $this->db->query($sql);
@@ -129,7 +132,9 @@ class map_model extends CI_Model {
 			$outlets[$outlets_recycle_types_table_row['outlet_id']]['types'][] = $outlets_recycle_types_table_row['recycle_type'];
 		}
 		
-		return "<pre>".print_r($outlets,1)."</pre>";
+		
+		
+		return "<pre>".print_r($outlets,1)."</pre> <br /> Took ". (microtime(true)-$time_start) . " milliseconds, i think";
 		
 	}
 	
