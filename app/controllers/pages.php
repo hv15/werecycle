@@ -55,6 +55,27 @@ class Pages extends CI_Controller {
 		$data['outlets'] = $output;
 		$this->load->view('pages/data', $data);
 	}
+		
+	public function datanew()
+	{
+		$userdata = $this->session->all_userdata();
+		$types  = $userdata['types_selected'];
+		$latitude = $userdata['latitude'];
+		$longitude = $userdata['longitude'];
+		$map_zoom = $userdata['map_zoom'];
+		$clustersarray = $this->map_model->get_outlets_new($types,$latitude,$longitude,$map_zoom);
+		
+		$output = '';
+		foreach ($clustersarray as $row) {
+			$outletdata = $this->map_model->get_info($row['outlet_id']);
+		    $output .= '{"lat":'.$outletdata['lat'].',"lon":'.$outletdata['lng'].',"count":"'.$outletdata['count'].'"},';
+		}
+		$output = preg_replace('|(.+),|s','\1',$output);
+		$output = 'var data = {"clusters": ['.$output.']}';
+		
+		$data['clusters'] = $output;
+		$this->load->view('pages/datanew', $data);
+	}
 	
 	public function check()
 	{

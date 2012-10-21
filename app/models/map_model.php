@@ -113,15 +113,15 @@ class map_model extends CI_Model {
 		foreach (glob("/home/recycle/public_html/tmp/*.outlets.json") as $filename) {
 			$cachetime = explode('.',basename($filename));
 			$cachetime = $cachetime[0];
-			$output .= "Found cached json file with timestamp: $cachetime.\n";
+			//$output .= "Found cached json file with timestamp: $cachetime.\n";
 		}
 		if((time() - $cachetime) < 86400) {
-			$output .= "Found cached json file less than a day old, timestamp: $cachetime. Loading this instead of regenerating outlets array!\n\n";
+			//$output .= "Found cached json file less than a day old, timestamp: $cachetime. Loading this instead of regenerating outlets array!\n\n";
 			$outlets_json = file_get_contents("/home/recycle/public_html/tmp/$cachetime.outlets.json");
 			$outlets = json_decode($outlets_json,1);
 			//$output .= print_r($outlets,1);
 		} else {		
-			$output .= "No up to date outlets cache could be found, regenerating outlets array!\n\n";
+			//$output .= "No up to date outlets cache could be found, regenerating outlets array!\n\n";
 			
 			// Load ALL OUTLETS and ALL OUTLET RECYCLE TYPES into PHP ARRAYS
 			$sql = "SELECT outlets.outlet_id, outlets.latitude, outlets.longitude FROM outlets";
@@ -236,7 +236,7 @@ class map_model extends CI_Model {
 						$lld2 = new LatLng($outlet['lat'], $outlet['lng']);  // LatLng of outlet
 						$clusterOutletDistance = $lld1->distance($lld2); // in km
 						if($clusterOutletDistance < $clusterRadius) {
-							$output .= "$clusterOutletDistance < $clusterRadius so incrementing count\n";
+							//$output .= "$clusterOutletDistance < $clusterRadius so incrementing count\n";
 							$clusters[$clusterKey]['count']++;
 							$outletAddedToCluster = 1;
 							break;
@@ -255,9 +255,9 @@ class map_model extends CI_Model {
 		
 		
 		
-		$output .= "\ntotal outlets after filters: ".count($outlets_filtered);
-		$output .= "\ntotal clusters: ".count($clusters);
-		$output .= "\n\n clusters: ".print_r($clusters,1);
+		//$output .= "\ntotal outlets after filters: ".count($outlets_filtered);
+		//$output .= "\ntotal clusters: ".count($clusters);
+		//$output .= "\n\n clusters: ".print_r($clusters,1);
 			
 			
 		//$output .= "OR-filtered outlets:\n\n".print_r($outlets_filtered_or,1);
@@ -266,8 +266,9 @@ class map_model extends CI_Model {
 		//$output .= "\n\nAll outlets:\n\n".print_r($outlets,1);
 			
 		//"<pre>".print_r($outlets,1)."</pre> <br /> 
-		$output .= "\n\nTook ". (microtime(true)-$time_start) . " seconds, i think";
-		return "<pre>".$output."</pre>";
+		//$output .= "\n\nTook ". (microtime(true)-$time_start) . " seconds, i think";
+		//return "<pre>".$output."</pre>";
+		return $clusters;
 	}
 	
 	public function get_info($id) {
