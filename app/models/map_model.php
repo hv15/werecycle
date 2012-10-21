@@ -113,7 +113,7 @@ class map_model extends CI_Model {
 			$cachetime = $cachetime[0];
 		}
 		if($cachetime < 86400) {
-			$outlets_json = file_get_contents("/home/recyle/public_html/tmp/$cachetime.outlets.json");
+			$outlets_json = file_get_contents("/home/recycle/public_html/tmp/$cachetime.outlets.json");
 			$outlets = json_decode($outlets_json);
 		} else {		
 			// Load ALL OUTLETS and ALL OUTLET RECYCLE TYPES into PHP ARRAYS
@@ -140,7 +140,7 @@ class map_model extends CI_Model {
 			foreach ($outlets_recycle_types_table as $outlets_recycle_types_table_row) {
 				$outlets[$outlets_recycle_types_table_row['outlet_id']]['types'][] = $outlets_recycle_types_table_row['recycle_type'];
 			}
-			file_put_contents("/home/recyle/public_html/tmp/".time().".outlets.json", json_encode($outlets));
+			file_put_contents("/home/recycle/public_html/tmp/".time().".outlets.json", json_encode($outlets));
 		}
 		
 		///"<pre>".print_r($outlets,1)."</pre> <br /> 
