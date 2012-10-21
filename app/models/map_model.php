@@ -104,8 +104,7 @@ class map_model extends CI_Model {
 
 	public function get_outlets_new($types,$lat,$lng,$zoom){
 		//if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($zoom)) return FALSE;
-		//if($types=='all') $types = '3,2';
-		//$types = "1,2,3,4,5,6,7,8,9,11,12,13,14,16,17,18,19,20,21,22,23,24,25,26,27,29,30,31,32,33,34,37,38,40,41,42,43,44,45,46,49,51,52,53,56,57,80,81,82,83,84,130,145,146,148,149,150,151,152";
+		if($types=='all') $types = "1,2,3,4,5,6,7,8,9,11,12,13,14,16,17,18,19,20,21,22,23,24,25,26,27,29,30,31,32,33,34,37,38,40,41,42,43,44,45,46,49,51,52,53,56,57,80,81,82,83,84,130,145,146,148,149,150,151,152";
 		
 		// Script start time - so we can see how long it takes at various stages
 		$time_start = microtime(true);
@@ -118,12 +117,12 @@ class map_model extends CI_Model {
 			//$output .= "Found cached json file with timestamp: $cachetime.\n";
 		}
 		if((time() - $cachetime) < 86400) {
-			$output .= "Found cached json file less than a day old, timestamp: $cachetime. Loading this instead of regenerating outlets array!\n\n";
+			//$output .= "Found cached json file less than a day old, timestamp: $cachetime. Loading this instead of regenerating outlets array!\n\n";
 			$outlets_json = file_get_contents("/home/recycle/public_html/tmp/$cachetime.outlets.json");
 			$outlets = json_decode($outlets_json,1);
 			//$output .= print_r($outlets,1);
 		} else {		
-			$output .= "No up to date outlets cache could be found, regenerating outlets array!\n\n";
+			//$output .= "No up to date outlets cache could be found, regenerating outlets array!\n\n";
 			
 			// Load ALL OUTLETS and ALL OUTLET RECYCLE TYPES into PHP ARRAYS
 			$sql = "SELECT outlets.outlet_id, outlets.latitude, outlets.longitude FROM outlets";
@@ -248,22 +247,21 @@ class map_model extends CI_Model {
 					if(!$outletAddedToCluster) $clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1);
 				}
 				
-				foreach ($clusters as $clusterKey => $cluster) {
-					if($clusters[$clusterKey]['count'] == 1) {
-						unset($clusters[$clusterKey]);
-					}
-				}
-				
 				//$output .= "Found outlet with $foundtypes types! ID: $id\n";
 			} else {
 				//$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
 			}
 		}
+				
+		foreach ($clusters as $clusterKey => $cluster) {
+			if($clusters[$clusterKey]['count'] == 1) {
+				unset($clusters[$clusterKey]);
+			}
+		}
 		
 		
 		
-		
-		$output .= "\ntotal outlets after filters: ".count($outlets_filtered);
+		//$output .= "\ntotal outlets after filters: ".count($outlets_filtered);
 		//$output .= "\ntotal clusters: ".count($clusters);
 		//$output .= "\n\n clusters: ".print_r($clusters,1);
 			
@@ -276,7 +274,7 @@ class map_model extends CI_Model {
 		//"<pre>".print_r($outlets,1)."</pre> <br /> 
 		//$output .= "\n\nTook ". (microtime(true)-$time_start) . " seconds, i think";
 		//return "<pre>".$output."</pre>";
-		return $output;
+		return $clusters;
 	}
 	
 	public function get_info($id) {
