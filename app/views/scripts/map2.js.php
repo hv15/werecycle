@@ -106,7 +106,7 @@ function drawMarkers(newlocation) {
 	var newSessionData = encodeURIComponent('{"distance":'+distance+',"latitude":'+latitude+',"longitude":'+longitude+',"map_zoom":'+map_zoom+'}');
 	var urlRand = Math.random();
 	$.get('/setsession/'+newSessionData+'/'+urlRand, function(setSessionResponse){
-		$.get('/datanew/'+urlRand, function(dataResponse) {
+		$.get('/data/'+urlRand, function(dataResponse) {
 			eval(dataResponse);
 			
 			var markers = [];
