@@ -154,22 +154,8 @@ class map_model extends CI_Model {
 		$typesarray = explode(',',$types);
 		$output .= "Types to check for:\n\n".print_r($typesarray,1);
 		
-		// Make new outlets array which only contains outlets which support ALL of the specified recycle types
-		$outlets_filtered_and = Array();
-		foreach ($outlets as $id => $outlet) {
-			//$output .= "Comparing types:\n\n".print_r($typesarray,1);
-			//$output .= "With outlet types:\n\n".print_r($outlet['types'],1);
-			$intersect = array_intersect($typesarray,$outlet['types'] );
-			if( $intersect == $typesarray ) {
-				$outlets_filtered_and[$id] = $outlet;
-				//$output .= "Found outlet with all types! ID: $id\n";
-			} else {
-				//$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
-			}
-		}
-		
 		// Make new outlets array which contains ANY outlets which support AT LEAST ONE of the specified recycle types
-		$outlets_filtered_or = Array();
+		$outlets_filtered = Array();
 		foreach ($outlets as $id => $outlet) {
 			//$output .= "Comparing types:\n\n".print_r($typesarray,1);
 			//$output .= "With outlet types:\n\n".print_r($outlet['types'],1);
@@ -180,21 +166,18 @@ class map_model extends CI_Model {
 				}
 			}
 			if( $foundtypes > 0 ) {
-				$outlets_filtered_or[$id] = $outlet;
+				$outlets_filtered[$id] = $outlet;
+				$outlets_filtered[$id]['typesratio'] = $foundtypes/count($typesarray);
 				//$output .= "Found outlet with $foundtypes types! ID: $id\n";
 			} else {
 				//$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
 			}
 		}
-			
-			
-		$output .= "\nTotal outlets: ".count($outlets);
-		$output .= "\nOR-filtered outlets: ".count($outlets_filtered_or);
-		$output .= "\nAND-filtered outlets: ".count($outlets_filtered_and);
+		
 			
 		//$output .= "OR-filtered outlets:\n\n".print_r($outlets_filtered_or,1);
 		//$output .= "AND-filtered outlets:\n\n".print_r($outlets_filtered_and,1);
-		
+		$output .= "\n\nFiltered outlets:\n\n".print_r($outlets_filtered,1);
 		//$output .= "\n\nAll outlets:\n\n".print_r($outlets,1);
 			
 		//"<pre>".print_r($outlets,1)."</pre> <br /> 
