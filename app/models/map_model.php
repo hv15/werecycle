@@ -156,15 +156,49 @@ class map_model extends CI_Model {
 		$output .= "Types to check for:\n\n".print_r($typesarray,1);
 		
 		// Get a fuzzy max distance from center of viewport to points to eliminate points which are off the screen
-		if($zoom > 14) {
-			$maxDistance = 5;
-		} else if($zoom > 11) {
-			$maxDistance = 10;
-		} else if($zoom <8) {
-			$maxDistance = 1000;
-		} else {
-			$maxDistance = (21 - $zoom) * 5;
+		switch ($zoom) {
+			case 19: $maxDistance = 0.13;
+			case 18: $maxDistance = 0.2;
+			case 17: $maxDistance = 0.4;
+			case 16: $maxDistance = 0.9;
+			case 15: $maxDistance = 1.8;
+			case 14: $maxDistance = 3.5;
+			case 13: $maxDistance = 8;
+			case 12: $maxDistance = 15;
+			case 11: $maxDistance = 27;
+			case 10: $maxDistance = 60;
+			case 9: $maxDistance = 120;
+			case 8: $maxDistance = 250;
+			case 7: $maxDistance = 500;
+			case 6: $maxDistance = 1000;
+			case 5: $maxDistance = 2000;
+			case 4: $maxDistance = 4000;
+			case 3: $maxDistance = 10000;
+			default: $maxDistance = 10000;
 		}
+		
+		// Get a fuzzy max distance from center of viewport to points to eliminate points which are off the screen
+		switch ($zoom) {
+			case 19: $clusterRadius = 0;
+			case 18: $clusterRadius = 0;
+			case 17: $clusterRadius = 0.006;
+			case 16: $clusterRadius = 0.012;
+			case 15: $clusterRadius = 0.024;
+			case 14: $clusterRadius = 0.05;
+			case 13: $clusterRadius = 0.1;
+			case 12: $clusterRadius = 0.2;
+			case 11: $clusterRadius = 0.4;
+			case 10: $clusterRadius = 0.8;
+			case 9: $clusterRadius = 1.6;
+			case 8: $clusterRadius = 3.2;
+			case 7: $clusterRadius = 6.5;
+			case 6: $clusterRadius = 13;
+			case 5: $clusterRadius = 26;
+			case 4: $clusterRadius = 52;
+			case 3: $clusterRadius = 104;
+			default: $clusterRadius = 200;
+		}
+		
 		
 		// Make new outlets array which contains ANY outlets which support AT LEAST ONE of the specified recycle types
 		$outlets_filtered = Array();
@@ -195,6 +229,17 @@ class map_model extends CI_Model {
 				// Create first cluster
 				if(empty($clusters)) {
 					$clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1);
+				} else {
+					foreach ($clusters as $clusterKey => $cluster) {
+						$lld1 = new LatLng($cluster['lat'], $cluster['lng']); // LatLng of cluster center
+						$lld2 = new LatLng($outlet['lat'], $outlet['lng']);  // LatLng of outlet
+						$clusterOutletDistance = $lld1->distance($lld2); // in km
+						if($clusterOutletDistance < $clusterRadius) {
+							$clusters[$clusterKey]['count']++;
+						} else {
+							$clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1);
+						}
+					}
 				}
 				
 				
@@ -207,7 +252,10 @@ class map_model extends CI_Model {
 		
 		
 		
-		$output .= "total after filters: ".count($outlets_filtered);
+		$output .= "\ntotal outlets after filters: ".count($outlets_filtered);
+		$output .= "\ntotal clusters: ".count($clusters);
+		$output .= "\n\n clusters: ".print_r($clusters);
+			
 			
 		//$output .= "OR-filtered outlets:\n\n".print_r($outlets_filtered_or,1);
 		//$output .= "AND-filtered outlets:\n\n".print_r($outlets_filtered_and,1);
