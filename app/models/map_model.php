@@ -109,7 +109,7 @@ class map_model extends CI_Model {
 		
 		$cachetime = 100000;
 		foreach (glob("/home/recycle/public_html/tmp/*.outlets.json") as $filename) {
-			$cachetime = explode('.',$filename);
+			$cachetime = explode('.',basename($filename));
 			$cachetime = $cachetime[0];
 		}
 		if($cachetime < 86400) {
