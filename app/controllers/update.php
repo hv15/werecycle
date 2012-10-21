@@ -18,9 +18,9 @@ class Update extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 	
-	public function getLog($path)
+	public function getLog($source)
 	{		
-		echo file_get_contents(urldecode($path));
+		echo file_get_contents("/home/recycle/public_html/tmp/recycleForScotland.html");
 	}
 	
 }
