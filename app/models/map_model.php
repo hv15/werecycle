@@ -53,7 +53,7 @@ class map_model extends CI_Model {
 		$ne = bpot_getDueCoords($latitude, $longitude, 45, $distance, 'm', 1);
 		$sw = bpot_getDueCoords($latitude, $longitude, 225, $distance, 'm', 1);
 		if($types=='all') {
-			$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude 
+			$sql = "SELECT DISTINCT outlets.outlet_id
 				FROM outlets,`outlets_recycle_types` 
 				WHERE outlets.outlet_id = outlets_recycle_types.outlet_id
 				AND MBRContains( GeomFromText('Polygon(({$sw['lat']} {$sw['lon']}, {$ne['lat']} {$sw['lon']}, {$ne['lat']} {$ne['lon']}, {$sw['lat']} {$ne['lon']}, {$sw['lat']} {$sw['lon']}))'), outlets.coords )";		
@@ -61,19 +61,19 @@ class map_model extends CI_Model {
 			$types = explode(',',$types);
 			$count = count($types);
 			if($count==1) {
-				$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude 
+				$sql = "SELECT DISTINCT outlets.outlet_id
 					FROM outlets,`outlets_recycle_types` 
 					WHERE recycle_type = {$types[0]} AND outlets.outlet_id = outlets_recycle_types.outlet_id
 					AND MBRContains( GeomFromText('Polygon(({$sw['lat']} {$sw['lon']}, {$ne['lat']} {$sw['lon']}, {$ne['lat']} {$ne['lon']}, {$sw['lat']} {$ne['lon']}, {$sw['lat']} {$sw['lon']}))'), outlets.coords )";
 			} elseif($count==2) {
-				$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude FROM outlets,`outlets_recycle_types`, 
+				$sql = "SELECT DISTINCT outlets.outlet_id FROM outlets,`outlets_recycle_types`, 
 					(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[0]}) AS ort2
 					WHERE ort2.outlet_id = outlets_recycle_types.outlet_id
 					AND outlets_recycle_types.recycle_type = {$types[1]}
 					AND outlets.outlet_id = outlets_recycle_types.outlet_id
 					AND MBRContains( GeomFromText('Polygon(({$sw['lat']} {$sw['lon']}, {$ne['lat']} {$sw['lon']}, {$ne['lat']} {$ne['lon']}, {$sw['lat']} {$ne['lon']}, {$sw['lat']} {$sw['lon']}))'), outlets.coords )";
 			} elseif($count>=3) {
-				$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude 
+				$sql = "SELECT DISTINCT outlets.outlet_id
 					FROM outlets,`outlets_recycle_types`,";
 					
 				for($i=3;$i<$count;$i++) {

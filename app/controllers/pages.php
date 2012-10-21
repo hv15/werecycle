@@ -46,7 +46,8 @@ class Pages extends CI_Controller {
 		
 		$output = '';
 		foreach ($outletsarray as $row) {
-		    $output .= '{"id":'.$row['outlet_id'].',"type":'.$row['outlet_type'].',"lat":'.$row['latitude'].',"lon":'.$row['longitude'].',"name":"'.$row['outlet_name'].'"},';
+			$outletdata = $this->map_model->get_info($row['outlet_id']);
+		    $output .= '{"id":'.$row['outlet_id'].',"type":'.$outletdata['type'].',"lat":'.$outletdata['latitude'].',"lon":'.$outletdata['longitude'].',"name":"'.$outletdata['name'].'"},';
 		}
 		$output = preg_replace('|(.+),|s','\1',$output);
 		$output = 'var data = {"outlets": ['.$output.']}';
