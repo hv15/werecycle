@@ -119,6 +119,7 @@ function drawMarkers(newlocation) {
 				var marker = new google.maps.Marker({ position: latLng});
 				// Add the markers, text to the memory.
 				markers.push(marker);
+				marker.setMap(map);
 				// Give each marker an event that opens the window.
 				/*google.maps.event.addListener(marker, 'click', (function(marker, i) {
 					/*return function() {
@@ -143,14 +144,15 @@ function drawMarkers(newlocation) {
 			}*/
 			
 			// Clear all markers
-			if(markerCluster) {
+			/*if(markerCluster) {
 				markerCluster.clearMarkers();
 				console.log(markers);
 				markerCluster.addMarkers(markers);
 			} else {
 				// Put all the markers into the cluster.
+				console.log(markers);
 				markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
-			}
+			}*/
 		});
 	});
 }
