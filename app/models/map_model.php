@@ -200,11 +200,11 @@ class map_model extends CI_Model {
 			default: $clusterRadius = 200;
 		}
 		
-		
-		// Make new outlets array which contains ANY outlets which support AT LEAST ONE of the specified recycle types
-		$outlets_filtered = Array();
+		// Create array to store clusters of outlets in
 		$clusters = Array();
+		// And array to store outlets which aren't in a cluster
 		$singleOutlets = Array();
+		
 		foreach ($outlets as $id => $outlet) {
 			//$output .= "Comparing types:\n\n".print_r($typesarray,1);
 			//$output .= "With outlet types:\n\n".print_r($outlet['types'],1);
@@ -214,7 +214,12 @@ class map_model extends CI_Model {
 					$foundtypes++;
 				}
 			}
+			// We only want to process outlets which have at least one of the requested recycle types
 			if( $foundtypes > 0 ) {
+				// This outlet supports at least one of the recycle types we want, give it a new parameter to tell us what percentage of the ones we want it supports
+				$outlet['typesratio'] = $foundtypes/count($typesarray);
+				
+				// Get the distance from this outlet to the centre of the viewport
 				$lld1 = new LatLng($lat, $lng); // LatLng of viewport center
 				$lld2 = new LatLng($outlet['lat'], $outlet['lng']);  // LatLng of outlet
 				$distance = $lld1->distance($lld2); // in km
@@ -224,35 +229,51 @@ class map_model extends CI_Model {
 					continue;
 				}
 				
-				//$output .= "$distance not > $maxDistance so adding outlet to filtered\n";
-				$outlets_filtered[$id] = $outlet;
-				$outlets_filtered[$id]['typesratio'] = $foundtypes/count($typesarray);
-				
 				// Create first cluster
 				if(empty($clusters)) {
-					$clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1 );
+					$clusters[] = Array('id' => $id, 'lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1 );
+					// Add this outlet to the singleOutlets array, even though we're making a cluster from it, because we don't know if this cluster will get any other outlets yet
+					$singleOutlets[$id] = $outlet;
 				} else {
 					// Loop through all clusters which exist to see if we should add this one to a cluster
-					$outletAddedToCluster = 0;
+					$outletAddedToCluster = false;
 					foreach ($clusters as $clusterKey => $cluster) {
+						// Calculate distance between this outlet and the centre of whichever cluster we are testing
 						$lld1 = new LatLng($cluster['lat'], $cluster['lng']); // LatLng of cluster center
 						$lld2 = new LatLng($outlet['lat'], $outlet['lng']);  // LatLng of outlet
 						$clusterOutletDistance = $lld1->distance($lld2); // in km
 						// This outlet is within the radius of a cluster, add it to the cluster
-						if($clusterOutletDistance < ($clusterRadius)) {
-							//$output .= "$clusterOutletDistance < $clusterRadius so incrementing count\n";
+						if($clusterOutletDistance < ($clusterRadius*5)) {
+							// Increment the count variable of the cluster to show we've added an outlet to it
 							$clusters[$clusterKey]['count']++;
-							$outletAddedToCluster = 1;
+							// Remove the outlet (which originally created the cluster we are now adding to) from the singleOutlets array
+							// This prevents cluster-starter outlets from appearing as singleOutlets
+							// But doesn't stop clusters with no other outlets from appearing as clusters, this needs to be done outside the outlet loop
+							unset($singleOutlets[$clusters[$clusterKey]['id']]);
+							// This allows us to create a new cluster outside of this loop if we don't find a cluster to add this outlet to
+							$outletAddedToCluster = true;
+							// We've added this outlet to a cluster so there's no need to keep looking for a cluster to add it to
 							break;
 						}
 					}
-					if(!$outletAddedToCluster) $singleOutlets[$id] = $outlet;
+					// We didn't find a cluster to add the marker to, let's create a new cluster
+					if($outletAddedToCluster === false) {
+						$clusters[] = Array('id' => $id, 'lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1 );
+						// Add this outlet to the singleOutlets array, even though we're making a cluster from it, because we don't know if this cluster will get any other outlets yet
+						$singleOutlets[$id] = $outlet;
+					}
 				}
 				
 				//$output .= "Found outlet with $foundtypes types! ID: $id\n";
 			} else {
 				//$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
 			}
+		}
+		// So we've just finished looping through all the outlets
+		// We now have two arrays, clusters and singleOutlets. singleOutlets should be fine but clusters still contains clusters which have no other outlets
+		// So let's loop through and delete them
+		foreach($clusters as $key => $cluster) {
+			if($cluster['count']==1) unset($clusters[$key]);
 		}
 		
 		//$output .= "\ntotal outlets after filters: ".count($outlets_filtered);
