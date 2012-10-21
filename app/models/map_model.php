@@ -230,6 +230,7 @@ class map_model extends CI_Model {
 				if(empty($clusters)) {
 					$clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1);
 				} else {
+					$outletAddedToCluster = 0;
 					foreach ($clusters as $clusterKey => $cluster) {
 						$lld1 = new LatLng($cluster['lat'], $cluster['lng']); // LatLng of cluster center
 						$lld2 = new LatLng($outlet['lat'], $outlet['lng']);  // LatLng of outlet
