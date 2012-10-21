@@ -110,6 +110,7 @@ function drawMarkers(newlocation) {
 			eval(dataResponse);
 			
 			var markers = [];
+			alert(data.clusters.length);
 			for (var i = 0; i < data.clusters.length; i++) {
 				var cluster = data.clusters[i];
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
@@ -117,11 +118,11 @@ function drawMarkers(newlocation) {
 				// Add the markers, text to the memory.
 				markers.push(marker);
 				// Give each marker an event that opens the window.
-				google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
-					return function() {
+				google.maps.event.addListener(marker, 'click', (function(marker, i) {
+					/*return function() {
 						$(location).attr('href',"/info/"+id);
-					}    
-				})(marker, i, outlet.name, outlet.id, outlet.type));
+					} */   
+				})(marker, i));
 			}
 			if(data.outlets){
 				for (var i = 0; i < data.outlets.length; i++) {
