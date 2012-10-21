@@ -6,7 +6,7 @@ class Update extends CI_Controller {
 		parent::__construct();
 	}
 	
-	public function update($source)
+	public function index($source)
 	{		
 		print `echo /usr/bin/php -q /home/recycle/public_html/app/libraries/$source.php | at now`;
 		
