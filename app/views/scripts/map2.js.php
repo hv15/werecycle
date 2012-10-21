@@ -114,6 +114,7 @@ function drawMarkers(newlocation) {
 			console.log(data);
 			for (var i = 0; i < data.clusters.length; i++) {
 				var cluster = data.clusters[i];
+				console.log(cluster);
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
 				var marker = new google.maps.Marker({ position: latLng});
 				// Add the markers, text to the memory.
