@@ -276,7 +276,7 @@ class map_model extends CI_Model {
 		//"<pre>".print_r($outlets,1)."</pre> <br /> 
 		//$output .= "\n\nTook ". (microtime(true)-$time_start) . " seconds, i think";
 		//return "<pre>".$output."</pre>";
-		return $clusters;
+		return $output;
 	}
 	
 	public function get_info($id) {
