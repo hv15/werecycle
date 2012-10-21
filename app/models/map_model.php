@@ -162,6 +162,8 @@ class map_model extends CI_Model {
 		}
 			
 		$output .= "Filtered outlets:\n\n".print_r($outlets_filtered,1);
+		
+		$output .= "\n\nAll outlets:\n\n".print_r($outlets_filtered,1);
 			
 		//"<pre>".print_r($outlets,1)."</pre> <br /> 
 		$output .= "Took ". (microtime(true)-$time_start) . " seconds, i think";
