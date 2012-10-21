@@ -236,10 +236,11 @@ class map_model extends CI_Model {
 						$clusterOutletDistance = $lld1->distance($lld2); // in km
 						if($clusterOutletDistance < $clusterRadius) {
 							$clusters[$clusterKey]['count']++;
-						} else {
-							$clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1);
-						}
+							$outletAddedToCluster = 1;
+							break;
+						} 
 					}
+					if(!$outletAddedToCluster) $clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1);
 				}
 				
 				
