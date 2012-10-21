@@ -21,7 +21,7 @@ class Update extends CI_Controller {
 	
 	public function getLog($source)
 	{		
-		echo file_get_contents("/home/recycle/public_html/tmp/recycleForScotland.html");
+		echo file_get_contents("/home/recycle/public_html/tmp/$source.html");
 	}
 	
 }
