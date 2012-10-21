@@ -27,7 +27,7 @@ class Update extends CI_Controller {
 		    // Output some more feedback to the browser
 		    $this->output( "[TIME: ".round(microtime(true)-$time_start)."] Type $type started.<br />");
 		    // Loop through all known (33) areas in the database to get all possible data sets
-		    for ($area=1;$area<33;$area++) {
+		    for ($area=12;$area<13;$area++) {
 			// Output some feedback to the browser
 			$this->output( "[TIME: ".round(microtime(true)-$time_start)."] &nbsp;&nbsp;Area $area started; ");
 			// Build an HTTP POST query to request XML data for a specific area+type combination
@@ -68,6 +68,8 @@ class Update extends CI_Controller {
 			    
 			    $os1 = new OSRef($easting, $northing);
 			    $ll1 = $os1->toLatLng();
+				$ll1->OSGB36ToWGS84();
+
 			    $latitude = $ll1->lat;
 			    $longitude = $ll1->lng;
 			    
