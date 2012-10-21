@@ -151,6 +151,8 @@ class map_model extends CI_Model {
 				
 		// Explode array of types we want to show
 		$typesarray = explode(',',$types);
+		$output .= "Types to check for:\n\n".print_r($typesarray,1);
+			
 		$outlets_filtered = Array();
 		foreach ($outlets as $id => $outlet) {
 			if( in_array($typesarray,$outlet['types'] ) ) {
