@@ -1,4 +1,8 @@
 <?php
+		// Ignore user aborts and allow the script
+		// to run forever
+		ignore_user_abort(true);
+		set_time_limit(0);
 		require_once('/home/recycle/public_html/app/libraries/phpcoord-2.3.php');
 		mysql_connect(localhost,"recycle_finder","leifgivesyoulemons");
 		@mysql_select_db("recycle_finder") or die( "Unable to select database");
