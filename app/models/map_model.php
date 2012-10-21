@@ -142,7 +142,7 @@ class map_model extends CI_Model {
 			}
 			file_put_contents("/home/recycle/public_html/tmp/".time().".outlets.json", json_encode($outlets));
 			
-			//$output .= print_r($outlets,1);
+			$output .= print_r($outlets,1);
 		}
 				
 		// Explode array of types we want to show
