@@ -236,7 +236,7 @@ class map_model extends CI_Model {
 						$lld1 = new LatLng($cluster['lat'], $cluster['lng']); // LatLng of cluster center
 						$lld2 = new LatLng($outlet['lat'], $outlet['lng']);  // LatLng of outlet
 						$clusterOutletDistance = $lld1->distance($lld2); // in km
-						if($clusterOutletDistance < $clusterRadius) {
+						if($clusterOutletDistance < ($clusterRadius*3)) {
 
 						//$output .= "$clusterOutletDistance < $clusterRadius so incrementing count\n";
 							$clusters[$clusterKey]['count']++;
