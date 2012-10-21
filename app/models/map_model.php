@@ -150,24 +150,45 @@ class map_model extends CI_Model {
 			//$output .= print_r($outlets,1);
 		}
 				
-		// Explode array of types we want to show
+		// Explode array of specified recycle types
 		$typesarray = explode(',',$types);
 		$output .= "Types to check for:\n\n".print_r($typesarray,1);
-			
-		$outlets_filtered = Array();
+		
+		// Make new outlets array which only contains outlets which support ALL of the specified recycle types
+		$outlets_filtered_and = Array();
 		foreach ($outlets as $id => $outlet) {
 			//$output .= "Comparing types:\n\n".print_r($typesarray,1);
 			//$output .= "With outlet types:\n\n".print_r($outlet['types'],1);
 			$intersect = array_intersect($typesarray,$outlet['types'] );
 			if( $intersect == $typesarray ) {
-				$outlets_filtered[$id] = $outlet;
+				$outlets_filtered_and[$id] = $outlet;
 				//$output .= "Found outlet with all types! ID: $id\n";
 			} else {
 				//$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
 			}
 		}
+		
+		// Make new outlets array which contains ANY outlets which support AT LEAST ONE of the specified recycle types
+		$outlets_filtered_or = Array();
+		foreach ($outlets as $id => $outlet) {
+			//$output .= "Comparing types:\n\n".print_r($typesarray,1);
+			//$output .= "With outlet types:\n\n".print_r($outlet['types'],1);
+			$foundtypes = 0;
+			foreach($typesarray as $type) {
+				if(in_array($type,$outlet['types'])) {
+					$foundtypes++;
+				}
+			}
+			if( $foundtypes > 0 ) {
+				$outlets_filtered_or[$id] = $outlet;
+				$output .= "Found outlet with $foundtypes types! ID: $id\n";
+			} else {
+				//$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
+			}
+		}
 			
-		$output .= "Filtered outlets:\n\n".print_r($outlets_filtered,1);
+		$output .= "OR-filtered outlets:\n\n".print_r($outlets_filtered_or,1);
+		//$output .= "AND-filtered outlets:\n\n".print_r($outlets_filtered_and,1);
 		
 		//$output .= "\n\nAll outlets:\n\n".print_r($outlets,1);
 			
