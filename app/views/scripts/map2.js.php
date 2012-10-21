@@ -110,7 +110,7 @@ function drawMarkers(newlocation) {
 			eval(dataResponse);
 			
 			var markers = [];
-			alert(data.clusters);
+			alert(data);
 			for (var i = 0; i < data.clusters.length; i++) {
 				var cluster = data.clusters[i];
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
