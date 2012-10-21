@@ -8,7 +8,7 @@ class Update extends CI_Controller {
 	
 	public function index($source)
 	{		
-		`/usr/bin/php /home/recycle/public_html/app/libraries/recycleForScotland.php &`;
+		$data['nohupout'] = `nohup php /home/recycle/public_html/app/libraries/recycleForScotland.php &`;
 		
 		$data['title'] = 'Update ('.$source.')';
 		$data['page'] = 'update';
