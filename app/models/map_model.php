@@ -158,11 +158,12 @@ class map_model extends CI_Model {
 		foreach ($outlets as $id => $outlet) {
 			$output .= "Comparing types:\n\n".print_r($typesarray,1);
 			$output .= "With outlet types:\n\n".print_r($outlet['types'],1);
-			if( in_array($typesarray,$outlet['types'],1 ) ) {
+			$intersect = array_intersect($typesarray,$outlet['types'] );
+			if( $intersect == $typesarray ) {
 				$outlets_filtered[$id] = $outlet;
 				$output .= "Found outlet with all types! ID: $id\n";
 			} else {
-				$output .= "in_array returned false! ID: $id\n";
+				$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
 			}
 		}
 			
