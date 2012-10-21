@@ -47,7 +47,7 @@ class map_model extends CI_Model {
 		return $output;
 	}
 	
-	public function get_outlets($types,$latitude,$longitude,$distance)
+	public function get_outlets_old($types,$latitude,$longitude,$distance)
 	{
 		if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($distance)) return FALSE;
 		$ne = bpot_getDueCoords($latitude, $longitude, 45, $distance, 'm', 1);
@@ -99,6 +99,17 @@ class map_model extends CI_Model {
 		}
 		$query = $this->db->query($sql);
 		return $query->result_array();
+	}
+
+	public function get_outlets($types,$latitude,$longitude,$zoom){
+		if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($distance)) return FALSE;
+		$sql = "SELECT DISTINCT outlets.outlet_id, outlets.latitude, outlets.longitude
+			FROM outlets,`outlets_recycle_types` 
+			WHERE outlets.outlet_id = outlets_recycle_types.outlet_id";
+		$query = $this->db->query($sql);
+		$query->result_array();
+
+		
 	}
 	
 	public function get_info($id) {
