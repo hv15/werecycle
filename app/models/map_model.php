@@ -47,7 +47,7 @@ class map_model extends CI_Model {
 		return $output;
 	}
 	
-	public function get_outlets_old($types,$latitude,$longitude,$distance)
+	public function get_outlets($types,$latitude,$longitude,$distance)
 	{
 		if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($distance)) return FALSE;
 		$ne = bpot_getDueCoords($latitude, $longitude, 45, $distance, 'm', 1);
@@ -101,14 +101,30 @@ class map_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function get_outlets($types,$latitude,$longitude,$zoom){
-		if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($distance)) return FALSE;
-		$sql = "SELECT DISTINCT outlets.outlet_id, outlets.latitude, outlets.longitude
-			FROM outlets,`outlets_recycle_types` 
-			WHERE outlets.outlet_id = outlets_recycle_types.outlet_id";
+	public function get_outlets_new($types,$latitude,$longitude,$zoom){
+		if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($zoom)) return FALSE;
+		
+		// Load ALL OUTLETS and ALL OUTLET RECYCLE TYPES into PHP ARRAYS
+		$sql = "SELECT outlets.outlet_id, outlets.latitude, outlets.longitude FROM outlets";
 		$query = $this->db->query($sql);
-		$query->result_array();
+		$outlets_table = $query->result_array();
+		$sql = "SELECT * FROM outlets_recycle_types";
+		$query = $this->db->query($sql);
+		$outlets_recycle_types_table = $query->result_array();
 
+		// Explode array of types we want to show
+		$types = explode(',',$types);
+		// Clone outlets array to add more refined data to
+		$outlets = $outlets_table;
+		
+		//
+		// START AND BLOCK
+		//
+		// Loop through all known outlets to generate array of recycle types they support
+		foreach ($outlets_table as $outlet_row) {
+		
+		}
+		
 		
 	}
 	
