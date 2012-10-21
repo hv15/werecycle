@@ -1,5 +1,7 @@
 <?php
 		require_once('/home/recycle/public_html/app/libraries/phpcoord-2.3.php');
+		mysql_connect(localhost,"recycle_finder","leifgivesyoulemons");
+		@mysql_select_db("recycle_finder") or die( "Unable to select database");
 		
 		function output($string) 
 		{
@@ -76,7 +78,7 @@
 			    
 				/* DEBUG HTML REGEX
 			    $sql = "REPLACE INTO outlets_info_html VALUES ('$id', '".mysql_real_escape_string($html)."')";
-			    db->query($sql);*/
+			    mysql_query($sql);*/
 		
 				// Check to see if there is a phone number for this outlet to determine the regex we use
 				if(strpos($html,'miniIconTelephoneRec')) {
@@ -105,23 +107,23 @@
 				$openhours = mysql_real_escape_string($openhours);
 				
 			    $sql = "REPLACE INTO outlets (`outlet_id`, `latitude`, `longitude`, `coords`) VALUES ('$id', '$latitude', '$longitude', GeomFromText('POINT($latitude $longitude)'))";
-			    db->query($sql);
+			    mysql_query($sql);
 				
 			    $sql = "REPLACE INTO outlets_data (`outlet_id`, `key`, `value`) VALUES ('$id', 'name', '$name')";
-			    db->query($sql);
+			    mysql_query($sql);
 			    $sql = "REPLACE INTO outlets_data (`outlet_id`, `key`, `value`) VALUES ('$id', 'type', '$outletType')";
-			    db->query($sql);
+			    mysql_query($sql);
 			    $sql = "REPLACE INTO outlets_data (`outlet_id`, `key`, `value`) VALUES ('$id', 'area', '$area')";
-			    db->query($sql);
+			    mysql_query($sql);
 			    $sql = "REPLACE INTO outlets_data (`outlet_id`, `key`, `value`) VALUES ('$id', 'address', '$address')";
-			    db->query($sql);
+			    mysql_query($sql);
 			    $sql = "REPLACE INTO outlets_data (`outlet_id`, `key`, `value`) VALUES ('$id', 'phone', '$phone')";
-			    db->query($sql);
+			    mysql_query($sql);
 			    $sql = "REPLACE INTO outlets_data (`outlet_id`, `key`, `value`) VALUES ('$id', 'openhours', '$openhours')";
-			    db->query($sql);
+			    mysql_query($sql);
 			    
 			    $sql = "REPLACE INTO outlets_recycle_types (`outlet_id`, `recycle_type`) VALUES ('$id', '$type')";
-			    db->query($sql);
+			    mysql_query($sql);
 			    
 			    $arearowcount++;
 			    $rowcounter++;
