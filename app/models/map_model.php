@@ -158,9 +158,11 @@ class map_model extends CI_Model {
 		foreach ($outlets as $id => $outlet) {
 			$output .= "Comparing types:\n\n".print_r($typesarray,1);
 			$output .= "With outlet types:\n\n".print_r($outlet['types'],1);
-			if( in_array($typesarray,$outlet['types'] ) ) {
+			if( in_array($typesarray,$outlet['types'],1 ) ) {
 				$outlets_filtered[$id] = $outlet;
 				$output .= "Found outlet with all types! ID: $id";
+			} else {
+				$output .= "in_array returned false! ID: $id";
 			}
 		}
 			
