@@ -35,7 +35,7 @@ class Update extends CI_Controller {
 	
 	public function startUpdate($source)
 	{		
-		$data['outlets'] = `/home/recycle/public_html/phpworker.sh start /home/recycle/public_html/app/libraries/$source.php`;
+		$data['outlets'] = `/home/recycle/public_html/phpworker.sh start /home/recycle/public_html/app/libraries/$source.php 2>1`;
 		$this->load->view('pages/data', $data);
 	}
 
