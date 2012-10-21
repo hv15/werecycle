@@ -120,7 +120,7 @@ function drawMarkers(newlocation) {
 				// Add the markers, text to the memory.
 				markers.push(marker);
 				// Give each marker an event that opens the window.
-				google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				/*google.maps.event.addListener(marker, 'click', (function(marker, i) {
 					/*return function() {
 						$(location).attr('href',"/info/"+id);
 					} 
