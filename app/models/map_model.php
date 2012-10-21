@@ -181,13 +181,17 @@ class map_model extends CI_Model {
 			}
 			if( $foundtypes > 0 ) {
 				$outlets_filtered_or[$id] = $outlet;
-				$output .= "Found outlet with $foundtypes types! ID: $id\n";
+				//$output .= "Found outlet with $foundtypes types! ID: $id\n";
 			} else {
 				//$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
 			}
 		}
 			
-		$output .= "OR-filtered outlets:\n\n".print_r($outlets_filtered_or,1);
+			
+		$output .= "OR-filtered outlets:\n\n".count($outlets_filtered_or);
+		$output .= "AND-filtered outlets:\n\n".count($outlets_filtered_and);
+			
+		//$output .= "OR-filtered outlets:\n\n".print_r($outlets_filtered_or,1);
 		//$output .= "AND-filtered outlets:\n\n".print_r($outlets_filtered_and,1);
 		
 		//$output .= "\n\nAll outlets:\n\n".print_r($outlets,1);
