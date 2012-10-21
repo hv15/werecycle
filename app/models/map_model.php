@@ -104,6 +104,7 @@ class map_model extends CI_Model {
 
 	public function get_outlets_new($types,$lat,$lng,$zoom){
 		//if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($zoom)) return FALSE;
+		if($types=='all') $types = "1,2,3,4,5,6,7,8,9,11,12,13,14,16,17,18,19,20,21,22,23,24,25,26,27,29,30,31,32,33,34,37,38,40,41,42,43,44,45,46,49,51,52,53,56,57,80,81,82,83,84,130,145,146,148,149,150,151,152";
 		
 		// Script start time - so we can see how long it takes at various stages
 		$time_start = microtime(true);
