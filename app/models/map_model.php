@@ -3,6 +3,7 @@ class map_model extends CI_Model {
 
 	public function __construct()
 	{
+		require_once(APPPATH.'libraries/phpcoord-2.3.php');
 		require_once(APPPATH.'libraries/latlong_box.php');
 	}
 	
@@ -53,7 +54,7 @@ class map_model extends CI_Model {
 		$ne = bpot_getDueCoords($latitude, $longitude, 45, $distance, 'm', 1);
 		$sw = bpot_getDueCoords($latitude, $longitude, 225, $distance, 'm', 1);
 		if($types=='all') {
-			$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude 
+			$sql = "SELECT DISTINCT outlets.outlet_id
 				FROM outlets,`outlets_recycle_types` 
 				WHERE outlets.outlet_id = outlets_recycle_types.outlet_id
 				AND MBRContains( GeomFromText('Polygon(({$sw['lat']} {$sw['lon']}, {$ne['lat']} {$sw['lon']}, {$ne['lat']} {$ne['lon']}, {$sw['lat']} {$ne['lon']}, {$sw['lat']} {$sw['lon']}))'), outlets.coords )";		
@@ -61,19 +62,19 @@ class map_model extends CI_Model {
 			$types = explode(',',$types);
 			$count = count($types);
 			if($count==1) {
-				$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude 
+				$sql = "SELECT DISTINCT outlets.outlet_id
 					FROM outlets,`outlets_recycle_types` 
 					WHERE recycle_type = {$types[0]} AND outlets.outlet_id = outlets_recycle_types.outlet_id
 					AND MBRContains( GeomFromText('Polygon(({$sw['lat']} {$sw['lon']}, {$ne['lat']} {$sw['lon']}, {$ne['lat']} {$ne['lon']}, {$sw['lat']} {$ne['lon']}, {$sw['lat']} {$sw['lon']}))'), outlets.coords )";
 			} elseif($count==2) {
-				$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude FROM outlets,`outlets_recycle_types`, 
+				$sql = "SELECT DISTINCT outlets.outlet_id FROM outlets,`outlets_recycle_types`, 
 					(SELECT * FROM `outlets_recycle_types` WHERE outlets_recycle_types.recycle_type = {$types[0]}) AS ort2
 					WHERE ort2.outlet_id = outlets_recycle_types.outlet_id
 					AND outlets_recycle_types.recycle_type = {$types[1]}
 					AND outlets.outlet_id = outlets_recycle_types.outlet_id
 					AND MBRContains( GeomFromText('Polygon(({$sw['lat']} {$sw['lon']}, {$ne['lat']} {$sw['lon']}, {$ne['lat']} {$ne['lon']}, {$sw['lat']} {$ne['lon']}, {$sw['lat']} {$sw['lon']}))'), outlets.coords )";
 			} elseif($count>=3) {
-				$sql = "SELECT DISTINCT outlets.outlet_id, outlet_type, outlet_name, latitude, longitude 
+				$sql = "SELECT DISTINCT outlets.outlet_id
 					FROM outlets,`outlets_recycle_types`,";
 					
 				for($i=3;$i<$count;$i++) {
@@ -100,75 +101,206 @@ class map_model extends CI_Model {
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
-	
-	public function get_info($id) {
+
+	public function get_outlets_new($types,$lat,$lng,$zoom){
+		//if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($zoom)) return FALSE;
+		
+		// Script start time - so we can see how long it takes at various stages
+		$time_start = microtime(true);
 		$output = '';
 		
-		// Build SQL query to get outlet information for all selected types
-		$sql = "SELECT * FROM outlets_info,outlets WHERE outlets.outlet_id = $id AND outlets.outlet_id = outlets_info.outlet_id";
+		$cachetime = 0;
+		foreach (glob("/home/recycle/public_html/tmp/*.outlets.json") as $filename) {
+			$cachetime = explode('.',basename($filename));
+			$cachetime = $cachetime[0];
+			$output .= "Found cached json file with timestamp: $cachetime.\n";
+		}
+		if((time() - $cachetime) < 86400) {
+			$output .= "Found cached json file less than a day old, timestamp: $cachetime. Loading this instead of regenerating outlets array!\n\n";
+			$outlets_json = file_get_contents("/home/recycle/public_html/tmp/$cachetime.outlets.json");
+			$outlets = json_decode($outlets_json,1);
+			//$output .= print_r($outlets,1);
+		} else {		
+			$output .= "No up to date outlets cache could be found, regenerating outlets array!\n\n";
+			
+			// Load ALL OUTLETS and ALL OUTLET RECYCLE TYPES into PHP ARRAYS
+			$sql = "SELECT outlets.outlet_id, outlets.latitude, outlets.longitude FROM outlets";
+			$query = $this->db->query($sql);
+			$outlets_table = $query->result_array();
+			$sql = "SELECT * FROM outlets_recycle_types";
+			$query = $this->db->query($sql);
+			$outlets_recycle_types_table = $query->result_array();
+			
+			// Clone outlets array to add more refined data to
+			$outlets = Array();
+			
+			// Loop through all outlets rows to create more useful multidimensional associative array
+			foreach ($outlets_table as $outlet_row) {
+				$outlets[$outlet_row['outlet_id']] = Array('lat' => $outlet_row['latitude'], 'lng' => $outlet_row['longitude'], 'types' => Array() );
+			}
+			// Loop through all recycle types rows to create more useful multidimensional associative array inside outlets
+			foreach ($outlets_recycle_types_table as $outlets_recycle_types_table_row) {
+				$outlets[$outlets_recycle_types_table_row['outlet_id']]['types'][] = $outlets_recycle_types_table_row['recycle_type'];
+			}
+			
+			foreach (glob("/home/recycle/public_html/tmp/*.outlets.json") as $filename) {
+				unlink($filename);
+			}
+			file_put_contents("/home/recycle/public_html/tmp/".time().".outlets.json", json_encode($outlets));
+			
+			//$output .= print_r($outlets,1);
+		}
+				
+		// Explode array of specified recycle types
+		$typesarray = explode(',',$types);
+		$output .= "Types to check for:\n\n".print_r($typesarray,1);
+		
+		// Get a fuzzy max distance from center of viewport to points to eliminate points which are off the screen
+		switch ($zoom) {
+			case 19: $maxDistance = 0.13; break;
+			case 18: $maxDistance = 0.2; break;
+			case 17: $maxDistance = 0.4; break;
+			case 16: $maxDistance = 0.9; break;
+			case 15: $maxDistance = 1.8; break;
+			case 14: $maxDistance = 3.5; break;
+			case 13: $maxDistance = 8; break;
+			case 12: $maxDistance = 15; break;
+			case 11: $maxDistance = 27; break;
+			case 10: $maxDistance = 60; break;
+			case 9: $maxDistance = 120; break;
+			case 8: $maxDistance = 250; break;
+			case 7: $maxDistance = 500; break;
+			case 6: $maxDistance = 1000; break;
+			case 5: $maxDistance = 2000; break;
+			case 4: $maxDistance = 4000; break;
+			case 3: $maxDistance = 10000; break;
+			default: $maxDistance = 10000;
+		}
+		
+		// Get a fuzzy max distance from center of viewport to points to eliminate points which are off the screen
+		switch ($zoom) {
+			case 19: $clusterRadius = 0; break;
+			case 18: $clusterRadius = 0; break;
+			case 17: $clusterRadius = 0.006; break;
+			case 16: $clusterRadius = 0.012; break;
+			case 15: $clusterRadius = 0.024; break;
+			case 14: $clusterRadius = 0.05; break;
+			case 13: $clusterRadius = 0.1; break;
+			case 12: $clusterRadius = 0.2; break;
+			case 11: $clusterRadius = 0.4; break;
+			case 10: $clusterRadius = 0.8; break;
+			case 9: $clusterRadius = 1.6; break;
+			case 8: $clusterRadius = 3.2; break;
+			case 7: $clusterRadius = 6.5; break;
+			case 6: $clusterRadius = 13; break;
+			case 5: $clusterRadius = 26; break;
+			case 4: $clusterRadius = 52; break;
+			case 3: $clusterRadius = 104; break;
+			default: $clusterRadius = 200;
+		}
+		
+		
+		// Make new outlets array which contains ANY outlets which support AT LEAST ONE of the specified recycle types
+		$outlets_filtered = Array();
+		$clusters = Array();
+		foreach ($outlets as $id => $outlet) {
+			//$output .= "Comparing types:\n\n".print_r($typesarray,1);
+			//$output .= "With outlet types:\n\n".print_r($outlet['types'],1);
+			$foundtypes = 0;
+			foreach($typesarray as $type) {
+				if(in_array($type,$outlet['types'])) {
+					$foundtypes++;
+				}
+			}
+			if( $foundtypes > 0 ) {
+				$lld1 = new LatLng($lat, $lng); // LatLng of viewport center
+				$lld2 = new LatLng($outlet['lat'], $outlet['lng']);  // LatLng of outlet
+				$distance = $lld1->distance($lld2); // in km
+				// Skip this outlet, it's off the screen
+				if($distance > $maxDistance) {
+					//$output .= "$distance > $maxDistance so skipping outlet\n";
+					continue;
+				}
+				
+				//$output .= "$distance not > $maxDistance so adding outlet to filtered\n";
+				$outlets_filtered[$id] = $outlet;
+				$outlets_filtered[$id]['typesratio'] = $foundtypes/count($typesarray);
+				
+				// Create first cluster
+				if(empty($clusters)) {
+					$clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1);
+				} else {
+					$outletAddedToCluster = 0;
+					foreach ($clusters as $clusterKey => $cluster) {
+						$lld1 = new LatLng($cluster['lat'], $cluster['lng']); // LatLng of cluster center
+						$lld2 = new LatLng($outlet['lat'], $outlet['lng']);  // LatLng of outlet
+						$clusterOutletDistance = $lld1->distance($lld2); // in km
+						if($clusterOutletDistance < $clusterRadius) {
+							$output .= "$clusterOutletDistance < $clusterRadius so incrementing count\n";
+							$clusters[$clusterKey]['count']++;
+							$outletAddedToCluster = 1;
+							break;
+						} 
+					}
+					if(!$outletAddedToCluster) $clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1);
+				}
+				
+				
+				//$output .= "Found outlet with $foundtypes types! ID: $id\n";
+			} else {
+				//$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
+			}
+		}
+		
+		
+		
+		
+		$output .= "\ntotal outlets after filters: ".count($outlets_filtered);
+		$output .= "\ntotal clusters: ".count($clusters);
+		$output .= "\n\n clusters: ".print_r($clusters,1);
+			
+			
+		//$output .= "OR-filtered outlets:\n\n".print_r($outlets_filtered_or,1);
+		//$output .= "AND-filtered outlets:\n\n".print_r($outlets_filtered_and,1);
+		//$output .= "\n\nFiltered outlets:\n\n".print_r($outlets_filtered,1);
+		//$output .= "\n\nAll outlets:\n\n".print_r($outlets,1);
+			
+		//"<pre>".print_r($outlets,1)."</pre> <br /> 
+		$output .= "\n\nTook ". (microtime(true)-$time_start) . " seconds, i think";
+		return "<pre>".$output."</pre>";
+	}
+	
+	public function get_info($id) {
+		// Build SQL query to get outlet information for specified id
+		$sql = "SELECT * FROM outlets WHERE outlets.outlet_id = $id";
 		$query = $this->db->query($sql);
 		$row = $query->result_array();
-		$row = $row[0];
-		$html = $row["html_info"];
-		//return print_r($row,1);
-		    
-		    // Output name of outlet
-		    //$output .= "<span class='nametitle'>Name</span><br />\n<span class='name'>{$row["outlet_name"]}</span><br /><br />\n";
-		    
-		    // Check to see if there is a phone number for this outlet to determine the regex we use
-		    if(strpos($html,'miniIconTelephoneRec')) {
-				$phone = preg_replace('|.+<img class="pic20 picL" src="siImages/miniIconTelephoneRec.gif" />(.+?) <div.+|s', '\1', $html);
-				$address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<img class="pic20.+|s', '\1', $html);
-				$address = preg_replace('|<br />|s',', ',$address);
-				$address = trim($address," \n\r\t,");
-				//$addressenc = urlencode($address);
-				//$mapsurl = "http://maps.google.com/maps?q=".$row['latitude'].','.$row['longitude'];
-				//$output .= "<span class='phonetitle'>Phone</span><br />\n<span class='phone'>$phone</span><br /><br />\n\n";
-				//$output .= "<span class='addresstitle'>Address</span><br />\n<div class='address'><a href='$mapsurl' target='_blank'>$address</a></div><br /><br />\n\n";
-		    } else {
-				$address = preg_replace('|.+<b>Information</b><div class="lineGreen"></div><div class="spacer5y"></div>(.+?)<div class="spacer1y">.+|s', '\1', $html);
-				$address = preg_replace('|<br />|s',', ',$address);
-				$address = trim($address," \n\r\t,");
-				//$addressenc = urlencode($address);
-				//$mapsurl = "http://maps.google.com/maps?q=".$row['latitude'].','.$row['longitude'];
-				//$output .= "<span class='addresstitle'>Address</span><br />\n<div class='address'><a href='$mapsurl' target='_blank'>$address</a></div><br /><br />\n\n";
-		    }
-		    
-		    // Output the block of text which shows the opening hours, nicely marked up for CSS
-		    if(strpos($html,'openHours')) {
-				$openhours = preg_replace('|.+<div class="openHours">(.+?)<div class="spacer5y.+|s', '\1', $html);
-				$openhours = preg_replace('|<b class="textGreen">(.+?)</b>|s', "\n".'<span class="openhoursperiodtext">\1</span><br />'."\n", $openhours);
-				$openhours = trim($openhours," \n\r\t,");
-				// Wanted to group the text beneath opehoursperiod
-				//$openhours = preg_replace('| </div>|',"<br /><br />\n\n", $openhours); 
-				$openhours = preg_replace('|/>\n([^<].+?<br />.+?)<br />|s',"/>\n<span class='openhourstimetext'>".'\1'."</span><br />", $openhours);
-				//$output .= "<span class='openhourstitle'>Opening Hours</span><br /><div class='openhours'>\n".$openhours;
-		    }
-		    
-		    /*// Build SQL query to get outlet information for all selected types
-		    $sql = "SELECT `recycle_types`.`recycle_type`,`recycle_types`.`name` FROM `outlets_recycle_types`,`recycle_types` WHERE `outlets_recycle_types`.`recycle_type`=`recycle_types`.`recycle_type` AND `outlet_id` = $id";
-		    $query = $this->db->query($sql);
-		    $output .= "<span class='outletypestitle'>What you can Recycle here:</span><br />\n";
-		    // Output the block of text which shows the recycle types, nicely marked up for CSS
-		    $i=0;
-		    $count=$query->num_rows();
-		    foreach($query->result_array() as $recycle_type_row) {
-			$output .= "<span class='recycle_type_{$recycle_type_row['recycle_type']}'>{$recycle_type_row['name']}";
-			$i++; if($i!=$count) {
-				$output .= ", </span>\n";
-			} else {
-				$output .= "</span><br /><br />\n\n";
-			}
-		    }*/
-			
-			
+		$latitude = $row[0]['latitude'];
+		$longitude = $row[0]['longitude'];
+		
+		// Build SQL queries and get outlet data for specified id
+		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'name'")->result_array();
+		$name = $row[0]['value'];
+		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'type'")->result_array();
+		$type = $row[0]['value'];
+		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'area'")->result_array();
+		$area = $row[0]['value'];
+		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'phone'")->result_array();
+		$phone = $row[0]['value'];
+		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'address'")->result_array();
+		$address = $row[0]['value'];
+		$row = $this->db->query("SELECT * FROM outlets_data WHERE outlet_id = $id AND `key` = 'openhours'")->result_array();
+		$openhours = $row[0]['value'];
+		
 		$output = array(
-			'name' => $row["outlet_name"],
-			'latitude' => $row['latitude'],
-			'longitude' => $row['longitude'],
-			'phone' => (isset($phone) ? $phone : FALSE),
+			'name' => $name,
+			'latitude' => $latitude,
+			'longitude' => $longitude,
+			'type' => $type,
+			'area' => $area,
 			'address' => $address,
-			'openhours' => (isset($openhours) ? $openhours : FALSE)
+			'phone' => (empty($phone) ? FALSE : $phone),
+			'openhours' => (empty($openhours) ? FALSE : $openhours)
 		);
 		return $output;
 	}

@@ -1,0 +1,1 @@
+<div id="updateLogOutput"><?=$url?></div>

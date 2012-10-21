@@ -40,7 +40,13 @@
 
 $route['js/vendor/(:any)'] = 'scripts/vendor/$1';
 $route['js/(:any)'] = 'scripts/view/$1';
+$route['update/showUpdateLog/(:any)'] = 'update/showUpdateLog/$1';
+$route['update/startUpdate/(:any)'] = 'update/startUpdate/$1';
+$route['update/stopUpdate'] = 'update/stopUpdate';
+$route['update/getLog/(:any)'] = 'update/getLog/$1';
+$route['update/(:any)'] = 'update/index/$1';
 $route['data/(:any)'] = 'pages/data';
+$route['datanew'] = 'pages/datanew';
 $route['check/(:any)'] = 'pages/check';
 $route['getsession'] = 'pages/get_session';
 $route['getsession/(:any)'] = 'pages/get_session';
