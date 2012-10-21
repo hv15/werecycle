@@ -107,11 +107,11 @@ function drawMarkers(newlocation) {
 	var urlRand = Math.random();
 	$.get('/setsession/'+newSessionData+'/'+urlRand, function(setSessionResponse){
 		$.get('/datanew/'+urlRand, function(dataResponse) {
-			console.log(dataResponse);
+			//console.log(dataResponse);
 			eval(dataResponse);
 			
 			var markers = [];
-			console.log(data);
+			//console.log(data);
 			for (var i = 0; i < data.clusters.length; i++) {
 				var cluster = data.clusters[i];
 				console.log(cluster);
@@ -145,6 +145,7 @@ function drawMarkers(newlocation) {
 			// Clear all markers
 			if(markerCluster) {
 				markerCluster.clearMarkers();
+				console.log(markers);
 				markerCluster.addMarkers(markers);
 			} else {
 				// Put all the markers into the cluster.
