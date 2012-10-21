@@ -151,7 +151,7 @@ class map_model extends CI_Model {
 		
 		///"<pre>".print_r($outlets,1)."</pre> <br /> 
 		$output .= "Took ". (microtime(true)-$time_start) . " seconds, i think";
-		return $output;
+		return "<pre>".$output."</pre>";
 	}
 	
 	public function get_info($id) {
