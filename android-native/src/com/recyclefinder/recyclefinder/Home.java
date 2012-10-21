@@ -20,7 +20,7 @@ public class Home extends Activity {
 	    Button home_search = (Button) findViewById(R.id.home_search);
 	    home_search.setOnClickListener(new View.OnClickListener() {
             	public void onClick(View view) {
-                Intent loadMap = new Intent(view.getContext(), Map.class);
+                Intent loadMap = new Intent(view.getContext(), MainActivity.class);
                 startActivityForResult(loadMap, 0);
             }
 
