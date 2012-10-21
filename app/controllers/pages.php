@@ -70,7 +70,7 @@ class Pages extends CI_Controller {
 		$output = '';
 		foreach ($clustersarray as $row) {
 			//$outletdata = $this->map_model->get_info($row['outlet_id']);
-		    $output .= '{"lat":'.$row['lat'].',"lon":'.$row['lng'].',"count":"'.$row['count'].'"},';
+		    $output .= '{"lat":'.$row['lat'].',"lng":'.$row['lng'].',"count":"'.$row['count'].'"},';
 		}
 		$output = preg_replace('|(.+),|s','\1',$output);
 		$output = 'var data = {"clusters": ['.$output.']}';
