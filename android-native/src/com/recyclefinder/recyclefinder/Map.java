@@ -15,10 +15,9 @@ import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 
 public class Map extends MapActivity {
-
+	
 	MapView map;
 	
-	@Override
 	protected boolean isRouteDisplayed() {
 		return false;
 	}
@@ -47,7 +46,7 @@ public class Map extends MapActivity {
 	 public boolean onCreateOptionsMenu(Menu menu)
 	 {
 		 MenuInflater menuInflater = getMenuInflater();
-		 menuInflater.inflate(R.layout.menu, menu);
+		 menuInflater.inflate(R.menu.main_activity, menu);
 		 return true;
 	 }
 
@@ -55,7 +54,6 @@ public class Map extends MapActivity {
 	 * Event Handling for Individual menu item selected
 	 * Identify single menu item by it's id
 	 * */
-	 @SuppressWarnings("deprecation")
 	 @Override
 	 public boolean onOptionsItemSelected(MenuItem item)
 	 {
@@ -87,5 +85,4 @@ public class Map extends MapActivity {
 			 return super.onOptionsItemSelected(item);
 		 }
 	 }
-	
 }

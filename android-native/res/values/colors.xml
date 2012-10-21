@@ -15,4 +15,7 @@
 	<color name="grey05">#ACA899</color>
 	<color name="white1">#FFFFFF</color>
 	<color name="white2">#DDDDDD</color>
+	<color name="transparent_grey_light">#55000000</color>
+	<color name="transparent_green_light">#82847965</color>
+	<color name="transparent_grey_dark">#9000</color>
 </resources>
