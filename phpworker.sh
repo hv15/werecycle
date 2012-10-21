@@ -1,17 +1,6 @@
-#! /bin/sh
-# Copyright 2010 Roger Dudler
-### BEGIN INIT INFO
-# Provides:             phpworker
-# Required-Start:	$syslog
-# Required-Stop:        $syslog
-# Should-Start:         $local_fs
-# Should-Stop:          $local_fs
-# Default-Start:        2 3 4 5
-# Default-Stop:         0 1 6
-### END INIT INFO
+#! /bin/bash
 
 NAME=phpworker
-DESC=phpworker
 PIDFILE=/home/recycle/public_html/phpworker.pid
 PHP=/usr/bin/php
 
