@@ -107,7 +107,7 @@ class Pages extends CI_Controller {
 	
 	public function datanew() 
 	{
-		$data['outlets'] = $this->map_model->get_outlets_new("1,2,7,16",58.45,-16,15);
+		$data['outlets'] = $this->map_model->get_outlets_new("1,2,7,16",55.942,-3.214,12);
 		$this->load->view('pages/data', $data);
 	}
 	

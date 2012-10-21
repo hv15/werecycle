@@ -4,6 +4,7 @@ class map_model extends CI_Model {
 	public function __construct()
 	{
 		require_once(APPPATH.'libraries/phpcoord-2.3.php');
+		require_once(APPPATH.'libraries/latlong_box.php');
 	}
 	
 	public function get_categories()
@@ -167,6 +168,7 @@ class map_model extends CI_Model {
 		
 		// Make new outlets array which contains ANY outlets which support AT LEAST ONE of the specified recycle types
 		$outlets_filtered = Array();
+		$clusters = Array();
 		foreach ($outlets as $id => $outlet) {
 			//$output .= "Comparing types:\n\n".print_r($typesarray,1);
 			//$output .= "With outlet types:\n\n".print_r($outlet['types'],1);
@@ -182,19 +184,27 @@ class map_model extends CI_Model {
 				$distance = $lld1->distance($lld2); // in km
 				// Skip this outlet, it's off the screen
 				if($distance > $maxDistance) {
-					$output .= "$distance > $maxDistance so skipping outlet\n";
+					//$output .= "$distance > $maxDistance so skipping outlet\n";
 					continue;
 				}
 				
-				$output .= "$distance not > $maxDistance so adding outlet to filtered\n";
+				//$output .= "$distance not > $maxDistance so adding outlet to filtered\n";
 				$outlets_filtered[$id] = $outlet;
 				$outlets_filtered[$id]['typesratio'] = $foundtypes/count($typesarray);
+				
+				// Create first cluster
+				if(empty($clusters)) {
+					$clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1);
+				}
+				
 				
 				//$output .= "Found outlet with $foundtypes types! ID: $id\n";
 			} else {
 				//$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
 			}
 		}
+		
+		
 		
 		
 		$output .= "total after filters: ".count($outlets_filtered);
