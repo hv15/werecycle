@@ -904,5 +904,6 @@ Describes button text/image positions (using a paragraph block)
 #updateLogOutput {
 	width: 90%;
 	height: 600px;
-	margin: 40px auto;
+	margin: 100px auto;
+	overflow: auto;
 }
