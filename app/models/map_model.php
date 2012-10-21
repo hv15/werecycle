@@ -140,6 +140,10 @@ class map_model extends CI_Model {
 			foreach ($outlets_recycle_types_table as $outlets_recycle_types_table_row) {
 				$outlets[$outlets_recycle_types_table_row['outlet_id']]['types'][] = $outlets_recycle_types_table_row['recycle_type'];
 			}
+			
+			foreach (glob("/home/recycle/public_html/tmp/*.outlets.json") as $filename) {
+				unlink($filename);
+			}
 			file_put_contents("/home/recycle/public_html/tmp/".time().".outlets.json", json_encode($outlets));
 			
 			$output .= print_r($outlets,1);
