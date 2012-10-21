@@ -156,6 +156,7 @@ class map_model extends CI_Model {
 			
 		$outlets_filtered = Array();
 		foreach ($outlets as $id => $outlet) {
+			$output .= "Testing outlet:\n\n".print_r($outlet,1);
 			if( in_array($typesarray,$outlet['types'] ) ) {
 				$outlets_filtered[$id] = $outlet;
 				$output .= "Found outlet with all types! ID: $id";
