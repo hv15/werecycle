@@ -107,6 +107,7 @@ function drawMarkers(newlocation) {
 	var urlRand = Math.random();
 	$.get('/setsession/'+newSessionData+'/'+urlRand, function(setSessionResponse){
 		$.get('/datanew/'+urlRand, function(dataResponse) {
+			alert(dataResponse);
 			eval(dataResponse);
 			
 			var markers = [];
