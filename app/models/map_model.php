@@ -102,7 +102,7 @@ class map_model extends CI_Model {
 	}
 
 	public function get_outlets_new($types,$latitude,$longitude,$zoom){
-		if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($zoom)) return FALSE;
+		//if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($zoom)) return FALSE;
 		
 		// Load ALL OUTLETS and ALL OUTLET RECYCLE TYPES into PHP ARRAYS
 		$sql = "SELECT outlets.outlet_id, outlets.latitude, outlets.longitude FROM outlets";
@@ -117,18 +117,18 @@ class map_model extends CI_Model {
 		print_r($outlets_recycle_types_table);
 		
 		// Explode array of types we want to show
-		$types = explode(',',$types);
+		//$types = explode(',',$types);
 		// Clone outlets array to add more refined data to
-		$outlets = $outlets_table;
+		//$outlets = $outlets_table;
 		
 		//
 		// START AND BLOCK
 		//
 		// Loop through all known outlets to generate array of recycle types they support
-		foreach ($outlets_table as $outlet_row) {
-			$id = $outlet_row['outlet_id'];
+		//foreach ($outlets_table as $outlet_row) {
+		//	$id = $outlet_row['outlet_id'];
 			
-		}
+		//}
 		
 		
 	}
