@@ -56,7 +56,7 @@ class Pages extends CI_Controller {
 		$this->load->view('pages/data', $data);
 	}
 		
-	public function datanew()
+	public function data_new()
 	{
 		$userdata = $this->session->all_userdata();
 		$types  = $userdata['types_selected'];
