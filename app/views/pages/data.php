@@ -1,1 +1,1 @@
-<?php echo $outlets; ?>
+<?php echo $data; ?>

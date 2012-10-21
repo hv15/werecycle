@@ -63,19 +63,25 @@ class Pages extends CI_Controller {
 		$latitude = $userdata['latitude'];
 		$longitude = $userdata['longitude'];
 		$map_zoom = $userdata['map_zoom'];
-		$clustersarray = $this->map_model->get_outlets_new($types,$latitude,$longitude,$map_zoom);
-		//$data['outlets'] = print_r($clustersarray,1);
-		//$this->load->view('pages/data', $data);
 		
-		$output = '';
-		foreach ($clustersarray as $row) {
-			//$outletdata = $this->map_model->get_info($row['outlet_id']);
-		    $output .= '{"lat":'.$row['lat'].',"lng":'.$row['lng'].',"count":"'.$row['count'].'"},';
+		$outletsData = $this->map_model->get_outlets_new($types,$latitude,$longitude,$map_zoom);
+		$clustersArray = $outletsData['clusters'];
+		$singleOutletsArray = $outletsData['singleOutlets'];
+		
+		$clustersJSON = '';
+		foreach ($clustersArray as $cluster) {
+		    $clustersJSON .= '{"lat":'.$cluster['lat'].',"lng":'.$cluster['lng'].',"count":"'.$cluster['count'].'"},';
 		}
-		$output = preg_replace('|(.+),|s','\1',$output);
-		$output = 'var data = {"clusters": ['.$output.']}';
+		$clustersJSON = preg_replace('|(.+),|s','\1',$clustersJSON); // Strip trailing comma
 		
-		$data['outlets'] = $output;
+		$singleOutletsJSON = '';
+		print_r($singleOutletsArray); die();
+		foreach ($singleOutletsArray as $singleOutletID => $singleOutlet) {
+		    $singleOutletsJSON .= '{"id":'.$singleOutletID.',"lat":'.$singleOutlet['lat'].',"lng":'.$singleOutlet['lng'].',"count":"'.$singleOutlet['count'].'"},';
+		}
+		$singleOutletsJSON = preg_replace('|(.+),|s','\1',$singleOutletsJSON); // Strip trailing comma
+		
+		$data['data'] = 'var data = {"clusters": ['.$clustersJSON.'], "singleOutlets": ['.$singleOutletsJSON.']}';
 		$this->load->view('pages/data', $data);
 	}
 	

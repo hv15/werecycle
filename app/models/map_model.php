@@ -204,6 +204,7 @@ class map_model extends CI_Model {
 		// Make new outlets array which contains ANY outlets which support AT LEAST ONE of the specified recycle types
 		$outlets_filtered = Array();
 		$clusters = Array();
+		$singleOutlets = Array();
 		foreach ($outlets as $id => $outlet) {
 			//$output .= "Comparing types:\n\n".print_r($typesarray,1);
 			//$output .= "With outlet types:\n\n".print_r($outlet['types'],1);
@@ -229,22 +230,23 @@ class map_model extends CI_Model {
 				
 				// Create first cluster
 				if(empty($clusters)) {
-					$clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1);
+					$clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1 );
 				} else {
+					// Loop through all clusters which exist to see if we should add this one to a cluster
 					$outletAddedToCluster = 0;
 					foreach ($clusters as $clusterKey => $cluster) {
 						$lld1 = new LatLng($cluster['lat'], $cluster['lng']); // LatLng of cluster center
 						$lld2 = new LatLng($outlet['lat'], $outlet['lng']);  // LatLng of outlet
 						$clusterOutletDistance = $lld1->distance($lld2); // in km
+						// This outlet is within the radius of a cluster, add it to the cluster
 						if($clusterOutletDistance < ($clusterRadius*5)) {
-
-						//$output .= "$clusterOutletDistance < $clusterRadius so incrementing count\n";
+							//$output .= "$clusterOutletDistance < $clusterRadius so incrementing count\n";
 							$clusters[$clusterKey]['count']++;
 							$outletAddedToCluster = 1;
 							break;
-						} 
+						}
 					}
-					if(!$outletAddedToCluster) $clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1);
+					if(!$outletAddedToCluster) $singleOutlets[$id] = $outlet;
 				}
 				
 				//$output .= "Found outlet with $foundtypes types! ID: $id\n";
@@ -252,14 +254,6 @@ class map_model extends CI_Model {
 				//$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
 			}
 		}
-				
-		foreach ($clusters as $clusterKey => $cluster) {
-			if($clusters[$clusterKey]['count'] == 1) {
-				unset($clusters[$clusterKey]);
-			}
-		}
-		
-		
 		
 		//$output .= "\ntotal outlets after filters: ".count($outlets_filtered);
 		//$output .= "\ntotal clusters: ".count($clusters);
@@ -274,7 +268,7 @@ class map_model extends CI_Model {
 		//"<pre>".print_r($outlets,1)."</pre> <br /> 
 		//$output .= "\n\nTook ". (microtime(true)-$time_start) . " seconds, i think";
 		//return "<pre>".$output."</pre>";
-		return $clusters;
+		return array('clusters'=>$clusters,'singleOutlets'=>$singleOutlets);
 	}
 	
 	public function get_info($id) {
