@@ -17,11 +17,11 @@
 		// Loop through all the known recyclable types
 		foreach ($recycle_type_ids as $type) {
 		    // Output some more feedback to the browser
-		    $this->output( "[TIME: ".round(microtime(true)-$time_start)."] Type $type started.<br />");
+		    output( "[TIME: ".round(microtime(true)-$time_start)."] Type $type started.<br />");
 		    // Loop through all known (33) areas in the database to get all possible data sets
 		    for ($area=12;$area<13;$area++) {
 			// Output some feedback to the browser
-			$this->output( "[TIME: ".round(microtime(true)-$time_start)."] &nbsp;&nbsp;Area $area started; ");
+			output( "[TIME: ".round(microtime(true)-$time_start)."] &nbsp;&nbsp;Area $area started; ");
 			// Build an HTTP POST query to request XML data for a specific area+type combination
 			$query = http_build_query ( array('areaId' => $area,'itemId' => $type) );
 			// Add request headers to the query
@@ -33,9 +33,9 @@
 			
 			$xmlcounter++;
 			// Output some feedback to the browser
-			$this->output( "XML loaded, ");
+			output( "XML loaded, ");
 			// Check for empty dataset
-			if(strpos($xml,'<myOutlets></myOutlets>')) { $this->output("Found no outlets of type $type in area $area, skipping.<br />"); continue; }
+			if(strpos($xml,'<myOutlets></myOutlets>')) { output("Found no outlets of type $type in area $area, skipping.<br />"); continue; }
 			// Remove header and footer XML from string
 			$xml = preg_replace('|.+myOutlets>(.+)</myOutlets></mapresponse>|', '\1', $xml);
 			// Add newline after each recycle point / outlet for easier separation
@@ -76,7 +76,7 @@
 			    
 				/* DEBUG HTML REGEX
 			    $sql = "REPLACE INTO outlets_info_html VALUES ('$id', '".mysql_real_escape_string($html)."')";
-			    $this->db->query($sql);*/
+			    db->query($sql);*/
 		
 				// Check to see if there is a phone number for this outlet to determine the regex we use
 				if(strpos($html,'miniIconTelephoneRec')) {
@@ -105,33 +105,33 @@
 				$openhours = mysql_real_escape_string($openhours);
 				
 			    $sql = "REPLACE INTO outlets (`outlet_id`, `latitude`, `longitude`, `coords`) VALUES ('$id', '$latitude', '$longitude', GeomFromText('POINT($latitude $longitude)'))";
-			    $this->db->query($sql);
+			    db->query($sql);
 				
 			    $sql = "REPLACE INTO outlets_data (`outlet_id`, `key`, `value`) VALUES ('$id', 'name', '$name')";
-			    $this->db->query($sql);
+			    db->query($sql);
 			    $sql = "REPLACE INTO outlets_data (`outlet_id`, `key`, `value`) VALUES ('$id', 'type', '$outletType')";
-			    $this->db->query($sql);
+			    db->query($sql);
 			    $sql = "REPLACE INTO outlets_data (`outlet_id`, `key`, `value`) VALUES ('$id', 'area', '$area')";
-			    $this->db->query($sql);
+			    db->query($sql);
 			    $sql = "REPLACE INTO outlets_data (`outlet_id`, `key`, `value`) VALUES ('$id', 'address', '$address')";
-			    $this->db->query($sql);
+			    db->query($sql);
 			    $sql = "REPLACE INTO outlets_data (`outlet_id`, `key`, `value`) VALUES ('$id', 'phone', '$phone')";
-			    $this->db->query($sql);
+			    db->query($sql);
 			    $sql = "REPLACE INTO outlets_data (`outlet_id`, `key`, `value`) VALUES ('$id', 'openhours', '$openhours')";
-			    $this->db->query($sql);
+			    db->query($sql);
 			    
 			    $sql = "REPLACE INTO outlets_recycle_types (`outlet_id`, `recycle_type`) VALUES ('$id', '$type')";
-			    $this->db->query($sql);
+			    db->query($sql);
 			    
 			    $arearowcount++;
 			    $rowcounter++;
 			}
 			// Output some feedback to the browser
-			$this->output( "Inserted $arearowcount outlet types. Area $area complete!<br />");
+			output( "Inserted $arearowcount outlet types. Area $area complete!<br />");
 		    }
 		    // Output some more feedback to the browser
-		    $this->output( "[TIME: ".round(microtime(true)-$time_start)."] Type $type complete!<br /><br />");
+		    output( "[TIME: ".round(microtime(true)-$time_start)."] Type $type complete!<br /><br />");
 		}
 		// Output final feedback to the browser
-		$this->output( "<br />Recycle data update complete! Read $xmlcounter XML files and wrote $rowcounter total rows to DB in ".floor((microtime(true)-$time_start)/60)." minutes." );
+		output( "<br />Recycle data update complete! Read $xmlcounter XML files and wrote $rowcounter total rows to DB in ".floor((microtime(true)-$time_start)/60)." minutes." );
 ?>
