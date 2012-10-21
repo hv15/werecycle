@@ -3,7 +3,7 @@ class map_model extends CI_Model {
 
 	public function __construct()
 	{
-		require_once(APPPATH.'libraries/latlong_box.php');
+		require_once(APPPATH.'libraries/phpcoord-2.3.php');
 	}
 	
 	public function get_categories()
@@ -101,7 +101,7 @@ class map_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function get_outlets_new($types){
+	public function get_outlets_new($types,$lat,$lng,$zoom){
 		//if(!isset($types) && !isset($latitude) && !isset($longitude) && !isset($zoom)) return FALSE;
 		
 		// Script start time - so we can see how long it takes at various stages
@@ -154,6 +154,17 @@ class map_model extends CI_Model {
 		$typesarray = explode(',',$types);
 		$output .= "Types to check for:\n\n".print_r($typesarray,1);
 		
+		// Get a fuzzy max distance from center of viewport to points to eliminate points which are off the screen
+		if($zoom > 14) {
+			$maxDistance = 5;
+		} else if($zoom > 11) {
+			$maxDistance = 10;
+		} else if($zoom <8) {
+			$maxDistance = 1000;
+		} else {
+			$maxDistance = (21 - $zoom) * 5;
+		}
+		
 		// Make new outlets array which contains ANY outlets which support AT LEAST ONE of the specified recycle types
 		$outlets_filtered = Array();
 		foreach ($outlets as $id => $outlet) {
@@ -166,13 +177,22 @@ class map_model extends CI_Model {
 				}
 			}
 			if( $foundtypes > 0 ) {
+				$lld1 = new LatLng($lat, $lng); // LatLng of viewport center
+				$lld2 = new LatLng($outlet['lat'], $outlet['lng']);  // LatLng of outlet
+				$distance = $lld1->distance($lld2); // in km
+				// Skip this outlet, it's off the screen
+				if($distance > $maxDistance) continue;
+				
 				$outlets_filtered[$id] = $outlet;
 				$outlets_filtered[$id]['typesratio'] = $foundtypes/count($typesarray);
+				
 				//$output .= "Found outlet with $foundtypes types! ID: $id\n";
 			} else {
 				//$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
 			}
 		}
+		
+		
 		
 			
 		//$output .= "OR-filtered outlets:\n\n".print_r($outlets_filtered_or,1);
