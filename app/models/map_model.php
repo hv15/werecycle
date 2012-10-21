@@ -107,29 +107,40 @@ class map_model extends CI_Model {
 		// Script start time - so we can see how long it takes at various stages
 		$time_start = microtime(true);
 		
-		// Load ALL OUTLETS and ALL OUTLET RECYCLE TYPES into PHP ARRAYS
-		$sql = "SELECT outlets.outlet_id, outlets.latitude, outlets.longitude FROM outlets";
-		$query = $this->db->query($sql);
-		$outlets_table = $query->result_array();
-		$sql = "SELECT * FROM outlets_recycle_types";
-		$query = $this->db->query($sql);
-		$outlets_recycle_types_table = $query->result_array();
-		
-		// Explode array of types we want to show
-		$typesarray = explode(',',$types);
-		// Clone outlets array to add more refined data to
-		$outlets = Array();
-		
-		//
-		// START AND BLOCK
-		//
-		// Loop through all outlets rows to create more useful multidimensional associative array
-		foreach ($outlets_table as $outlet_row) {
-			$outlets[$outlet_row['outlet_id']] = Array('lat' => $outlet_row['latitude'], 'lng' => $outlet_row['longitude'], 'types' => Array() );
+		$cachetime = 100000;
+		foreach (glob("/home/recycle/public_html/tmp/*.outlets.json") as $filename) {
+			$cachetime = explode('.',$filename);
+			$cachetime = $cachetime[0];
 		}
-		// Loop through all recycle types rows to create more useful multidimensional associative array inside outlets
-		foreach ($outlets_recycle_types_table as $outlets_recycle_types_table_row) {
-			$outlets[$outlets_recycle_types_table_row['outlet_id']]['types'][] = $outlets_recycle_types_table_row['recycle_type'];
+		if($cachetime < 86400) {
+			$outlets_json = file_get_contents("/home/recyle/public_html/tmp/$cachetime.outlets.json");
+			$outlets = json_decode($outlets_json);
+		} else {		
+			// Load ALL OUTLETS and ALL OUTLET RECYCLE TYPES into PHP ARRAYS
+			$sql = "SELECT outlets.outlet_id, outlets.latitude, outlets.longitude FROM outlets";
+			$query = $this->db->query($sql);
+			$outlets_table = $query->result_array();
+			$sql = "SELECT * FROM outlets_recycle_types";
+			$query = $this->db->query($sql);
+			$outlets_recycle_types_table = $query->result_array();
+			
+			// Explode array of types we want to show
+			$typesarray = explode(',',$types);
+			// Clone outlets array to add more refined data to
+			$outlets = Array();
+			
+			//
+			// START AND BLOCK
+			//
+			// Loop through all outlets rows to create more useful multidimensional associative array
+			foreach ($outlets_table as $outlet_row) {
+				$outlets[$outlet_row['outlet_id']] = Array('lat' => $outlet_row['latitude'], 'lng' => $outlet_row['longitude'], 'types' => Array() );
+			}
+			// Loop through all recycle types rows to create more useful multidimensional associative array inside outlets
+			foreach ($outlets_recycle_types_table as $outlets_recycle_types_table_row) {
+				$outlets[$outlets_recycle_types_table_row['outlet_id']]['types'][] = $outlets_recycle_types_table_row['recycle_type'];
+			}
+			file_put_contents("/home/recyle/public_html/tmp/".time().".outlets.json", json_encode($outlets));
 		}
 		
 		///"<pre>".print_r($outlets,1)."</pre> <br /> 
