@@ -109,7 +109,7 @@ function drawMarkers(newlocation) {
 		$.get('/datanew/'+urlRand, function(dataResponse) {
 			//console.log(dataResponse);
 			eval(dataResponse);
-			
+			console.log(data);
 			var markers = [];
 			//console.log(data);
 			for (var i = 0; i < data.clusters.length; i++) {
