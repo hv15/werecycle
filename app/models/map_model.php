@@ -160,9 +160,9 @@ class map_model extends CI_Model {
 			$output .= "With outlet types:\n\n".print_r($outlet['types'],1);
 			if( in_array($typesarray,$outlet['types'],1 ) ) {
 				$outlets_filtered[$id] = $outlet;
-				$output .= "Found outlet with all types! ID: $id";
+				$output .= "Found outlet with all types! ID: $id\n";
 			} else {
-				$output .= "in_array returned false! ID: $id";
+				$output .= "in_array returned false! ID: $id\n";
 			}
 		}
 			
