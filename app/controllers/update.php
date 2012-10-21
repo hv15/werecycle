@@ -6,11 +6,12 @@ class Update extends CI_Controller {
 		parent::__construct();
 	}
 	
-	public function recycleForScotland()
+	public function update($source)
 	{		
-		print `echo /usr/bin/php -q /home/recycle/public_html/app/libraries/updateRecycleForScotland.php | at now`;
+		print `echo /usr/bin/php -q /home/recycle/public_html/app/libraries/$source.php | at now`;
 		
-		$data['outputPath'] = '/home/recycle/public_html/tmp/updateRecycleForScotland.html';
+		$data['page'] = $source;
+		$data['outputPath'] = '/home/recycle/public_html/tmp/$source.html';
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('pages/update', $data);
