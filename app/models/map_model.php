@@ -236,7 +236,8 @@ class map_model extends CI_Model {
 						$lld2 = new LatLng($outlet['lat'], $outlet['lng']);  // LatLng of outlet
 						$clusterOutletDistance = $lld1->distance($lld2); // in km
 						if($clusterOutletDistance < $clusterRadius) {
-							//$output .= "$clusterOutletDistance < $clusterRadius so incrementing count\n";
+
+						//$output .= "$clusterOutletDistance < $clusterRadius so incrementing count\n";
 							$clusters[$clusterKey]['count']++;
 							$outletAddedToCluster = 1;
 							break;
@@ -245,6 +246,11 @@ class map_model extends CI_Model {
 					if(!$outletAddedToCluster) $clusters[] = Array('lat' => $outlet['lat'], 'lng' => $outlet['lng'], 'count' => 1);
 				}
 				
+				foreach ($clusters as $clusterKey => $cluster) {
+					if($clusters[$clusterKey]['count'] == 1) {
+						unset($clusters[$clusterKey]);
+					}
+				}
 				
 				//$output .= "Found outlet with $foundtypes types! ID: $id\n";
 			} else {
