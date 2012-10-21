@@ -118,7 +118,7 @@ class map_model extends CI_Model {
 		$outlets_recycle_types_table = $query->result_array();
 		
 		// Explode array of types we want to show
-		$types = explode(',',$types);
+		$typesarray = explode(',',$types);
 		// Clone outlets array to add more refined data to
 		$outlets = Array();
 		
