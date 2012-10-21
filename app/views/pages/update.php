@@ -1,0 +1,8 @@
+<div id="timeVal">Lipsum</div>
+<script>
+$(document).ready(function(){
+   var refreshId = setInterval(function() {
+		$('#timeval').load('/update/getLog/'+encodeURI('<?=$outputPath?>') );
+   }, 4000);
+});
+</script>
