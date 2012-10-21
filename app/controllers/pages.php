@@ -137,13 +137,13 @@ class Pages extends CI_Controller {
 	
 	public function print_session() 
 	{
-		$data['outlets'] = print_r($this->session->all_userdata(),1);
+		$data['data'] = print_r($this->session->all_userdata(),1);
 		$this->load->view('pages/data', $data);
 	}
 	
 	public function get_session() 
 	{
-		$data['outlets'] = json_encode($this->session->all_userdata());
+		$data['data'] = json_encode($this->session->all_userdata());
 		$this->load->view('pages/data', $data);
 	}
 	
