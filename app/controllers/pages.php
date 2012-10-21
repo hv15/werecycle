@@ -64,9 +64,9 @@ class Pages extends CI_Controller {
 		$longitude = $userdata['longitude'];
 		$map_zoom = $userdata['map_zoom'];
 		$clustersarray = $this->map_model->get_outlets_new($types,$latitude,$longitude,$map_zoom);
-		$data['outlets'] = print_r($clustersarray,1);
-		$this->load->view('pages/data', $data);
-		/*
+		//$data['outlets'] = print_r($clustersarray,1);
+		//$this->load->view('pages/data', $data);
+		
 		$output = '';
 		foreach ($clustersarray as $row) {
 			$outletdata = $this->map_model->get_info($row['outlet_id']);
@@ -76,7 +76,7 @@ class Pages extends CI_Controller {
 		$output = 'var data = {"clusters": ['.$output.']}';
 		
 		$data['outlets'] = $output;
-		$this->load->view('pages/datanew', $data);*/
+		$this->load->view('pages/datanew', $data);
 	}
 	
 	public function check()
