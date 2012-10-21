@@ -6,7 +6,7 @@
 		require_once('/home/recycle/public_html/app/libraries/phpcoord-2.3.php');
 		mysql_connect(localhost,"recycle_finder","leifgivesyoulemons");
 		@mysql_select_db("recycle_finder") or die( "Unable to select database");
-		file_put_contents("/home/recycle/public_html/tmp/recycleForScotland.html", '');
+		file_put_contents("/home/recycle/public_html/tmp/recycleForScotland.html", ' ');
 		
 		function output($string) 
 		{

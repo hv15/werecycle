@@ -6,22 +6,42 @@ class Update extends CI_Controller {
 		parent::__construct();
 	}
 	
-	public function index($source)
+	public function index()
 	{		
-		`nohup php /home/recycle/public_html/app/libraries/recycleForScotland.php &`;
-		
-		$data['title'] = 'Update ('.$source.')';
+		$data['title'] = 'Update';
 		$data['page'] = 'update';
-		$data['outputPath'] = '/home/recycle/public_html/tmp/$source.html';
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('pages/update', $data);
 		$this->load->view('templates/footer', $data);
 	}
 	
+	public function showUpdateLog($source)
+	{
+		$data['title'] = 'showUpdateLog';
+		$data['page'] = 'showUpdateLog';
+		$data['url'] = "/update/getLog/$source";
+		
+		$this->load->view('templates/header', $data);
+		$this->load->view('pages/showUpdateLog', $data);
+		$this->load->view('templates/footer', $data);
+	}
+	
 	public function getLog($source)
 	{		
 		$data['outlets'] = file_get_contents("/home/recycle/public_html/tmp/$source.html");
+		$this->load->view('pages/data', $data);
+	}
+	
+	public function startUpdate($source)
+	{		
+		$data['outlets'] = `/home/recycle/public_html/phpworker.sh start /home/recycle/public_html/app/libraries/$source.php`;
+		$this->load->view('pages/data', $data);
+	}
+
+	public function stopUpdate()
+	{		
+		$data['outlets'] = `/home/recycle/public_html/phpworker.sh stop`;
 		$this->load->view('pages/data', $data);
 	}
 	
