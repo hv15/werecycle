@@ -129,7 +129,7 @@ class map_model extends CI_Model {
 			$outlets[$outlets_recycle_types_table_row['outlet_id']]['types'][] = $outlets_recycle_types_table_row['recycle_type'];
 		}
 		
-		return print_r($outlets,1);
+		return "<pre>".print_r($outlets,1)."</pre>";
 		
 	}
 	
