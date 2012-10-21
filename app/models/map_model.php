@@ -153,7 +153,7 @@ class map_model extends CI_Model {
 				
 		// Explode array of specified recycle types
 		$typesarray = explode(',',$types);
-		$output .= "Types to check for:\n\n".print_r($typesarray,1);
+		//$output .= "Types to check for:\n\n".print_r($typesarray,1);
 		
 		// Get a fuzzy max distance from center of viewport to points to eliminate points which are off the screen
 		switch ($zoom) {
