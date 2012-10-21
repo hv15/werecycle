@@ -157,45 +157,45 @@ class map_model extends CI_Model {
 		
 		// Get a fuzzy max distance from center of viewport to points to eliminate points which are off the screen
 		switch ($zoom) {
-			case 19: $maxDistance = 0.13;
-			case 18: $maxDistance = 0.2;
-			case 17: $maxDistance = 0.4;
-			case 16: $maxDistance = 0.9;
-			case 15: $maxDistance = 1.8;
-			case 14: $maxDistance = 3.5;
-			case 13: $maxDistance = 8;
-			case 12: $maxDistance = 15;
-			case 11: $maxDistance = 27;
-			case 10: $maxDistance = 60;
-			case 9: $maxDistance = 120;
-			case 8: $maxDistance = 250;
-			case 7: $maxDistance = 500;
-			case 6: $maxDistance = 1000;
-			case 5: $maxDistance = 2000;
-			case 4: $maxDistance = 4000;
-			case 3: $maxDistance = 10000;
+			case 19: $maxDistance = 0.13; break;
+			case 18: $maxDistance = 0.2; break;
+			case 17: $maxDistance = 0.4; break;
+			case 16: $maxDistance = 0.9; break;
+			case 15: $maxDistance = 1.8; break;
+			case 14: $maxDistance = 3.5; break;
+			case 13: $maxDistance = 8; break;
+			case 12: $maxDistance = 15; break;
+			case 11: $maxDistance = 27; break;
+			case 10: $maxDistance = 60; break;
+			case 9: $maxDistance = 120; break;
+			case 8: $maxDistance = 250; break;
+			case 7: $maxDistance = 500; break;
+			case 6: $maxDistance = 1000; break;
+			case 5: $maxDistance = 2000; break;
+			case 4: $maxDistance = 4000; break;
+			case 3: $maxDistance = 10000; break;
 			default: $maxDistance = 10000;
 		}
 		
 		// Get a fuzzy max distance from center of viewport to points to eliminate points which are off the screen
 		switch ($zoom) {
-			case 19: $clusterRadius = 0;
-			case 18: $clusterRadius = 0;
-			case 17: $clusterRadius = 0.006;
-			case 16: $clusterRadius = 0.012;
-			case 15: $clusterRadius = 0.024;
-			case 14: $clusterRadius = 0.05;
-			case 13: $clusterRadius = 0.1;
-			case 12: $clusterRadius = 0.2;
-			case 11: $clusterRadius = 0.4;
-			case 10: $clusterRadius = 0.8;
-			case 9: $clusterRadius = 1.6;
-			case 8: $clusterRadius = 3.2;
-			case 7: $clusterRadius = 6.5;
-			case 6: $clusterRadius = 13;
-			case 5: $clusterRadius = 26;
-			case 4: $clusterRadius = 52;
-			case 3: $clusterRadius = 104;
+			case 19: $clusterRadius = 0; break;
+			case 18: $clusterRadius = 0; break;
+			case 17: $clusterRadius = 0.006; break;
+			case 16: $clusterRadius = 0.012; break;
+			case 15: $clusterRadius = 0.024; break;
+			case 14: $clusterRadius = 0.05; break;
+			case 13: $clusterRadius = 0.1; break;
+			case 12: $clusterRadius = 0.2; break;
+			case 11: $clusterRadius = 0.4; break;
+			case 10: $clusterRadius = 0.8; break;
+			case 9: $clusterRadius = 1.6; break;
+			case 8: $clusterRadius = 3.2; break;
+			case 7: $clusterRadius = 6.5; break;
+			case 6: $clusterRadius = 13; break;
+			case 5: $clusterRadius = 26; break;
+			case 4: $clusterRadius = 52; break;
+			case 3: $clusterRadius = 104; break;
 			default: $clusterRadius = 200;
 		}
 		
