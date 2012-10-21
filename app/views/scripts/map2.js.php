@@ -107,11 +107,11 @@ function drawMarkers(newlocation) {
 	var urlRand = Math.random();
 	$.get('/setsession/'+newSessionData+'/'+urlRand, function(setSessionResponse){
 		$.get('/datanew/'+urlRand, function(dataResponse) {
-			alert(dataResponse);
+			console.log(dataResponse);
 			eval(dataResponse);
 			
 			var markers = [];
-			alert(data);
+			console.log(data);
 			for (var i = 0; i < data.clusters.length; i++) {
 				var cluster = data.clusters[i];
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
