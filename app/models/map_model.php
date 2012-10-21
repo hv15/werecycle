@@ -188,8 +188,9 @@ class map_model extends CI_Model {
 		}
 			
 			
-		$output .= "OR-filtered outlets:\n\n".count($outlets_filtered_or);
-		$output .= "AND-filtered outlets:\n\n".count($outlets_filtered_and);
+		$output .= "\nTotal outlets: ".count($outlets);
+		$output .= "\nOR-filtered outlets: ".count($outlets_filtered_or);
+		$output .= "\nAND-filtered outlets: ".count($outlets_filtered_and);
 			
 		//$output .= "OR-filtered outlets:\n\n".print_r($outlets_filtered_or,1);
 		//$output .= "AND-filtered outlets:\n\n".print_r($outlets_filtered_and,1);
