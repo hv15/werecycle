@@ -70,13 +70,13 @@ class Pages extends CI_Controller {
 		
 		$clustersJSON = '';
 		foreach ($clustersArray as $cluster) {
-		    $clustersJSON .= '{"lat":'.$cluster['lat'].',"lng":'.$cluster['lng'].',"count":"'.$cluster['count'].'"},'."\n";
+		    $clustersJSON .= '{"lat":'.$cluster['lat'].',"lng":'.$cluster['lng'].',"count":"'.$cluster['count'].'"},'."";
 		}
 		$clustersJSON = preg_replace('|(.+),|s','\1',$clustersJSON); // Strip trailing comma
 		
 		$singleOutletsJSON = '';
 		foreach ($singleOutletsArray as $singleOutletID => $singleOutlet) {
-		    $singleOutletsJSON .= '{"id":'.$singleOutletID.',"lat":'.$singleOutlet['lat'].',"lng":'.$singleOutlet['lng'].'"},'."\n";
+		    $singleOutletsJSON .= '{"id":'.$singleOutletID.',"lat":'.$singleOutlet['lat'].',"lng":'.$singleOutlet['lng'].'},'."";
 		}
 		$singleOutletsJSON = preg_replace('|(.+),|s','\1',$singleOutletsJSON); // Strip trailing comma
 		
