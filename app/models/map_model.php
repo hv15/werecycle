@@ -156,20 +156,20 @@ class map_model extends CI_Model {
 			
 		$outlets_filtered = Array();
 		foreach ($outlets as $id => $outlet) {
-			$output .= "Comparing types:\n\n".print_r($typesarray,1);
-			$output .= "With outlet types:\n\n".print_r($outlet['types'],1);
+			//$output .= "Comparing types:\n\n".print_r($typesarray,1);
+			//$output .= "With outlet types:\n\n".print_r($outlet['types'],1);
 			$intersect = array_intersect($typesarray,$outlet['types'] );
 			if( $intersect == $typesarray ) {
 				$outlets_filtered[$id] = $outlet;
-				$output .= "Found outlet with all types! ID: $id\n";
+				//$output .= "Found outlet with all types! ID: $id\n";
 			} else {
-				$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
+				//$output .= "Intersect isn't the same as typesarray!\n Intersect:\n".print_r($intersect,1)." ID: $id\n\n";
 			}
 		}
 			
 		$output .= "Filtered outlets:\n\n".print_r($outlets_filtered,1);
 		
-		$output .= "\n\nAll outlets:\n\n".print_r($outlets,1);
+		//$output .= "\n\nAll outlets:\n\n".print_r($outlets,1);
 			
 		//"<pre>".print_r($outlets,1)."</pre> <br /> 
 		$output .= "Took ". (microtime(true)-$time_start) . " seconds, i think";
