@@ -109,11 +109,12 @@ function drawMarkers(newlocation) {
 		$.get('/datanew/'+urlRand, function(dataResponse) {
 			//console.log(dataResponse);
 			eval(dataResponse);
-			console.log(data);
+			console.log(clusterData);
+			
 			var markers = [];
-			//console.log(data);
-			for (var i = 0; i < data.clusters.length; i++) {
-				var cluster = data.clusters[i];
+			
+			for (var i = 0; i < clusterData.clusters.length; i++) {
+				var cluster = clusterData.clusters[i];
 				console.log(cluster);
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
 				var marker = new google.maps.Marker({ position: latLng});
