@@ -76,7 +76,7 @@ class Pages extends CI_Controller {
 		$output = 'var data = {"clusters": ['.$output.']}';
 		
 		$data['outlets'] = $output;
-		$this->load->view('pages/datanew', $data);
+		$this->load->view('pages/data', $data);
 	}
 	
 	public function check()
