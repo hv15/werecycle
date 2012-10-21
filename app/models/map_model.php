@@ -113,23 +113,25 @@ class map_model extends CI_Model {
 		$outlets_recycle_types_table = $query->result_array();
 
 		// DEBUG
-		print_r($outlets_table);
-		print_r($outlets_recycle_types_table);
+		//print_r($outlets_table);
+		//print_r($outlets_recycle_types_table);
 		
 		// Explode array of types we want to show
-		//$types = explode(',',$types);
+		$types = explode(',',$types);
 		// Clone outlets array to add more refined data to
-		//$outlets = $outlets_table;
+		$outlets = Array();
 		
 		//
 		// START AND BLOCK
 		//
 		// Loop through all known outlets to generate array of recycle types they support
-		//foreach ($outlets_table as $outlet_row) {
-		//	$id = $outlet_row['outlet_id'];
+		foreach ($outlets_table as $outlet_row) {
+			$outlets[$outlet_row['outlet_id']] = Array('lat' => $outlet_row['latitude'], 'lng' => $outlet_row['longitude'] );
 			
-		//}
+			
+		}
 		
+		print_r($outlets);
 		
 	}
 	
