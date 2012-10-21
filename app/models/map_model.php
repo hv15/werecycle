@@ -120,11 +120,13 @@ class map_model extends CI_Model {
 		//
 		// START AND BLOCK
 		//
-		// Loop through all known outlets to generate array of recycle types they support
+		// Loop through all outlets rows to create more useful multidimensional associative array
 		foreach ($outlets_table as $outlet_row) {
-			$outlets[$outlet_row['outlet_id']] = Array('lat' => $outlet_row['latitude'], 'lng' => $outlet_row['longitude'] );
-			
-			
+			$outlets[$outlet_row['outlet_id']] = Array('lat' => $outlet_row['latitude'], 'lng' => $outlet_row['longitude'], 'types' => Array() );
+		}
+		// Loop through all recycle types rows to create more useful multidimensional associative array inside outlets
+		foreach ($outlets_recycle_types_table as $outlets_recycle_types_table_row) {
+			$outlets[$outlets_recycle_types_table_row['outlet_id']]['types'][] = $outlets_recycle_types_table_row['recycle_type'];
 		}
 		
 		print_r($outlets);
