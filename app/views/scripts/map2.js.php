@@ -107,26 +107,40 @@ function drawMarkers(newlocation) {
 	var urlRand = Math.random();
 	$.get('/setsession/'+newSessionData+'/'+urlRand, function(setSessionResponse){
 		$.get('/datanew/'+urlRand, function(dataResponse) {
-			//console.log(dataResponse);
 			eval(dataResponse);
-			//console.log(clusterData);
 			
-			var markers = [];
-			
-			for (var i = 0; i < singleOutletData.singleOutlets.length; i++) {
-				var cluster = singleOutletData.singleOutlets[i];
-				//console.log(cluster);
+			var clusters = [];
+			for (var i = 0; i < clusterData.clusters.length; i++) {
+				var cluster = clusterData.clusters[i];
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
-				var marker = new google.maps.Marker({ position: latLng});
-				// Add the markers, text to the memory.
-				markers.push(marker);
-				marker.setMap(map);
-				// Give each marker an event that opens the window.
-				/*google.maps.event.addListener(marker, 'click', (function(marker, i) {
-					/*return function() {
-						$(location).attr('href',"/info/"+id);
+				var clusterMarker = new google.maps.Marker({ position: latLng});
+				// Add the marker, text to the memory.
+				clusters.push(clusterMarker);
+				clusterMarker.setMap(map);
+				// Give each cluster an event that zooms and centers it.
+				google.maps.event.addListener(clusterMarker, 'click', (function(clusterMarker, i) {
+					return function() {
+						//$(location).attr('href',"/info/"+id);
+						alert('You clicked a cluster!');
 					} 
-				})(marker, i));*/
+				})(clusterMarker, i));
+			}
+			
+			var singleOutlets = [];
+			for (var i = 0; i < singleOutletData.singleOutlets.length; i++) {
+				var singleOutlet = singleOutletData.singleOutlets[i];
+				var latLng = new google.maps.LatLng(singleOutlet.lat,singleOutlet.lng);
+				var singleOutletMarker = new google.maps.Marker({ position: latLng});
+				// Add the marker, text to the memory.
+				singleOutlets.push(singleOutletMarker);
+				singleOutletMarker.setMap(map);
+				// Give each outlet an event that shows the info popup.
+				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutletMarker, i) {
+					return function() {
+						//$(location).attr('href',"/info/"+id);
+						alert('You clicked an outlet with ID: '+id);
+					} 
+				})(singleOutletMarker, i));
 			}
 			/*if(data.outlets){
 				for (var i = 0; i < data.outlets.length; i++) {
