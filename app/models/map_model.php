@@ -181,8 +181,12 @@ class map_model extends CI_Model {
 				$lld2 = new LatLng($outlet['lat'], $outlet['lng']);  // LatLng of outlet
 				$distance = $lld1->distance($lld2); // in km
 				// Skip this outlet, it's off the screen
-				if($distance > $maxDistance) continue;
+				if($distance > $maxDistance) {
+					$output .= "$distance > $maxDistance so skipping outlet\n";
+					continue;
+				}
 				
+				$output .= "$distance not > $maxDistance so adding outlet to filtered\n";
 				$outlets_filtered[$id] = $outlet;
 				$outlets_filtered[$id]['typesratio'] = $foundtypes/count($typesarray);
 				
