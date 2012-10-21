@@ -107,8 +107,6 @@ class map_model extends CI_Model {
 		// Script start time - so we can see how long it takes at various stages
 		$time_start = microtime(true);
 		
-		for($i=0; $i<10; $i++) {
-		
 		// Load ALL OUTLETS and ALL OUTLET RECYCLE TYPES into PHP ARRAYS
 		$sql = "SELECT outlets.outlet_id, outlets.latitude, outlets.longitude FROM outlets";
 		$query = $this->db->query($sql);
@@ -132,8 +130,6 @@ class map_model extends CI_Model {
 		// Loop through all recycle types rows to create more useful multidimensional associative array inside outlets
 		foreach ($outlets_recycle_types_table as $outlets_recycle_types_table_row) {
 			$outlets[$outlets_recycle_types_table_row['outlet_id']]['types'][] = $outlets_recycle_types_table_row['recycle_type'];
-		}
-		
 		}
 		
 		///"<pre>".print_r($outlets,1)."</pre> <br /> 
