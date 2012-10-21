@@ -108,7 +108,7 @@ function drawMarkers(newlocation) {
 	$.get('/setsession/'+newSessionData+'/'+urlRand, function(setSessionResponse){
 		$.get('/datanew/'+urlRand, function(dataResponse) {
 			eval(dataResponse);
-			
+			/*
 			var clusters = [];
 			for (var i = 0; i < clusterData.clusters.length; i++) {
 				var cluster = clusterData.clusters[i];
@@ -124,7 +124,7 @@ function drawMarkers(newlocation) {
 						alert('You clicked a cluster!');
 					} 
 				})(clusterMarker, i));
-			}
+			}*/
 			
 			var singleOutlets = [];
 			for (var i = 0; i < singleOutletData.singleOutlets.length; i++) {
