@@ -108,12 +108,15 @@ function drawMarkers(newlocation) {
 	$.get('/setsession/'+newSessionData+'/'+urlRand, function(setSessionResponse){
 		$.get('/datanew/'+urlRand, function(dataResponse) {
 			eval(dataResponse);
-			/*
+			
 			var clusters = [];
 			for (var i = 0; i < clusterData.clusters.length; i++) {
 				var cluster = clusterData.clusters[i];
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
-				var clusterMarker = new google.maps.Marker({ position: latLng});
+				var clusterImage = new google.maps.MarkerImage('/img/cluster.png', new google.maps.Size(30, 30), new google.maps.Point(15,15) );
+				var outletImage = new google.maps.MarkerImage('/img/outlet.png', new google.maps.Size(20, 20), new google.maps.Point(10,10) );
+				
+				var clusterMarker = new google.maps.Marker({ position: latLng, icon: clusterImage});
 				// Add the marker, text to the memory.
 				clusters.push(clusterMarker);
 				clusterMarker.setMap(map);
@@ -124,13 +127,17 @@ function drawMarkers(newlocation) {
 						alert('You clicked a cluster!');
 					} 
 				})(clusterMarker, i));
-			}*/
+			}
 			
 			var singleOutlets = [];
-			for (var i = 0; i < singleOutletData.singleOutlets.length; i++) {
-				var singleOutlet = singleOutletData.singleOutlets[i];
-				var latLng = new google.maps.LatLng(singleOutlet.lat,singleOutlet.lng);
-				var singleOutletMarker = new google.maps.Marker({ position: latLng});
+			for (var i = 0; i < singleOutletsData.length; i++) {
+				var singleOutletMarker = singleOutletsData.singleOutlets[i];
+				// Get the
+				var latLng = new google.maps.LatLng(markerData.lat,markerData.lng);
+				var clusterImage = new google.maps.MarkerImage('/img/cluster.png', new google.maps.Size(30, 30), new google.maps.Point(15,15) );
+				var outletImage = new google.maps.MarkerImage('/img/outlet.png', new google.maps.Size(20, 20), new google.maps.Point(10,10) );
+				
+				var singleOutletMarker = new google.maps.Marker({ position: latLng, icon: outletImage});
 				// Add the marker, text to the memory.
 				singleOutlets.push(singleOutletMarker);
 				singleOutletMarker.setMap(map);
@@ -138,7 +145,7 @@ function drawMarkers(newlocation) {
 				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutletMarker, i) {
 					return function() {
 						//$(location).attr('href',"/info/"+id);
-						alert('You clicked an outlet with ID: '+id);
+						alert('You clicked an outlet with ID: '+singleOutletMarker.id);
 					} 
 				})(singleOutletMarker, i));
 			}
