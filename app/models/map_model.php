@@ -112,6 +112,10 @@ class map_model extends CI_Model {
 		$query = $this->db->query($sql);
 		$outlets_recycle_types_table = $query->result_array();
 
+		// DEBUG
+		print_r($outlets_table);
+		print_r($outlets_recycle_types_table);
+		
 		// Explode array of types we want to show
 		$types = explode(',',$types);
 		// Clone outlets array to add more refined data to
@@ -122,7 +126,8 @@ class map_model extends CI_Model {
 		//
 		// Loop through all known outlets to generate array of recycle types they support
 		foreach ($outlets_table as $outlet_row) {
-		
+			$id = $outlet_row['outlet_id'];
+			
 		}
 		
 		

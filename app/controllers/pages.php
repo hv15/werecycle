@@ -105,6 +105,13 @@ class Pages extends CI_Controller {
 		$this->load->view('pages/check', $data);
 	}
 	
+	public function datanew() 
+	{
+		$data['outlets'] = $this->map_model->get_outlets_new();
+		$this->load->view('pages/data', $data);
+	}
+	
+	
 	public function print_session() 
 	{
 		$data['outlets'] = print_r($this->session->all_userdata(),1);
