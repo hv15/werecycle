@@ -1,7 +1,7 @@
 <?php
 		require_once('/home/recycle/public_html/app/libraries/phpcoord-2.3.php');
 		
-		public function output($string) 
+		function output($string) 
 		{
 			file_put_contents("/home/recycle/public_html/tmp/updateRecycleForScotland.html", $string, FILE_APPEND);
 		}

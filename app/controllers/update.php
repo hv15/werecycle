@@ -8,7 +8,7 @@ class Update extends CI_Controller {
 	
 	public function index($source)
 	{		
-		print `echo /usr/bin/php -q /home/recycle/public_html/app/libraries/$source.php | at now`;
+		print `/usr/bin/php -q /home/recycle/public_html/app/libraries/$source.php 2>/dev/null 1>/dev/null &`;
 		
 		$data['title'] = 'Update ('.$source.')';
 		$data['page'] = 'update';
