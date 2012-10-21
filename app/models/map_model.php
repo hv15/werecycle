@@ -112,14 +112,15 @@ class map_model extends CI_Model {
 		foreach (glob("/home/recycle/public_html/tmp/*.outlets.json") as $filename) {
 			$cachetime = explode('.',basename($filename));
 			$cachetime = $cachetime[0];
+			$output .= "Found cached json file with timestamp: $cachetime.\n";
 		}
 		if((time() - $cachetime) < 86400) {
-			//$output .= "Found cached json file with timestamp: $cachetime. Loading this instead of regenerating outlets array!\nHere's a sample dataset:\n";
+			$output .= "Found cached json file less than a day old, timestamp: $cachetime. Loading this instead of regenerating outlets array!\n\n";
 			$outlets_json = file_get_contents("/home/recycle/public_html/tmp/$cachetime.outlets.json");
 			$outlets = json_decode($outlets_json,1);
 			//$output .= print_r($outlets,1);
 		} else {		
-			//$output .= "No up to date outlets cache could be found, regenerating outlets array!\nHere's a sample dataset:\n";
+			$output .= "No up to date outlets cache could be found, regenerating outlets array!\n\n";
 			
 			// Load ALL OUTLETS and ALL OUTLET RECYCLE TYPES into PHP ARRAYS
 			$sql = "SELECT outlets.outlet_id, outlets.latitude, outlets.longitude FROM outlets";
@@ -146,7 +147,7 @@ class map_model extends CI_Model {
 			}
 			file_put_contents("/home/recycle/public_html/tmp/".time().".outlets.json", json_encode($outlets));
 			
-			$output .= print_r($outlets,1);
+			//$output .= print_r($outlets,1);
 		}
 				
 		// Explode array of types we want to show
