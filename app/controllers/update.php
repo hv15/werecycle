@@ -10,7 +10,7 @@ class Update extends CI_Controller {
 	{		
 		print `echo /usr/bin/php -q /home/recycle/public_html/app/libraries/$source.php | at now`;
 		
-		$data['page'] = $source;
+		$data['page'] = 'update';
 		$data['outputPath'] = '/home/recycle/public_html/tmp/$source.html';
 		
 		$this->load->view('templates/header', $data);
