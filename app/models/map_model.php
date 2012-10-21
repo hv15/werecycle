@@ -115,7 +115,7 @@ class map_model extends CI_Model {
 		}
 		if((time() - $cachetime) < 86400) {
 			$outlets_json = file_get_contents("/home/recycle/public_html/tmp/$cachetime.outlets.json");
-			$outlets = json_decode($outlets_json);
+			$outlets = json_decode($outlets_json,1);
 			$output .= "Found cached json file with timestamp: $cachetime. Loading this instead of regenerating outlets array!\nHere's a sample dataset:\n";
 			$output .= print_r($outlets,1);
 		} else {		
