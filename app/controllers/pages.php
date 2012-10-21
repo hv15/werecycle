@@ -80,7 +80,7 @@ class Pages extends CI_Controller {
 		}
 		$singleOutletsJSON = preg_replace('|(.+),|s','\1',$singleOutletsJSON); // Strip trailing comma
 		
-		$data['data'] = 'var data = {["clusters": ['.$clustersJSON.'], "singleOutlets": ['.$singleOutletsJSON.']]}';
+		$data['data'] = 'var data = {"clusters": ['.$clustersJSON.']}';
 		$this->load->view('pages/data', $data);
 	}
 	
