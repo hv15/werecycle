@@ -388,6 +388,98 @@ Describes button text/image positions (using a paragraph block)
 	top: 12px;
 }
 
+
+.page-map2 #MapContainer {
+    width: 100%;
+    height: 100%;
+    font-family: Helvetica, Sans-serif;
+}
+.page-map2 #Map {
+    width: 100%;
+    height: 100%;
+}
+.page-map2 #MapContainer a,#MapContainer a:visited,#MapContainer a:hover{
+	color: #333;
+	text-decoration:underline;
+}
+
+/*
+
+	Describes Button sizes, position, styling
+
+*/
+.page-map2 #ButtonZoomIn{
+	font-size:30px;
+	height:46px;
+	width:50px;
+	position:absolute;
+	bottom:56px;
+	left:10px;
+}
+.page-map2 #ButtonZoomOut{
+	font-size:30px;
+	height:45px;
+	width:50px;
+	position:absolute;
+	bottom:10px;
+	left:10px;
+}
+.page-map2 #ButtonHelp{
+	font-size:25px;
+	height:42px;
+	width:50px;
+	position:absolute;
+	bottom:10px;
+	right:10px;
+}
+.page-map2 #ButtonLocation{
+	height:42px;
+	width:50px;
+	position:absolute;
+	bottom:61px;
+	right:10px;
+}
+.page-map2 #ButtonSelect{
+	font-size:14px;
+	height:42px;
+	width:56%;
+	margin-left: -28%;
+	position:absolute;
+	bottom:10px;
+	left:50%;
+}
+.page-map2 a, .page-map2 a:hover, .page-map2 a:visited{
+	color:#D2FFB4;
+	text-decoration:none;
+}
+
+/*
+
+Describes button text/image positions (using a paragraph block)
+
+*/
+
+.page-map2 #ButtonZoomIn p {
+	position:relative;
+	top: 0px;
+}
+.page-map2 #ButtonZoomOut p {
+	position:relative;
+	top: 0px;
+}
+.page-map2 #ButtonLocation p {
+	position:relative;
+	top: 9px;
+}
+.page-map2 #ButtonHelp p {
+	position:relative;
+	top: 4px;
+}
+.page-map2 #ButtonSelect p {
+	position:relative;
+	top: 12px;
+}
+
 /* ==========================================================================
 
 
