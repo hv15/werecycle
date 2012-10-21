@@ -41,7 +41,7 @@ class Update extends CI_Controller {
 
 	public function stopUpdate()
 	{		
-		$data['outlets'] = `/home/recycle/public_html/phpworker.sh stop`;
+		$data['outlets'] = `/home/recycle/public_html/phpworker.sh stop 2>&1`;
 		$this->load->view('pages/data', $data);
 	}
 	
