@@ -123,10 +123,10 @@ function drawMarkers(newlocation) {
 				google.maps.event.addListener(marker, 'click', (function(marker, i) {
 					/*return function() {
 						$(location).attr('href',"/info/"+id);
-					} */   
-				})(marker, i));
+					} 
+				})(marker, i));*/
 			}
-			if(data.outlets){
+			/*if(data.outlets){
 				for (var i = 0; i < data.outlets.length; i++) {
 					//var outlet = data.outlets[i];
 					//var latLng = new google.maps.LatLng(outlets.lat,outlets.lng);
@@ -138,9 +138,9 @@ function drawMarkers(newlocation) {
 						return function() {
 							$(location).attr('href',"/info/"+id);
 						}    
-					})(marker, i, outlet.name, outlet.id, outlet.type));*/
+					})(marker, i, outlet.name, outlet.id, outlet.type));
 				}
-			}
+			}*/
 			
 			// Clear all markers
 			if(markerCluster) {
