@@ -5,7 +5,7 @@
 		
 		function output($string) 
 		{
-			file_put_contents("/home/recycle/public_html/tmp/updateRecycleForScotland.html", $string, FILE_APPEND);
+			file_put_contents("/home/recycle/public_html/tmp/recycleForScotland.html", $string, FILE_APPEND);
 		}
 
 		// Script start time - so we can see how long it takes at various stages
