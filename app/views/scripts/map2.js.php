@@ -69,9 +69,8 @@ function toggleLocation() {
 
 function drawMarkers(newlocation) {
 	// Clear any currently-displayed markers
-	for (i in allMarkers) {     
-		allMarkers[i].setMap(null);    
-		allMarkers.splice(i,1);
+	while(allMarkers[0]) {
+		allMarkers.pop().setMap(null);
 	}
 	// Encode variables for passing to the session before loading the outlets/clusters data 
 	var newSessionData = encodeURIComponent('{"lat":'+newlocation.lat()+',"lng":'+newlocation.lng()+',"map_zoom":'+map_zoom+'}');
