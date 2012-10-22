@@ -3,6 +3,7 @@
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.8.1.min.js"><\/script>')</script>
 		<script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js"></script>
         <script src="/js/vendor/markerwithlabel_packed.js"></script>
+        <script src="/js/vendor/jquery.fancybox.pack.js"></script>
    
         <script src="/js/<?=$page?>"></script>
 	
