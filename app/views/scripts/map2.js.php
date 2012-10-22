@@ -93,10 +93,8 @@ function toggleLocation() {
 }
 
 function drawMarkers(newlocation) {
-	// Clear any currently-displayed markers
-	for (i in allMarkers) {     
-		allMarkers[i].setMap(null);    
-	}
+	// Copy the set of currently-displayed markers to a new array so we can delete them after adding new ones
+	var oldMarkers = allMarkers;
 	// Encode variables for passing to the session before loading the outlets/clusters data 
 	var newSessionData = encodeURIComponent('{"lat":'+newlocation.lat()+',"lng":'+newlocation.lng()+',"map_zoom":'+map_zoom+'}');
 	// Generate a random number and add it to the URL string so IE doesn't (stupidly!) cache the ajax request
@@ -147,6 +145,10 @@ function drawMarkers(newlocation) {
 			}
 		});
 	});
+	// Clear any currently-displayed markers
+	for (i in oldMarkers) {     
+		oldMarkers[i].setMap(null);    
+	}
 }
 
 /*
