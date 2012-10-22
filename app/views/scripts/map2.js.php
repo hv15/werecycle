@@ -129,7 +129,23 @@ function drawMarkers(newlocation) {
 				var latLng = new google.maps.LatLng(singleOutlet.lat,singleOutlet.lng);
 				//var outletImage = new google.maps.MarkerImage('/img/outlet.png', new google.maps.Size(20, 20) );
 				
-				var singleOutletMarker = new google.maps.Marker({ position: latLng});
+				// Make the icon shiny if it supports all the requested recycle types
+				if(singleOutlet.typesratio ==1) {
+				
+					var cafeIcon = new GIcon();
+					cafeIcon.image = "http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=cafe|996600";
+					cafeIcon.shadow = "http://chart.apis.google.com/chart?chst=d_map_pin_shadow";
+					cafeIcon.iconSize = new GSize(12, 20);
+					cafeIcon.shadowSize = new GSize(22, 20);
+					cafeIcon.iconAnchor = new GPoint(6, 20);
+					cafeIcon.infoWindowAnchor = new GPoint(5, 1);
+					
+					//var singleOutletImage = new google.maps.MarkerImage('/img/recyclePointWithAll.png', new google.maps.Size(35, 35) );
+					var singleOutletMarker = new google.maps.Marker({ position: latLng, icon: cafeIcon});
+				} else {
+					// Otherwise draw a normal google maps marker
+					var singleOutletMarker = new google.maps.Marker({ position: latLng});
+				}
 				// Add the marker, text to the memory.
 				allMarkers.push(singleOutletMarker);
 				singleOutletMarker.setMap(map);
