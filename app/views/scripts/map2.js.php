@@ -72,6 +72,7 @@ function drawMarkers(newlocation) {
 	while(allMarkers[0]) {
 		allMarkers.pop().setMap(null);
 	}
+	var markercount = 0;
 	// Encode variables for passing to the session before loading the outlets/clusters data 
 	var newSessionData = encodeURIComponent('{"lat":'+newlocation.lat()+',"lng":'+newlocation.lng()+',"map_zoom":'+map_zoom+'}');
 	// Generate a random number and add it to the URL string so IE doesn't (stupidly!) cache the ajax request
@@ -110,6 +111,7 @@ function drawMarkers(newlocation) {
 					labelAnchor: clusterLabelAnchor,
 					labelClass: clusterLabelClass
 				});
+				markercount++;
 				
 				
 				// Add the marker to our global array of currently visible markers
@@ -150,6 +152,7 @@ function drawMarkers(newlocation) {
 				// Add the marker, text to the memory.
 				allMarkers.push(singleOutletMarker);
 				singleOutletMarker.setMap(map);
+				markercount++;
 				// Give each outlet an event that shows the info popup.
 				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutlet, i) {						
 					return function() {
@@ -165,6 +168,7 @@ function drawMarkers(newlocation) {
 			}
 		});
 	});
+	console.log(markercount);
 }
 
 /*
