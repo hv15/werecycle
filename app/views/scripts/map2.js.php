@@ -133,17 +133,16 @@ function drawMarkers(newlocation) {
 				
 				// Make the icon shiny if it supports all the requested recycle types
 				if(singleOutlet.typrat ==1) {
-				
-					var cafeIcon = new GIcon();
-					cafeIcon.image = "http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=cafe|996600";
-					cafeIcon.shadow = "http://chart.apis.google.com/chart?chst=d_map_pin_shadow";
-					cafeIcon.iconSize = new GSize(12, 20);
-					cafeIcon.shadowSize = new GSize(22, 20);
-					cafeIcon.iconAnchor = new GPoint(6, 20);
-					cafeIcon.infoWindowAnchor = new GPoint(5, 1);
-					
-					//var singleOutletImage = new google.maps.MarkerImage('/img/recyclePointWithAll.png', new google.maps.Size(35, 35) );
-					var singleOutletMarker = new google.maps.Marker({ position: latLng, icon: cafeIcon});
+					var pinColor = "FE7569";
+					var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+						new google.maps.Size(21, 34),
+						new google.maps.Point(0,0),
+						new google.maps.Point(10, 34));
+					var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
+						new google.maps.Size(40, 37),
+						new google.maps.Point(0, 0),
+						new google.maps.Point(12, 35));
+					var singleOutletMarker = new google.maps.Marker({ position: latLng, icon: pinImage, shadow: pinShadow});
 				} else {
 					// Otherwise draw a normal google maps marker
 					var singleOutletMarker = new google.maps.Marker({ position: latLng});
