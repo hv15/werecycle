@@ -110,9 +110,9 @@ function drawMarkers(newlocation) {
 			
 			for (var i = 0; i < clusterData.clusters.length; i++) {
 				var cluster = clusterData.clusters[i];
+				// Get the lat/lng of the marker to place
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
 				var clusterImage = new google.maps.MarkerImage('/img/cluster.png', new google.maps.Size(30, 30), new google.maps.Point(15,15) );
-				var outletImage = new google.maps.MarkerImage('/img/outlet.png', new google.maps.Size(20, 20), new google.maps.Point(10,10) );
 				
 				var clusterMarker = new google.maps.Marker({ position: latLng, icon: clusterImage});
 				// Add the marker, text to the memory.
@@ -129,9 +129,8 @@ function drawMarkers(newlocation) {
 			
 			for (var i = 0; i < singleOutletData.singleOutlets.length; i++) {
 				var singleOutletMarker = singleOutletData.singleOutlets[i];
-				// Get the
-				var latLng = new google.maps.LatLng(markerData.lat,markerData.lng);
-				var clusterImage = new google.maps.MarkerImage('/img/cluster.png', new google.maps.Size(30, 30), new google.maps.Point(15,15) );
+				// Get the lat/lng of the marker to place
+				var latLng = new google.maps.LatLng(singleOutletMarker.lat,singleOutletMarker.lng);
 				var outletImage = new google.maps.MarkerImage('/img/outlet.png', new google.maps.Size(20, 20), new google.maps.Point(10,10) );
 				
 				var singleOutletMarker = new google.maps.Marker({ position: latLng, icon: outletImage});
