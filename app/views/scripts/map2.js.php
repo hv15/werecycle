@@ -132,7 +132,7 @@ function drawMarkers(newlocation) {
 				console.log(singleOutlet);
 				
 				// Make the icon shiny if it supports all the requested recycle types
-				if(singleOutlet.typesratio ==1) {
+				if(singleOutlet.typrat ==1) {
 				
 					var cafeIcon = new GIcon();
 					cafeIcon.image = "http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=cafe|996600";

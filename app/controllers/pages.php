@@ -76,7 +76,7 @@ class Pages extends CI_Controller {
 		
 		$singleOutletsJSON = '';
 		foreach ($singleOutletsArray as $singleOutletID => $singleOutlet) {
-		    $singleOutletsJSON .= '{"id":'.$singleOutletID.',"lat":'.$singleOutlet['lat'].',"lng":'.$singleOutlet['lng'].'},'."";
+		    $singleOutletsJSON .= '{"id":'.$singleOutletID.',"lat":'.$singleOutlet['lat'].',"lng":'.$singleOutlet['lng'].',"typrat":'.$singleOutlet['typesratio'].'},'."";
 		}
 		$singleOutletsJSON = preg_replace('|(.+),|s','\1',$singleOutletsJSON); // Strip trailing comma
 		
