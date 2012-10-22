@@ -95,7 +95,7 @@ function drawMarkers(newlocation) {
 					icon: clusterImage,
 					draggable: true,
 					labelContent: "23",
-					labelAnchor: new google.maps.Point(25, 40),
+					labelAnchor: new google.maps.Point(25, 37),
 					labelClass: "labels", // the CSS class for the label
 					labelInBackground: false
 				});
