@@ -104,8 +104,8 @@ function drawMarkers(newlocation) {
 				var clusterMarker = new MarkerWithLabel({
 					position: latLng,
 					map: map,
+					draggable: false,
 					icon: clusterImage,
-					draggable: true,
 					labelContent: cluster.count,
 					labelAnchor: clusterLabelAnchor,
 					labelClass: clusterLabelClass
@@ -136,9 +136,9 @@ function drawMarkers(newlocation) {
 				// Give each outlet an event that shows the info popup.
 				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutletMarker, i) {
 					return function() {
-						//$(location).attr('href',"/info/"+id);
-						alert(singleOutletMarker);
-						console.log(singleOutletMarker);
+						$(location).attr('href',"/info/"+singleOutletData.singleOutlets[i][id]);
+						
+						console.log(singleOutletData.singleOutlets[i]);
 					} 
 				})(singleOutletMarker, i));
 			}
