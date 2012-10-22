@@ -136,10 +136,9 @@ function drawMarkers(newlocation) {
 				// Give each outlet an event that shows the info popup.
 				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutlet, i) {
 					return function() {
-						console.log(singleOutlet);
-						console.log(i);
+						$(location).attr('href',"/info/"+singleOutlet[id]);
 					} 
-				})(singleOutletMarker, i));
+				})(singleOutlet, i));
 			}
 		});
 	});
