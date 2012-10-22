@@ -25,30 +25,6 @@ var GeoLatLng;
 var GeoBounds;
 // icons and styles used
 var geoIcon = "/img/geoicon.png";
-//var recyclePointIcon = "/img/recyclePoint.png";
-//var recycleCenterIcon = "/img/recycleCenter.png";
-var clusterStyle = [{
-	url: "/img/recycle35.png",
-	height: 35,
-	width: 35,
-	anchor: [10, 0],
-	textColor: "#000",
-	textSize: 14
-      }, {
-	url: "/img/recycle45.png",
-	height: 45,
-	width: 45,
-	anchor: [15, 0],
-	textColor: "#D2FFB5",
-	textSize: 16
-      }, {
-	url: "/img/recycle55.png",
-	height: 55,
-	width: 55,
-	anchor: [18, 0],
-	textColor: "#D2FFB5",
-	textSize: 18
-      }];
 // parsed JSON to store markers
 var data;
 
@@ -58,7 +34,6 @@ document.onload = function(){
 		e.preventDefault();
 	}
 };
-
 
 // Handles the buttons on the map used to zoom in
 // or out.
@@ -114,10 +89,20 @@ function drawMarkers(newlocation) {
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
 				var clusterImage = new google.maps.MarkerImage('/img/recycle55.png', new google.maps.Size(55, 55) );
 				
-				var clusterMarker = new google.maps.Marker({ position: latLng, icon: clusterImage});
-				// Add the marker, text to the memory.
+				var clusterMarker = new MarkerWithLabel({
+					position: latLng,
+					map: map,
+					icon: clusterImage,
+					draggable: true,
+					labelContent: "23",
+					labelAnchor: new google.maps.Point(30, 30),
+					labelClass: "labels", // the CSS class for the label
+					labelInBackground: false
+				});
+				
+				
+				// Add the marker to our global array of currently visible markers
 				allMarkers.push(clusterMarker);
-				clusterMarker.setMap(map);
 				// Give each cluster an event that zooms and centers it.
 				google.maps.event.addListener(clusterMarker, 'click', (function(clusterMarker, i) {
 					return function() {
