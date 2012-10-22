@@ -317,6 +317,7 @@ textarea {
 	width: 50px;     
 	white-space: nowrap;
 	z-index: 999;
+	background-color: #000;
 }
 
 
