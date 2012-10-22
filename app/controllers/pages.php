@@ -52,7 +52,7 @@ class Pages extends CI_Controller {
 		$output = preg_replace('|(.+),|s','\1',$output);
 		$output = 'var data = {"outlets": ['.$output.']}';
 		
-		$data['outlets'] = $output;
+		$data['data'] = $output;
 		$this->load->view('pages/data', $data);
 	}
 		
