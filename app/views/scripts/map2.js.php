@@ -111,7 +111,7 @@ function drawMarkers(newlocation) {
 					labelAnchor: clusterLabelAnchor,
 					labelClass: clusterLabelClass
 				});
-				markercount++;
+				markercount = markercount+1;
 				
 				
 				// Add the marker to our global array of currently visible markers
@@ -131,7 +131,7 @@ function drawMarkers(newlocation) {
 				var latLng = new google.maps.LatLng(singleOutlet.lat,singleOutlet.lng);
 				//var outletImage = new google.maps.MarkerImage('/img/outlet.png', new google.maps.Size(20, 20) );
 				
-				console.log(singleOutlet);
+				//console.log(singleOutlet);
 				
 				// Make the icon shiny if it supports all the requested recycle types
 				if(singleOutlet.typrat ==1) {
@@ -152,7 +152,7 @@ function drawMarkers(newlocation) {
 				// Add the marker, text to the memory.
 				allMarkers.push(singleOutletMarker);
 				singleOutletMarker.setMap(map);
-				markercount++;
+				markercount = markercount+1;
 				// Give each outlet an event that shows the info popup.
 				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutlet, i) {						
 					return function() {
