@@ -125,9 +125,9 @@ function drawMarkers(newlocation) {
 			}
 			
 			for (var i = 0; i < singleOutletData.singleOutlets.length; i++) {
-				var singleOutletMarker = singleOutletData.singleOutlets[i];
+				var singleOutlet = singleOutletData.singleOutlets[i];
 				// Get the lat/lng of the marker to place
-				var latLng = new google.maps.LatLng(singleOutletMarker.lat,singleOutletMarker.lng);
+				var latLng = new google.maps.LatLng(singleOutlet.lat,singleOutlet.lng);
 				//var outletImage = new google.maps.MarkerImage('/img/outlet.png', new google.maps.Size(20, 20) );
 				
 				var singleOutletMarker = new google.maps.Marker({ position: latLng});
@@ -135,11 +135,11 @@ function drawMarkers(newlocation) {
 				allMarkers.push(singleOutletMarker);
 				singleOutletMarker.setMap(map);
 				// Give each outlet an event that shows the info popup.
-				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutletMarker, i) {
+				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutlet, i) {
 					return function() {
-						$(location).attr('href',"/info/"+singleOutletData.singleOutlets[i][id]);
+						$(location).attr('href',"/info/"+singleOutlet[id]);
 						
-						console.log(singleOutletData.singleOutlets[i]);
+						console.log(singleOutlet);
 					} 
 				})(singleOutletMarker, i));
 			}
