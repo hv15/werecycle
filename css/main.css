@@ -310,10 +310,28 @@ textarea {
 	color: #333;
 	text-decoration:underline;
 }
-.labels {
+.label55{
+	position: relative;
+	color: #D2FFB5;
+	font-size: 18px;
+	text-align: center;
+	width: 50px;     
+	white-space: nowrap;
+	z-index: 999;
+}
+.label45{
 	position: relative;
 	color: #D2FFB5;
 	font-size: 16px;
+	text-align: center;
+	width: 50px;     
+	white-space: nowrap;
+	z-index: 999;
+}
+.label35{
+	position: relative;
+	color: #000;
+	font-size: 14px;
 	text-align: center;
 	width: 50px;     
 	white-space: nowrap;

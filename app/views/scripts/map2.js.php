@@ -87,7 +87,20 @@ function drawMarkers(newlocation) {
 				var cluster = clusterData.clusters[i];
 				// Get the lat/lng of the marker to place
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
-				var clusterImage = new google.maps.MarkerImage('/img/recycle55.png', new google.maps.Size(55, 55) );
+				if(cluster.count > 100) {
+					var clusterImage = new google.maps.MarkerImage('/img/recycle55.png', new google.maps.Size(55, 55) );
+					var clusterLabelAnchor = new google.maps.Point(25, 37);
+					var clusterLabelClass = "label55";
+				} else if {
+				if(cluster.count > 10) {
+					var clusterImage = new google.maps.MarkerImage('/img/recycle45.png', new google.maps.Size(45, 45) );
+					var clusterAnchor = new google.maps.Point(25, 37);
+					var clusterLabelClass = "label45";
+				} else {
+					var clusterImage = new google.maps.MarkerImage('/img/recycle35.png', new google.maps.Size(35, 35) );
+					var clusterAnchor = new google.maps.Point(25, 37);
+					var clusterLabelClass = "label35";
+				}
 				
 				var clusterMarker = new MarkerWithLabel({
 					position: latLng,
@@ -95,8 +108,8 @@ function drawMarkers(newlocation) {
 					icon: clusterImage,
 					draggable: true,
 					labelContent: cluster.count,
-					labelAnchor: new google.maps.Point(25, 37),
-					labelClass: "labels"
+					labelAnchor: clusterLabelAnchor,
+					labelClass: clusterLabelClass
 				});
 				
 				
