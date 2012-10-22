@@ -134,9 +134,14 @@ function drawMarkers(newlocation) {
 				allMarkers.push(singleOutletMarker);
 				singleOutletMarker.setMap(map);
 				// Give each outlet an event that shows the info popup.
-				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutlet, i) {
+				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutlet, i) {						
 					return function() {
-						$.fancybox( '/info/'+singleOutlet.id );
+						$.fancybox({
+							'padding'       : 0,
+							'href'          : '/info/'+singleOutlet.id,
+							'type'          : 'iframe'
+						});
+						
 					} 
 				})(singleOutlet, i));
 			}
