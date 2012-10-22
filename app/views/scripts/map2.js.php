@@ -137,9 +137,10 @@ function drawMarkers(newlocation) {
 				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutlet, i) {						
 					return function() {
 						$.fancybox({
-							'width'       : 500,
-							'href'          : '/info/'+singleOutlet.id,
-							'type'          : 'iframe'
+							'padding'	: 1,
+							'width'     : 500,
+							'href'      : '/info/'+singleOutlet.id,
+							'type'      : 'iframe'
 						});
 						
 					} 

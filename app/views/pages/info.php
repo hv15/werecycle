@@ -1,5 +1,7 @@
 	<div class="main-container">
-            <div class="main wrapper clearfix">					
+            <div class="main wrapper clearfix">	
+				<br />
+				<br />
 				<div class='nametitle'>Name</div>
 				<div class='name'><?=$info['name']?></div>
 				<br />
