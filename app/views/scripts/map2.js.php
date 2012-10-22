@@ -138,6 +138,7 @@ function drawMarkers(newlocation) {
 					return function() {
 						$.fancybox({
 							'padding'       : 0,
+							'width'       : 320,
 							'href'          : '/info/'+singleOutlet.id,
 							'type'          : 'iframe'
 						});
