@@ -312,8 +312,7 @@ textarea {
 }
 .labels {
 	color: #D2FFB5;
-	font-family: "Lucida Grande", "Arial", sans-serif;
-	font-size: 18px;
+	font-size: 16px;
 	text-align: center;
 	width: 50px;     
 	white-space: nowrap;
