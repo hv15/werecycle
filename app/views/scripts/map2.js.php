@@ -96,8 +96,7 @@ function drawMarkers(newlocation) {
 					draggable: true,
 					labelContent: cluster.count,
 					labelAnchor: new google.maps.Point(25, 37),
-					labelClass: "labels", // the CSS class for the label
-					labelInBackground: false
+					labelClass: "labels"
 				});
 				
 				
