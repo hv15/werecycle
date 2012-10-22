@@ -129,7 +129,7 @@ function drawMarkers(newlocation) {
 				var latLng = new google.maps.LatLng(singleOutlet.lat,singleOutlet.lng);
 				//var outletImage = new google.maps.MarkerImage('/img/outlet.png', new google.maps.Size(20, 20) );
 				
-				console.log(singleOutlet.typesratio);
+				console.log(singleOutlet);
 				
 				// Make the icon shiny if it supports all the requested recycle types
 				if(singleOutlet.typesratio ==1) {
