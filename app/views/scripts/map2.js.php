@@ -137,7 +137,8 @@ function drawMarkers(newlocation) {
 				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutletMarker, i) {
 					return function() {
 						//$(location).attr('href',"/info/"+id);
-						alert('You clicked an outlet with ID: '+singleOutletMarker.id);
+						alert(singleOutletMarker);
+						console.log(singleOutletMarker);
 					} 
 				})(singleOutletMarker, i));
 			}
