@@ -117,8 +117,8 @@ function drawMarkers(newlocation) {
 				// Give each cluster an event that zooms and centers it.
 				google.maps.event.addListener(clusterMarker, 'click', (function(clusterMarker, i) {
 					return function() {
-						//$(location).attr('href',"/info/"+id);
-						alert('You clicked a cluster!');
+						map.setZoom(map.getZoom()+1);
+						map.panTo(clusterMarker.position);
 					} 
 				})(clusterMarker, i));
 			}
