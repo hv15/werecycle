@@ -60,11 +60,11 @@ class Pages extends CI_Controller {
 	{
 		$userdata = $this->session->all_userdata();
 		$types  = $userdata['types_selected'];
-		$latitude = $userdata['latitude'];
-		$longitude = $userdata['longitude'];
+		$lat = $userdata['lat'];
+		$lng = $userdata['lng'];
 		$map_zoom = $userdata['map_zoom'];
 		
-		$outletsData = $this->map_model->get_outlets_new($types,$latitude,$longitude,$map_zoom);
+		$outletsData = $this->map_model->get_outlets_new($types,$lat,$lng,$map_zoom);
 		$clustersArray = $outletsData['clusters'];
 		$singleOutletsArray = $outletsData['singleOutlets'];
 		

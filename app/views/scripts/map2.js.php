@@ -7,7 +7,9 @@
 ?>
 // a global variable to access the map
 var map;
-var markerCluster;
+// global array to store all markers so we can delete them later
+var allMarkers = [];
+
 var userdata;
 var map_zoom = <?=(isset($userdata['map_zoom']) ? $userdata['map_zoom'] : 15)?>;
 var map_lat  = <?=(isset($userdata['latitude']) ? $userdata['latitude'] : 55.95)?>;
@@ -91,25 +93,21 @@ function toggleLocation() {
 }
 
 function drawMarkers(newlocation) {
-	if(map_zoom > 14) {
-		distance = 5;
-	} else if(map_zoom > 11) {
-		distance = 10;
-	} else if(map_zoom <8) {
-		distance = 1000;
-	} else {
-		var distance = (21 - map_zoom) * 5;
+	// Clear any currently-displayed markers
+	for (i in allMarkers) {     
+		allMarkers[i].setMap(null);    
 	}
-	latitude = newlocation.lat();
-	longitude = newlocation.lng();
-	
-	var newSessionData = encodeURIComponent('{"distance":'+distance+',"latitude":'+latitude+',"longitude":'+longitude+',"map_zoom":'+map_zoom+'}');
+	// Encode variables for passing to the session before loading the outlets/clusters data 
+	var newSessionData = encodeURIComponent('{"lat":'+newlocation.lat()+',"lng":'+newlocation.lng()+',"map_zoom":'+map_zoom+'}');
+	// Generate a random number and add it to the URL string so IE doesn't (stupidly!) cache the ajax request
 	var urlRand = Math.random();
+	// Set the session via ajax
 	$.get('/setsession/'+newSessionData+'/'+urlRand, function(setSessionResponse){
+		// Load the outlets/clusters data via ajax
 		$.get('/datanew/'+urlRand, function(dataResponse) {
+			// Eval the ajax response since it is in JSON format - this should give us two variables, clusterData and singleOutletData
 			eval(dataResponse);
 			
-			var clusters = [];
 			for (var i = 0; i < clusterData.clusters.length; i++) {
 				var cluster = clusterData.clusters[i];
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
@@ -118,7 +116,7 @@ function drawMarkers(newlocation) {
 				
 				var clusterMarker = new google.maps.Marker({ position: latLng, icon: clusterImage});
 				// Add the marker, text to the memory.
-				clusters.push(clusterMarker);
+				allMarkers.push(clusterMarker);
 				clusterMarker.setMap(map);
 				// Give each cluster an event that zooms and centers it.
 				google.maps.event.addListener(clusterMarker, 'click', (function(clusterMarker, i) {
@@ -129,9 +127,8 @@ function drawMarkers(newlocation) {
 				})(clusterMarker, i));
 			}
 			
-			var singleOutlets = [];
-			for (var i = 0; i < singleOutletsData.length; i++) {
-				var singleOutletMarker = singleOutletsData.singleOutlets[i];
+			for (var i = 0; i < singleOutletData.singleOutlets.length; i++) {
+				var singleOutletMarker = singleOutletData.singleOutlets[i];
 				// Get the
 				var latLng = new google.maps.LatLng(markerData.lat,markerData.lng);
 				var clusterImage = new google.maps.MarkerImage('/img/cluster.png', new google.maps.Size(30, 30), new google.maps.Point(15,15) );
@@ -139,7 +136,7 @@ function drawMarkers(newlocation) {
 				
 				var singleOutletMarker = new google.maps.Marker({ position: latLng, icon: outletImage});
 				// Add the marker, text to the memory.
-				singleOutlets.push(singleOutletMarker);
+				allMarkers.push(singleOutletMarker);
 				singleOutletMarker.setMap(map);
 				// Give each outlet an event that shows the info popup.
 				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutletMarker, i) {
@@ -149,32 +146,6 @@ function drawMarkers(newlocation) {
 					} 
 				})(singleOutletMarker, i));
 			}
-			/*if(data.outlets){
-				for (var i = 0; i < data.outlets.length; i++) {
-					//var outlet = data.outlets[i];
-					//var latLng = new google.maps.LatLng(outlets.lat,outlets.lng);
-					//var marker = new google.maps.Marker({ position: latLng});
-					// Add the markers, text to the memory.
-					//markers.push(marker);
-					// Give each marker an event that opens the window.
-					/*google.maps.event.addListener(marker, 'click', (function(marker, i, name, id, type) {
-						return function() {
-							$(location).attr('href',"/info/"+id);
-						}    
-					})(marker, i, outlet.name, outlet.id, outlet.type));
-				}
-			}*/
-			
-			// Clear all markers
-			/*if(markerCluster) {
-				markerCluster.clearMarkers();
-				console.log(markers);
-				markerCluster.addMarkers(markers);
-			} else {
-				// Put all the markers into the cluster.
-				console.log(markers);
-				markerCluster = new MarkerClusterer(map, markers, {styles: clusterStyle});
-			}*/
 		});
 	});
 }
