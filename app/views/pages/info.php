@@ -1,9 +1,5 @@
 	<div class="main-container">
-            <div class="main wrapper clearfix">	
-            	<a onclick="window.location.href='<?=(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/')?>'">
-					<div class="button back"><p>&#8617; Return to Map</p></div>
-				</a>
-				
+            <div class="main wrapper clearfix">					
 				<div class='nametitle'>Name</div>
 				<div class='name'><?=$info['name']?></div>
 				<br />
