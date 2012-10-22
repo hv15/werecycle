@@ -112,7 +112,7 @@ function drawMarkers(newlocation) {
 				var cluster = clusterData.clusters[i];
 				// Get the lat/lng of the marker to place
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
-				var clusterImage = new google.maps.MarkerImage('/img/cluster.png', new google.maps.Size(30, 30) );
+				var clusterImage = new google.maps.MarkerImage('/img/recycle55.png', new google.maps.Size(55, 55) );
 				
 				var clusterMarker = new google.maps.Marker({ position: latLng, icon: clusterImage});
 				// Add the marker, text to the memory.
