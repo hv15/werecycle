@@ -89,15 +89,15 @@ function drawMarkers(newlocation) {
 				var latLng = new google.maps.LatLng(cluster.lat,cluster.lng);
 				if(cluster.count > 100) {
 					var clusterImage = new google.maps.MarkerImage('/img/recycle55.png', new google.maps.Size(55, 55) );
-					var clusterLabelAnchor = new google.maps.Point(0, 0);
+					var clusterLabelAnchor = new google.maps.Point(55, 55);
 					var clusterLabelClass = "label55";
 				} else if(cluster.count > 10) {
 					var clusterImage = new google.maps.MarkerImage('/img/recycle45.png', new google.maps.Size(45, 45) );
-					var clusterAnchor = new google.maps.Point(0, 0);
+					var clusterAnchor = new google.maps.Point(45,45);
 					var clusterLabelClass = "label45";
 				} else {
 					var clusterImage = new google.maps.MarkerImage('/img/recycle35.png', new google.maps.Size(35, 35) );
-					var clusterAnchor = new google.maps.Point(0, 0);
+					var clusterAnchor = new google.maps.Point(35,35);
 					var clusterLabelClass = "label35";
 				}
 				
