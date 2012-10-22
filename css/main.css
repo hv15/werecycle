@@ -311,12 +311,11 @@ textarea {
 	text-decoration:underline;
 }
 .labels {
-	color: white;
-	background-color: red;
+	color: #D2FFB5;
 	font-family: "Lucida Grande", "Arial", sans-serif;
-	font-size: 10px;
+	font-size: 18px;
 	text-align: center;
-	width: 10px;     
+	width: 50px;     
 	white-space: nowrap;
 }
 
