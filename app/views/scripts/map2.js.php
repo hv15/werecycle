@@ -131,9 +131,9 @@ function drawMarkers(newlocation) {
 				var singleOutletMarker = singleOutletData.singleOutlets[i];
 				// Get the lat/lng of the marker to place
 				var latLng = new google.maps.LatLng(singleOutletMarker.lat,singleOutletMarker.lng);
-				var outletImage = new google.maps.MarkerImage('/img/outlet.png', new google.maps.Size(20, 20) );
+				//var outletImage = new google.maps.MarkerImage('/img/outlet.png', new google.maps.Size(20, 20) );
 				
-				var singleOutletMarker = new google.maps.Marker({ position: latLng, icon: outletImage});
+				var singleOutletMarker = new google.maps.Marker({ position: latLng});
 				// Add the marker, text to the memory.
 				allMarkers.push(singleOutletMarker);
 				singleOutletMarker.setMap(map);
