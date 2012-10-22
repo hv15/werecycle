@@ -315,7 +315,6 @@ textarea {
 	color: #D2FFB5;
 	font-size: 18px;
 	text-align: center;
-	width: 50px;     
 	white-space: nowrap;
 	z-index: 999;
 }
@@ -324,7 +323,6 @@ textarea {
 	color: #D2FFB5;
 	font-size: 16px;
 	text-align: center;
-	width: 50px;     
 	white-space: nowrap;
 	z-index: 999;
 }
@@ -333,7 +331,6 @@ textarea {
 	color: #000;
 	font-size: 14px;
 	text-align: center;
-	width: 50px;     
 	white-space: nowrap;
 	z-index: 999;
 }
