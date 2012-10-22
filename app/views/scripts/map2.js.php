@@ -93,11 +93,11 @@ function drawMarkers(newlocation) {
 					var clusterLabelClass = "label55";
 				} else if(cluster.count > 10) {
 					var clusterImage = new google.maps.MarkerImage('/img/recycle45.png', new google.maps.Size(45, 45) );
-					var clusterAnchor = new google.maps.Point(25, 37);
+					var clusterAnchor = new google.maps.Point(25, 20);
 					var clusterLabelClass = "label45";
 				} else {
 					var clusterImage = new google.maps.MarkerImage('/img/recycle35.png', new google.maps.Size(35, 35) );
-					var clusterAnchor = new google.maps.Point(25, 37);
+					var clusterAnchor = new google.maps.Point(25, 20);
 					var clusterLabelClass = "label35";
 				}
 				
