@@ -119,6 +119,7 @@ function drawMarkers(newlocation) {
 					return function() {
 						map.setZoom(map.getZoom()+1);
 						map.panTo(clusterMarker.position);
+						drawMarkers(clusterMarker.position);
 					} 
 				})(clusterMarker, i));
 			}
