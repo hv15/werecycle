@@ -137,8 +137,7 @@ function drawMarkers(newlocation) {
 				google.maps.event.addListener(singleOutletMarker, 'click', (function(singleOutlet, i) {						
 					return function() {
 						$.fancybox({
-							'padding'       : 0,
-							'width'       : 320,
+							'width'       : 500,
 							'href'          : '/info/'+singleOutlet.id,
 							'type'          : 'iframe'
 						});
