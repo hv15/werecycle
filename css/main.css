@@ -318,6 +318,7 @@ textarea {
 	width: 55px;     
 	white-space: nowrap;
 	z-index: 999;
+	background-color: #777;
 }
 .label45{
 	position: relative;
@@ -327,6 +328,7 @@ textarea {
 	width: 45px;     
 	white-space: nowrap;
 	z-index: 999;
+	background-color: #777;
 }
 .label35{
 	position: relative;
@@ -336,6 +338,7 @@ textarea {
 	width: 35px;     
 	white-space: nowrap;
 	z-index: 999;
+	background-color: #777;
 }
 
 
