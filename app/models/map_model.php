@@ -243,7 +243,7 @@ class map_model extends CI_Model {
 						$lld2 = new LatLng($outlet['lat'], $outlet['lng']);  // LatLng of outlet
 						$clusterOutletDistance = $lld1->distance($lld2); // in km
 						// This outlet is within the radius of a cluster, add it to the cluster
-						if($clusterOutletDistance < ($clusterRadius*7)) {
+						if($clusterOutletDistance < ($clusterRadius*6)) {
 							// Increment the count variable of the cluster to show we've added an outlet to it
 							$clusters[$clusterKey]['count']++;
 							// Remove the outlet (which originally created the cluster we are now adding to) from the singleOutlets array
